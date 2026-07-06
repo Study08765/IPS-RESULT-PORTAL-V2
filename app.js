@@ -18,7 +18,7 @@ async function loadPortalHeader() {
 }
 
 loadPortalHeader();
-const countdownRef = doc(db, "settings", "portal");
+const noticeRef = doc(db, "settings", "notice");
 
 async function loadNotice() {
 
