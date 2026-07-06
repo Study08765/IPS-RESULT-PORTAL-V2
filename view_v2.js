@@ -2,7 +2,9 @@ import { db } from "./firebase.js";
 
 import {
   collection,
-  getDocs
+  getDocs,
+  deleteDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const tbody = document.getElementById("students");
@@ -77,3 +79,24 @@ window.editStudent = function(id){
   "addstudent_v2.html?id=" + id;
 
 }
+window.deleteStudent = async function(id){
+
+  if(!confirm("Delete this student?")){
+    return;
+  }
+
+  try{
+
+    await deleteDoc(doc(db,"students_v2",id));
+
+    alert("✅ Student Deleted");
+
+    loadStudents();
+
+  }catch(e){
+
+    alert("❌ " + e.message);
+
+  }
+
+        }
