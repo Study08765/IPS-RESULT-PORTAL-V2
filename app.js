@@ -40,13 +40,14 @@ const countdownRef = doc(db, "settings", "countdown");
 
 async function loadCountdown() {
   const snap = await getDoc(countdownRef);
-const resultRef = doc(db, "settings", "result");
-const resultSnap = await getDoc(resultRef);
+if (!snap.exists()) return;
 
-if (resultSnap.exists() && resultSnap.data().published === true) {
-  document.getElementById("countdown").innerHTML = "🎉 RESULT RELEASED";
+if (snap.data().enabled === false) {
+  document.getElementById("countdown").style.display = "none";
   return;
 }
+
+document.getElementById("countdown").style.display = "block";
   if (!snap.exists()) return;
 
   const end = new Date(
