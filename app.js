@@ -44,8 +44,8 @@ async function loadCountdown() {
   if (!snap.exists()) return;
 
   const end = new Date(
-    snap.data().date + "T" + snap.data().time
-  ).getTime();
+  snap.data().countdownDate + "T" + snap.data().countdownTime
+).getTime();
 
   setInterval(() => {
     const now = new Date().getTime();
