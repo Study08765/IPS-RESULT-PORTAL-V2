@@ -53,14 +53,27 @@ async function loadStudents() {
 
 loadStudents();
 
+// Live Search
+const search = document.getElementById("search");
+
+search.addEventListener("keyup", () => {
+
+  const value = search.value.toLowerCase();
+
+  document.querySelectorAll("#students tr").forEach((row) => {
+
+    const text = row.innerText.toLowerCase();
+
+    row.style.display = text.includes(value) ? "" : "none";
+
+  });
+
+});
+
+// Edit Student
 window.editStudent = function(id){
 
-  alert("Edit : " + id);
-
-}
-
-window.deleteStudent = function(id){
-
-  alert("Delete : " + id);
+  window.location.href =
+  "addstudent_v2.html?id=" + id;
 
 }
