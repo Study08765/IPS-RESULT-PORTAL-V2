@@ -36,6 +36,38 @@ async function loadNotice() {
 }
 
 loadNotice();
+const countdownRef = doc(db, "settings", "countdown");
+
+async function loadCountdown() {
+  const snap = await getDoc(countdownRef);
+
+  if (!snap.exists()) return;
+
+  const end = new Date(
+    snap.data().date + "T" + snap.data().time
+  ).getTime();
+
+  setInterval(() => {
+    const now = new Date().getTime();
+    const diff = end - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").innerHTML =
+        "🎉 RESULT RELEASED";
+      return;
+    }
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const m = Math.floor((diff / (1000 * 60)) % 60);
+    const s = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("countdown").innerHTML =
+      `⏳ ${d}d ${h}h ${m}m ${s}s`;
+  }, 1000);
+}
+
+loadCountdown();
 window.searchResult = async function () {
 
   const roll = document.getElementById("roll").value.trim();
