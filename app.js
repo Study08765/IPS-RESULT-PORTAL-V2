@@ -18,6 +18,24 @@ async function loadPortalHeader() {
 }
 
 loadPortalHeader();
+const noticeRef = doc(db, "settings", "notice");
+
+async function loadNotice() {
+
+  const snap = await getDoc(noticeRef);
+
+  if (snap.exists() && snap.data().enabled) {
+
+    document.getElementById("noticeBox").style.display = "block";
+
+    document.getElementById("noticeTextShow").innerText =
+      snap.data().text;
+
+  }
+
+}
+
+loadNotice();
 window.searchResult = async function () {
 
   const roll = document.getElementById("roll").value.trim();
