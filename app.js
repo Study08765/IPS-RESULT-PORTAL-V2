@@ -3,7 +3,21 @@ import {
   doc,
   getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+async function loadPortalHeader() {
 
+  const portalRef = doc(db, "settings", "portal");
+  const portalSnap = await getDoc(portalRef);
+
+  if (portalSnap.exists()) {
+    const data = portalSnap.data();
+
+    document.getElementById("examTitle").innerHTML = data.examTitle;
+    document.getElementById("sessionTitle").innerHTML = "RESULT " + data.session;
+  }
+
+}
+
+loadPortalHeader();
 window.searchResult = async function () {
 
   const roll = document.getElementById("roll").value.trim();
