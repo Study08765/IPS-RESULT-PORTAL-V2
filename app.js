@@ -12,7 +12,21 @@ window.searchResult = async function () {
     alert("Enter Roll Number");
     return;
   }
+const publishRef = doc(db, "settings", "result");
+const publishSnap = await getDoc(publishRef);
 
+if (
+  publishSnap.exists() &&
+  publishSnap.data().published === false
+) {
+  document.getElementById("result").innerHTML = `
+    <div style="background:#fff;border:2px solid red;padding:20px;border-radius:10px;text-align:center;">
+      <h2 style="color:red;">⚠️ RESULT NOT PUBLISHED</h2>
+      <p>Please contact IPS PUBLIC SCHOOL.</p>
+    </div>
+  `;
+  return;
+}
   const ref = doc(db, "students_v2", roll);
   const snap = await getDoc(ref);
 
