@@ -2,34 +2,70 @@ import { db } from "./firebase.js";
 
 import {
   doc,
-  setDoc,
-  getDoc
+  getDoc,
+  setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-// Edit Mode
+// URL Parameters
 const params = new URLSearchParams(window.location.search);
 const editId = params.get("id");
 
-// Subject Container
-const subjectsDiv = document.getElementById("subjects");
+// Elements
+const roll = document.getElementById("roll");
+const name = document.getElementById("name");
+const father = document.getElementById("father");
+const mother = document.getElementById("mother");
+const studentClass = document.getElementById("class");
+const section = document.getElementById("section");
+const examType = document.getElementById("examType");
+const session = document.getElementById("session");
+
+const saveBtn = document.getElementById("saveBtn");
 const addSubjectBtn = document.getElementById("addSubject");
+const subjectsDiv = document.getElementById("subjects");
 
-// Subject Box
-function createSubject(name="",full="",obtained=""){
+// Create Subject
+function createSubject(
+  subjectName = "",
+  fullMarks = "",
+  obtainedMarks = ""
+){
 
-  const div=document.createElement("div");
+  const div = document.createElement("div");
 
-  div.className="subject";
+  div.className = "subject";
 
-  div.innerHTML=`
-    <input class="subjectName" placeholder="Subject Name" value="${name}">
-    <input class="fullMarks" type="number" placeholder="Full Marks" value="${full}">
-    <input class="obtainedMarks" type="number" placeholder="Obtained Marks" value="${obtained}">
-    <button type="button" class="removeSubject">❌ Remove</button>
-  `;
+  div.innerHTML = `
 
-  div.querySelector(".removeSubject").onclick=()=>{
+<input
+class="subjectName"
+placeholder="Subject Name"
+value="${subjectName}">
+
+<input
+class="fullMarks"
+type="number"
+placeholder="Full Marks"
+value="${fullMarks}">
+
+<input
+class="obtainedMarks"
+type="number"
+placeholder="Obtained Marks"
+value="${obtainedMarks}">
+
+<button
+type="button"
+class="removeSubject">
+❌ Remove
+</button>
+
+`;
+
+  div.querySelector(".removeSubject").onclick = () => {
+
     div.remove();
+
   };
 
   subjectsDiv.appendChild(div);
@@ -37,37 +73,68 @@ function createSubject(name="",full="",obtained=""){
 }
 
 // Add Subject
-addSubjectBtn.onclick=()=>{
+addSubjectBtn.onclick = () => {
+
   createSubject();
+
 };
-
 // Edit Student
-if(editId){
+if (editId) {
 
-  const snap=await getDoc(doc(db,"students_v2",editId));
+  const snap = await getDoc(doc(db, "students_v2", editId));
 
-  if(snap.exists()){
+  if (snap.exists()) {
 
-    const s=snap.data();
+    const s = snap.data();
 
-    document.getElementById("roll").value=s.Roll;
-    document.getElementById("roll").readOnly=true;
+    roll.value = s.Roll || "";
+    roll.readOnly = true;
 
-    document.getElementById("name").value=s.Name;
-    document.getElementById("father").value=s.Father;
-    document.getElementById("class").value=s.Class;
+    name.value = s.Name || "";
+    father.value = s.Father || "";
+    mother.value = s.Mother || "";
+    studentClass.value = s.Class || "";
+    section.value = s.Section || "";
+    examType.value = s.ExamType || "";
+    session.value = s.Session || "";
 
-    document.getElementById("saveBtn").innerText="Update Student";
+    saveBtn.innerText = "Update Student";
+
+    // पुराने Subject हटाओ
+    subjectsDiv.innerHTML = "";
+
+    // Subject वापस लाओ
+    if (s.Subjects && s.Subjects.length > 0) {
+
+      s.Subjects.forEach(sub => {
+
+        createSubject(
+          sub.name,
+          sub.full,
+          sub.obtained
+        );
+
+      });
+
+    } else {
+
+      createSubject();
+
+    }
 
   }
 
+} else {
+
+  // नया Student होने पर एक Subject Box दिखाओ
+  subjectsDiv.innerHTML = "";
+  createSubject();
+
 }
 // Save / Update Student
-document.getElementById("saveBtn").addEventListener("click", async () => {
+saveBtn.addEventListener("click", async () => {
 
-  const roll = document.getElementById("roll").value.trim();
-
-  if (!roll) {
+  if (!roll.value.trim()) {
     alert("Enter Roll Number");
     return;
   }
@@ -76,58 +143,61 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
 
   document.querySelectorAll(".subject").forEach((box) => {
 
-    const name = box.querySelector(".subjectName").value.trim();
-    const full = Number(box.querySelector(".fullMarks").value);
-    const obtained = Number(box.querySelector(".obtainedMarks").value);
+    const subjectName = box.querySelector(".subjectName").value.trim();
+    const fullMarks = Number(box.querySelector(".fullMarks").value);
+    const obtainedMarks = Number(box.querySelector(".obtainedMarks").value);
 
-    if (name) {
+    if (subjectName) {
       subjects.push({
-        name,
-        full,
-        obtained
+        name: subjectName,
+        full: fullMarks,
+        obtained: obtainedMarks
       });
     }
 
   });
 
   const student = {
-
-    Roll: roll,
-    Name: document.getElementById("name").value,
-    Father: document.getElementById("father").value,
-    Mother: document.getElementById("mother").value,
-    Class: document.getElementById("class").value,
-    Section: document.getElementById("section").value,
-    ExamType: document.getElementById("examType").value,
-    Session: document.getElementById("session").value,
-
+    Roll: roll.value.trim(),
+    Name: name.value.trim(),
+    Father: father.value.trim(),
+    Mother: mother.value.trim(),
+    Class: studentClass.value.trim(),
+    Section: section.value.trim(),
+    ExamType: examType.value,
+    Session: session.value.trim(),
     Subjects: subjects
-
   };
 
   try {
 
-    await setDoc(doc(db, "students_v2", roll), student);
+    await setDoc(doc(db, "students_v2", roll.value.trim()), student);
 
     alert(editId ? "✅ Student Updated Successfully"
                  : "✅ Student Saved Successfully");
 
     if (!editId) {
 
-      document.getElementById("roll").value = "";
-      document.getElementById("name").value = "";
-      document.getElementById("father").value = "";
-      document.getElementById("mother").value = "";
-      document.getElementById("class").value = "";
-      document.getElementById("section").value = "";
+      roll.value = "";
+      name.value = "";
+      father.value = "";
+      mother.value = "";
+      studentClass.value = "";
+      section.value = "";
+      session.value = "2026-27";
 
       subjectsDiv.innerHTML = "";
+      createSubject();
+
+    } else {
+
+      window.location.href = "viewstudents_v2.html";
 
     }
 
-  } catch (e) {
+  } catch (err) {
 
-    alert("❌ " + e.message);
+    alert("❌ " + err.message);
 
   }
 
