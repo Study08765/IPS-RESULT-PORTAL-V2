@@ -63,7 +63,7 @@ if(editId){
 
 }
 // Save / Update Student
-document.getElementById("saveBtn").onclick = async () => {
+document.getElementById("saveBtn").addEventListener("click", async () => {
 
   const roll = document.getElementById("roll").value.trim();
 
@@ -131,4 +131,4 @@ document.getElementById("saveBtn").onclick = async () => {
 
   }
 
-};
+});
