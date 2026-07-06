@@ -104,14 +104,22 @@ window.publishResult = async function () {
 
 window.hideResult = async function () {
 
-  await updateDoc(resultRef, {
-    published: false,
-    publishDate: "Not Published"
-  });
+  try {
 
-  alert("🔴 Result Hidden Successfully");
+    await updateDoc(resultRef, {
+      published: false,
+      publishDate: "Not Published"
+    });
 
-  loadPublishStatus();
+    alert("🔴 Result Hidden Successfully");
+
+    loadPublishStatus();
+
+  } catch (e) {
+
+    alert("Error: " + e.message);
+
+  }
 
 };
 
