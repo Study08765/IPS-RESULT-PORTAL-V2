@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Student V2</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6fb;
+padding:20px;
+}
+
+.box{
+max-width:700px;
+margin:auto;
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+color:#0b3d91;
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0;
+font-size:16px;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.subject{
+border:1px solid #ddd;
+padding:12px;
+margin-top:10px;
+border-radius:8px;
+background:#fafafa;
+}
+
+.btn{
+width:100%;
+padding:12px;
+margin-top:12px;
+font-size:17px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+.add{
+background:#28a745;
+color:white;
+}
+
+.save{
+background:#0b3d91;
+color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>ADD STUDENT V2</h2>
+
+<input id="roll" placeholder="Roll Number">
+
+<input id="name" placeholder="Student Name">
+
+<input id="father" placeholder="Father Name">
+
+<input id="mother" placeholder="Mother Name">
+
+<input id="class" placeholder="Class">
+
+<input id="section" placeholder="Section">
+
+<select id="examType">
+<option>Quarterly Examination</option>
+<option>Half Yearly Examination</option>
+<option>Annual Examination</option>
+<option>Unit Test</option>
+</select>
+
+<input id="session" value="2026-27">
+
+<h3>Subjects</h3>
+
+<div id="subjects">
+
+<div class="subject">
+
+<input class="subjectName" placeholder="Subject Name">
+
+<input class="fullMarks" type="number" placeholder="Full Marks">
+
+<input class="obtainedMarks" type="number" placeholder="Obtained Marks">
+
+</div>
+
+</div>
+
+<button class="btn add" id="addSubject">
+➕ Add Subject
+</button>
+
+<button class="btn save" id="saveBtn">
+💾 Save Student
+</button>
+
+</div>
+
+<script type="module" src="admin_v2.js"></script>
+
+</body>
+</html>
