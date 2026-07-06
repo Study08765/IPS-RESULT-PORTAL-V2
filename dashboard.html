@@ -82,7 +82,11 @@ background:#072b67;
 </head>
 
 <body>
-
+<script>
+if(localStorage.getItem("adminLogin")!="yes"){
+location.href="login.html";
+}
+</script>
 <div class="header">
 
 <h2>IPS PUBLIC SCHOOL</h2>
