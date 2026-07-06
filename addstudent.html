@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Student</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f4f6fb;
+padding:20px;
+}
+
+.box{
+max-width:600px;
+margin:auto;
+background:#fff;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px #ccc;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:8px 0;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0b3d91;
+color:#fff;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2 align="center">Add Student</h2>
+
+<input id="roll" placeholder="Roll Number">
+<input id="name" placeholder="Student Name">
+<input id="father" placeholder="Father Name">
+<input id="class" placeholder="Class">
+
+<input id="hindi" type="number" placeholder="Hindi">
+<input id="english" type="number" placeholder="English">
+<input id="mathematics" type="number" placeholder="Mathematics">
+<input id="science" type="number" placeholder="Science">
+<input id="socialscience" type="number" placeholder="Social Science">
+<div id="subjects"></div>
+
+<button type="button" id="addSubject">
++ Add Subject
+</button>
+
+<br><br>
+<button id="saveBtn">
+Save Student
+</button>
+
+</div>
+
+<script type="module" src="admin.js"></script>
+
+</body>
+</html>
