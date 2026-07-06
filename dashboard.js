@@ -172,3 +172,21 @@ window.saveNotice = async function () {
 };
 
 loadNotice();
+const countdownRef = doc(db, "settings", "countdown");
+
+window.saveCountdown = async function () {
+  const date = document.getElementById("countdownDate").value;
+  const time = document.getElementById("countdownTime").value;
+
+  if (!date || !time) {
+    alert("Select Date & Time");
+    return;
+  }
+
+  await setDoc(countdownRef, {
+    date: date,
+    time: time
+  });
+
+  alert("⏳ Countdown Saved Successfully");
+};
