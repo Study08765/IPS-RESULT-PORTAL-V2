@@ -39,13 +39,14 @@ window.searchResult = async function () {
       total += Number(sub.obtained);
       fullTotal += Number(sub.full);
 
-      rows += `
-      <tr>
-        <td>${sub.name}</td>
-        <td>${sub.full}</td>
-        <td>${sub.obtained}</td>
-      </tr>
-      `;
+const failMark = Number(sub.obtained) < (Number(sub.full) * 0.33);
+rows += `
+<tr>
+<td>${sub.name} ${failMark ? "<span style='color:red;font-weight:bold'>(F)</span>" : ""}</td>
+<td>${sub.full}</td>
+<td>${sub.obtained}</td>
+</tr>
+`;
 
     });
 
