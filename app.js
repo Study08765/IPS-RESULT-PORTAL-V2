@@ -40,7 +40,13 @@ const countdownRef = doc(db, "settings", "countdown");
 
 async function loadCountdown() {
   const snap = await getDoc(countdownRef);
+const resultRef = doc(db, "settings", "result");
+const resultSnap = await getDoc(resultRef);
 
+if (resultSnap.exists() && resultSnap.data().published === true) {
+  document.getElementById("countdown").innerHTML = "🎉 RESULT RELEASED";
+  return;
+}
   if (!snap.exists()) return;
 
   const end = new Date(
