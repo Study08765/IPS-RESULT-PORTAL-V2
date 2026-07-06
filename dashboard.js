@@ -190,3 +190,22 @@ window.saveCountdown = async function () {
 
   alert("⏳ Countdown Saved Successfully");
 };
+window.enableCountdown = async function () {
+
+  await updateDoc(countdownRef, {
+    enabled: true
+  });
+
+  alert("🟢 Countdown Enabled");
+
+};
+
+window.disableCountdown = async function () {
+
+  await updateDoc(countdownRef, {
+    enabled: false
+  });
+
+  alert("🔴 Countdown Disabled");
+
+};
