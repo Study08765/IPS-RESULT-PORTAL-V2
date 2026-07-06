@@ -44,16 +44,15 @@ async function loadCountdown() {
   if (!snap.exists()) return;
 
   const end = new Date(
-  snap.data().countdownDate + "T" + snap.data().countdownTime
-).getTime();
+    snap.data().date + "T" + snap.data().time
+  ).getTime();
 
   setInterval(() => {
-    const now = new Date().getTime();
+    const now = Date.now();
     const diff = end - now;
 
     if (diff <= 0) {
-      document.getElementById("countdown").innerHTML =
-        "🎉 RESULT RELEASED";
+      document.getElementById("countdown").innerHTML = "🎉 RESULT RELEASED";
       return;
     }
 
