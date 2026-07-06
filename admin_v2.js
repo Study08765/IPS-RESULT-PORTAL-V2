@@ -62,3 +62,73 @@ if(editId){
   }
 
 }
+// Save / Update Student
+document.getElementById("saveBtn").onclick = async () => {
+
+  const roll = document.getElementById("roll").value.trim();
+
+  if (!roll) {
+    alert("Enter Roll Number");
+    return;
+  }
+
+  const subjects = [];
+
+  document.querySelectorAll(".subject").forEach((box) => {
+
+    const name = box.querySelector(".subjectName").value.trim();
+    const full = Number(box.querySelector(".fullMarks").value);
+    const obtained = Number(box.querySelector(".obtainedMarks").value);
+
+    if (name) {
+      subjects.push({
+        name,
+        full,
+        obtained
+      });
+    }
+
+  });
+
+  const student = {
+
+    Roll: roll,
+    Name: document.getElementById("name").value,
+    Father: document.getElementById("father").value,
+    Mother: document.getElementById("mother").value,
+    Class: document.getElementById("class").value,
+    Section: document.getElementById("section").value,
+    ExamType: document.getElementById("examType").value,
+    Session: document.getElementById("session").value,
+
+    Subjects: subjects
+
+  };
+
+  try {
+
+    await setDoc(doc(db, "students_v2", roll), student);
+
+    alert(editId ? "✅ Student Updated Successfully"
+                 : "✅ Student Saved Successfully");
+
+    if (!editId) {
+
+      document.getElementById("roll").value = "";
+      document.getElementById("name").value = "";
+      document.getElementById("father").value = "";
+      document.getElementById("mother").value = "";
+      document.getElementById("class").value = "";
+      document.getElementById("section").value = "";
+
+      subjectsDiv.innerHTML = "";
+
+    }
+
+  } catch (e) {
+
+    alert("❌ " + e.message);
+
+  }
+
+};
