@@ -1,41 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard</title>
+<title>IPS PUBLIC SCHOOL Dashboard</title>
 
 <style>
-body{
-font-family:Arial;
-background:#f2f5fa;
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6fb;
 }
 
 .header{
 background:#0b3d91;
 color:white;
-padding:15px;
+padding:20px;
 text-align:center;
 }
 
-.menu{
-max-width:500px;
-margin:20px auto;
+.header h2{
+margin-bottom:5px;
 }
 
-button{
-width:100%;
+.container{
+max-width:600px;
+margin:20px auto;
 padding:15px;
-margin:10px 0;
-font-size:18px;
-background:#0b3d91;
-color:white;
-border:none;
-border-radius:8px;
-cursor:pointer;
 }
+
+.card{
+background:white;
+padding:18px;
+margin-bottom:15px;
+border-radius:12px;
+box-shadow:0 3px 12px rgba(0,0,0,.15);
+text-align:center;
+}
+
+.card h3{
+color:#0b3d91;
+margin-bottom:10px;
+}
+
+.btn{
+
+display:block;
+width:100%;
+
+padding:15px;
+
+margin:12px 0;
+
+background:#0b3d91;
+
+color:white;
+
+text-decoration:none;
+
+font-size:18px;
+
+border-radius:8px;
+
+text-align:center;
+
+}
+
+.btn:hover{
+background:#072b67;
+}
+
 </style>
 
 </head>
@@ -43,27 +84,32 @@ cursor:pointer;
 <body>
 
 <div class="header">
+
 <h2>IPS PUBLIC SCHOOL</h2>
-<h3>ADMIN DASHBOARD</h3>
+
+<h3>ADMIN DASHBOARD V2</h3>
+
 </div>
 
-<div class="menu">
+<div class="container">
 
-<button onclick="location.href='addstudent.html'">
+<div class="card">
+
+<h3>Result Portal Management</h3>
+
+<a class="btn" href="addstudent_v2.html">
 ➕ Add Student
-</button>
+</a>
 
-<button onclick="location.href='viewstudents.html'">
+<a class="btn" href="viewstudents_v2.html">
 👨‍🎓 View Students
-</button>
+</a>
 
-<button onclick="location.href='search.html'">
-🔍 Search Student
-</button>
+<a class="btn" href="index.html">
+📄 Result Portal
+</a>
 
-<button onclick="location.href='index.html'">
-🏠 Result Website
-</button>
+</div>
 
 </div>
 
