@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPS PUBLIC SCHOOL Result Portal</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6fb;
+}
+
+header{
+background:#0b3d91;
+color:white;
+text-align:center;
+padding:20px;
+}
+
+header img{
+width:120px;
+margin-bottom:10px;
+border-radius:50%;
+}
+
+.container{
+width:95%;
+max-width:500px;
+margin:30px auto;
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+input{
+width:100%;
+padding:12px;
+font-size:18px;
+margin-top:15px;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+background:#0b3d91;
+color:white;
+font-size:18px;
+border:none;
+cursor:pointer;
+border-radius:5px;
+}
+
+button:hover{
+background:#082d69;
+}
+
+#result{
+margin-top:20px;
+line-height:1.8;
+}
+</style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0b3d91">
+</head>
+
+<body>
+
+<header>
+
+<h1>IPS PUBLIC SCHOOL</h1>
+<h3>AHIRORI HARDOI</h3>
+
+<h2>QUARTERLY EXAMINATION</h2>
+<h3>RESULT 2026–27</h3>
+
+
+</header>
+
+<div class="container">
+
+<h2 align="center">Search Result</h2>
+
+<input
+type="text"
+id="roll"
+placeholder="Enter Roll Number">
+
+<button onclick="searchResult()">
+
+VIEW RESULT
+
+</button>
+
+<div id="result"></div>
+
+</div>
+
+<script type="module" src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./service-worker.js");
+}
+</script>
+</body>
+</html>
+
+
+
