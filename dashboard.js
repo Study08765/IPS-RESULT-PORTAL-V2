@@ -153,3 +153,22 @@ window.savePortalSettings = async function () {
 };
 
 loadPortalSettings();
+const noticeRef = doc(db, "settings", "notice");
+
+async function loadNotice() {
+  const snap = await getDoc(noticeRef);
+
+  if (snap.exists()) {
+    document.getElementById("noticeText").value = snap.data().text || "";
+  }
+}
+
+window.saveNotice = async function () {
+  await updateDoc(noticeRef, {
+    text: document.getElementById("noticeText").value
+  });
+
+  alert("📢 Notice Saved Successfully");
+};
+
+loadNotice();
