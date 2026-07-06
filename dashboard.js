@@ -124,3 +124,32 @@ window.hideResult = async function () {
 };
 
 loadPublishStatus();
+const portalRef = doc(db, "settings", "portal");
+
+async function loadPortalSettings() {
+
+  const snap = await getDoc(portalRef);
+
+  if (snap.exists()) {
+
+    const data = snap.data();
+
+    document.getElementById("examTitle").value = data.examTitle;
+    document.getElementById("sessionTitle").value = data.session;
+
+  }
+
+}
+
+window.savePortalSettings = async function () {
+
+  await updateDoc(portalRef, {
+    examTitle: document.getElementById("examTitle").value,
+    session: document.getElementById("sessionTitle").value
+  });
+
+  alert("✅ Portal Settings Updated");
+
+};
+
+loadPortalSettings();
