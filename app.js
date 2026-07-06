@@ -40,7 +40,8 @@ if (
   }
 
   const s = snap.data();
-
+document.getElementById("examTitle").innerHTML = s.ExamType;
+document.getElementById("sessionTitle").innerHTML = "RESULT " + s.Session;
   let total = 0;
   let fullTotal = 0;
 
