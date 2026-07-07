@@ -74,6 +74,32 @@ document.getElementById("countdown").style.display = "block";
 }
 
 loadCountdown();
+async function loadResultLive() {
+
+  const publishRef = doc(db, "settings", "result");
+  const publishSnap = await getDoc(publishRef);
+
+  if (!publishSnap.exists()) return;
+
+  const box = document.getElementById("resultLive");
+
+  box.style.display = "block";
+
+  if (publishSnap.data().published) {
+
+    box.style.background = "#198754";
+    box.innerHTML = "🟢 RESULT LIVE";
+
+  } else {
+
+    box.style.background = "#dc3545";
+    box.innerHTML = "🔴 RESULT NOT DECLARED";
+
+  }
+
+}
+
+loadResultLive();
 window.searchResult = async function () {
 
   const roll = document.getElementById("roll").value.trim();
