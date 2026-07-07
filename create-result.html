@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Result</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6fb;
+padding:20px;
+}
+
+.box{
+max-width:700px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+h2{
+text-align:center;
+color:#0b3d91;
+margin-bottom:20px;
+}
+
+.info{
+background:#eef6ff;
+padding:12px;
+border-radius:8px;
+margin-bottom:20px;
+line-height:1.8;
+}
+
+.subject{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:10px 0;
+}
+
+.subject input{
+width:90px;
+padding:8px;
+text-align:center;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:20px;
+background:#0b3d91;
+color:white;
+font-size:17px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>📊 Create Result</h2>
+
+<div class="info">
+
+<b>Name :</b> <span id="name">Loading...</span><br>
+
+<b>Roll :</b> <span id="roll">Loading...</span><br>
+
+<b>Class :</b> <span id="class">Loading...</span><br>
+
+<b>Section :</b> <span id="section">Loading...</span>
+
+</div>
+
+<div id="subjects"></div>
+
+<button id="saveBtn">
+💾 Save Result
+</button>
+
+</div>
+
+<script type="module" src="create-result.js"></script>
+
+</body>
+  </html>
