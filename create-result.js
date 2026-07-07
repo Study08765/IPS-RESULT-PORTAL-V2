@@ -27,8 +27,7 @@ if (!snap.exists()) {
 }
 
 const student = snap.data();
-console.log(student);
-alert(JSON.stringify(student));
+
 name.innerHTML = student.Name;
 rollNo.innerHTML = student.Roll;
 className.innerHTML = student.Class;
