@@ -33,7 +33,7 @@ snap.forEach(doc => {
 
   const s = doc.data();
 
-  if (s.Class == myClass) {
+  if (s.Class == myClass && s.ResultCreated) {
     students.push(s);
   }
 
@@ -81,7 +81,7 @@ function showStudents(list){
       </button>
 
       <button class="result"
-onclick="location.href='create-result.html?id=${s.Roll}'">
+onclick="location.href='edit-result.html?id=${s.Roll}'"
 📊 Result
 </button>
 
