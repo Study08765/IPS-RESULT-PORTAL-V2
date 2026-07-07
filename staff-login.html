@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Staff Login</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6fb;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+background:#fff;
+width:350px;
+padding:25px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,.2);
+}
+
+h2{
+text-align:center;
+color:#0b3d91;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin-top:12px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:18px;
+background:#0b3d91;
+color:white;
+border:none;
+border-radius:6px;
+font-size:17px;
+cursor:pointer;
+}
+
+button:hover{
+background:#082d69;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>👨‍🏫 School Staff Login</h2>
+
+<input
+type="text"
+id="staffId"
+placeholder="Staff ID">
+
+<input
+type="password"
+id="password"
+placeholder="Password">
+
+<button onclick="staffLogin()">
+LOGIN
+</button>
+
+</div>
+
+<script type="module" src="staff.js"></script>
+
+</body>
+</html>
