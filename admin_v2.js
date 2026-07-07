@@ -202,7 +202,11 @@ saveBtn.addEventListener("click", async () => {
 
     } else {
 
-      window.location.href = "viewstudents_v2.html";
+      if (localStorage.getItem("staffLogin")) {
+  window.location.href = "my-students.html";
+} else {
+  window.location.href = "viewstudents_v2.html";
+      }
 
     }
 
