@@ -112,7 +112,8 @@ if (percentage >= 90) {
   Percentage: percentage,
   Grade: grade,
   Division: division,
-  Result: result
+  Result: result,
+  ResultCreated: true
 });
 
   alert("✅ Result Saved Successfully");
