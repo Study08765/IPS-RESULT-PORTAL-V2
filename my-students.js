@@ -33,8 +33,8 @@ snap.forEach(doc => {
 
   const s = doc.data();
 
-  if (s.Class == myClass) {
-    students.push(s);
+  if (s.Class == myClass && !s.ResultCreated) {
+  students.push(s);
   }
 
 });
