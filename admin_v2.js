@@ -5,7 +5,6 @@ import {
   getDoc,
   setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
 // URL Parameters
 const params = new URLSearchParams(window.location.search);
 const editId = params.get("id");
