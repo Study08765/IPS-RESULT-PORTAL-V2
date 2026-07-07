@@ -36,6 +36,7 @@ if (staffLogin) {
     const staff = staffSnap.data();
 
     studentClass.value = staff.class;
+    alert("Staff Login = " + staffLogin);
     studentClass.readOnly = true;
 
   }
