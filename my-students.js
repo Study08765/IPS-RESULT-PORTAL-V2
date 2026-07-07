@@ -37,12 +37,12 @@ snap.forEach(doc => {
 
   const s = doc.data();
 
-  if (s.Class == myClass  {
-  students.push(s);
+  if (s.Class == myClass) {
+    students.push(s);
   }
 
 });
-alert("My Class = " + myClass + "\nStudents = " + students.length);
+
 showStudents(students);
 
 // Search
