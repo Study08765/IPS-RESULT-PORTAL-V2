@@ -137,23 +137,10 @@ rows += `
 
   }
 
-  const percentage =
-    fullTotal > 0
-      ? ((total / fullTotal) * 100).toFixed(2)
-      : "0.00";
-
-  let grade = "";
-
-  if (percentage >= 90) grade = "A+";
-  else if (percentage >= 80) grade = "A";
-  else if (percentage >= 70) grade = "B+";
-  else if (percentage >= 60) grade = "B";
-  else if (percentage >= 50) grade = "C";
-  else if (percentage >= 33) grade = "D";
-  else grade = "F";
-
-  const resultStatus =
-    Number(percentage) >= 33 ? "PASS" : "FAIL";
+  const percentage = s.Percentage || "0.00";
+const grade = s.Grade || "-";
+const division = s.Division || "-";
+const resultStatus = s.Result || "-";
 
   document.getElementById("result").innerHTML = `
 
@@ -210,7 +197,7 @@ ${rows}
 <p><b>Percentage :</b> ${percentage}%</p>
 
 <p><b>Grade :</b> ${grade}</p>
-
+<p><b>Division :</b> ${division}</p>
 <p style="font-size:22px;color:${resultStatus==="PASS"?"green":"red"}">
 
 <b>${resultStatus}</b>
