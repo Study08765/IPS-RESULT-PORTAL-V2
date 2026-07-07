@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Staff</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f4f6fb;
+padding:20px;
+}
+
+.box{
+max-width:500px;
+margin:auto;
+background:#fff;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.2);
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin-top:12px;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+background:#0b3d91;
+color:white;
+border:none;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2 align="center">✏️ Edit Staff</h2>
+
+<input id="staffId" placeholder="Staff ID">
+
+<input id="staffName" placeholder="Staff Name">
+
+<input id="mobile" placeholder="Mobile Number">
+
+<input id="password" placeholder="Password">
+
+<select id="staffClass">
+<option value="">Select Class</option>
+<option>Play Group</option>
+<option>Nursery</option>
+<option>LKG</option>
+<option>UKG</option>
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+</select>
+
+<button onclick="updateStaff()">
+💾 Update Staff
+</button>
+
+</div>
+
+<script type="module" src="editstaff.js"></script>
+
+</body>
+  </html>
