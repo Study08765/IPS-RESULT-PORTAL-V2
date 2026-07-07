@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Students</title>
+
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f6fb;
+margin:0;
+padding:20px;
+}
+
+.header{
+background:#0b3d91;
+color:white;
+padding:15px;
+text-align:center;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+font-size:16px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:6px;
+box-sizing:border-box;
+}
+
+.card{
+background:white;
+padding:15px;
+margin-bottom:15px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,.15);
+}
+
+button{
+padding:10px 15px;
+margin-top:10px;
+margin-right:8px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+color:white;
+}
+
+.edit{
+background:#2196F3;
+}
+
+.result{
+background:#28a745;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h2>👨‍🎓 My Students</h2>
+</div>
+
+<input
+type="text"
+id="search"
+placeholder="Search by Roll Number or Name">
+
+<div id="studentList"></div>
+
+<script type="module" src="my-students.js"></script>
+
+</body>
+  </html>
