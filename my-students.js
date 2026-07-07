@@ -85,7 +85,7 @@ function showStudents(list){
       </button>
 
       <button class="result"
-onclick="alert('Hello')">
+onclick="location.href='create-result.html?id=${s.Roll}'">
 📊 Result
 </button>
 
