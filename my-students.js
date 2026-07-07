@@ -84,9 +84,10 @@ function showStudents(list){
       ✏️ Edit
       </button>
 
-      <button class="result">
-      📊 Result
-      </button>
+      <button class="result"
+onclick="location.href='addstudent_v2.html?id=${s.Roll}'">
+📊 Result
+</button>
 
     </div>
     `;
