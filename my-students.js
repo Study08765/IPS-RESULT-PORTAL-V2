@@ -2,7 +2,9 @@ import { db } from "./firebase.js";
 
 import {
   collection,
-  getDocs
+  getDocs,
+  doc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const studentList = document.getElementById("studentList");
@@ -18,17 +20,11 @@ let myClass = "";
 let students = [];
 
 // Staff Class Load
-const staffSnap = await getDocs(collection(db, "staff"));
+const staffSnap = await getDoc(doc(db, "staff", staffId));
 
-staffSnap.forEach(doc => {
-
-  const s = doc.data();
-
-  if (s.staffId === staffId) {
-    myClass = s.class;
-  }
-
-});
+if (staffSnap.exists()) {
+  myClass = staffSnap.data().class;
+}
 
 // Students Load
 const snap = await getDocs(collection(db, "students_v2"));
