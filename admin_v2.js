@@ -23,7 +23,19 @@ const session = document.getElementById("session");
 const saveBtn = document.getElementById("saveBtn");
 const addSubjectBtn = document.getElementById("addSubject");
 const subjectsDiv = document.getElementById("subjects");
+// Staff Auto Class
+const staffLogin = localStorage.getItem("staffLogin");
 
+if (staffLogin) {
+  const staffSnap = await getDoc(doc(db, "staff", staffLogin));
+
+  if (staffSnap.exists()) {
+    const staff = staffSnap.data();
+
+    studentClass.value = staff.class;
+    studentClass.readOnly = true;
+  }
+}
 // Create Subject
 function createSubject(
   subjectName = "",
