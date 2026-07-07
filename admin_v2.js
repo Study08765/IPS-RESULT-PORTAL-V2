@@ -1,5 +1,5 @@
 import { db } from "./firebase.js";
-
+alert("admin_v2 loaded");
 import {
   doc,
   getDoc,
