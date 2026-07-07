@@ -5,7 +5,15 @@ import {
   getDoc,
   updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const params = new URLSearchParams(window.location.search);
+const staffIdFromUrl = params.get("id");
 
+window.addEventListener("DOMContentLoaded", () => {
+  if (staffIdFromUrl) {
+    document.getElementById("staffId").value = staffIdFromUrl;
+    loadStaff();
+  }
+});
 window.loadStaff = async function () {
 
   const staffId = document.getElementById("staffId").value.trim();
