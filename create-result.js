@@ -78,19 +78,42 @@ saveBtn.addEventListener("click", async () => {
   });
 
   const percentage = ((total / fullTotal) * 100).toFixed(2);
+let grade = "";
+let division = "";
 
+if (percentage >= 90) {
+  grade = "A+";
+  division = "First";
+} else if (percentage >= 75) {
+  grade = "A";
+  division = "First";
+} else if (percentage >= 60) {
+  grade = "B";
+  division = "First";
+} else if (percentage >= 45) {
+  grade = "C";
+  division = "Second";
+} else if (percentage >= 33) {
+  grade = "D";
+  division = "Third";
+} else {
+  grade = "F";
+  division = "Fail";
+  }
   const result =
     updatedSubjects.some(sub => sub.obtained < 33)
       ? "FAIL"
       : "PASS";
 
   await updateDoc(doc(db, "students_v2", roll), {
-    Subjects: updatedSubjects,
-    Total: total,
-    FullTotal: fullTotal,
-    Percentage: percentage,
-    Result: result
-  });
+  Subjects: updatedSubjects,
+  Total: total,
+  FullTotal: fullTotal,
+  Percentage: percentage,
+  Grade: grade,
+  Division: division,
+  Result: result
+});
 
   alert("✅ Result Saved Successfully");
 
