@@ -30,7 +30,10 @@ async function loadStaff() {
 
       <p><b>Mobile:</b> ${s.mobile}</p>
 
-      <button class="edit">✏️ Edit</button>
+      <button class="edit"
+onclick="location.href='editstaff.html?id=${s.staffId}'">
+✏️ Edit
+</button>
 
       <button class="delete">🗑️ Delete</button>
 
