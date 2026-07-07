@@ -42,7 +42,7 @@ snap.forEach(doc => {
   }
 
 });
-
+alert("My Class = " + myClass + "\nStudents = " + students.length);
 showStudents(students);
 
 // Search
