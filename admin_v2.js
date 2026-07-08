@@ -24,16 +24,24 @@ const addSubjectBtn = document.getElementById("addSubject");
 const subjectsDiv = document.getElementById("subjects");
 // Staff Auto Class
 const staffLogin = localStorage.getItem("staffLogin");
+const adminLogin = localStorage.getItem("adminLogin");
 
-if (staffLogin) {
+// Default: Admin can edit class
+studentClass.readOnly = false;
+
+if (staffLogin && adminLogin !== "yes") {
+
   const staffSnap = await getDoc(doc(db, "staff", staffLogin));
 
   if (staffSnap.exists()) {
+
     const staff = staffSnap.data();
 
     studentClass.value = staff.class;
     studentClass.readOnly = true;
+
   }
+
 }
 // Create Subject
 function createSubject(
