@@ -85,8 +85,16 @@ async function loadPublishStatus() {
 
   const data = snap.data();
 
-  document.getElementById("publishStatus").innerHTML =
-    data.published ? "🟢 Published" : "🔴 Hidden";
+  const status =
+data.published ? "🟢 Published" : "🔴 Hidden";
+
+document.getElementById("publishStatus").innerHTML = status;
+
+const statusText = document.getElementById("publishStatusText");
+
+if(statusText){
+statusText.innerHTML = status;
+}
 
 }
 window.publishResult = async function () {
