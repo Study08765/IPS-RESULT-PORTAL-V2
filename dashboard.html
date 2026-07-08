@@ -16,14 +16,17 @@ font-family:Arial,sans-serif;
 }
 
 body{
-background:#f4f6fb;
+background:linear-gradient(135deg,#eef3fb,#dfeeff);
+min-height:100vh;
 }
 
 .header{
-background:#0b3d91;
+background:linear-gradient(135deg,#0b3d91,#1565c0);
 color:white;
-padding:20px;
-text-align:center;
+padding:25px;
+border-radius:0 0 25px 25px;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+margin-bottom:20px;
 }
 
 .header h2{
@@ -31,19 +34,27 @@ margin-bottom:5px;
 }
 
 .container{
-max-width:600px;
+max-width:1200px;
 margin:20px auto;
 padding:15px;
-}
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:20px;
+  }
 
 .card{
 background:white;
-padding:18px;
-margin-bottom:15px;
-border-radius:12px;
-box-shadow:0 3px 12px rgba(0,0,0,.15);
+padding:20px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
 text-align:center;
+transition:.3s;
 }
+
+.card:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 30px rgba(0,0,0,.18);
+  }
 
 .card h3{
 color:#0b3d91;
@@ -51,26 +62,22 @@ margin-bottom:10px;
 }
 
 .btn{
-
 display:block;
 width:100%;
-
 padding:15px;
-
 margin:12px 0;
-
-background:#0b3d91;
-
+background:linear-gradient(135deg,#0b3d91,#1565c0);
 color:white;
-
 text-decoration:none;
-
-font-size:18px;
-
-border-radius:8px;
-
+font-size:17px;
+border-radius:12px;
 text-align:center;
+transition:.3s;
+}
 
+.btn:hover{
+transform:scale(1.03);
+background:linear-gradient(135deg,#072b67,#0b3d91);
 }
 
 .btn:hover{
@@ -89,12 +96,44 @@ location.href="login.html";
 </script>
 <div class="header">
 
-<h2>IPS PUBLIC SCHOOL</h2>
+<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;">
 
-<h3>ADMIN DASHBOARD V2</h3>
+<div>
+<h2>🏫 IPS PUBLIC SCHOOL</h2>
+<p style="margin-top:5px;">Administrator Control Panel</p>
+</div>
+
+<div style="text-align:right;">
+<h3>👤 ADMIN</h3>
+<p id="todayDate"></p>
+</div>
 
 </div>
 
+</div>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:15px;margin-bottom:20px;">
+
+<div class="card">
+<h2 id="totalStudents">0</h2>
+<p>👨‍🎓 Students</p>
+</div>
+
+<div class="card">
+<h2 id="topper">Loading...</h2>
+<p>🏆 School Topper</p>
+</div>
+
+<div class="card">
+<h2 id="publishStatus">Loading...</h2>
+<p>📊 Result Status</p>
+</div>
+
+<div class="card">
+<h2 id="currentSession">2026-27</h2>
+<p>📅 Session</p>
+</div>
+
+</div>
 <div class="container">
 <div class="card">
 
@@ -214,5 +253,9 @@ style="border-radius:50%; border:4px solid #0b3d91;">
 
 </div>
 <script type="module" src="dashboard.js"></script>
+<script>
+document.getElementById("todayDate").innerHTML =
+new Date().toLocaleDateString("en-IN");
+  </script>
 </body>
 </html>
