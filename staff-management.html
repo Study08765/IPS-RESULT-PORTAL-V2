@@ -45,7 +45,23 @@ cursor:pointer;
 
 <div class="box">
 
-<h2 align="center">👨‍🏫 Add Staff</h2>
+<h2 align="center">👨‍🏫 Staff Management</h2>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:20px 0;">
+
+<button onclick="location.href='viewstaff.html'"
+style="background:#198754;height:80px;font-size:18px;">
+👀<br>View Staff
+</button>
+
+<button onclick="document.getElementById('addStaffBox').style.display='block'"
+style="background:#0b3d91;height:80px;font-size:18px;">
+➕<br>Add Staff
+</button>
+
+</div>
+
+<div id="addStaffBox">
 
 <input id="staffId" placeholder="Staff ID">
 
@@ -74,6 +90,8 @@ cursor:pointer;
 <button onclick="saveStaff()">
 💾 Save Staff
 </button>
+
+</div>
 
 </div>
 
