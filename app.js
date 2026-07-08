@@ -87,13 +87,15 @@ async function loadResultLive() {
 
   if (publishSnap.data().published) {
 
-    box.style.background = "#198754";
-    box.innerHTML = "🟢 RESULT LIVE";
+  box.style.background = "#198754";
+  box.innerHTML = "🟢 RESULT LIVE";
+  box.style.animation = "blink 1s infinite";
 
-  } else {
+} else {
 
-    box.style.background = "#dc3545";
-    box.innerHTML = "🔴 RESULT NOT DECLARED";
+  box.style.background = "#dc3545";
+  box.innerHTML = "🔴 RESULT NOT DECLARED";
+  box.style.animation = "none";
 
   }
 
