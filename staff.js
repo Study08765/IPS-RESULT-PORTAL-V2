@@ -34,8 +34,9 @@ window.staffLogin = async function () {
     return;
   }
 
-  localStorage.setItem("staffLogin", staffId);
+  localStorage.removeItem("adminLogin");
+localStorage.setItem("staffLogin", staffId);
 
-  window.location.href = "staff-dashboard.html";
+window.location.href = "staff-dashboard.html";
 
 };
