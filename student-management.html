@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f6fb;
+}
+
+.header{
+background:#0b3d91;
+color:#fff;
+padding:18px;
+font-size:24px;
+font-weight:bold;
+text-align:center;
+}
+
+.container{
+max-width:1000px;
+margin:20px auto;
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+h2{
+color:#0b3d91;
+margin-bottom:20px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+}
+
+input,select{
+padding:12px;
+border:1px solid #ccc;
+border-radius:8px;
+width:100%;
+box-sizing:border-box;
+}
+
+button{
+margin-top:20px;
+padding:12px;
+background:#0b3d91;
+color:white;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#062c69;
+}
+
+table{
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+}
+
+th,td{
+padding:12px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+th{
+background:#0b3d91;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+🎓 Student Management
+</div>
+
+<div class="container">
+
+<h2>Add Student</h2>
+
+<div class="grid">
+
+<input id="admission" placeholder="Admission Number">
+
+<input id="name" placeholder="Student Name">
+
+<input id="father" placeholder="Father Name">
+
+<input type="date" id="dob">
+
+<select id="class">
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+</select>
+
+<input id="section" placeholder="Section">
+
+<input id="roll" placeholder="Roll Number">
+
+<input id="mobile" placeholder="Mobile Number">
+
+</div>
+
+<button id="saveBtn">Save Student</button>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Admission</th>
+<th>Name</th>
+<th>Class</th>
+<th>Roll</th>
+<th>Action</th>
+</tr>
+
+</thead>
+
+<tbody id="studentTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script type="module" src="student-management.js"></script>
+
+</body>
+  </html>
