@@ -92,25 +92,24 @@ margin-bottom:10px;
 @media(max-width:768px){
 
 .sidebar{
-width:70px;
-padding:10px;
+left:-250px;
+width:250px;
+transition:.3s;
 }
 
-.sidebar h2{
-font-size:14px;
-}
-
-.sidebar a{
-font-size:12px;
-padding:10px;
-text-align:center;
+.sidebar.active{
+left:0;
 }
 
 .main{
-margin-left:70px;
+margin-left:0;
 }
 
+.menuBtn{
+display:block;
 }
+
+  }
 
 </style>
 
@@ -142,11 +141,20 @@ margin-left:70px;
 
 <div class="main">
 
-<div class="header">
+<div class="header" style="display:flex;justify-content:space-between;align-items:center;">
 
+<span class="menuBtn" onclick="toggleMenu()" style="font-size:28px;cursor:pointer;display:none;">
+☰
+</span>
+
+<div>
 <h1>🏫 IPS PUBLIC SCHOOL</h1>
-
 <p>Administrator Dashboard</p>
+</div>
+
+<div>
+👤 Admin
+</div>
 
 </div>
 
@@ -193,7 +201,11 @@ const today = new Date();
 document.querySelector(".header p").innerHTML =
 "Administrator Dashboard • " +
 today.toLocaleDateString();
+function toggleMenu(){
 
+document.querySelector(".sidebar").classList.toggle("active");
+
+  }
   </script>
 </body>
   </html>
