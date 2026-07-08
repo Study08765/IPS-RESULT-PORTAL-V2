@@ -52,8 +52,12 @@ border-radius:6px;
 function login(){
 
 if(document.getElementById("pass").value==="IPS@2026"){
+
+localStorage.removeItem("staffLogin");   // Staff Login हटाओ
 localStorage.setItem("adminLogin","yes");
+
 location.href="dashboard.html";
+
 }else{
 alert("Wrong Password");
 }
