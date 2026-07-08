@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPS ERP Admin Dashboard</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+display:flex;
+background:#eef3fb;
+}
+
+.sidebar{
+width:250px;
+height:100vh;
+background:#0b3d91;
+color:white;
+position:fixed;
+left:0;
+top:0;
+padding:20px;
+overflow:auto;
+}
+
+.sidebar h2{
+text-align:center;
+margin-bottom:25px;
+}
+
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+transition:.3s;
+}
+
+.sidebar a:hover{
+background:rgba(255,255,255,.2);
+}
+
+.main{
+margin-left:250px;
+width:100%;
+padding:20px;
+}
+
+.header{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+margin-bottom:20px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+text-align:center;
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h2{
+color:#0b3d91;
+margin-bottom:10px;
+}
+
+@media(max-width:768px){
+
+.sidebar{
+width:70px;
+padding:10px;
+}
+
+.sidebar h2{
+font-size:14px;
+}
+
+.sidebar a{
+font-size:12px;
+padding:10px;
+text-align:center;
+}
+
+.main{
+margin-left:70px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>IPS ERP</h2>
+
+<a href="#">🏠 Dashboard</a>
+
+<a href="viewstudents_v2.html">👨‍🎓 Students</a>
+
+<a href="staff-management.html">👨‍🏫 Staff</a>
+
+<a href="#">📊 Results</a>
+
+<a href="#">📢 Notice</a>
+
+<a href="#">⏳ Countdown</a>
+
+<a href="index.html">🌐 Portal</a>
+
+<a href="login.html">🚪 Logout</a>
+
+</div>
+
+<div class="main">
+
+<div class="header">
+
+<h1>🏫 IPS PUBLIC SCHOOL</h1>
+
+<p>Administrator Dashboard</p>
+
+</div>
+
+<div class="cards">
+  <div class="card" onclick="location.href='viewstudents_v2.html'">
+<h2>👨‍🎓 Students</h2>
+<p>View & Manage Students</p>
+</div>
+
+<div class="card" onclick="location.href='staff-management.html'">
+<h2>👨‍🏫 Staff</h2>
+<p>Add / View Staff</p>
+</div>
+
+<div class="card" onclick="location.href='result-control.html'">
+<h2>📊 Results</h2>
+<p>Publish / Hide Result</p>
+</div>
+
+<div class="card" onclick="location.href='notice.html'">
+<h2>📢 Notice</h2>
+<p>School Notice</p>
+</div>
+
+<div class="card" onclick="location.href='countdown.html'">
+<h2>⏳ Countdown</h2>
+<p>Result Countdown</p>
+</div>
+
+<div class="card" onclick="location.href='index.html'">
+<h2>🌐 Result Portal</h2>
+<p>Open Website</p>
+</div>
+
+</div>
+
+</div>
+<script type="module" src="admin-dashboard-v3.js"></script>
+
+<script>
+
+const today = new Date();
+
+document.querySelector(".header p").innerHTML =
+"Administrator Dashboard • " +
+today.toLocaleDateString();
+
+  </script>
+</body>
+  </html>
