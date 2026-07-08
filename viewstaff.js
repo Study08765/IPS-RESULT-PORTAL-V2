@@ -2,7 +2,9 @@ import { db } from "./firebase.js";
 
 import {
   collection,
-  getDocs
+  getDocs,
+  doc,
+  deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const staffList = document.getElementById("staffList");
@@ -35,7 +37,10 @@ onclick="location.href='editstaff.html?id=${s.staffId}'">
 ✏️ Edit
 </button>
 
-      <button class="delete">🗑️ Delete</button>
+  <button class="delete"
+onclick="deleteStaff('${s.staffId}')">
+🗑️ Delete
+</button>
 
     </div>
     `;
@@ -51,3 +56,16 @@ onclick="location.href='editstaff.html?id=${s.staffId}'">
 }
 
 loadStaff();
+window.deleteStaff = async function(staffId){
+
+const ok = confirm("Delete this staff?");
+
+if(!ok) return;
+
+await deleteDoc(doc(db,"staff",staffId));
+
+alert("✅ Staff Deleted Successfully");
+
+loadStaff();
+
+}
