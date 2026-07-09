@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Result Entry</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f6fb;
+}
+
+.header{
+background:#0b3d91;
+color:white;
+padding:18px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+max-width:900px;
+margin:20px auto;
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+input{
+width:100%;
+padding:12px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:8px;
+box-sizing:border-box;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+button{
+width:100%;
+padding:12px;
+margin-top:15px;
+background:#0b3d91;
+color:white;
+border:none;
+border-radius:8px;
+font-size:17px;
+cursor:pointer;
+}
+
+button:hover{
+background:#062c69;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+📝 Result Entry
+</div>
+
+<div class="container">
+
+<input id="admission" placeholder="Admission Number">
+
+<input id="name" placeholder="Student Name" readonly>
+
+<div class="grid">
+
+<input id="hindi" type="number" placeholder="Hindi">
+
+<input id="english" type="number" placeholder="English">
+
+<input id="math" type="number" placeholder="Mathematics">
+
+<input id="science" type="number" placeholder="Science">
+
+<input id="sst" type="number" placeholder="Social Science">
+
+<input id="computer" type="number" placeholder="Computer">
+
+</div>
+
+<button id="saveBtn">
+💾 Save Result
+</button>
+
+</div>
+
+<script type="module" src="result-entry.js"></script>
+
+</body>
+  </html>
