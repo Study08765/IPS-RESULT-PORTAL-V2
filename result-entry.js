@@ -1,11 +1,10 @@
-import { db } from "./firebase.js";
-
 import {
 collection,
 query,
 where,
 getDocs,
-addDoc
+doc,
+setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 let studentData = null;
@@ -107,7 +106,9 @@ document.getElementById("percentage").value = percentage;
 document.getElementById("grade").value = grade;
 document.getElementById("result").value = pass ? "PASS" : "FAIL";
 
-await addDoc(collection(db,"results"),{
+const roll = document.getElementById("roll").value;
+
+await setDoc(doc(db,"results",roll),{
 
 admission: document.getElementById("admission").value,
 name: document.getElementById("name").value,
