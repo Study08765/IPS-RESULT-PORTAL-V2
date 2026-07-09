@@ -31,64 +31,12 @@ snapshot.forEach(doc=>{
 
 studentData = doc.data();
 
-document.getElementById("name").value = studentData.name;
+document.getElementById("name").value = studentData.name || "";
+document.getElementById("father").value = studentData.father || "";
+document.getElementById("class").value = studentData.class || "";
+document.getElementById("roll").value = studentData.roll || "";
 
 });
-
-});
-
-// Save Result
-document.getElementById("saveBtn").addEventListener("click", async()=>{
-
-const hindi = Number(document.getElementById("hindi").value);
-const english = Number(document.getElementById("english").value);
-const math = Number(document.getElementById("math").value);
-const science = Number(document.getElementById("science").value);
-const sst = Number(document.getElementById("sst").value);
-const computer = Number(document.getElementById("computer").value);
-
-const total = hindi+english+math+science+sst+computer;
-
-const percentage = (total/600*100).toFixed(2);
-
-const result =
-(hindi>=33 &&
-english>=33 &&
-math>=33 &&
-science>=33 &&
-sst>=33 &&
-computer>=33)
-?
-"PASS"
-:
-"FAIL";
-
-await addDoc(collection(db,"results"),{
-
-admission:document.getElementById("admission").value,
-
-name:document.getElementById("name").value,
-
-class:studentData?.class || "",
-
-roll:studentData?.roll || "",
-
-hindi,
-english,
-math,
-science,
-sst,
-computer,
-
-total,
-percentage,
-result,
-
-createdAt:new Date()
-
-});
-
-alert("✅ Result Saved Successfully");
 
 });
 // Add Subject
@@ -99,10 +47,9 @@ const row = document.createElement("div");
 row.className = "subjectRow";
 
 row.innerHTML = `
-<br>
 <input class="subjectName" placeholder="Subject Name">
 
-<input class="fullMarks" type="number" placeholder="Full Marks" value="100">
+<input class="fullMarks" type="number" value="100" placeholder="Full Marks">
 
 <input class="obtainedMarks" type="number" placeholder="Obtained Marks">
 
@@ -112,5 +59,75 @@ row.innerHTML = `
 document.getElementById("subjects").appendChild(row);
 
 row.querySelector(".removeBtn").onclick = () => row.remove();
+
+});
+// Save Result
+document.getElementById("saveBtn").addEventListener("click", async () => {
+
+const rows = document.querySelectorAll(".subjectRow");
+
+let subjects = [];
+let total = 0;
+let fullTotal = 0;
+let pass = true;
+
+rows.forEach(row => {
+
+const subject = row.querySelector(".subjectName").value.trim();
+const fullMarks = Number(row.querySelector(".fullMarks").value || 100);
+const obtained = Number(row.querySelector(".obtainedMarks").value || 0);
+
+subjects.push({
+subject,
+fullMarks,
+obtained
+});
+
+total += obtained;
+fullTotal += fullMarks;
+
+if(obtained < 33){
+pass = false;
+}
+
+});
+
+const percentage = fullTotal ? ((total / fullTotal) * 100).toFixed(2) : "0.00";
+
+let grade = "F";
+
+if(percentage >= 90) grade = "A+";
+else if(percentage >= 80) grade = "A";
+else if(percentage >= 70) grade = "B";
+else if(percentage >= 60) grade = "C";
+else if(percentage >= 50) grade = "D";
+
+document.getElementById("total").value = total;
+document.getElementById("percentage").value = percentage;
+document.getElementById("grade").value = grade;
+document.getElementById("result").value = pass ? "PASS" : "FAIL";
+
+await addDoc(collection(db,"results"),{
+
+admission: document.getElementById("admission").value,
+name: document.getElementById("name").value,
+father: document.getElementById("father").value,
+class: document.getElementById("class").value,
+roll: document.getElementById("roll").value,
+
+examType: document.getElementById("examType").value,
+session: document.getElementById("session").value,
+
+subjects,
+total,
+percentage,
+grade,
+result: pass ? "PASS" : "FAIL",
+
+createdAt: new Date()
+
+});
+
+alert("✅ Result Saved Successfully");
 
 });
