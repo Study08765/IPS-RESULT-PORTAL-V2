@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homework Management</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f6fb;
+}
+
+.header{
+background:#0b3d91;
+color:#fff;
+padding:18px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+max-width:900px;
+margin:20px auto;
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+input,select,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0b3d91;
+color:white;
+border:none;
+border-radius:8px;
+font-size:17px;
+cursor:pointer;
+}
+
+button:hover{
+background:#062c69;
+}
+
+.card{
+margin-top:20px;
+padding:15px;
+background:#eef4ff;
+border-radius:10px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+📚 Homework Management
+</div>
+
+<div class="container">
+
+<select>
+<option>Select Class</option>
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+</select>
+
+<input type="text" placeholder="Subject">
+
+<input type="date">
+
+<textarea rows="6" placeholder="Write Homework Here..."></textarea>
+
+<button>
+💾 Save Homework
+</button>
+
+<div class="card">
+<h3>Today's Homework</h3>
+
+<p>
+No Homework Added.
+</p>
+
+</div>
+
+<br>
+
+<button onclick="location.href='student-management.html'">
+⬅ Back
+</button>
+
+</div>
+
+</body>
+  </html>
