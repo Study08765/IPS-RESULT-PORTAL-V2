@@ -1,7 +1,8 @@
 import { db } from "./firebase.js";
 import {
   collection,
-  addDoc
+  addDoc,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const saveBtn = document.getElementById("saveBtn");
@@ -44,7 +45,7 @@ saveBtn.addEventListener("click", async () => {
     });
 
     alert("✅ Student Added Successfully");
-
+loadStudents();
     document.querySelectorAll("input").forEach(input => input.value = "");
 
   } catch (error) {
@@ -54,3 +55,29 @@ saveBtn.addEventListener("click", async () => {
   }
 
 });
+async function loadStudents() {
+
+  const table = document.getElementById("studentTable");
+  table.innerHTML = "";
+
+  const snapshot = await getDocs(collection(db, "students"));
+
+  snapshot.forEach((doc) => {
+
+    const s = doc.data();
+
+    table.innerHTML += `
+      <tr>
+        <td>${s.admission}</td>
+        <td>${s.name}</td>
+        <td>${s.class}</td>
+        <td>${s.roll}</td>
+        <td>👁️ ✏️ 🗑️</td>
+      </tr>
+    `;
+
+  });
+
+}
+
+loadStudents();
