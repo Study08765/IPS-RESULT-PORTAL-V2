@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admit Card Management</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f6fb;
+}
+.header{
+background:#0b3d91;
+color:#fff;
+padding:18px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+.container{
+max-width:900px;
+margin:20px auto;
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+box-sizing:border-box;
+}
+button{
+width:100%;
+padding:12px;
+background:#0b3d91;
+color:#fff;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+🎫 Admit Card Management
+</div>
+
+<div class="container">
+
+<input placeholder="Admission Number">
+
+<input placeholder="Student Name">
+
+<select>
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+</select>
+
+<input placeholder="Roll Number">
+
+<button>💾 Generate Admit Card</button>
+
+<button onclick="location.href='student-management.html'">
+⬅ Back
+</button>
+
+</div>
+
+</body>
+</html>
