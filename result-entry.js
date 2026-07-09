@@ -91,3 +91,26 @@ createdAt:new Date()
 alert("✅ Result Saved Successfully");
 
 });
+// Add Subject
+document.getElementById("addSubject").addEventListener("click", () => {
+
+const row = document.createElement("div");
+
+row.className = "subjectRow";
+
+row.innerHTML = `
+<br>
+<input class="subjectName" placeholder="Subject Name">
+
+<input class="fullMarks" type="number" placeholder="Full Marks" value="100">
+
+<input class="obtainedMarks" type="number" placeholder="Obtained Marks">
+
+<button type="button" class="removeBtn">❌ Remove</button>
+`;
+
+document.getElementById("subjects").appendChild(row);
+
+row.querySelector(".removeBtn").onclick = () => row.remove();
+
+});
