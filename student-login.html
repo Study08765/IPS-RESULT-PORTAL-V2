@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Login</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6fb;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.box{
+width:95%;
+max-width:380px;
+background:#fff;
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+h2{
+text-align:center;
+color:#0b3d91;
+margin-bottom:5px;
+}
+
+p{
+text-align:center;
+color:#666;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0b3d91;
+color:#fff;
+border:none;
+border-radius:8px;
+font-size:17px;
+cursor:pointer;
+}
+
+button:hover{
+background:#06296d;
+}
+</style>
+
+</head>
+<body>
+
+<div class="box">
+
+<h2>🎓 IPS STUDENT PORTAL</h2>
+<p>Student Login</p>
+
+<input type="text" id="admission" placeholder="Admission Number">
+
+<input type="date" id="dob">
+
+<button id="loginBtn">Login</button>
+
+</div>
+
+<script type="module" src="student-login.js"></script>
+
+</body>
+  </html>
