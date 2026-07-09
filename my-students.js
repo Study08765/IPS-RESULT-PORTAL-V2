@@ -11,8 +11,9 @@ const studentList = document.getElementById("studentList");
 const search = document.getElementById("search");
 
 const staffId = localStorage.getItem("staffLogin");
+const adminLogin = localStorage.getItem("adminLogin");
 
-if (!staffId) {
+if (!staffId && adminLogin !== "yes") {
   location.href = "staff-login.html";
 }
 
@@ -20,10 +21,12 @@ let myClass = "";
 let students = [];
 
 // Staff Class Load
-const staffSnap = await getDoc(doc(db, "staff", staffId));
+if (staffId) {
+  const staffSnap = await getDoc(doc(db, "staff", staffId));
 
-if (staffSnap.exists()) {
-  myClass = staffSnap.data().class;
+  if (staffSnap.exists()) {
+    myClass = staffSnap.data().class;
+  }
 }
 
 // Students Load
@@ -33,8 +36,14 @@ snap.forEach(doc => {
 
   const s = doc.data();
 
-  if (s.Class == myClass && !s.ResultCreated) {
-  students.push(s);
+  if (adminLogin === "yes") {
+    if (!s.ResultCreated) {
+        students.push(s);
+    }
+} else {
+    if (s.Class == myClass && !s.ResultCreated) {
+        students.push(s);
+    }
   }
 
 });
