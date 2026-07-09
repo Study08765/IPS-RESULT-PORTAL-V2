@@ -81,3 +81,5 @@ async function loadStudents() {
 }
 
 loadStudents();
+console.log("Loading Students...");
+loadStudents();
