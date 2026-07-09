@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6fb;
+}
+
+.header{
+background:#0b3d91;
+color:#fff;
+padding:18px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:15px;
+padding:20px;
+}
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:12px;
+text-align:center;
+font-size:18px;
+font-weight:bold;
+box-shadow:0 5px 12px rgba(0,0,0,.15);
+cursor:pointer;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.back{
+display:block;
+width:200px;
+margin:20px auto;
+padding:12px;
+background:#0b3d91;
+color:white;
+text-align:center;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<div class="header">
+📖 My Courses
+</div>
+
+<div class="grid">
+
+<div class="card">📘 English</div>
+<div class="card">📗 Hindi</div>
+<div class="card">📕 Mathematics</div>
+<div class="card">🧪 Science</div>
+<div class="card">🌍 Social Science</div>
+<div class="card">💻 Computer</div>
+
+</div>
+
+<a href="student-dashboard.html" class="back">⬅ Back to Dashboard</a>
+
+</body>
+  </html>
