@@ -17,7 +17,8 @@ const subjectList = [
 "Science",
 "Social Science",
 "Computer",
-"Sanskrit"
+"Drawing",
+"Moral Education & GK"
 ];
 
 subjectList.forEach(name=>{
