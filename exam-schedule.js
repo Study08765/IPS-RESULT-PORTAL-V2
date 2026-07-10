@@ -28,7 +28,11 @@ subjects.innerHTML += `
 
 <input type="date" class="date">
 
-<input type="time" class="time">
+<label>Start Time</label>
+<input type="time" class="startTime">
+
+<label>End Time</label>
+<input type="time" class="endTime">
 
 </div>
 `;
@@ -38,7 +42,8 @@ subjects.innerHTML += `
 saveBtn.onclick = async()=>{
 
 const dates = document.querySelectorAll(".date");
-const times = document.querySelectorAll(".time");
+const startTimes = document.querySelectorAll(".startTime");
+const endTimes = document.querySelectorAll(".endTime");
 
 for(let i=0;i<subjectList.length;i++){
 
@@ -47,7 +52,8 @@ await addDoc(collection(db,"exam_schedule"),{
 Class:classBox.value,
 Subject:subjectList[i],
 Date:dates[i].value,
-Time:times[i].value
+StartTime: startTimes[i].value,
+EndTime: endTimes[i].value
 
 });
 
