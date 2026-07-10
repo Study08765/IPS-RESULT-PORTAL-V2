@@ -41,6 +41,16 @@ homeworkList.innerHTML += `
 
 <p>${h.Homework}</p>
 
+<button onclick="editHomework('${d.id}')">
+✏️ Edit
+</button>
+
+<button
+onclick="deleteHomework('${d.id}')"
+style="background:red;margin-top:8px;">
+🗑️ Delete
+</button>
+
 </div>
 
 `;
