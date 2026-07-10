@@ -70,26 +70,23 @@ loadHomework();
 
 window.editHomework = async function(id){
 
-const snapshot = await getDocs(collection(db,"homework"));
+const snap = await getDoc(doc(db,"homework",id));
 
-snapshot.forEach(d=>{
-
-if(d.id===id){
-
-const h=d.data();
-
-editId=id;
-
-classBox.value=h.Class;
-subjectBox.value=h.Subject;
-dateBox.value=h.Date;
-homeworkBox.value=h.Homework;
-
-saveBtn.innerText="✅ Update Homework";
-
+if(!snap.exists()){
+alert("Homework Not Found");
+return;
 }
 
-});
+const h = snap.data();
+
+editId = id;
+
+classBox.value = h.Class || h.class;
+subjectBox.value = h.Subject || h.subject;
+dateBox.value = h.Date || h.date;
+homeworkBox.value = h.Homework || h.homework;
+
+saveBtn.innerText = "✅ Update Homework";
 
 }
 
