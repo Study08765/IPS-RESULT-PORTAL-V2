@@ -55,29 +55,6 @@ card.querySelector(".deleteBtn").onclick = () => deleteHomework(d.id);
 homeworkList.appendChild(card);
 
 });
-<div class="card">
-
-<h3>${h.Subject}</h3>
-
-<p><b>Class :</b> ${h.Class}</p>
-
-<p><b>Date :</b> ${h.Date}</p>
-
-<p>${h.Homework}</p>
-
-<button onclick="editHomework('${d.id}')">✏️ Edit</button>
-
-<button onclick="deleteHomework('${d.id}')"
-style="background:red;margin-top:8px;">
-🗑️ Delete
-</button>
-
-</div>
-`;
-
-});
-
-}
 
 loadHomework();
 
