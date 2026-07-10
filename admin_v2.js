@@ -45,9 +45,11 @@ if (staffLogin && adminLogin !== "yes") {
 }
 // Create Subject
 function createSubject(
-  subjectName = "",
-  fullMarks = "",
-  obtainedMarks = ""
+subjectName="",
+fullMarks="",
+obtainedMarks="",
+examDate="",
+examTime=""
 ){
 
   const div = document.createElement("div");
@@ -72,7 +74,15 @@ class="obtainedMarks"
 type="number"
 placeholder="Obtained Marks"
 value="${obtainedMarks}">
+<input
+class="examDate"
+type="date"
+value="${examDate}">
 
+<input
+class="examTime"
+type="time"
+value="${examTime}">
 <button
 type="button"
 class="removeSubject">
@@ -128,10 +138,12 @@ if (editId) {
       s.Subjects.forEach(sub => {
 
         createSubject(
-          sub.name,
-          sub.full,
-          sub.obtained
-        );
+  sub.name,
+  sub.full,
+  sub.obtained,
+  sub.date || "",
+  sub.time || ""
+);
 
       });
 
@@ -169,10 +181,12 @@ saveBtn.addEventListener("click", async () => {
 
     if (subjectName) {
       subjects.push({
-        name: subjectName,
-        full: fullMarks,
-        obtained: obtainedMarks
-      });
+    name: subjectName,
+    full: fullMarks,
+    obtained: obtainedMarks,
+    date: box.querySelector(".examDate").value,
+    time: box.querySelector(".examTime").value
+});
     }
 
   });
