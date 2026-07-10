@@ -2,49 +2,131 @@ import { db } from "./firebase.js";
 
 import {
 collection,
-addDoc
+addDoc,
+getDocs,
+doc,
+updateDoc,
+deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-document.getElementById("saveBtn").addEventListener("click", async () => {
+let editId = "";
 
-const studentClass = document.getElementById("class").value;
-const subject = document.getElementById("subject").value;
-const date = document.getElementById("date").value;
-const homework = document.getElementById("homework").value.trim();
+const classBox = document.getElementById("class");
+const subjectBox = document.getElementById("subject");
+const dateBox = document.getElementById("date");
+const homeworkBox = document.getElementById("homework");
+const saveBtn = document.getElementById("saveBtn");
+const homeworkList = document.getElementById("homeworkList");
 
-if (
-studentClass === "Select Class" ||
-subject === "Select Subject" ||
-!date ||
-!homework
-) {
-alert("Please fill all fields");
-return;
-}
+async function loadHomework(){
 
-try {
+homeworkList.innerHTML="";
 
-await addDoc(collection(db, "homework"), {
+const snapshot = await getDocs(collection(db,"homework"));
 
-Class: studentClass,
-Subject: subject,
-Date: date,
-Homework: homework,
-createdAt: new Date()
+snapshot.forEach(d=>{
+
+const h = d.data();
+
+homeworkList.innerHTML += `
+<div class="card">
+
+<h3>${h.Subject}</h3>
+
+<p><b>Class :</b> ${h.Class}</p>
+
+<p><b>Date :</b> ${h.Date}</p>
+
+<p>${h.Homework}</p>
+
+<button onclick="editHomework('${d.id}')">✏️ Edit</button>
+
+<button onclick="deleteHomework('${d.id}')"
+style="background:red;margin-top:8px;">
+🗑️ Delete
+</button>
+
+</div>
+`;
 
 });
 
-alert("✅ Homework Saved Successfully");
+}
 
-document.getElementById("class").selectedIndex = 0;
-document.getElementById("subject").selectedIndex = 0;
-document.getElementById("date").value = "";
-document.getElementById("homework").value = "";
+loadHomework();
 
-} catch (e) {
+window.editHomework = async function(id){
 
-alert("❌ " + e.message);
+const snapshot = await getDocs(collection(db,"homework"));
+
+snapshot.forEach(d=>{
+
+if(d.id===id){
+
+const h=d.data();
+
+editId=id;
+
+classBox.value=h.Class;
+subjectBox.value=h.Subject;
+dateBox.value=h.Date;
+homeworkBox.value=h.Homework;
+
+saveBtn.innerText="✅ Update Homework";
 
 }
+
+});
+
+}
+
+window.deleteHomework = async function(id){
+
+if(!confirm("Delete Homework?")) return;
+
+await deleteDoc(doc(db,"homework",id));
+
+alert("Deleted Successfully");
+
+loadHomework();
+
+}
+
+saveBtn.addEventListener("click",async()=>{
+
+const data={
+
+Class:classBox.value,
+Subject:subjectBox.value,
+Date:dateBox.value,
+Homework:homeworkBox.value,
+createdAt:new Date()
+
+};
+
+if(editId!=""){
+
+await updateDoc(doc(db,"homework",editId),data);
+
+alert("Homework Updated");
+
+editId="";
+
+saveBtn.innerText="💾 Save Homework";
+
+}else{
+
+await addDoc(collection(db,"homework"),data);
+
+alert("Homework Saved");
+
+}
+
+classBox.selectedIndex=0;
+subjectBox.selectedIndex=0;
+dateBox.value="";
+homeworkBox.value="";
+
+loadHomework();
 
 });
