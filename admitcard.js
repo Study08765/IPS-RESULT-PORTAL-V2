@@ -39,7 +39,7 @@ document.getElementById("showSession").innerText = s.Session || "";
 
 const q = query(
 collection(db, "exam_schedule"),
-where("Class", "==", s.Class)
+where("Class", "==", "Class " + s.Class)
 );
 
 const schedule = await getDocs(q);
