@@ -101,9 +101,9 @@ if (percentage >= 90) {
   division = "Fail";
   }
   const result =
-    updatedSubjects.some(sub => sub.obtained < 33)
-      ? "FAIL"
-      : "PASS";
+  updatedSubjects.some(sub => sub.obtained < (sub.full * 0.33))
+    ? "FAIL"
+    : "PASS";
 
   await updateDoc(doc(db, "students_v2", roll), {
   Subjects: updatedSubjects,
