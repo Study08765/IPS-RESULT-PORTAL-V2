@@ -100,10 +100,16 @@ if (percentage >= 90) {
   grade = "F";
   division = "Fail";
   }
-  const result =
-  updatedSubjects.some(sub => sub.obtained < (sub.full * 0.33))
-    ? "FAIL"
-    : "PASS";
+  let result = "PASS";
+
+for (const sub of updatedSubjects) {
+  const passMarks = Math.ceil(sub.full * 0.33);
+
+  if (sub.obtained < passMarks) {
+    result = "FAIL";
+    break;
+  }
+  }
 
   await updateDoc(doc(db, "students_v2", roll), {
   Subjects: updatedSubjects,
