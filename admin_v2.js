@@ -151,9 +151,7 @@ if (editId) {
 
 }
 // Save / Update Student
-roll.addEventListener("focus", () => {
-  alert("Roll Focus OK");
-});
+
 saveBtn.addEventListener("click", async () => {
 
   if (!roll.value.trim()) {
