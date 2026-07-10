@@ -128,7 +128,7 @@ font-weight:bold;
 const student = JSON.parse(localStorage.getItem("student"));
 
 if(student){
-document.getElementById("studentName").innerHTML = student.Name;
+document.getElementById("studentName").innerHTML = student.Name || student.name;
 }else{
 window.location="student-login.html";
 }
