@@ -33,13 +33,13 @@ homeworkList.innerHTML += `
 
 <div class="card">
 
-<h3>${h.Subject}</h3>
+<h3>${h.Subject || h.subject}</h3>
 
-<p><b>Class :</b> ${h.Class}</p>
+<p><b>Class :</b> ${h.Class || h.class}</p>
 
-<p><b>Date :</b> ${h.Date}</p>
+<p><b>Date :</b> ${h.Date || h.date}</p>
 
-<p>${h.Homework}</p>
+<p>${h.Homework || h.homework}</p>
 
 <button onclick="editHomework('${d.id}')">
 ✏️ Edit
