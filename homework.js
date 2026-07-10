@@ -5,6 +5,7 @@ collection,
 addDoc,
 getDocs,
 doc,
+getDoc,
 updateDoc,
 deleteDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
@@ -24,11 +25,36 @@ homeworkList.innerHTML="";
 
 const snapshot = await getDocs(collection(db,"homework"));
 
-snapshot.forEach(d=>{
+snapshot.forEach(d => {
 
 const h = d.data();
 
-homeworkList.innerHTML += `
+const card = document.createElement("div");
+card.className = "card";
+
+card.innerHTML = `
+<h3>${h.Subject}</h3>
+
+<p><b>Class :</b> ${h.Class}</p>
+
+<p><b>Date :</b> ${h.Date}</p>
+
+<p>${h.Homework}</p>
+
+<button class="editBtn">✏️ Edit</button>
+
+<button class="deleteBtn" style="background:red;margin-top:8px;">
+🗑️ Delete
+</button>
+`;
+
+card.querySelector(".editBtn").onclick = () => editHomework(d.id);
+
+card.querySelector(".deleteBtn").onclick = () => deleteHomework(d.id);
+
+homeworkList.appendChild(card);
+
+});
 <div class="card">
 
 <h3>${h.Subject}</h3>
