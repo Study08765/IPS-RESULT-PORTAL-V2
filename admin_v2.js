@@ -74,6 +74,7 @@ class="obtainedMarks"
 type="number"
 placeholder="Obtained Marks"
 value="${obtainedMarks}">
+
 <input
 class="examDate"
 type="date"
@@ -83,6 +84,7 @@ value="${examDate}">
 class="examTime"
 type="time"
 value="${examTime}">
+
 <button
 type="button"
 class="removeSubject">
