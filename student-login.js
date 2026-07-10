@@ -23,10 +23,6 @@ if (!snap.exists()) {
 localStorage.setItem("student", JSON.stringify(snap.data()));
 window.location = "student-dashboard.html";
 
-if(!found){
 
-alert("Invalid Admission Number or Date of Birth");
-
-}
 
 });
