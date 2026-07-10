@@ -5,39 +5,52 @@ doc,
 getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const roll=document.getElementById("roll");
-const name=document.getElementById("name");
-const father=document.getElementById("father");
-const studentClass=document.getElementById("class");
-const section=document.getElementById("section");
-const exam=document.getElementById("exam");
-const session=document.getElementById("session");
-const result=document.getElementById("result");
+const roll = document.getElementById("roll");
+const generateBtn = document.getElementById("generateBtn");
 
-document.getElementById("generateBtn").onclick=async()=>{
+generateBtn.onclick = async () => {
 
-if(!roll.value.trim()){
+if(roll.value.trim()==""){
 alert("Enter Roll Number");
 return;
 }
 
-const snap=await getDoc(doc(db,"students_v2",roll.value.trim()));
+const snap = await getDoc(doc(db,"students_v2",roll.value.trim()));
 
 if(!snap.exists()){
 alert("Student Not Found");
 return;
 }
 
-const s=snap.data();
+const s = snap.data();
 
-name.value=s.Name||"";
-father.value=s.Father||"";
-studentClass.value=s.Class||"";
-section.value=s.Section||"";
-exam.value=s.ExamType||"";
-session.value=s.Session||"";
-result.value=s.Result||"Pending";
+document.getElementById("admitCard").style.display="block";
 
-alert("✅ Admit Card Generated");
+document.getElementById("showName").innerText = s.Name || "";
+document.getElementById("showFather").innerText = s.Father || "";
+document.getElementById("showRoll").innerText = s.Roll || "";
+document.getElementById("showClass").innerText = s.Class || "";
+document.getElementById("showExam").innerText = s.ExamType || "";
+document.getElementById("showSession").innerText = s.Session || "";
+
+let html = "";
+
+if(s.Subjects){
+
+s.Subjects.forEach(sub=>{
+
+html += `
+<p>
+${sub.name}
+&nbsp;&nbsp;&nbsp;
+Full: ${sub.full}
+</p>
+`;
+
+});
+
+}
+
+document.getElementById("subjectList").innerHTML = html;
 
 };
