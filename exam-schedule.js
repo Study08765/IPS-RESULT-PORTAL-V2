@@ -20,7 +20,7 @@ const subjectList = [
 "Drawing",
 "Moral Education & GK"
 ];
-
+alert("Exam Schedule JS Loaded");
 subjectList.forEach(name=>{
 
 subjects.innerHTML += `
