@@ -43,7 +43,6 @@ where("Class", "==", s.Class)
 );
 
 const schedule = await getDocs(q);
-alert("Records: " + schedule.size);
 let html = `
 <table style="width:100%;border-collapse:collapse;" border="1">
 <tr>
