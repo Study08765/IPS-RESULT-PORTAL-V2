@@ -27,7 +27,7 @@ return;
 }
 
 const s = snap.data();
-
+alert("Student Class = " + s.Class);
 document.getElementById("admitCard").style.display="block";
 
 document.getElementById("showName").innerText = s.Name || "";
