@@ -11,7 +11,7 @@ const student = JSON.parse(localStorage.getItem("student"));
 
 const q = query(
 collection(db,"homework"),
-where("class","==",student.class)
+where("Class","==",student.Class)
 );
 
 const snapshot = await getDocs(q);
@@ -24,9 +24,9 @@ const h = doc.data();
 
 html += `
 <div class="card">
-<h3>${h.subject}</h3>
-<p><b>Date:</b> ${h.date}</p>
-<p>${h.homework}</p>
+<h3>${h.Subject}</h3>
+<p><b>Date:</b> ${h.Date}</p>
+<p>${h.Homework}</p>
 </div>
 `;
 
