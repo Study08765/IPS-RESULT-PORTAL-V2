@@ -19,20 +19,20 @@ const homeworkBox = document.getElementById("homework");
 const saveBtn = document.getElementById("saveBtn");
 const homeworkList = document.getElementById("homeworkList");
 
-async function loadHomework(){
+async function loadHomework() {
 
-homeworkList.innerHTML="";
+homeworkList.innerHTML = "";
 
-const snapshot = await getDocs(collection(db,"homework"));
+const snapshot = await getDocs(collection(db, "homework"));
 
 snapshot.forEach(d => {
 
 const h = d.data();
 
-const card = document.createElement("div");
-card.className = "card";
+homeworkList.innerHTML += `
 
-card.innerHTML = `
+<div class="card">
+
 <h3>${h.Subject}</h3>
 
 <p><b>Class :</b> ${h.Class}</p>
@@ -41,20 +41,20 @@ card.innerHTML = `
 
 <p>${h.Homework}</p>
 
-<button class="editBtn">✏️ Edit</button>
+</div>
 
-<button class="deleteBtn" style="background:red;margin-top:8px;">
-🗑️ Delete
-</button>
 `;
 
-card.querySelector(".editBtn").onclick = () => editHomework(d.id);
-
-card.querySelector(".deleteBtn").onclick = () => deleteHomework(d.id);
-
-homeworkList.appendChild(card);
-
 });
+
+if(homeworkList.innerHTML==""){
+
+homeworkList.innerHTML="<div class='card'>No Homework</div>";
+
+}
+
+}
+
 
 loadHomework();
 
