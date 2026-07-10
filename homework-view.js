@@ -2,19 +2,16 @@ import { db } from "./firebase.js";
 
 import {
 collection,
-query,
-where,
 getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const student = JSON.parse(localStorage.getItem("student"));
 
-const q = query(
-collection(db,"homework"),
-where("Class","==",student.Class)
-);
+if (!student) {
+location.href = "student-login.html";
+}
 
-const snapshot = await getDocs(q);
+const snapshot = await getDocs(collection(db,"homework"));
 
 let html = "";
 
@@ -22,13 +19,17 @@ snapshot.forEach(doc=>{
 
 const h = doc.data();
 
+if(h.Class === student.Class){
+
 html += `
 <div class="card">
 <h3>${h.Subject}</h3>
-<p><b>Date:</b> ${h.Date}</p>
+<p><b>Date :</b> ${h.Date}</p>
 <p>${h.Homework}</p>
 </div>
 `;
+
+}
 
 });
 
