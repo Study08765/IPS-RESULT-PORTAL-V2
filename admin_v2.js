@@ -49,7 +49,8 @@ subjectName="",
 fullMarks="",
 obtainedMarks="",
 examDate="",
-examTime=""
+startTime="",
+endTime=""
 ){
 
   const div = document.createElement("div");
@@ -84,7 +85,17 @@ value="${examDate}">
 class="examTime"
 type="time"
 value="${examTime}">
+<label>Start Time</label>
+<input
+class="startTime"
+type="time"
+value="${startTime}">
 
+<label>End Time</label>
+<input
+class="endTime"
+type="time"
+value="${endTime}">
 <button
 type="button"
 class="removeSubject">
@@ -183,11 +194,12 @@ saveBtn.addEventListener("click", async () => {
 
     if (subjectName) {
       subjects.push({
-    name: subjectName,
-    full: fullMarks,
-    obtained: obtainedMarks,
-    date: box.querySelector(".examDate").value,
-    time: box.querySelector(".examTime").value
+name: subjectName,
+full: fullMarks,
+obtained: obtainedMarks,
+date: box.querySelector(".examDate").value,
+startTime: box.querySelector(".startTime").value,
+endTime: box.querySelector(".endTime").value
 });
     }
 
