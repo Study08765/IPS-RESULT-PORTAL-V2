@@ -3,101 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admit Card Management</title>
+<title>Admit Card</title>
 
 <style>
-body{
+
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
+}
+
+body{
 background:#f4f6fb;
+padding:20px;
 }
-.header{
-background:#0b3d91;
-color:#fff;
-padding:18px;
-text-align:center;
-font-size:24px;
-font-weight:bold;
-}
-.container{
-max-width:900px;
-margin:20px auto;
-background:#fff;
+
+.box{
+max-width:800px;
+margin:auto;
+background:white;
 padding:20px;
 border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
+box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
-input,select{
+
+h2{
+text-align:center;
+color:#0b3d91;
+margin-bottom:20px;
+}
+
+input{
 width:100%;
 padding:12px;
 margin:10px 0;
 border:1px solid #ccc;
 border-radius:8px;
-box-sizing:border-box;
+font-size:16px;
 }
+
 button{
 width:100%;
 padding:12px;
+margin-top:10px;
 background:#0b3d91;
-color:#fff;
+color:white;
 border:none;
 border-radius:8px;
-font-size:16px;
+font-size:17px;
 cursor:pointer;
-margin-top:10px;
 }
+
+#admitCard{
+display:none;
+margin-top:30px;
+border:2px solid #0b3d91;
+padding:20px;
+border-radius:10px;
+}
+
 </style>
+
 </head>
+
 <body>
 
-<div class="header">
-🎫 Admit Card Management
-</div>
+<div class="box">
 
-<div class="container">
+<h2>🎫 Admit Card Management</h2>
 
 <input id="roll" placeholder="Roll Number">
 
-<input id="name" placeholder="Student Name" readonly>
-<input id="father" placeholder="Father Name" readonly>
-
-<input id="section" placeholder="Section" readonly>
-
-<input id="session" placeholder="Session" readonly>
-
-<input id="result" placeholder="Result Status" readonly>
-<select id="class">
-<option value="">Select Class</option>
-
-<option>Nursery</option>
-<option>LKG</option>
-<option>UKG</option>
-
-<option>Class 1</option>
-<option>Class 2</option>
-<option>Class 3</option>
-<option>Class 4</option>
-<option>Class 5</option>
-
-<option>Class 6</option>
-<option>Class 7</option>
-<option>Class 8</option>
-
-<option>Class 9</option>
-<option>Class 10</option>
-</select>
-
-<input id="exam" placeholder="Exam Type" readonly>
-
 <button id="generateBtn">
-🎫 Generate Admit Card
+Generate Admit Card
 </button>
 
-<button onclick="location.href='student-management.html'">
-⬅ Back
+<div id="admitCard">
+  <h2 style="text-align:center;color:#0b3d91;">
+IPS PUBLIC SCHOOL AHIRORI HARDOI
+</h2>
+
+<h3 style="text-align:center;">
+ADMIT CARD
+</h3>
+
+<hr><br>
+
+<p><b>Student Name :</b>
+<span id="showName"></span>
+</p>
+
+<p><b>Father Name :</b>
+<span id="showFather"></span>
+</p>
+
+<p><b>Roll Number :</b>
+<span id="showRoll"></span>
+</p>
+
+<p><b>Class :</b>
+<span id="showClass"></span>
+</p>
+
+<p><b>Examination :</b>
+<span id="showExam"></span>
+</p>
+
+<p><b>Session :</b>
+<span id="showSession"></span>
+</p>
+
+<h3>Subjects</h3>
+
+<div id="subjectList"></div>
+
+<br><br>
+
+<div style="display:flex;justify-content:space-between;">
+
+<div>
+____________________<br>
+Student Signature
+</div>
+
+<div>
+____________________<br>
+Principal Signature
+</div>
+
+</div>
+
+<br>
+
+<button onclick="window.print()">
+🖨️ Print Admit Card
 </button>
 
 </div>
+
+</div>
+
 <script type="module" src="admitcard.js"></script>
+
 </body>
-</html>
+  </html>
