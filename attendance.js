@@ -23,7 +23,7 @@ snapshot.forEach(d=>{
 
 const s=d.data();
 
-if(s.Class===classBox.value){
+if((s.Class || "").trim() === classBox.value.trim()){
 
 studentList.innerHTML += `
 <div style="background:#fff;padding:10px;margin:10px 0;border-radius:8px;">
