@@ -2,7 +2,8 @@ import { db } from "./firebase.js";
 
 import {
 collection,
-addDoc
+doc,
+setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const classBox = document.getElementById("class");
@@ -39,26 +40,32 @@ subjects.innerHTML += `
 
 });
 
-saveBtn.onclick = async()=>{
+saveBtn.onclick = async () => {
+
+if (classBox.value == "") {
+alert("Please Select Class");
+return;
+}
 
 const dates = document.querySelectorAll(".date");
 const startTimes = document.querySelectorAll(".startTime");
 const endTimes = document.querySelectorAll(".endTime");
 
-for(let i=0;i<subjectList.length;i++){
+for (let i = 0; i < subjectList.length; i++) {
 
-await addDoc(collection(db,"exam_schedule"),{
-
-Class:classBox.value,
-Subject:subjectList[i],
-Date:dates[i].value,
+await setDoc(
+doc(db, "exam_schedule", classBox.value + "_" + subjectList[i]),
+{
+Class: classBox.value,
+Subject: subjectList[i],
+Date: dates[i].value,
 StartTime: startTimes[i].value,
 EndTime: endTimes[i].value
-
-});
+}
+);
 
 }
 
-alert("✅ Exam Schedule Saved");
+alert("✅ Exam Schedule Saved Successfully");
 
 };
