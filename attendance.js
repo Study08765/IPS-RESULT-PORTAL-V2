@@ -1,4 +1,5 @@
 import { db } from "./firebase.js";
+
 import {
 collection,
 getDocs,
@@ -14,32 +15,32 @@ async function loadStudents() {
 
 studentList.innerHTML = "";
 
-const snapshot = await getDocs(collection(db, "students_v2"));
+if(classBox.value=="") return;
 
-snapshot.forEach(doc => {
+const snapshot = await getDocs(collection(db,"students_v2"));
 
-const s = doc.data();
+snapshot.forEach(d=>{
 
-if (classBox.value === "" || s.Class === classBox.value) {
+const s=d.data();
+
+if(s.Class===classBox.value){
 
 studentList.innerHTML += `
-<div class="card">
+<div style="background:#fff;padding:10px;margin:10px 0;border-radius:8px;">
 
-<b>${s.Name}</b><br>
-
-Roll : ${s.Roll}
+<b>${s.Roll} - ${s.Name}</b>
 
 <br><br>
 
 <label>
-<input type="radio" name="${doc.id}" value="Present" checked>
+<input type="radio" name="${d.id}" value="Present" checked>
 Present
 </label>
 
 &nbsp;&nbsp;
 
 <label>
-<input type="radio" name="${doc.id}" value="Absent">
+<input type="radio" name="${d.id}" value="Absent">
 Absent
 </label>
 
@@ -52,28 +53,27 @@ Absent
 
 }
 
-classBox.addEventListener("change", loadStudents);
+classBox.onchange = loadStudents;
 
-loadStudents();
-saveBtn.addEventListener("click", async () => {
+saveBtn.onclick = async ()=>{
 
-const snapshot = await getDocs(collection(db, "students_v2"));
+const snapshot = await getDocs(collection(db,"students_v2"));
 
-for (const d of snapshot.docs) {
+for(const d of snapshot.docs){
 
-const s = d.data();
+const s=d.data();
 
-if (s.Class !== classBox.value) continue;
+if(s.Class!==classBox.value) continue;
 
-const status = document.querySelector(`input[name="${d.id}"]:checked`).value;
+const status=document.querySelector(`input[name="${d.id}"]:checked`).value;
 
-await setDoc(doc(db, "attendance", d.id), {
+await setDoc(doc(db,"attendance",d.id),{
 
-Name: s.Name,
-Roll: s.Roll,
-Class: s.Class,
-Status: status,
-Date: new Date().toISOString().split("T")[0]
+Name:s.Name,
+Roll:s.Roll,
+Class:s.Class,
+Status:status,
+Date:new Date().toISOString().split("T")[0]
 
 });
 
@@ -81,4 +81,6 @@ Date: new Date().toISOString().split("T")[0]
 
 alert("✅ Attendance Saved Successfully");
 
-});
+};
+
+loadStudents();
