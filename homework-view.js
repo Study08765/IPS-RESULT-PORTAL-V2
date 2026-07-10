@@ -19,7 +19,7 @@ snapshot.forEach(doc=>{
 
 const h = doc.data();
 
-if(h.Class === student.Class){
+if(h.Class === "Class " + student.Class){
 
 html += `
 <div class="card">
