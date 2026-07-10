@@ -61,7 +61,7 @@ html += `
 <tr>
 <td>${e.Subject}</td>
 <td>${e.Date}</td>
-<td>${e.Time}</td>
+<td>${e.StartTime} - ${e.EndTime}</td>
 </tr>
 `;
 
