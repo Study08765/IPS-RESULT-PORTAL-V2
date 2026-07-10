@@ -36,13 +36,6 @@ document.getElementById("showClass").innerText = s.Class || "";
 document.getElementById("showExam").innerText = s.ExamType || "";
 document.getElementById("showSession").innerText = s.Session || "";
 
-const q = query(
-collection(db, "exam_schedule"),
-where("Class", "==", s.Class)
-);
-
-const schedule = await getDocs(q);
-  alert("Records = " + schedule.size);
 let html = `
 <table style="width:100%;border-collapse:collapse;" border="1">
 <tr>
@@ -52,22 +45,23 @@ let html = `
 </tr>
 `;
 
-schedule.forEach(d => {
+if (s.Subjects) {
 
-const e = d.data();
+s.Subjects.forEach(sub => {
 
 html += `
 <tr>
-<td>${e.Subject}</td>
-<td>${e.Date}</td>
-<td>${e.StartTime} - ${e.EndTime}</td>
+<td>${sub.name}</td>
+<td>${sub.date || ""}</td>
+<td>${sub.startTime || ""} - ${sub.endTime || ""}</td>
 </tr>
 `;
 
 });
 
+}
+
 html += "</table>";
 
 document.getElementById("subjectList").innerHTML = html;
-
 };
