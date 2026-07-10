@@ -2,7 +2,11 @@ import { db } from "./firebase.js";
 
 import {
 doc,
-getDoc
+getDoc,
+collection,
+query,
+where,
+getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const roll = document.getElementById("roll");
@@ -33,11 +37,14 @@ document.getElementById("showClass").innerText = s.Class || "";
 document.getElementById("showExam").innerText = s.ExamType || "";
 document.getElementById("showSession").innerText = s.Session || "";
 
-let html = "";
+const q = query(
+collection(db, "exam_schedule"),
+where("Class", "==", s.Class)
+);
 
-if (s.Subjects && s.Subjects.length > 0) {
+const schedule = await getDocs(q);
 
-html = `
+let html = `
 <table style="width:100%;border-collapse:collapse;" border="1">
 <tr>
 <th>Subject</th>
@@ -46,21 +53,21 @@ html = `
 </tr>
 `;
 
-s.Subjects.forEach(sub => {
+schedule.forEach(d => {
+
+const e = d.data();
 
 html += `
 <tr>
-<td>${sub.name}</td>
-<td>${sub.date || ""}</td>
-<td>${sub.time || ""}</td>
+<td>${e.Subject}</td>
+<td>${e.Date}</td>
+<td>${e.Time}</td>
 </tr>
 `;
 
 });
 
 html += "</table>";
-
-}
 
 document.getElementById("subjectList").innerHTML = html;
 
