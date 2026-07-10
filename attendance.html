@@ -100,22 +100,22 @@ font-weight:bold;
 
 <div class="row total">
 <span>Total Working Days</span>
-<span>50</span>
+<span id="totalDays">0</span>
 </div>
 
 <div class="row present">
 <span>Present</span>
-<span>48</span>
+<span id="presentDays">0</span>
 </div>
 
 <div class="row absent">
 <span>Absent</span>
-<span>2</span>
+<span id="absentDays">0</span>
 </div>
 
 <div class="row percent">
 <span>Attendance</span>
-<span>96%</span>
+<span id="attendancePercent">0%</span>
 </div>
 
 </div>
@@ -128,7 +128,7 @@ font-weight:bold;
 const student = JSON.parse(localStorage.getItem("student"));
 
 if(student){
-document.getElementById("studentName").innerHTML = student.name;
+document.getElementById("studentName").innerHTML = student.Name;
 }else{
 window.location="student-login.html";
 }
