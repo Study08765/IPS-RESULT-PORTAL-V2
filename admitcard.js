@@ -35,19 +35,30 @@ document.getElementById("showSession").innerText = s.Session || "";
 
 let html = "";
 
-if(s.Subjects){
+if (s.Subjects && s.Subjects.length > 0) {
 
-s.Subjects.forEach(sub=>{
+html = `
+<table style="width:100%;border-collapse:collapse;" border="1">
+<tr>
+<th>Subject</th>
+<th>Exam Date</th>
+<th>Time</th>
+</tr>
+`;
+
+s.Subjects.forEach(sub => {
 
 html += `
-<p>
-${sub.name}
-&nbsp;&nbsp;&nbsp;
-Full: ${sub.full}
-</p>
+<tr>
+<td>${sub.name}</td>
+<td>${sub.date || ""}</td>
+<td>${sub.time || ""}</td>
+</tr>
 `;
 
 });
+
+html += "</table>";
 
 }
 
