@@ -56,9 +56,9 @@ margin-top:10px;
 
 <div class="container">
 
-<input placeholder="Admission Number">
+<input id="roll" placeholder="Roll Number">
 
-<input placeholder="Student Name">
+<input id="name" placeholder="Student Name" readonly>
 
 <select id="class">
 <option value="">Select Class</option>
@@ -81,15 +81,17 @@ margin-top:10px;
 <option>Class 10</option>
 </select>
 
-<input placeholder="Roll Number">
+<input id="exam" placeholder="Exam Type" readonly>
 
-<button>💾 Generate Admit Card</button>
+<button id="generateBtn">
+🎫 Generate Admit Card
+</button>
 
 <button onclick="location.href='student-management.html'">
 ⬅ Back
 </button>
 
 </div>
-
+<script type="module" src="admitcard.js"></script>
 </body>
 </html>
