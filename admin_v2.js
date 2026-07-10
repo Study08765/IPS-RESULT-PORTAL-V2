@@ -1,3 +1,4 @@
+alert("admin_v2 loaded");
 import { db } from "./firebase.js";
 
 import {
