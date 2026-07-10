@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam Schedule</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f4f6fb;
+}
+
+.header{
+background:#0b3d91;
+color:white;
+padding:18px;
+text-align:center;
+font-size:24px;
+font-weight:bold;
+}
+
+.container{
+max-width:900px;
+margin:20px auto;
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+input,select{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0b3d91;
+color:white;
+border:none;
+border-radius:8px;
+font-size:17px;
+cursor:pointer;
+margin-top:10px;
+}
+
+.row{
+border:1px solid #ddd;
+padding:15px;
+margin-top:15px;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+📅 Exam Schedule
+</div>
+
+<div class="container">
+
+<select id="class">
+
+<option value="">Select Class</option>
+
+<option>Nursery</option>
+<option>LKG</option>
+<option>UKG</option>
+
+<option>Class 1</option>
+<option>Class 2</option>
+<option>Class 3</option>
+<option>Class 4</option>
+<option>Class 5</option>
+
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+
+<option>Class 9</option>
+<option>Class 10</option>
+
+</select>
+
+<div id="subjects"></div>
+
+<button id="saveBtn">
+💾 Save Schedule
+</button>
+
+</div>
+
+<script type="module" src="exam-schedule.js"></script>
+
+</body>
+  </html>
