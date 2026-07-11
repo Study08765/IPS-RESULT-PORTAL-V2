@@ -52,7 +52,11 @@ s.Subjects.forEach(sub => {
 html += `
 <tr>
 <td>${sub.name}</td>
-<td>${sub.date || ""}</td>
+<td>${
+sub.date
+? sub.date.split("-").reverse().join("-")
+: ""
+}</td>
 <td>${sub.startTime || ""} - ${sub.endTime || ""}</td>
 </tr>
 `;
