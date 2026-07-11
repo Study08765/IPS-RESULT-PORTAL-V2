@@ -248,9 +248,9 @@ async function loadAdmitStatus() {
   if (snap.exists()) {
 
     document.getElementById("admitStatus").innerHTML =
-      snap.data().admitCardRelease
-      ? "🟢 Released"
-      : "🔴 Hidden";
+snap.data().admitCardRelease
+? "🟢 Released"
+: "🔴 Hidden";
 
   }
 
