@@ -62,7 +62,39 @@ border-radius:5px;
 button:hover{
 background:#082d69;
 }
+.loginBtn{
+display:block;
+width:95%;
+max-width:500px;
+margin:18px auto;
+padding:16px;
+border-radius:16px;
+text-align:center;
+text-decoration:none;
+font-size:19px;
+font-weight:700;
+letter-spacing:.5px;
+color:#fff;
+box-shadow:0 10px 25px rgba(0,0,0,.18);
+transition:.3s;
+}
 
+.loginBtn:hover{
+transform:translateY(-4px) scale(1.02);
+box-shadow:0 18px 35px rgba(11,61,145,.35);
+  }
+
+.student{
+background:linear-gradient(135deg,#ff9800,#ff6f00);
+}
+
+.staff{
+background:linear-gradient(135deg,#16a34a,#0f9d58);
+}
+
+.admin{
+background:linear-gradient(135deg,#1565c0,#0b3d91);
+  }
 @keyframes blink{
 0%{
 opacity:1;
@@ -150,43 +182,13 @@ VIEW RESULT
 <div id="result"></div>
 
 </div>
-  <a href="student-login.html"
-style="display:block;
-background:#ff9800;
-color:#fff;
-padding:12px;
-margin-top:15px;
-border-radius:8px;
-text-align:center;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;">
+  <a href="student-login.html" class="loginBtn student">
 🎓 STUDENT LOGIN
   </a>
-  <a href="staff-login.html"
-style="display:block;
-background:#198754;
-color:#fff;
-padding:12px;
-margin-top:15px;
-border-radius:8px;
-text-align:center;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;">
+  <a href="staff-login.html" class="loginBtn staff">
 👨‍🏫 SCHOOL STAFF LOGIN
-</a>
-<a href="login.html"
-style="display:block;
-background:#0d6efd;
-color:#fff;
-padding:12px;
-margin-top:15px;
-border-radius:8px;
-text-align:center;
-text-decoration:none;
-font-size:18px;
-font-weight:bold;">
+  </a>
+<a href="login.html" class="loginBtn admin">
 🔐 ADMIN LOGIN
 </a>
   <div style="text-align:center;margin:28px 0 15px;">
