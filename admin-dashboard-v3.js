@@ -4,7 +4,8 @@ import {
 collection,
 getDocs,
 doc,
-getDoc
+getDoc,
+updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const students = await getDocs(collection(db,"students_v2"));
@@ -26,3 +27,25 @@ if(portal.exists()){
 document.getElementById("portalSession").innerText =
 portal.data().session;
   }
+const releaseBtn = document.getElementById("releaseAdmit");
+
+if(portal.exists()){
+
+releaseBtn.innerText =
+portal.data().admitCardRelease ?
+"🔒 Close Admit Card" :
+"🎫 Release Admit Card";
+
+releaseBtn.onclick = async()=>{
+
+const status = !portal.data().admitCardRelease;
+
+await updateDoc(doc(db,"settings","portal"),{
+admitCardRelease:status
+});
+
+location.reload();
+
+};
+
+}
