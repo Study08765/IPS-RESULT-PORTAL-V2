@@ -50,10 +50,18 @@ let html = `
 
 <h3>ADMIT CARD</h3>
 
-<p><b>Name :</b> ${s.Name}</p>
-<p><b>Father :</b> ${s.Father}</p>
-<p><b>Roll :</b> ${s.Roll}</p>
-<p><b>Class :</b> ${s.Class}</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0;text-align:left;">
+
+<div><b>👤 Name :</b> ${s.Name}</div>
+<div><b>🎫 Roll No :</b> ${s.Roll}</div>
+
+<div><b>👨 Father :</b> ${s.Father}</div>
+<div><b>🏫 Class :</b> ${s.Class}</div>
+
+<div><b>📝 Exam :</b> ${s.ExamType || ""}</div>
+<div><b>📅 Session :</b> ${s.Session || ""}</div>
+
+</div>
 
 <table border="1" style="width:100%;border-collapse:collapse;margin-top:15px;">
 <tr>
@@ -79,7 +87,21 @@ html += `
 </table>
 
 <br>
+<div style="display:flex;justify-content:space-between;margin-top:25px;">
 
+<div style="text-align:center;">
+____________________<br>
+Student Signature
+</div>
+
+<div style="text-align:center;">
+____________________<br>
+Principal Signature
+</div>
+
+</div>
+
+<br>
 <button onclick="window.print()">
 🖨️ Print Admit Card
 </button>
