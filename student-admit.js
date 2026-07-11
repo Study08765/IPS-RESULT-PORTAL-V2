@@ -49,7 +49,6 @@ let html = `
 <h2>IPS PUBLIC SCHOOL AHIRORI HARDOI</h2>
 
 <p style="margin:5px 0;color:#666;font-size:14px;">
-AHIRORI, HARDOI (U.P.)
 </p>
 
 <h3>ADMIT CARD</h3>
