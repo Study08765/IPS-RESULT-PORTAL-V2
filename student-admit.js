@@ -2,7 +2,11 @@ import { db } from "./firebase.js";
 
 import {
 doc,
-getDoc
+getDoc,
+collection,
+getDocs,
+query,
+where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 // Student Roll Number
@@ -75,13 +79,22 @@ let html = `
 </tr>
 `;
 
-s.Subjects.forEach(sub=>{
+const q = query(
+collection(db,"exam_schedule"),
+where("Class","==",s.Class)
+);
+
+const schedule = await getDocs(q);
+
+schedule.forEach((d)=>{
+
+const sub = d.data();
 
 html += `
 <tr>
-<td>${sub.name}</td>
-<td>${sub.date ? sub.date.split("-").reverse().join("-") : ""}</td>
-<td>${sub.startTime} - ${sub.endTime}</td>
+<td>${sub.Subject}</td>
+<td>${sub.Date ? sub.Date.split("-").reverse().join("-") : ""}</td>
+<td>${sub.StartTime} - ${sub.EndTime}</td>
 </tr>
 `;
 
