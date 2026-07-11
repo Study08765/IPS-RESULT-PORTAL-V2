@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IPS PUBLIC SCHOOL Result Portal</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#eef5ff,#ffffff);
+}
+
+.header{
+position:relative;
+background:linear-gradient(135deg,#062b73,#0b3d91,#1565c0);
+padding:35px 20px 70px;
+text-align:center;
+color:#fff;
+overflow:hidden;
+box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+.header::before{
+content:"";
+position:absolute;
+top:-80px;
+left:-80px;
+width:220px;
+height:220px;
+background:rgba(255,255,255,.08);
+border-radius:50%;
+}
+
+.header::after{
+content:"";
+position:absolute;
+right:-70px;
+bottom:-70px;
+width:200px;
+height:200px;
+background:rgba(255,255,255,.06);
+border-radius:50%;
+}
+
+.logo{
+width:90px;
+height:90px;
+background:#fff;
+border-radius:50%;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.logo img{
+width:78px;
+height:78px;
+border-radius:50%;
+}
+
+.school{
+margin-top:15px;
+font-size:30px;
+font-weight:bold;
+letter-spacing:1px;
+}
+
+.place{
+margin-top:5px;
+font-size:17px;
+color:#dbeafe;
+letter-spacing:2px;
+}
+
+.examBox{
+margin:22px auto 0;
+max-width:330px;
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.25);
+border-radius:18px;
+padding:15px;
+}
+
+#examTitle{
+font-size:22px;
+color:#FFD54F;
+margin-bottom:8px;
+}
+
+#sessionTitle{
+font-size:16px;
+color:white;
+}
+
+.wave{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:45px;
+background:white;
+border-radius:100% 100% 0 0;
+}
+
+.wrapper{
+width:95%;
+max-width:520px;
+margin:-20px auto 25px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="logo">
+
+<!-- Logo -->
+<img src="logo.png">
+
+</div>
+
+<div class="school">
+IPS PUBLIC SCHOOL
+</div>
+
+<div class="place">
+AHIRORI HARDOI
+</div>
+
+<div class="examBox">
+
+<h2 id="examTitle">
+Loading...
+</h2>
+
+<h3 id="sessionTitle">
+Loading...
+</h3>
+
+</div>
+
+<div class="wave"></div>
+
+</div>
+
+<div class="wrapper">
+  <style>
+
+.card{
+background:#fff;
+border-radius:22px;
+padding:20px;
+margin-bottom:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.noticeCard{
+display:none;
+border-left:6px solid #ff9800;
+background:linear-gradient(135deg,#fffdf5,#fff8e1);
+}
+
+.noticeCard h3{
+color:#ff9800;
+margin-bottom:10px;
+}
+
+.liveCard{
+display:none;
+text-align:center;
+font-size:18px;
+font-weight:bold;
+color:#fff;
+background:linear-gradient(135deg,#16a34a,#22c55e);
+animation:blink 1s infinite;
+}
+
+.countCard{
+text-align:center;
+font-size:18px;
+font-weight:bold;
+background:linear-gradient(135deg,#eef6ff,#dbeafe);
+border-left:6px solid #1565c0;
+}
+
+.searchTitle{
+text-align:center;
+color:#0b3d91;
+margin-bottom:18px;
+font-size:24px;
+}
+
+input{
+width:100%;
+padding:15px;
+border:2px solid #dbe7ff;
+border-radius:15px;
+font-size:18px;
+outline:none;
+margin-bottom:15px;
+}
+
+input:focus{
+border-color:#1565c0;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:15px;
+font-size:18px;
+font-weight:bold;
+color:white;
+cursor:pointer;
+background:linear-gradient(135deg,#0b3d91,#1565c0);
+box-shadow:0 8px 20px rgba(11,61,145,.25);
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+#result{
+margin-top:18px;
+line-height:1.8;
+}
+
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:.5;}
+100%{opacity:1;}
+}
+
+</style>
+
+<div id="noticeBox" class="card noticeCard">
+
+<h3>📢 School Notice</h3>
+
+<p id="noticeTextShow"></p>
+
+</div>
+
+<div id="resultLive" class="card liveCard">
+
+</div>
+
+<div id="countdown" class="card countCard">
+
+⏳ Loading Countdown...
+
+</div>
+
+<div class="card">
+
+<h2 class="searchTitle">
+
+🔍 Search Result
+
+</h2>
+
+<input
+type="text"
+id="roll"
+placeholder="Enter Roll Number">
+
+<button onclick="searchResult()">
+
+VIEW RESULT
+
+</button>
+
+<div id="result"></div>
+
+</div>
+<style>
+
+.loginGrid{
+display:grid;
+grid-template-columns:1fr;
+gap:16px;
+margin-bottom:20px;
+}
+
+.loginBtn{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:18px;
+text-decoration:none;
+font-size:19px;
+font-weight:bold;
+color:#fff;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.18);
+transition:.3s;
+}
+
+.loginBtn:hover{
+transform:translateY(-4px) scale(1.02);
+}
+
+.student{
+background:linear-gradient(135deg,#ff9800,#ff6f00);
+}
+
+.staff{
+background:linear-gradient(135deg,#16a34a,#0f9d58);
+}
+
+.admin{
+background:linear-gradient(135deg,#1565c0,#0b3d91);
+}
+
+.developer{
+text-align:center;
+background:linear-gradient(135deg,#ffffff,#eef5ff);
+border:2px solid #dbeafe;
+}
+
+.developer h3{
+margin-top:8px;
+color:#0b3d91;
+font-size:22px;
+}
+
+.developer p{
+color:#666;
+font-size:14px;
+margin-top:6px;
+}
+
+footer{
+margin:25px 0;
+text-align:center;
+color:#777;
+font-size:14px;
+}
+
+</style>
+
+<div class="card">
+
+<h2 class="searchTitle">Login Portal</h2>
+
+<div class="loginGrid">
+
+<a href="student-login.html" class="loginBtn student">
+🎓 STUDENT LOGIN
+</a>
+
+<a href="staff-login.html" class="loginBtn staff">
+👨‍🏫 SCHOOL STAFF LOGIN
+</a>
+
+<a href="login.html" class="loginBtn admin">
+🔐 ADMIN LOGIN
+</a>
+
+</div>
+
+</div>
+
+<div class="card developer">
+
+<p>Designed & Developed By</p>
+
+<h3>A.K. Singh Chandel</h3>
+
+<p>IPS PUBLIC SCHOOL RESULT PORTAL</p>
+
+</div>
+
+<footer>
+
+© 2026 IPS PUBLIC SCHOOL • AHIRORI HARDOI
+
+</footer>
+
+</div>
+
+<script type="module" src="app.js"></script>
+
+<script>
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("./service-worker.js");
+}
+</script>
+
+</body>
+</html>
