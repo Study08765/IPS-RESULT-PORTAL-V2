@@ -48,6 +48,10 @@ let html = `
 
 <h2>IPS PUBLIC SCHOOL AHIRORI HARDOI</h2>
 
+<p style="margin:5px 0;color:#666;font-size:14px;">
+AHIRORI, HARDOI (U.P.)
+</p>
+
 <h3>ADMIT CARD</h3>
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0;text-align:left;">
@@ -62,7 +66,9 @@ let html = `
 <div><b>📅 Session :</b> ${s.Session || ""}</div>
 
 </div>
-
+<h4 style="margin:15px 0 8px 0;color:#0b3d91;">
+📚 Examination Schedule
+</h4>
 <table border="1" style="width:100%;border-collapse:collapse;margin-top:15px;">
 <tr>
 <th>Subject</th>
