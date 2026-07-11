@@ -45,25 +45,26 @@ let html = `
 </tr>
 `;
 
-if (s.Subjects) {
+const q = query(
+collection(db,"exam_schedule"),
+where("Class","==",s.Class)
+);
 
-s.Subjects.forEach(sub => {
+const schedule = await getDocs(q);
+
+schedule.forEach((docSnap)=>{
+
+const exam = docSnap.data();
 
 html += `
 <tr>
-<td>${sub.name}</td>
-<td>${
-sub.date
-? sub.date.split("-").reverse().join("-")
-: ""
-}</td>
-<td>${sub.startTime || ""} - ${sub.endTime || ""}</td>
+<td>${exam.Subject}</td>
+<td>${exam.Date ? exam.Date.split("-").reverse().join("-") : ""}</td>
+<td>${exam.StartTime} - ${exam.EndTime}</td>
 </tr>
 `;
 
 });
-
-}
 
 html += "</table>";
 
