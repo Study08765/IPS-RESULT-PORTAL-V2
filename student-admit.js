@@ -7,7 +7,7 @@ getDoc
 
 // Student Roll Number
 const roll = localStorage.getItem("studentRoll");
-
+alert("Roll = " + roll);
 // Admit Card Box
 const admitBox = document.getElementById("admitBox");
 
