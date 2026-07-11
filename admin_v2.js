@@ -81,10 +81,12 @@ class="examDate"
 type="date"
 value="${examDate}">
 
+<label>Exam Date</label>
 <input
-class="examTime"
-type="time"
-value="${examTime}">
+class="examDate"
+type="date"
+value="${examDate}">
+
 <label>Start Time</label>
 <input
 class="startTime"
@@ -155,7 +157,8 @@ if (editId) {
   sub.full,
   sub.obtained,
   sub.date || "",
-  sub.time || ""
+  sub.startTime || "",
+  sub.endTime || ""
 );
 
       });
