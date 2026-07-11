@@ -50,7 +50,6 @@ let html = `
 
 <p style="margin:5px 0;color:#666;font-size:14px;">
 </p>
-
 <h3>ADMIT CARD</h3>
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0;text-align:left;">
