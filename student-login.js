@@ -21,6 +21,7 @@ if (!snap.exists()) {
 }
 
 localStorage.setItem("student", JSON.stringify(snap.data()));
+  localStorage.setItem("studentRoll", snap.data().Roll);
 window.location = "student-dashboard.html";
 
 
