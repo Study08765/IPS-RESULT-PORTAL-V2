@@ -79,26 +79,34 @@ let html = `
 </tr>
 `;
 
-const q = query(
-collection(db,"exam_schedule"),
-where("Class","==",s.Class)
+for (const sub of s.Subjects) {
+
+const sch = await getDoc(
+doc(db,"exam_schedule", s.Class + "_" + sub.name)
 );
 
-const schedule = await getDocs(q);
+let date = "";
+let time = "";
 
-schedule.forEach((d)=>{
+if(sch.exists()){
 
-const sub = d.data();
+const d = sch.data();
+
+date = d.Date ? d.Date.split("-").reverse().join("-") : "";
+
+time = d.StartTime + " - " + d.EndTime;
+
+}
 
 html += `
 <tr>
-<td>${sub.Subject}</td>
-<td>${sub.Date ? sub.Date.split("-").reverse().join("-") : ""}</td>
-<td>${sub.StartTime} - ${sub.EndTime}</td>
+<td>${sub.name}</td>
+<td>${date}</td>
+<td>${time}</td>
 </tr>
 `;
 
-});
+}
 
 html += `
 </table>
