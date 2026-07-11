@@ -70,6 +70,36 @@ font-weight:bold;
 .logout{
 background:#d32f2f;
 }
+  .profileCard{
+border-top:6px solid #0b3d91;
+padding:25px;
+}
+
+.avatar{
+width:80px;
+height:80px;
+margin:auto;
+background:#0b3d91;
+color:#fff;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+margin-bottom:15px;
+}
+
+.infoRow{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid #eee;
+font-size:18px;
+}
+
+.infoRow:last-child{
+border:none;
+}
 </style>
 
 </head>
@@ -80,20 +110,27 @@ background:#d32f2f;
 🎓 IPS STUDENT PORTAL
 </div>
 
-<div class="card">
+<div class="card profileCard">
+
+<div class="avatar">👨‍🎓</div>
 
 <h2 id="name"></h2>
 
-<div class="info">
-Father : <span id="father"></span>
+<hr style="margin:15px 0;">
+
+<div class="infoRow">
+<span>👨 Father</span>
+<b id="father"></b>
 </div>
 
-<div class="info">
-Class : <span id="class"></span>
+<div class="infoRow">
+<span>🎓 Class</span>
+<b id="class"></b>
 </div>
 
-<div class="info">
-Roll No : <span id="roll"></span>
+<div class="infoRow">
+<span>🎫 Roll No</span>
+<b id="roll"></b>
 </div>
 
 </div>
@@ -106,10 +143,8 @@ Roll No : <span id="roll"></span>
 
 <a class="btn" href="student-admitcard.html">🎫 Admit Card</a>
 
-<a class="btn" href="student-course.html">📖 Courses</a>
 
 <a class="btn" href="index.html">📊 Result</a>
-<a class="btn" href="attendance.html">📅 Attendance</a>
 <a class="btn logout" href="student-login.html">🚪 Logout</a>
 
 </div>
