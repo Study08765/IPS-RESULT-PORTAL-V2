@@ -84,9 +84,7 @@ for (const sub of s.Subjects) {
 const sch = await getDoc(
 doc(db,"exam_schedule", s.Class + "_" + sub.name)
 );
-alert(s.Class + "_" + sub.name);
 
-alert(sch.exists());
 let date = "";
 let time = "";
 
