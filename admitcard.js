@@ -2,11 +2,7 @@ import { db } from "./firebase.js";
 
 import {
 doc,
-getDoc,
-collection,
-query,
-where,
-getDocs
+getDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const roll = document.getElementById("roll");
@@ -45,26 +41,27 @@ let html = `
 </tr>
 `;
 
-const q = query(
-collection(db,"exam_schedule"),
-where("Class","==",s.Class)
+for (const sub of s.Subjects) {
+
+const examSnap = await getDoc(
+doc(db,"exam_schedule", s.Class + "_" + sub.name)
 );
 
-const schedule = await getDocs(q);
+if (!examSnap.exists()) continue;
 
-schedule.forEach((docSnap)=>{
+const exam = examSnap.data();
 
-const exam = docSnap.data();
+if (!exam.Date || !exam.StartTime || !exam.EndTime) continue;
 
 html += `
 <tr>
-<td>${exam.Subject}</td>
-<td>${exam.Date ? exam.Date.split("-").reverse().join("-") : ""}</td>
+<td>${sub.name}</td>
+<td>${exam.Date.split("-").reverse().join("-")}</td>
 <td>${exam.StartTime} - ${exam.EndTime}</td>
 </tr>
 `;
 
-});
+}
 
 html += "</table>";
 
