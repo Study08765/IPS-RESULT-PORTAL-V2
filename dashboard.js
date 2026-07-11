@@ -217,3 +217,43 @@ window.disableCountdown = async function () {
   alert("🔴 Countdown Disabled");
 
 };
+// Admit Card Release
+window.toggleAdmitCard = async function () {
+
+  const snap = await getDoc(portalRef);
+
+  let status = false;
+
+  if (snap.exists()) {
+    status = snap.data().admitCardRelease || false;
+  }
+
+  await updateDoc(portalRef, {
+    admitCardRelease: !status
+  });
+
+  document.getElementById("admitStatus").innerHTML =
+    !status ? "🟢 Released" : "🔴 Hidden";
+
+  alert(!status
+    ? "✅ Admit Card Released Successfully"
+    : "🔴 Admit Card Hidden Successfully");
+
+};
+
+async function loadAdmitStatus() {
+
+  const snap = await getDoc(portalRef);
+
+  if (snap.exists()) {
+
+    document.getElementById("admitStatus").innerHTML =
+      snap.data().admitCardRelease
+      ? "🟢 Released"
+      : "🔴 Hidden";
+
+  }
+
+}
+
+loadAdmitStatus();
