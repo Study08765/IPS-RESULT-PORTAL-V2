@@ -2,14 +2,12 @@ import { db } from "./firebase.js";
 
 import {
 collection,
+addDoc,
 getDocs,
-getDoc,
-query,
-where,
 deleteDoc,
 doc,
-addDoc,
-updateDoc
+query,
+where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const rows = document.getElementById("rows");
@@ -17,7 +15,6 @@ const rows = document.getElementById("rows");
 function addRow(type){
 
 const div=document.createElement("div");
-
 div.className="row";
 
 if(type=="Lunch"){
@@ -38,13 +35,11 @@ div.innerHTML=`
 
 `;
 
-}
-
 }else{
 
 div.innerHTML=`
 
-<input class="periodNo" type="number" placeholder="Period No.">
+<input class="periodNo" type="number" placeholder="Period">
 
 <select class="type">
 <option>Period</option>
@@ -60,77 +55,29 @@ div.innerHTML=`
 
 }
 
-}
-
 rows.appendChild(div);
 
 }
 
-document.getElementById("addPeriod").onclick=()=>addRow("Period");
+document.getElementById("addPeriod").onclick=()=>{
+addRow("Period");
+};
 
-document.getElementById("addLunch").onclick=()=>addRow("Lunch");
+document.getElementById("addLunch").onclick=()=>{
+addRow("Lunch");
+};
 
-document.getElementById("saveBtn").onclick=async()=>{
+async function loadTimeTable(){
 
 const cls=document.getElementById("class").value;
 
-if(cls==""){
-alert("Select Class");
-return;
-}
-const oldData = await getDocs(
-query(
-collection(db,"time_table"),
-where("Class","==",cls)
-)
-);
-
-for(const d of oldData.docs){
-await deleteDoc(doc(db,"time_table",d.id));
-}
-const list=document.querySelectorAll(".row");
-
-for(const r of list){
-const periodNo = r.querySelector(".periodNo").value;
-const type=r.querySelector(".type").value;
-
-const subject=r.querySelector(".subject").value;
-
-const start=r.querySelector(".start").value;
-
-const end=r.querySelector(".end").value;
-
-await addDoc(collection(db,"time_table"),{
-
-Class:cls,
-PeriodNo:Number(periodNo),
-
-Type:type,
-
-Subject:subject,
-
-StartTime:start,
-
-EndTime:end
-
-});
-
-}
-
-alert("✅ Time Table Saved Successfully");
-loadTimeTable();
-};
-async function loadTimeTable(){
-
-const cls = document.getElementById("class").value;
-
 if(cls=="") return;
 
-const tbody = document.getElementById("savedTable");
+const tbody=document.getElementById("savedTable");
 
-tbody.innerHTML = "";
+tbody.innerHTML="";
 
-const snap = await getDocs(
+const snap=await getDocs(
 query(
 collection(db,"time_table"),
 where("Class","==",cls)
@@ -139,12 +86,12 @@ where("Class","==",cls)
 
 snap.forEach((d)=>{
 
-const t = d.data();
+const t=d.data();
 
-tbody.innerHTML += `
+tbody.innerHTML+=`
 <tr>
 
-<td>${t.PeriodNo || ""}</td>
+<td>${t.PeriodNo}</td>
 
 <td>${t.Type}</td>
 
@@ -156,19 +103,20 @@ tbody.innerHTML += `
 
 <td>
 
-<button onclick="editTimeTable('${d.id}')">
-✏️
-</button>
-
 <button onclick="deleteTimeTable('${d.id}')">
 🗑️
 </button>
 
 </td>
 
-
 </tr>
 `;
+
+});
+
+}
+
+document.getElementById("class").onchange=loadTimeTable;
 window.deleteTimeTable = async(id)=>{
 
 if(!confirm("Delete this row?")) return;
@@ -178,22 +126,60 @@ await deleteDoc(doc(db,"time_table",id));
 loadTimeTable();
 
 };
-  window.editTimeTable = async(id)=>{
 
-const snap = await getDoc(doc(db,"time_table",id));
+document.getElementById("saveBtn").onclick = async()=>{
 
-if(!snap.exists()) return;
+const cls = document.getElementById("class").value;
 
-const t = snap.data();
+if(cls==""){
+alert("Select Class");
+return;
+}
 
-alert(
-"Period : " + t.PeriodNo +
-"\nSubject : " + t.Subject +
-"\nTime : " + t.StartTime + " - " + t.EndTime
+const oldData = await getDocs(
+query(
+collection(db,"time_table"),
+where("Class","==",cls)
+)
 );
 
-};
+for(const d of oldData.docs){
+
+await deleteDoc(doc(db,"time_table",d.id));
+
+}
+
+const list = document.querySelectorAll(".row");
+
+for(const r of list){
+
+const periodNo = r.querySelector(".periodNo").value;
+
+const type = r.querySelector(".type").value;
+
+const subject = r.querySelector(".subject").value;
+
+const start = r.querySelector(".start").value;
+
+const end = r.querySelector(".end").value;
+
+await addDoc(collection(db,"time_table"),{
+
+Class:cls,
+PeriodNo:Number(periodNo),
+Type:type,
+Subject:subject,
+StartTime:start,
+EndTime:end
+
 });
 
 }
-document.getElementById("class").onchange = loadTimeTable;
+
+alert("✅ Time Table Saved Successfully");
+
+rows.innerHTML="";
+
+loadTimeTable();
+
+};
