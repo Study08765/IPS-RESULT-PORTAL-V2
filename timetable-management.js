@@ -3,7 +3,9 @@ import { db } from "./firebase.js";
 import {
 collection,
 addDoc,
+updateDoc,
 getDocs,
+getDoc,
 deleteDoc,
 doc,
 query,
@@ -11,7 +13,7 @@ where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const rows = document.getElementById("rows");
-
+let editId = null;
 function addRow(type){
 
 const div=document.createElement("div");
@@ -111,6 +113,10 @@ tbody.innerHTML+=`
 
 <td>
 
+<button onclick="editTimeTable('${d.id}')">
+✏️
+</button>
+
 <button onclick="deleteTimeTable('${d.id}')">
 🗑️
 </button>
@@ -134,7 +140,33 @@ await deleteDoc(doc(db,"time_table",id));
 loadTimeTable();
 
 };
+window.editTimeTable = async(id)=>{
 
+const snap = await getDoc(doc(db,"time_table",id));
+
+if(!snap.exists()) return;
+
+const t = snap.data();
+
+editId = id;
+
+rows.innerHTML = "";
+
+addRow(t.Type=="Lunch Break" ? "Lunch" : "Period");
+
+const r = rows.lastElementChild;
+
+r.querySelector(".periodNo").value = t.PeriodNo;
+r.querySelector(".subject").value = t.Subject;
+r.querySelector(".start").value = t.StartTime;
+r.querySelector(".end").value = t.EndTime;
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+};
 document.getElementById("saveBtn").onclick = async()=>{
 
 const cls = document.getElementById("class").value;
@@ -142,19 +174,6 @@ const cls = document.getElementById("class").value;
 if(cls==""){
 alert("Select Class");
 return;
-}
-
-const oldData = await getDocs(
-query(
-collection(db,"time_table"),
-where("Class","==",cls)
-)
-);
-
-for(const d of oldData.docs){
-
-await deleteDoc(doc(db,"time_table",d.id));
-
 }
 
 const list = rows.querySelectorAll(".row");
@@ -171,7 +190,54 @@ const start = r.querySelector(".start").value;
 
 const end = r.querySelector(".end").value;
 
+if(editId){
+
+await updateDoc(doc(db,"time_table",editId),{
+
+Class:cls,
+PeriodNo:Number(periodNo),
+Type:type,
+Subject:subject,
+StartTime:start,
+EndTime:end
+
+});
+
+editId = null;
+
+}else{
+
+if(editId){
+
+await updateDoc(doc(db,"time_table",editId),{
+
+Class:cls,
+PeriodNo:Number(periodNo),
+Type:type,
+Subject:subject,
+StartTime:start,
+EndTime:end
+
+});
+
+editId = null;
+
+}else{
+
 await addDoc(collection(db,"time_table"),{
+
+Class:cls,
+PeriodNo:Number(periodNo),
+Type:type,
+Subject:subject,
+StartTime:start,
+EndTime:end
+
+});
+
+  }
+
+}
 
 Class:cls,
 PeriodNo:Number(periodNo),
