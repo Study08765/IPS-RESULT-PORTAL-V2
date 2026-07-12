@@ -84,7 +84,15 @@ where("Class","==",cls)
 )
 );
 
-snap.forEach((d)=>{
+const list = [];
+
+snap.forEach(d=>{
+list.push(d.data());
+});
+
+list.sort((a,b)=>a.PeriodNo - b.PeriodNo);
+
+list.forEach(t=>{
 
 const t=d.data();
 
