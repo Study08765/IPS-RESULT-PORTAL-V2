@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Table Management</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f6fb;
+padding:20px;
+}
+
+.box{
+max-width:1000px;
+margin:auto;
+background:#fff;
+padding:20px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+}
+
+h2{
+text-align:center;
+color:#0b3d91;
+margin-bottom:20px;
+}
+
+select,
+input{
+width:100%;
+padding:10px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:15px;
+}
+
+.row{
+display:grid;
+grid-template-columns:140px 1fr 1fr 1fr;
+gap:10px;
+margin-bottom:12px;
+}
+
+button{
+padding:12px 18px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+margin:5px;
+}
+
+#addPeriod{
+background:#198754;
+color:white;
+}
+
+#addLunch{
+background:#fd7e14;
+color:white;
+}
+
+#saveBtn{
+background:#0b3d91;
+color:white;
+width:100%;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>📅 Time Table Management</h2>
+
+<select id="class">
+
+<option value="">Select Class</option>
+
+<option>Nursery</option>
+<option>LKG</option>
+<option>UKG</option>
+
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5</option>
+<option>6</option>
+<option>7</option>
+<option>8</option>
+<option>9</option>
+<option>10</option>
+
+</select>
+
+<br><br>
+
+<div id="rows">
+
+</div>
+
+<button id="addPeriod">
+➕ Add Period
+</button>
+
+<button id="addLunch">
+🍽️ Add Lunch Break
+</button>
+
+<button id="saveBtn">
+💾 Save Time Table
+</button>
+
+</div>
+
+<script type="module" src="timetable-management.js"></script>
+
+</body>
+  </html>
