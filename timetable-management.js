@@ -149,7 +149,7 @@ await deleteDoc(doc(db,"time_table",d.id));
 
 }
 
-const list = document.querySelectorAll(".row");
+const list = rows.querySelectorAll(".row");
 
 for(const r of list){
 
