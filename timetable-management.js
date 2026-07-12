@@ -3,11 +3,13 @@ import { db } from "./firebase.js";
 import {
 collection,
 getDocs,
+getDoc,
 query,
 where,
 deleteDoc,
 doc,
-addDoc
+addDoc,
+updateDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const rows = document.getElementById("rows");
@@ -116,5 +118,82 @@ EndTime:end
 }
 
 alert("✅ Time Table Saved Successfully");
+loadTimeTable();
+};
+async function loadTimeTable(){
+
+const cls = document.getElementById("class").value;
+
+if(cls=="") return;
+
+const tbody = document.getElementById("savedTable");
+
+tbody.innerHTML = "";
+
+const snap = await getDocs(
+query(
+collection(db,"time_table"),
+where("Class","==",cls)
+)
+);
+
+snap.forEach((d)=>{
+
+const t = d.data();
+
+tbody.innerHTML += `
+<tr>
+
+<td>${t.PeriodNo || ""}</td>
+
+<td>${t.Type}</td>
+
+<td>${t.Subject}</td>
+
+<td>${t.StartTime}</td>
+
+<td>${t.EndTime}</td>
+
+<td>
+
+<button onclick="editTimeTable('${d.id}')">
+✏️
+</button>
+
+<button onclick="deleteTimeTable('${d.id}')">
+🗑️
+</button>
+
+</td>
+
+
+</tr>
+`;
+window.deleteTimeTable = async(id)=>{
+
+if(!confirm("Delete this row?")) return;
+
+await deleteDoc(doc(db,"time_table",id));
+
+loadTimeTable();
 
 };
+  window.editTimeTable = async(id)=>{
+
+const snap = await getDoc(doc(db,"time_table",id));
+
+if(!snap.exists()) return;
+
+const t = snap.data();
+
+alert(
+"Period : " + t.PeriodNo +
+"\nSubject : " + t.Subject +
+"\nTime : " + t.StartTime + " - " + t.EndTime
+);
+
+};
+});
+
+}
+document.getElementById("class").onchange = loadTimeTable;
