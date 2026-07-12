@@ -44,9 +44,16 @@ let html = `
 </tr>
 `;
 
-snap.forEach(d=>{
+const list = [];
 
-const t = d.data();
+snap.forEach(d=>{
+list.push(d.data());
+});
+
+// Period Number के हिसाब से Sort
+list.sort((a,b)=>a.PeriodNo - b.PeriodNo);
+
+list.forEach(t=>{
 
 if(t.Type=="Lunch Break"){
 
