@@ -31,8 +31,13 @@ where("Class","==",s.Class)
 const snap = await getDocs(q);
 
 let html = `
-<table>
-<tr>
+<h2 style="text-align:center;color:#0b3d91;margin-bottom:15px;">
+📅 Class ${s.Class} Time Table
+</h2>
+
+<table style="width:100%;border-collapse:collapse;" border="1">
+
+<tr style="background:#0b3d91;color:white;">
 <th>Type</th>
 <th>Subject</th>
 <th>Time</th>
@@ -43,18 +48,31 @@ snap.forEach(d=>{
 
 const t = d.data();
 
+if(t.Type=="Lunch Break"){
+
+html += `
+<tr style="background:#fff3cd;font-weight:bold;">
+<td>🍽️ Lunch Break</td>
+<td colspan="2">
+${t.StartTime} - ${t.EndTime}
+</td>
+</tr>
+`;
+
+}else{
+
 html += `
 <tr>
-<td>${t.Type}</td>
+<td>📚 Period</td>
 <td>${t.Subject}</td>
 <td>${t.StartTime} - ${t.EndTime}</td>
 </tr>
 `;
 
+}
+
 });
 
 html += "</table>";
 
-document.querySelector(".container").innerHTML =
-html +
-`<a href="student-dashboard.html" class="back">⬅ Back</a>`;
+document.getElementById("timeTable").innerHTML = html;
