@@ -22,21 +22,27 @@ if(type=="Lunch"){
 
 div.innerHTML=`
 
+<input class="periodNo" type="number" placeholder="No.">
+
 <select class="type">
 <option>Lunch Break</option>
 </select>
 
 <input class="subject" value="Lunch Break" readonly>
 
-<input class="start">
+<input class="start" type="time">
 
-<input class="end">
+<input class="end" type="time">
 
 `;
+
+}
 
 }else{
 
 div.innerHTML=`
+
+<input class="periodNo" type="number" placeholder="Period No.">
 
 <select class="type">
 <option>Period</option>
@@ -49,6 +55,8 @@ div.innerHTML=`
 <input class="end" type="time">
 
 `;
+
+}
 
 }
 
@@ -81,7 +89,7 @@ await deleteDoc(doc(db,"time_table",d.id));
 const list=document.querySelectorAll(".row");
 
 for(const r of list){
-
+const periodNo = r.querySelector(".periodNo").value;
 const type=r.querySelector(".type").value;
 
 const subject=r.querySelector(".subject").value;
@@ -93,6 +101,7 @@ const end=r.querySelector(".end").value;
 await addDoc(collection(db,"time_table"),{
 
 Class:cls,
+PeriodNo:Number(periodNo),
 
 Type:type,
 
