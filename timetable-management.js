@@ -2,6 +2,11 @@ import { db } from "./firebase.js";
 
 import {
 collection,
+getDocs,
+query,
+where,
+deleteDoc,
+doc,
 addDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
@@ -63,7 +68,16 @@ if(cls==""){
 alert("Select Class");
 return;
 }
+const oldData = await getDocs(
+query(
+collection(db,"time_table"),
+where("Class","==",cls)
+)
+);
 
+for(const d of oldData.docs){
+await deleteDoc(doc(db,"time_table",d.id));
+}
 const list=document.querySelectorAll(".row");
 
 for(const r of list){
