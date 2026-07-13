@@ -53,23 +53,7 @@ list.push(d.data());
 
 // Period Number के हिसाब से Sort
 list.sort((a,b)=>a.PeriodNo - b.PeriodNo);
-const schoolClosed = list.some(t => t.Type === "School Closed");
 
-if (schoolClosed) {
-
-html += `
-<tr style="background:#ffcccc;font-weight:bold;">
-<td>🏫 School Closed</td>
-<td colspan="2">Today is Holiday</td>
-</tr>
-`;
-
-html += "</table>";
-
-document.getElementById("timeTable").innerHTML = html;
-
-return;
-  }
 list.forEach(t=>{
 
 if(t.Type=="School Closed"){
