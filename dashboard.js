@@ -267,11 +267,23 @@ if (maintenanceOn) {
 
     alert("ON Button Click");
 
-    await setDoc(doc(db, "portal_settings", "system"), {
-      maintenance: true
-    }, { merge: true });
+    try {
 
-    alert("🚧 Maintenance ON");
+  await setDoc(
+    doc(db, "portal_settings", "system"),
+    {
+      maintenance: true
+    },
+    { merge: true }
+  );
+
+  alert("🚧 Maintenance ON");
+
+} catch (e) {
+
+  alert(e.message);
+
+    }
   };
 }
 
