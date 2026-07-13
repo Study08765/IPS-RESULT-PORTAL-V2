@@ -56,7 +56,16 @@ list.sort((a,b)=>a.PeriodNo - b.PeriodNo);
 
 list.forEach(t=>{
 
-if(t.Type=="Lunch Break"){
+if(t.Type=="School Closed"){
+
+html += `
+<tr style="background:#ffcccc;font-weight:bold;">
+<td>🏫 School Closed</td>
+<td colspan="2">Holiday</td>
+</tr>
+`;
+
+}else if(t.Type=="Lunch Break"){
 
 html += `
 <tr style="background:#fff3cd;font-weight:bold;">
@@ -78,6 +87,8 @@ html += `
 `;
 
 }
+
+});
 
 });
 
