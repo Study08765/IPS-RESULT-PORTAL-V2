@@ -29,9 +29,9 @@ value="${data.PeriodNo||""}">
 
 <option ${type=="Period"?"selected":""}>Period</option>
 
-<option ${type=="Lunch Break"?"selected":""}>
-Lunch Break
-</option>
+<option ${type=="Lunch Break"?"selected":""}>Lunch Break</option>
+
+<option ${type=="School Closed"?"selected":""}>School Closed</option>
 
 </select>
 
@@ -52,16 +52,14 @@ value="${data.EndTime||""}">
 const typeBox=div.querySelector(".type");
 const subject=div.querySelector(".subject");
 
-if(type=="Lunch Break"){
-subject.value="Lunch Break";
-subject.readOnly=true;
-}
-
-typeBox.onchange=()=>{
-
 if(typeBox.value=="Lunch Break"){
 
 subject.value="Lunch Break";
+subject.readOnly=true;
+
+}else if(typeBox.value=="School Closed"){
+
+subject.value="School Closed";
 subject.readOnly=true;
 
 }else{
