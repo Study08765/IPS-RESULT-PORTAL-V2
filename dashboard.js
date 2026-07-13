@@ -257,3 +257,27 @@ snap.data().admitCardRelease
 }
 
 loadAdmitStatus();
+// ================= Maintenance Mode =================
+
+const maintenanceOn = document.getElementById("maintenanceOn");
+const maintenanceOff = document.getElementById("maintenanceOff");
+
+maintenanceOn.addEventListener("click", async () => {
+
+  await setDoc(doc(db, "portal_settings", "system"), {
+    maintenance: true
+  }, { merge: true });
+
+  alert("🚧 Maintenance Mode ON");
+
+});
+
+maintenanceOff.addEventListener("click", async () => {
+
+  await setDoc(doc(db, "portal_settings", "system"), {
+    maintenance: false
+  }, { merge: true });
+
+  alert("✅ Maintenance Mode OFF");
+
+});
