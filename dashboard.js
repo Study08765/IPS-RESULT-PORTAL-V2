@@ -262,22 +262,28 @@ loadAdmitStatus();
 const maintenanceOn = document.getElementById("maintenanceOn");
 const maintenanceOff = document.getElementById("maintenanceOff");
 
-maintenanceOn.addEventListener("click", async () => {
+if (maintenanceOn) {
+  maintenanceOn.onclick = async function () {
 
-  await setDoc(doc(db, "portal_settings", "system"), {
-    maintenance: true
-  }, { merge: true });
+    alert("ON Button Click");
 
-  alert("🚧 Maintenance Mode ON");
+    await setDoc(doc(db, "portal_settings", "system"), {
+      maintenance: true
+    }, { merge: true });
 
-});
+    alert("🚧 Maintenance ON");
+  };
+}
 
-maintenanceOff.addEventListener("click", async () => {
+if (maintenanceOff) {
+  maintenanceOff.onclick = async function () {
 
-  await setDoc(doc(db, "portal_settings", "system"), {
-    maintenance: false
-  }, { merge: true });
+    alert("OFF Button Click");
 
-  alert("✅ Maintenance Mode OFF");
+    await setDoc(doc(db, "portal_settings", "system"), {
+      maintenance: false
+    }, { merge: true });
 
-});
+    alert("✅ Maintenance OFF");
+  };
+}
