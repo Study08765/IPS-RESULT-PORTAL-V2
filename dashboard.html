@@ -151,7 +151,13 @@ location.href="login.html";
 <p>Status :
 <span id="publishStatusText">Loading...</span>
 </p>
+<button class="btn" id="maintenanceOn" style="background:#ff9800;">
+🚧 Maintenance ON
+</button>
 
+<button class="btn" id="maintenanceOff" style="background:#4caf50;">
+✅ Maintenance OFF
+</button>
 </div>
 <div class="card">
 
@@ -193,7 +199,9 @@ placeholder="Session">
 
 <button class="btn" onclick="saveCountdown()">
 ⏳ Save Countdown
-  <br><br>
+</button>
+
+<br><br>
 
 <button class="btn" onclick="enableCountdown()">
 🟢 Enable Countdown
@@ -204,7 +212,6 @@ placeholder="Session">
 </button>
 
 <p id="countdownStatus"></p>
-</button>
 
 </div>
 <div class="card">
