@@ -54,18 +54,31 @@ list.push(d.data());
 // Period Number के हिसाब से Sort
 list.sort((a,b)=>a.PeriodNo - b.PeriodNo);
 
+let isClosed = false;
+
 list.forEach(t=>{
 
 if(t.Type=="School Closed"){
+isClosed = true;
+}
+
+});
+
+if(isClosed){
 
 html += `
-<tr style="background:#ffcccc;font-weight:bold;">
-<td>🏫 School Closed</td>
-<td colspan="2">Holiday</td>
+<tr style="background:#ff4d4d;color:#fff;font-weight:bold;font-size:18px;">
+<td colspan="3">
+🏫 TODAY SCHOOL CLOSED
+</td>
 </tr>
 `;
 
-}else if(t.Type=="Lunch Break"){
+}else{
+
+list.forEach(t=>{
+
+if(t.Type=="Lunch Break"){
 
 html += `
 <tr style="background:#fff3cd;font-weight:bold;">
@@ -89,6 +102,8 @@ html += `
 }
 
 });
+
+}
 
 html += "</table>";
 
