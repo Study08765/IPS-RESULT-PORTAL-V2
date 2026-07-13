@@ -103,7 +103,33 @@ async function loadResultLive() {
 
 loadResultLive();
 window.searchResult = async function () {
+const maintenanceRef = doc(db, "portal_settings", "system");
+const maintenanceSnap = await getDoc(maintenanceRef);
 
+if (
+  maintenanceSnap.exists() &&
+  maintenanceSnap.data().maintenance === true
+) {
+
+  document.getElementById("result").innerHTML = `
+  <div style="
+    background:#fff3cd;
+    border:2px solid #ffc107;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+  ">
+    <h2 style="color:#dc3545;">🚧 SITE UNDER MAINTENANCE</h2>
+
+    <p style="font-size:18px;">
+      Result is being updated.<br>
+      Please try again after some time.
+    </p>
+  </div>
+  `;
+
+  return;
+}
   const roll = document.getElementById("roll").value.trim();
 
   if (!roll) {
