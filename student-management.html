@@ -51,17 +51,31 @@ box-sizing:border-box;
 
 button{
 margin-top:20px;
-padding:12px;
-background:#0b3d91;
-color:white;
+padding:14px;
+width:100%;
 border:none;
-border-radius:8px;
+border-radius:14px;
 font-size:16px;
+font-weight:bold;
 cursor:pointer;
+color:#fff;
+background:linear-gradient(135deg,#0b3d91,#1d5fd3);
+box-shadow:0 8px 20px rgba(11,61,145,.35);
+transition:.3s;
 }
 
 button:hover{
-background:#062c69;
+transform:translateY(-3px);
+background:linear-gradient(135deg,#1d5fd3,#0b3d91);
+box-shadow:0 12px 25px rgba(11,61,145,.45);
+}
+
+button:active{
+transform:scale(.97);
+}
+
+#saveBtn{
+background:linear-gradient(135deg,#16a34a,#22c55e);
 }
 
 table{
