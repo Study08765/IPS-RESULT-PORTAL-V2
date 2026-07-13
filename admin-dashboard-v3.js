@@ -5,7 +5,8 @@ collection,
 getDocs,
 doc,
 getDoc,
-updateDoc
+updateDoc,
+setDoc
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const students = await getDocs(collection(db,"students_v2"));
@@ -49,3 +50,25 @@ location.reload();
 };
 
 }
+const maintenanceOn = document.getElementById("maintenanceOn");
+const maintenanceOff = document.getElementById("maintenanceOff");
+
+maintenanceOn.onclick = async()=>{
+
+await setDoc(doc(db,"portal_settings","system"),{
+maintenance:true
+});
+
+alert("🔴 Maintenance Mode ON");
+
+};
+
+maintenanceOff.onclick = async()=>{
+
+await setDoc(doc(db,"portal_settings","system"),{
+maintenance:false
+});
+
+alert("🟢 Maintenance Mode OFF");
+
+};
