@@ -49,8 +49,7 @@ value="${data.EndTime||""}">
 
 `;
 
-const typeBox=div.querySelector(".type");
-const subject=div.querySelector(".subject");
+function updateType(){
 
 if(typeBox.value=="Lunch Break"){
 
@@ -64,12 +63,19 @@ subject.readOnly=true;
 
 }else{
 
-subject.value="";
 subject.readOnly=false;
+
+if(subject.value=="Lunch Break" || subject.value=="School Closed"){
+subject.value="";
+}
 
 }
 
-};
+}
+
+updateType();
+
+typeBox.onchange = updateType;
 
 rows.appendChild(div);
 
@@ -81,6 +87,9 @@ addRow("Period");
 
 document.getElementById("addLunch").onclick=()=>{
 addRow("Lunch Break");
+};
+document.getElementById("addClosed").onclick=()=>{
+addRow("School Closed");
 };
 async function loadTimeTable(){
 
