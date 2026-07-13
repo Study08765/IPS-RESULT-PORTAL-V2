@@ -27,7 +27,6 @@ const s = student.data();
 const q = query(
 collection(db,"time_table"),
 where("Class","==",s.Class),
-orderBy("PeriodNo")
 );
 
 const snap = await getDocs(q);
