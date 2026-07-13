@@ -90,8 +90,6 @@ html += `
 
 });
 
-});
-
 html += "</table>";
 
 document.getElementById("timeTable").innerHTML = html;
