@@ -99,7 +99,6 @@ const snap = await getDocs(
 query(
 collection(db,"time_table"),
 where("Class","==",cls),
-orderBy("PeriodNo")
 )
 );
 
