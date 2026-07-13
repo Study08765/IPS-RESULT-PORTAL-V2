@@ -184,6 +184,11 @@ rows.innerHTML="";
 
 alert("✅ Time Table Saved Successfully");
 
-loadTimeTable();
+await loadTimeTable();
 
+};
+window.onload = ()=>{
+if(classSelect.value!=""){
+loadTimeTable();
+}
 };
