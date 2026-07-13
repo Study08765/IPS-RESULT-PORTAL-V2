@@ -89,9 +89,6 @@ addRow("Period");
 document.getElementById("addLunch").onclick=()=>{
 addRow("Lunch Break");
 };
-document.getElementById("addClosed").onclick=()=>{
-addRow("School Closed");
-};
 async function loadTimeTable(){
 
 const cls = classSelect.value;
