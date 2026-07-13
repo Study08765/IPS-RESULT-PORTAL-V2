@@ -265,7 +265,6 @@ const maintenanceOff = document.getElementById("maintenanceOff");
 if (maintenanceOn) {
   maintenanceOn.onclick = async function () {
 
-    alert("ON Button Click");
 
     try {
 
@@ -290,9 +289,8 @@ if (maintenanceOn) {
 if (maintenanceOff) {
   maintenanceOff.onclick = async function () {
 
-    alert("OFF Button Click");
 
-    await setDoc(doc(db, "portal_settings", "system"), {
+ await setDoc(doc(db, "portal_settings", "system"), {
       maintenance: false
     }, { merge: true });
 
