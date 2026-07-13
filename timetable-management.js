@@ -48,7 +48,8 @@ type="time"
 value="${data.EndTime||""}">
 
 `;
-
+const typeBox = div.querySelector(".type");
+const subject = div.querySelector(".subject");
 function updateType(){
 
 if(typeBox.value=="Lunch Break"){
