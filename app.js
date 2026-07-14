@@ -95,9 +95,15 @@ async function loadResultLive() {
 
 } else {
 
-  box.style.background = "#dc3545";
-  box.innerHTML = "🔴 RESULT NOT DECLARED";
-  box.style.animation = "none";
+  box.style.background = "linear-gradient(135deg,#ff9800,#ff5722)";
+box.style.color = "#fff";
+box.style.borderRadius = "14px";
+box.style.padding = "14px";
+box.style.fontWeight = "700";
+box.style.letterSpacing = "1px";
+box.style.boxShadow = "0 8px 20px rgba(255,87,34,.35)";
+box.innerHTML = "📅 RESULT WILL BE PUBLISHED SOON";
+box.style.animation = "blink 1s infinite";
 
   }
 
