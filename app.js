@@ -231,7 +231,7 @@ RESULT ${s.Session}
 </div>
 
 <div class="info-box">
-<b>🏫 Class :</b><br>${s.Class} (${s.Section})
+<b>🏫 Class :</b><br>${s.Class}${s.Section ? " (" + s.Section + ")" : ""}
 </div>
 
 </div>
@@ -239,7 +239,7 @@ RESULT ${s.Session}
 <hr>
 
 
-<table border="1" width="100%" cellspacing="0" cellpadding="8">
+<table class="resultTable">
 
 <tr>
 
