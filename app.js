@@ -198,7 +198,45 @@ const resultStatus = s.Result || "-";
 
   document.getElementById("result").innerHTML = `
 
-<div style="background:#fff;border:2px solid #0b3d91;border-radius:10px;padding:15px;">
+<div class="result-card">
+
+<div class="result-header">
+
+<h2>🏫 IPS PUBLIC SCHOOL</h2>
+
+<h3>AHIRORI HARDOI</h3>
+
+<h4 style="color:#0b3d91;">
+${s.ExamType}
+</h4>
+
+<h4 style="color:#666;">
+RESULT ${s.Session}
+</h4>
+
+</div>
+
+<div class="info-grid">
+
+<div class="info-box">
+<b>🎓 Roll No :</b><br>${s.Roll}
+</div>
+
+<div class="info-box">
+<b>👨‍🎓 Student :</b><br>${s.Name}
+</div>
+
+<div class="info-box">
+<b>👨 Father :</b><br>${s.Father}
+</div>
+
+<div class="info-box">
+<b>🏫 Class :</b><br>${s.Class} (${s.Section})
+</div>
+
+</div>
+
+<hr>
 
 <h2 style="text-align:center;color:#0b3d91;">
 IPS PUBLIC SCHOOL
@@ -246,17 +284,42 @@ ${rows}
 
 <br>
 
-<p><b>Total :</b> ${total} / ${fullTotal}</p>
+<div class="summary">
 
-<p><b>Percentage :</b> ${percentage}%</p>
+<div>
+<h3>${total}</h3>
+<p>Total Marks</p>
+</div>
 
-<p><b>Grade :</b> ${grade}</p>
-<p><b>Division :</b> ${division}</p>
-<p style="font-size:22px;color:${resultStatus==="PASS"?"green":"red"}">
+<div>
+<h3>${percentage}%</h3>
+<p>Percentage</p>
+</div>
 
-<b>${resultStatus}</b>
+<div>
+<h3>${grade}</h3>
+<p>Grade</p>
+</div>
 
-</p>
+<div class="${resultStatus==="PASS"?"pass":"fail"}">
+<h3>${resultStatus}</h3>
+<p>Result</p>
+</div>
+
+</div>
+
+<br>
+
+<div style="text-align:center;
+background:#f8f9fa;
+padding:12px;
+border-radius:10px;
+font-weight:bold;
+color:#555;">
+
+🏆 Division : ${division}
+
+</div>
 
 <button onclick="window.print()">
 
