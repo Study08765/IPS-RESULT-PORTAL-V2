@@ -1,7 +1,9 @@
 import { db } from "./firebase.js";
 import {
   doc,
-  getDoc
+  getDoc,
+  collection,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 async function loadPortalHeader() {
 
@@ -164,6 +166,30 @@ if (
   }
 
   const s = snap.data();
+  let classRank = 1;
+
+const allStudents = await getDocs(collection(db, "students_v2"));
+
+let classStudents = [];
+
+allStudents.forEach(d => {
+
+  const st = d.data();
+
+  if (st.Class == s.Class) {
+
+    classStudents.push(st);
+
+  }
+
+});
+
+classStudents.sort((a, b) =>
+  Number(b.Percentage || 0) - Number(a.Percentage || 0)
+);
+
+classRank =
+  classStudents.findIndex(x => x.Roll == s.Roll) + 1;
 document.getElementById("examTitle").innerHTML = s.ExamType;
 document.getElementById("sessionTitle").innerHTML = "RESULT " + s.Session;
   let total = 0;
@@ -273,7 +299,10 @@ ${rows}
 <h3>${grade}</h3>
 <p>Grade</p>
 </div>
-
+<div>
+<h3>${classRank}</h3>
+<p>Class Rank</p>
+</div>
 <div class="${resultStatus==="PASS"?"pass":"fail"}">
 <h3>${resultStatus}</h3>
 <p>Result</p>
