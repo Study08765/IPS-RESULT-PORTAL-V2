@@ -238,33 +238,6 @@ RESULT ${s.Session}
 
 <hr>
 
-<h2 style="text-align:center;color:#0b3d91;">
-IPS PUBLIC SCHOOL
-</h2>
-
-<h3 style="text-align:center;">
-AHIRORI HARDOI
-</h3>
-
-<h3 style="text-align:center;">
-${s.ExamType}
-</h3>
-
-<h3 style="text-align:center;">
-RESULT ${s.Session}
-</h3>
-
-<hr>
-
-<p><b>Roll No :</b> ${s.Roll}</p>
-
-<p><b>Name :</b> ${s.Name}</p>
-
-<p><b>Father :</b> ${s.Father}</p>
-
-<p><b>Class :</b> ${s.Class}</p>
-
-<p><b>Section :</b> ${s.Section}</p>
 
 <table border="1" width="100%" cellspacing="0" cellpadding="8">
 
