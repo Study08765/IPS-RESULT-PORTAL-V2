@@ -252,6 +252,61 @@ background:#f8fbff;
 background:#eef5ff;
 transition:.3s;
     }
+    .noticeCard{
+background:#fff;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 12px 30px rgba(0,0,0,.15);
+border:2px solid #FFD700;
+margin-bottom:20px;
+animation:noticeGlow 2s infinite alternate;
+}
+
+.noticeHeader{
+background:linear-gradient(135deg,#0b3d91,#1565c0);
+color:#fff;
+padding:15px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+letter-spacing:1px;
+}
+
+.noticeBody{
+padding:20px;
+background:#fffdf5;
+font-size:17px;
+line-height:1.8;
+color:#333;
+text-align:center;
+}
+
+.noticeBody p{
+margin:0;
+white-space:pre-line;
+}
+
+@keyframes noticeGlow{
+
+0%{
+box-shadow:0 0 8px rgba(255,215,0,.3);
+}
+
+100%{
+box-shadow:0 0 22px rgba(255,215,0,.8);
+}
+
+    }
+    .latestBadge{
+background:#e53935;
+color:#fff;
+padding:5px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+margin-right:10px;
+animation:blink 1s infinite;
+    }
   </style>
 </head>
 
@@ -269,17 +324,19 @@ transition:.3s;
 </header>
 
 <div class="container">
-<div id="noticeBox"
-style="display:none;
-background:#fff8e1;
-border-left:5px solid orange;
-padding:12px;
-margin-bottom:15px;
-border-radius:8px;">
+<div id="noticeBox" class="noticeCard" style="display:none;">
 
-<h3>📢 School Notice</h3>
+<div class="noticeHeader">
 
+<span class="latestBadge">LATEST</span>
+
+📢 SCHOOL NOTICE
+
+</div>
+
+<div class="noticeBody">
 <p id="noticeTextShow"></p>
+</div>
 
 </div>
   <div id="resultLive"
