@@ -99,7 +99,7 @@ box-shadow:0 10px 30px rgba(0,0,0,.25);
 color:#fff;
 text-shadow:0 0 20px rgba(255,255,255,.5);
 font-size:48px;
-
+letter-spacing:2px;
 margin-top:20px;
 
 }
@@ -234,6 +234,227 @@ border-radius:100% 100% 0 0;
 .search-card:hover{
 transform:translateY(-10px);
   }
+.login-card{
+    width:90%;
+    width:300px;
+    margin:25px auto;
+    padding:25px;
+    background:#ffffff;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+  transition:0.3s ease;
+  cursor:pointer;
+  }
+  .login-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 40px rgba(0,0,0,.22);
+  }
+.login-card i{
+    font-size:50px;
+    color:#0b3d91;
+    margin-bottom:15px;
+  }
+  .login-card h3{
+    font-size:22px;
+    color:#0b3d91;
+    margin-top:10px;
+    font-weight:700;
+  }
+  .login-btn{
+    display:block;
+text-decoration:none;
+text-align:center;
+    width:100%;
+    padding:14px;
+    margin-top:18px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#0b3d91,#1e88e5);
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+     }
+  .login-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(11,61,145,.35);
+    transition:.3s;
+  }
+  .login-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+    padding:50px 20px;
+  }
+  .notice-section{
+    width:90%;
+    max-width:900px;
+    margin:40px auto;
+    padding:25px;
+    background:#ffffff;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    text-align:center;
+  }
+  .notice-section h2{
+    color:#0b3d91;
+    font-size:28px;
+    margin-bottom:15px;
+    font-weight:700;
+  }
+  .notice-section p{
+    color:#555;
+    font-size:17px;
+    line-height:1.8;
+    }
+  .notice-section marquee{
+    color:#d32f2f;
+    font-size:18px;
+    font-weight:600;
+    padding:10px 0;
+  }
+  .quick-links{
+    width:90%;
+    max-width:1100px;
+    margin:50px auto;
+    text-align:center;
+}
+
+.quick-links h2{
+    color:#0b3d91;
+    font-size:30px;
+    margin-bottom:30px;
+}
+
+.quick-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+  }
+  .quick-card{
+    width:220px;
+    padding:30px 20px;
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    text-decoration:none;
+    color:#0b3d91;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.quick-card h3{
+    margin-top:15px;
+    font-size:22px;
+}
+
+.quick-card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 18px 40px rgba(11,61,145,.35);
+  }
+  .footer{
+    margin-top:60px;
+    background:linear-gradient(135deg,#0b3d91,#06245c);
+    color:#fff;
+    text-align:center;
+    padding:40px 20px;
+}
+
+.footer h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.footer p{
+    font-size:16px;
+    margin:8px 0;
+    opacity:.9;
+    }
+  body{
+    animation:fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+  }
+  .hero h1{
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px rgba(255,255,255,.4);
+    }
+    to{
+        text-shadow:0 0 25px rgba(255,255,255,.9);
+    }
+      }
+  #topBtn{
+    display:none;
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#0b3d91;
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(11,61,145,.4);
+    transition:.3s;
+    z-index:999;
+}
+
+#topBtn:hover{
+    transform:scale(1.1);
+    background:#1565c0;
+  }
+  .whatsapp-btn{
+    position:fixed;
+    bottom:95px;
+    right:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:30px;
+    box-shadow:0 8px 20px rgba(37,211,102,.4);
+    transition:.3s;
+    z-index:999;
+}
+
+.whatsapp-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 12px 25px rgba(37,211,102,.6);
+  }
+  .developer{
+    margin-top:15px;
+    font-size:17px;
+    color:#FFD700;
+    font-weight:500;
+    letter-spacing:1px;
+}
+
+.developer strong{
+    color:#ffffff;
+    font-weight:700;
+  }
 </style>
 
 </head>
@@ -287,3 +508,83 @@ placeholder="Enter Roll Number">
 </div>
 
   </section>
+  <div class="login-container">
+<div class="login-card">
+    <i class="fa-solid fa-user-graduate"></i>
+    <h3>Student Login</h3>
+  <a href="student-login.html" class="login-btn">LOGIN</a>
+</div>
+<div class="login-card">
+    <i class="fa-solid fa-chalkboard-user"></i>
+    <h3>Staff Login</h3>
+    <a href="staff-login.html" class="login-btn">LOGIN</a>
+</div>
+<div class="login-card">
+    <i class="fa-solid fa-user-shield"></i>
+    <h3>Admin Login</h3>
+    <a href="admin-login.html" class="login-btn">LOGIN</a>
+</div>
+  </div>
+  <section class="notice-section">
+    <h2>📢 Latest Announcements</h2>
+    <marquee behavior="scroll" direction="left">
+📢 Monthly Test Result 2026-27 is now available. Students can check their results using their Class and Roll Number.
+    </marquee>
+  </section>
+  <section class="quick-links">
+
+<h2>Quick Links</h2>
+
+<div class="quick-container">
+
+<a href="result.html" class="quick-card">
+📄
+<h3>Result</h3>
+</a>
+
+<a href="timetable.html" class="quick-card">
+🕒
+<h3>Time Table</h3>
+</a>
+
+<a href="admit-card.html" class="quick-card">
+🎫
+<h3>Admit Card</h3>
+</a>
+
+<a href="contact.html" class="quick-card">
+📞
+<h3>Contact Us</h3>
+</a>
+
+</div>
+
+  </section>
+  <footer class="footer">
+
+<h3>IPS PUBLIC SCHOOL</h3>
+
+<p>AHIRORI, HARDOI (U.P.)</p>
+
+<p>© 2026 IPS PUBLIC SCHOOL. All Rights Reserved.</p>
+<p class="developer">
+    Developed & Designed By <strong>A.K. SINGH CHANDEL</strong>
+</p>
+  </footer>
+  <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+⬆
+  </button>
+  <script>
+let topBtn = document.getElementById("topBtn");
+
+window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+  </script>
+  <a href="https://wa.me/8127803733" class="whatsapp-btn" target="_blank">
+    💬
+  </a>
