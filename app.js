@@ -138,7 +138,7 @@ if (
 
   return;
 }
-  const roll = document.getElementById("roll").value.trim();
+  const roll = document.getElementById("roll").value.trim().padStart(4, "0");
 
   if (!roll) {
     alert("Enter Roll Number");
@@ -159,6 +159,12 @@ if (
   `;
   return;
 }
+  const selectedClass = document.getElementById("class").value;
+
+if (selectedClass === "Select Class") {
+  alert("Please Select Class");
+  return;
+}
   const ref = doc(db, "students_v2", roll);
   const snap = await getDoc(ref);
 
@@ -172,6 +178,16 @@ if (
   }
 
   const s = snap.data();
+  const selectedClass = document.getElementById("class").value.replace("Class ", "");
+
+if (s.Class !== selectedClass) {
+  document.getElementById("result").innerHTML = `
+    <h2 style="color:red;text-align:center">
+      ❌ Class and Roll Number do not match
+    </h2>
+  `;
+  return;
+}
   let classRank = 1;
 
 const allStudents = await getDocs(collection(db, "students_v2"));
