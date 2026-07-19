@@ -525,6 +525,7 @@ placeholder="Enter Roll Number">
 </div>
 
   </section>
+    <div id="result"></div>
   <div class="login-container">
 <div class="login-card">
     <i class="fa-solid fa-user-graduate"></i>
@@ -607,17 +608,4 @@ window.onscroll = function () {
     💬
   </a>
 <script type="module" src="app.js"></script>
-<script>
-function goResult() {
-  const roll = document.getElementById("roll").value.trim();
 
-  if (!roll) {
-    alert("Enter Roll Number");
-    return;
-  }
-
-  window.location.href = "result-search-v2.html?roll=" + encodeURIComponent(roll);
-}
-</script>
-
-<script type="module" src="app.js"></script>
