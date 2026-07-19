@@ -483,11 +483,15 @@ padding:10px;
 <h1>IPS PUBLIC SCHOOL</h1>
 
 <p>AHIRORI • HARDOI</p>
-<h2 style="color:#FFD700;font-size:32px;font-weight:800;letter-spacing:2px;text-shadow:0 2px 8px rgba(0,0,0,.7),0 0 15px rgba(255,215,0,.5);margin-top:10px;">
-MONTHLY TEST RESULT 2026-27
+<h2 id="examTitle" style="color:#FFD700;font-size:32px;font-weight:800;letter-spacing:2px;text-shadow:0 2px 8px rgba(0,0,0,.7),0 0 15px rgba(255,215,0,.5);margin-top:10px;">
+Loading...
 </h2>
-<div class="live">
-🟢 RESULT LIVE
+
+<h3 id="sessionTitle" style="color:#ffffff;margin-top:8px;">
+Loading...
+</h3>
+<div class="live" id="resultLive">
+Loading...
 </div>
 
 <div class="search-card">
@@ -496,7 +500,7 @@ MONTHLY TEST RESULT 2026-27
 🔍 Search Your Result
 </h2>
 
-<select class="input-box">
+<select class="input-box" id="class">
 <option selected disabled>Select Class</option>
 <option>Class 3</option>
 <option>Class 4</option>
@@ -508,10 +512,11 @@ MONTHLY TEST RESULT 2026-27
 
 <input
 type="number"
+id="roll"
 class="input-box"
 placeholder="Enter Roll Number">
 
-<button class="result-btn">
+<button class="result-btn" onclick="searchResult()">
 🔍 VIEW RESULT
 </button>
 
@@ -539,9 +544,10 @@ placeholder="Enter Roll Number">
   </div>
   <section class="notice-section">
     <h2>📢 Latest Announcements</h2>
-    <marquee behavior="scroll" direction="left">
-📢 Monthly Test Result 2026-27 is now available. Students can check their results using their Class and Roll Number.
+    <marquee id="noticeTextShow" behavior="scroll" direction="left">
+Loading...
     </marquee>
+      <div id="countdown" style="margin-top:15px;font-size:18px;font-weight:bold;color:#0b3d91;text-align:center;"></div>
   </section>
   <section class="quick-links">
 
@@ -600,3 +606,4 @@ window.onscroll = function () {
   <a href="https://wa.me/8127803733" class="whatsapp-btn" target="_blank">
     💬
   </a>
+<script type="module" src="app.js"></script>
