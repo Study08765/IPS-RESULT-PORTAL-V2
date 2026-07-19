@@ -166,9 +166,10 @@ if (s.Class !== selectedClassValue) {
   alert("Please Select Class");
   return;
 }
+  alert("Roll = " + roll);
   const ref = doc(db, "students_v2", roll);
   const snap = await getDoc(ref);
-
+alert("Document Exists = " + snap.exists());
   if (!snap.exists()) {
 
     document.getElementById("result").innerHTML =
