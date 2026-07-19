@@ -111,6 +111,7 @@ box.style.animation = "blink 1s infinite";
 
 loadResultLive();
 window.searchResult = async function () {
+  alert("searchResult started");
 const maintenanceRef = doc(db, "portal_settings", "system");
 const maintenanceSnap = await getDoc(maintenanceRef);
 
