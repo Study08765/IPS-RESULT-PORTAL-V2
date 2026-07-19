@@ -1,430 +1,623 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPS PUBLIC SCHOOL Result Portal</title>
+
+<title>IPS PUBLIC SCHOOL - Premium Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
-
+html{
+    height:100%;
+}
 body{
-background:linear-gradient(135deg,#e8f1ff,#f8fbff);
-min-height:100vh;
+height:100%;
+background:#eef4ff;
+
+overflow-x:hidden;
+margin:0;
 }
 
-header{
-background:linear-gradient(135deg,#0b3d91,#1565c0);
-color:white;
+.hero{
+min-height:57vh;
+
+background:
+
+
+url("hero-bg.jpg");
+
+background-size:cover;
+
+background-position:center;
+position:relative;
+overflow:hidden;
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 text-align:center;
-padding:35px 20px;
-border-radius:0 0 30px 30px;
-box-shadow:0 12px 30px rgba(11,61,145,.35);
+
+padding:5px 20px 15px;
+
 }
 
-header img{
-width:120px;
-margin-bottom:10px;
+.hero-content{
+
+max-width:700px;
+
+position:relative;
+
+z-index:2;
+margin-top:-35px;
+}
+
+.logo{
+
+width:90px;
+
+height:90px;
+
+background:rgba(255,255,255,.9);
+
 border-radius:50%;
-}
+border:4px solid rgba(255,255,255,.35);
+display:flex;
 
-.container{
-width:95%;
-max-width:650px;
-margin:35px auto;
-background:#fff;
-padding:30px;
-border-radius:22px;
-box-shadow:0 18px 45px rgba(0,0,0,.15);
-}
+justify-content:center;
 
-input{
-width:100%;
-padding:16px;
-font-size:18px;
-margin-top:15px;
-border:2px solid #dbeafe;
-border-radius:12px;
-outline:none;
-}
+align-items:center;
 
-button{
-width:100%;
-padding:12px;
-margin-top:15px;
-background:#0b3d91;
-color:white;
-font-size:18px;
-border:none;
-cursor:pointer;
-border-radius:5px;
-}
+margin:auto;
 
-button:hover{
-background:#082d69;
-}
-.loginBtn{
-display:block;
-width:95%;
-max-width:500px;
-margin:18px auto;
-padding:16px;
-border-radius:16px;
-text-align:center;
-text-decoration:none;
-font-size:19px;
-font-weight:700;
-letter-spacing:.5px;
-color:#fff;
-box-shadow:0 10px 25px rgba(0,0,0,.18);
-transition:.3s;
-}
+font-size:38px;
 
-.loginBtn:hover{
-transform:translateY(-4px) scale(1.02);
-box-shadow:0 18px 35px rgba(11,61,145,.35);
-  }
-
-.student{
-background:linear-gradient(135deg,#ff9800,#ff6f00);
-}
-
-.staff{
-background:linear-gradient(135deg,#16a34a,#0f9d58);
-}
-
-.admin{
-background:linear-gradient(135deg,#1565c0,#0b3d91);
-  }
-@keyframes blink{
-0%{
-opacity:1;
-}
-50%{
-opacity:0.3;
-}
-100%{
-opacity:1;
-}
-}
-  #resultLive{
-animation:blink 1.2s infinite;
-transition:.3s;
-                            }
-#resultLive{
-animation: blink 1s infinite;
-  }
-#result{
-margin-top:20px;
-line-height:1.8;
-}
-</style>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0b3d91">
-  <style>
-.result-card{
-background:#fff;
-border-radius:20px;
-padding:20px;
-box-shadow:0 15px 40px rgba(0,0,0,.15);
-border-top:6px solid #0b3d91;
-margin-top:20px;
-}
-
-.result-header{
-text-align:center;
-padding-bottom:15px;
-border-bottom:2px solid #e5e5e5;
-margin-bottom:20px;
-}
-
-.result-header h2{
 color:#0b3d91;
-font-size:30px;
-margin:0;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+  backdrop-filter:blur(10px);
 }
 
-.result-header h3{
-margin:8px 0;
-color:#444;
+.hero h1{
+    color:#0B3D91;
+    font-size:50px;
+    font-weight:800;
+    letter-spacing:3px;
+    margin-top:15px;
+    text-transform:uppercase;
+    text-shadow:
+        0 2px 6px rgba(0,0,0,.7),
+        0 0 20px rgba(255,215,0,.5);
+    font-weight:900;
+-webkit-text-stroke:1px #ffffff;
+text-shadow:
+0 3px 10px rgba(255,255,255,.9),
+0 4px 15px rgba(0,0,0,.4);
 }
 
-.info-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-margin:20px 0;
+.hero p{
+
+color:#0B3D91;
+font-weight:700;
+text-shadow:0 2px 6px rgba(255,255,255,.8);
+
+margin-top:10px;
+
+font-size:18px;
+
 }
 
-.info-box{
-background:#f7f9ff;
-padding:12px;
-border-radius:10px;
-font-weight:bold;
-border-left:5px solid #0b3d91;
-}
+.live{
 
-.summary{
-display:grid;
-grid-template-columns:repeat(5,minmax(0,1fr));
-gap:8px;
+display:inline-block;
+
 margin-top:20px;
-  }
 
-.summary div{
-background:linear-gradient(135deg,#0b3d91,#1565c0);
-color:#fff;
-padding:18px 10px;
-border-radius:18px;
-text-align:center;
-font-weight:bold;
-box-shadow:0 10px 25px rgba(11,61,145,.30);
-border:1px solid rgba(255,255,255,.2);
-transition:.3s;
-  cursor:pointer;
-    }
-    .summary div:hover{
-transform:translateY(-6px) scale(1.05);
-box-shadow:0 18px 35px rgba(11,61,145,.45);
-    }
-.summary h3{
-font-size:22px;
-margin:0;
-color:#FFD700;
-font-weight:bold;
-}
+background:linear-gradient(135deg,#22c55e,#16a34a);
 
-.summary p{
-margin-top:8px;
-font-size:11px;
-color:#eef5ff;
-letter-spacing:.5px;
-    }
-    .pass{
-background:linear-gradient(135deg,#00b894,#009688)!important;
-}
+padding:10px 25px;
 
-.fail{
-background:linear-gradient(135deg,#e53935,#c62828)!important;
-    }
-@media(max-width:700px){
+color:white;
+box-shadow:0 0 25px rgba(34,197,94,.6);
+border-radius:50px;
 
-.info-grid,
-.summary{
-grid-template-columns:repeat(5,minmax(0,1fr));
-gap:6px;
-  }
+font-weight:600;
 
 }
-    .resultTable{
-width:100%;
-border-collapse:collapse;
-margin-top:20px;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,.12);
-background:#fff;
-}
+.search-card{
 
-.resultTable th{
-background:linear-gradient(135deg,#0b3d91,#1565c0);
-color:#fff;
-padding:14px;
-font-size:16px;
-}
+width:90%;
+max-width:520px;
 
-.resultTable td{
-padding:14px;
-text-align:center;
-border-bottom:1px solid #e5e5e5;
-}
+margin:20px auto 0;
 
-.resultTable tr:nth-child(even){
-background:#f8fbff;
-}
-
-.resultTable tr:hover{
-background:#eef5ff;
-transition:.3s;
-    }
-    .noticeCard{
-background:#fff;
-border-radius:20px;
-overflow:hidden;
-box-shadow:0 12px 30px rgba(0,0,0,.15);
-border:2px solid #FFD700;
-margin-bottom:20px;
-animation:noticeGlow 2s infinite alternate;
-}
-
-.noticeHeader{
-background:linear-gradient(135deg,#0b3d91,#1565c0);
-color:#fff;
-padding:15px;
-text-align:center;
-font-size:22px;
-font-weight:bold;
-letter-spacing:1px;
-}
-
-.noticeBody{
 padding:20px;
-background:#fffdf5;
-font-size:17px;
-line-height:1.8;
-color:#333;
-text-align:center;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(18px);
+
+border-radius:30px;
+
+border:1.5px solid rgba(255,255,255,.55);
+
+box-shadow:0 25px 60px rgba(0,0,0,.35),
+0 0 25px rgba(255,255,255,.18);
+animation:floatCard 4s ease-in-out infinite;
+  transition:0.4s ease;
+  transform:translateY(0);
 }
 
-.noticeBody p{
-margin:0;
-white-space:pre-line;
-}
+.search-title{
 
-@keyframes noticeGlow{
-
-0%{
-box-shadow:0 0 8px rgba(255,215,0,.3);
-}
-
-100%{
-box-shadow:0 0 22px rgba(255,215,0,.8);
-}
-
-    }
-    .latestBadge{
-background:#e53935;
 color:#fff;
-padding:5px 12px;
-border-radius:20px;
-font-size:12px;
-font-weight:bold;
-margin-right:10px;
-animation:blink 1s infinite;
+text-shadow:0 0 15px rgba(255,255,255,.5);
+font-size:24px;
+
+margin-bottom:20px;
+
+}
+
+.input-box{
+
+width:100%;
+
+padding:16px;
+background:rgba(255,255,255,.95);
+border:2px solid rgba(255,255,255,.25);
+
+outline:none;
+
+border-radius:15px;
+
+font-size:17px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+margin-bottom:18px;
+
+}
+select.input-box{
+appearance:none;
+-webkit-appearance:none;
+background:white;
+cursor:pointer;
+  }
+.result-btn{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:15px;
+
+font-size:18px;
+
+font-weight:700;
+
+cursor:pointer;
+
+background:linear-gradient(135deg,#0b3d91,#2563eb,#60a5fa);
+
+color:white;
+box-shadow:0 12px 30px rgba(37,99,235,.45);
+letter-spacing:1.5px;
+text-transform:uppercase;
+transition:.3s ease;
+
+}
+
+.result-btn:hover{
+
+transform:translateY(-5px) scale(1.03);
+
+box-shadow:0 18px 40px rgba(37,99,235,.60);
+
+}
+.hero::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:80px;
+background:#eef4ff;
+border-radius:100% 100% 0 0;
+  }
+.search-card:hover{
+transform:translateY(-10px);
+  }
+.login-card{
+    width:90%;
+    width:240px;
+padding:20px;
+    margin:10px auto;
+    padding:20px;
+    background:#ffffff;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+  transition:0.3s ease;
+  cursor:pointer;
+  }
+  .login-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 40px rgba(0,0,0,.22);
+  }
+.login-card i{
+    font-size:50px;
+    color:#0b3d91;
+    margin-bottom:15px;
+  }
+  .login-card h3{
+    font-size:22px;
+    color:#0b3d91;
+    margin-top:10px;
+    font-weight:700;
+  }
+  .login-btn{
+    display:block;
+text-decoration:none;
+text-align:center;
+    width:100%;
+    padding:14px;
+    margin-top:18px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#0b3d91,#1e88e5);
+    color:#fff;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+     }
+  .login-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(11,61,145,.35);
+    transition:.3s;
+  }
+  .login-container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    padding:10px;
+  }
+  .notice-section{
+    width:90%;
+    max-width:900px;
+    margin:5px auto;
+padding:10px;
+    max-width:800px;
+    background:#ffffff;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    text-align:center;
+  }
+  .notice-section h2{
+    color:#0b3d91;
+    font-size:28px;
+    margin-bottom:15px;
+    font-weight:700;
+  }
+  .notice-section p{
+    color:#555;
+    font-size:17px;
+    line-height:1.8;
     }
-  </style>
+  .notice-section marquee{
+    color:#d32f2f;
+    font-size:18px;
+    font-weight:600;
+    padding:10px 0;
+  }
+  .quick-links{
+    width:90%;
+    max-width:1100px;
+    margin:10px auto;
+    text-align:center;
+}
+
+.quick-links h2{
+    color:#0b3d91;
+    font-size:30px;
+    margin-bottom:15px;
+}
+
+.quick-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+  }
+  .quick-card{
+    width:155px;
+    padding:12px 15px;
+    background:rgba(255,255,255,0.95);
+    border-radius:20px;
+    text-decoration:none;
+    color:#0b3d91;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.quick-card h3{
+    margin-top:8px;
+    font-size:18px;
+}
+
+.quick-card:hover{
+    transform:translateY(-10px) scale(1.05);
+    box-shadow:0 18px 40px rgba(11,61,145,.35);
+  }
+  .footer{
+    margin-top:10px;
+    margin-bottom:0;
+    background:linear-gradient(135deg,#0b3d91,#1565c0);
+    color:#fff;
+    text-align:center;
+    padding:10px 20px 0;
+  }
+
+.footer h3{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.footer p{
+    font-size:14px;
+    margin:4px 0;
+    opacity:.9;
+    }
+  body{
+    animation:fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+  }
+  .hero h1{
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px rgba(255,255,255,.4);
+    }
+    to{
+        text-shadow:0 0 25px rgba(255,255,255,.9);
+    }
+      }
+  #topBtn{
+    display:none;
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#0b3d91;
+    color:#fff;
+    font-size:24px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(11,61,145,.4);
+    transition:.3s;
+    z-index:999;
+}
+
+#topBtn:hover{
+    transform:scale(1.1);
+    background:#1565c0;
+  }
+  .whatsapp-btn{
+    position:fixed;
+    bottom:95px;
+    right:25px;
+    width:60px;
+    height:60px;
+    background:#25D366;
+    color:#fff;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:30px;
+    box-shadow:0 8px 20px rgba(37,211,102,.4);
+    transition:.3s;
+    z-index:999;
+}
+
+.whatsapp-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 12px 25px rgba(37,211,102,.6);
+  }
+  .developer{
+    margin-top:15px;
+    font-size:17px;
+    color:#FFD700;
+    font-weight:500;
+    letter-spacing:1px;
+}
+
+.developer strong{
+    color:#ffffff;
+    font-weight:700;
+  }
+</style>
+
 </head>
 
 <body>
+  <section class="hero">
 
-<header>
+<div class="hero-content">
+
+<div class="logo">
+<i class="fa-solid fa-school"></i>
+</div>
 
 <h1>IPS PUBLIC SCHOOL</h1>
-<h3>AHIRORI HARDOI</h3>
 
-<h2 id="examTitle">Loading...</h2>
-<h3 id="sessionTitle">Loading...</h3>
+<p>AHIRORI • HARDOI</p>
+<h2 id="examTitle" style="color:#FFD700;font-size:32px;font-weight:800;letter-spacing:2px;text-shadow:0 2px 8px rgba(0,0,0,.7),0 0 15px rgba(255,215,0,.5);margin-top:10px;">
+Loading...
+</h2>
 
-
-</header>
-
-<div class="container">
-<div id="noticeBox" class="noticeCard" style="display:none;">
-
-<div class="noticeHeader">
-
-<span class="latestBadge">LATEST</span>
-
-📢 SCHOOL NOTICE
-
+<h3 id="sessionTitle" style="color:#ffffff;margin-top:8px;">
+Loading...
+</h3>
+<div class="live" id="resultLive">
+Loading...
 </div>
 
-<div class="noticeBody">
-<p id="noticeTextShow"></p>
-</div>
+<div class="search-card">
 
-</div>
-  <div id="resultLive"
-style="display:none;
-padding:12px;
-margin-bottom:15px;
-border-radius:8px;
-text-align:center;
-font-size:18px;
-font-weight:bold;
-color:white;">
-  </div>
-  <div id="countdown"
-style="background:#eef6ff;
-border-left:5px solid #2196f3;
-padding:12px;
-margin-bottom:15px;
-border-radius:8px;
-text-align:center;
-font-size:18px;
-font-weight:bold;">
-⏳ Loading Countdown...
-</div>
-<h2 align="center">Search Result</h2>
+<h2 class="search-title">
+🔍 Search Your Result
+</h2>
+
+<select class="input-box" id="class">
+<option selected disabled>Select Class</option>
+<option>Class 3</option>
+<option>Class 4</option>
+<option>Class 5</option>
+<option>Class 6</option>
+<option>Class 7</option>
+<option>Class 8</option>
+</select>
 
 <input
-type="text"
+type="number"
 id="roll"
+class="input-box"
 placeholder="Enter Roll Number">
 
-<button onclick="searchResult()">
-
-VIEW RESULT
-
+<button class="result-btn" onclick="alert('Button Working'); searchResult()">
+🔍 VIEW RESULT
 </button>
 
-<div id="result"></div>
-
-</div>
-  <a href="student-login.html" class="loginBtn student">
-🎓 STUDENT LOGIN
-  </a>
-  <a href="staff-login.html" class="loginBtn staff">
-👨‍🏫 SCHOOL STAFF LOGIN
-  </a>
-<a href="login.html" class="loginBtn admin">
-🔐 ADMIN LOGIN
-</a>
-  <div style="text-align:center;margin:28px 0 15px;">
-
-<div style="
-display:inline-block;
-padding:10px 24px;
-background:linear-gradient(135deg,#0b3d91,#1565c0);
-border-radius:40px;
-box-shadow:0 8px 22px rgba(11,61,145,.35);
-">
-
-<div style="
-font-size:11px;
-color:#dbeafe;
-letter-spacing:1.5px;
-text-transform:uppercase;
-">
-Designed & Developed By
-</div>
-
-<div style="
-margin-top:3px;
-font-size:17px;
-font-weight:700;
-font-family:Georgia,serif;
-color:#FFD700;
-">
-A.K. Singh Chandel
 </div>
 
 </div>
 
+  </section>
+  <div class="login-container">
+<div class="login-card">
+    <i class="fa-solid fa-user-graduate"></i>
+    <h3>Student Login</h3>
+  <a href="student-login.html" class="login-btn">LOGIN</a>
+</div>
+<div class="login-card">
+    <i class="fa-solid fa-chalkboard-user"></i>
+    <h3>Staff Login</h3>
+    <a href="staff-login.html" class="login-btn">LOGIN</a>
+</div>
+<div class="login-card">
+    <i class="fa-solid fa-user-shield"></i>
+    <h3>Admin Login</h3>
+    <a href="login.html" class="login-btn">LOGIN</a>
+</div>
   </div>
+  <section class="notice-section" id="noticeBox">
+    <h2>📢 Latest Announcements</h2>
+    <marquee id="noticeTextShow" behavior="scroll" direction="left">
+Loading...
+    </marquee>
+      <div id="countdown" style="margin-top:15px;font-size:18px;font-weight:bold;color:#0b3d91;text-align:center;"></div>
+  </section>
+  <section class="quick-links">
+
+<h2>Quick Links</h2>
+
+<div class="quick-container">
+
+<a href="result-search-v2.html" class="quick-card">
+📄
+<h3>Result</h3>
+</a>
+
+<a href="timetable.html" class="quick-card">
+🕒
+<h3>Time Table</h3>
+</a>
+
+<a href="admitcard.html" class="quick-card">
+🎫
+<h3>Admit Card</h3>
+</a>
+
+<a href="contact.html" class="quick-card">
+📞
+<h3>Contact Us</h3>
+</a>
+
+</div>
+
+  </section>
+  <footer class="footer">
+
+<h3>IPS PUBLIC SCHOOL</h3>
+
+<p>AHIRORI, HARDOI (U.P.)</p>
+
+<p>© 2026 IPS PUBLIC SCHOOL. All Rights Reserved.</p>
+<p class="developer">
+    Developed & Designed By <strong>A.K. SINGH CHANDEL</strong>
+</p>
+  </footer>
+  <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+⬆
+  </button>
+  <script>
+let topBtn = document.getElementById("topBtn");
+
+window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        topBtn.style.display = "block";
+    } else {
+        topBtn.style.display = "none";
+    }
+};
+  </script>
+  <a href="https://wa.me/8127803733" class="whatsapp-btn" target="_blank">
+    💬
+  </a>
 <script type="module" src="app.js"></script>
 <script>
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("./service-worker.js");
+function goResult() {
+  const roll = document.getElementById("roll").value.trim();
+
+  if (!roll) {
+    alert("Enter Roll Number");
+    return;
+  }
+
+  window.location.href = "result-search-v2.html?roll=" + encodeURIComponent(roll);
 }
 </script>
-</body>
-</html>
 
-
-
+<script type="module" src="app.js"></script>
