@@ -516,7 +516,7 @@ id="roll"
 class="input-box"
 placeholder="Enter Roll Number">
 
-<button class="result-btn" onclick="searchResult()">
+<button class="result-btn" onclick="goResult()">
 🔍 VIEW RESULT
 </button>
 
@@ -542,7 +542,7 @@ placeholder="Enter Roll Number">
     <a href="login.html" class="login-btn">LOGIN</a>
 </div>
   </div>
-  <section class="notice-section">
+  <section class="notice-section" id="noticeBox">
     <h2>📢 Latest Announcements</h2>
     <marquee id="noticeTextShow" behavior="scroll" direction="left">
 Loading...
@@ -606,4 +606,18 @@ window.onscroll = function () {
   <a href="https://wa.me/8127803733" class="whatsapp-btn" target="_blank">
     💬
   </a>
+<script type="module" src="app.js"></script>
+<script>
+function goResult() {
+  const roll = document.getElementById("roll").value.trim();
+
+  if (!roll) {
+    alert("Enter Roll Number");
+    return;
+  }
+
+  window.location.href = "result-search-v2.html?roll=" + encodeURIComponent(roll);
+}
+</script>
+
 <script type="module" src="app.js"></script>
