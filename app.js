@@ -159,9 +159,9 @@ if (
   `;
   return;
 }
-  const selectedClass = document.getElementById("class").value;
+  const selectedClassValue = document.getElementById("class").value.replace("Class ", "");
 
-if (selectedClass === "Select Class") {
+if (s.Class !== selectedClassValue) {
   alert("Please Select Class");
   return;
 }
