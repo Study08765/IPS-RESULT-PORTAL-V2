@@ -518,63 +518,51 @@ font-size:17px;
 font-weight:bold;
 cursor:pointer;
         }
-    .home-info{
+    .quick-links{
     width:90%;
     max-width:1100px;
-    margin:20px auto;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-.info-card{
-    background:rgba(255,255,255,.95);
-    border-radius:20px;
-    padding:22px;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-    transition:.3s ease;
-    border-top:5px solid #0b3d91;
-}
-
-.info-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 18px 40px rgba(0,0,0,.25);
-}
-
-.info-card h2{
-    color:#0b3d91;
+    margin:30px auto;
     text-align:center;
-    margin-bottom:18px;
-    font-size:26px;
 }
 
-.info-item{
-    padding:12px 0;
-    border-bottom:1px solid #e5e5e5;
-    font-size:16px;
-    color:#333;
-}
-
-.info-item:last-child{
-    border-bottom:none;
-}
-
-.info-card p{
-    margin:8px 0;
-    color:#444;
-    line-height:1.6;
-}
-
-.info-card a{
-    display:inline-block;
-    margin-top:15px;
+.quick-links h2{
+    font-size:28px;
     color:#0b3d91;
-    font-weight:bold;
-    text-decoration:none;
+    margin-bottom:20px;
 }
 
-.info-card a:hover{
-    color:#ff9800;
+.quick-container{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.quick-card{
+    width:180px;
+    background:#ffffff;
+    border-radius:16px;
+    padding:20px;
+    text-decoration:none;
+    color:#0b3d91;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    transition:.3s;
+}
+
+.quick-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 15px 30px rgba(0,0,0,.25);
+}
+
+.quick-card h3{
+    margin-top:10px;
+    font-size:18px;
+    }
+    .quick-card i{
+    font-size:40px;
+    color:#0b3d91;
+    margin-bottom:12px;
+    display:block;
     }
 </style>
 
@@ -659,43 +647,31 @@ Loading...
     </marquee>
       <div id="countdown" style="margin-top:15px;font-size:18px;font-weight:bold;color:#0b3d91;text-align:center;"></div>
   </section>
-  <section class="home-info">
+  <section class="quick-links">
 
-  <!-- Holiday Calendar -->
-  <div class="info-card">
-    <h2>📅 Holiday Calendar</h2>
+    <h2>School Services</h2>
 
-    <div class="info-item">
-      <p><strong>No Holidays Available</strong></p>
-      <small>Upcoming holidays will be displayed here.</small>
+    <div class="quick-container">
+
+        <a href="holidays.html" class="quick-card">
+            📅
+            <i class="fa-solid fa-calendar-days"></i>
+<h3>Holiday Calendar</h3>
+        </a>
+
+        <a href="courses.html" class="quick-card">
+            📚
+            <i class="fa-solid fa-book-open"></i>
+<h3>Our Courses</h3>
+        </a>
+
+        <a href="contact.html" class="quick-card">
+            📞
+            <i class="fa-solid fa-phone"></i>
+<h3>Contact Us</h3>
+        </a>
+
     </div>
-
-    <a href="#">View Holiday Calendar →</a>
-  </div>
-
-  <!-- Our Courses -->
-  <div class="info-card">
-    <h2>📚 Our Courses</h2>
-
-    <div class="info-item">🎓 Pre-Primary (Nursery, LKG & UKG)</div>
-    <div class="info-item">📘 Primary (Class 1 – 5)</div>
-    <div class="info-item">📗 Upper Primary (Class 6 – 8)</div>
-
-    <a href="#">View All Classes →</a>
-  </div>
-
-  <!-- Contact Us -->
-  <div class="info-card">
-    <h2>📞 Contact Us</h2>
-
-    <p><strong>IPS PUBLIC SCHOOL</strong></p>
-    <p>Ahirori, Hardoi, Uttar Pradesh</p>
-    <p>📞 +91 XXXXXXXXXX</p>
-    <p>✉️ ipspublicschool@gmail.com</p>
-    <p>🕘 Office Hours: 8:00 AM – 2:00 PM</p>
-
-    <a href="#">Contact School →</a>
-  </div>
 
   </section>
   <footer class="footer">
