@@ -333,24 +333,33 @@ padding:10px;
   }
   
   .footer{
-    margin-top:10px;
-    margin-bottom:0;
-    background:linear-gradient(135deg,#0b3d91,#1565c0);
-    color:#fff;
+    margin-top:25px;
+    background:linear-gradient(135deg,#0b3d91,#1e5cc8);
+    border-top:4px solid #FFD700;
     text-align:center;
-    padding:10px 20px 0;
+    padding:25px 15px;
+    box-shadow:0 -5px 20px rgba(0,0,0,.20);
   }
 
-.footer h3{
-    font-size:22px;
-    margin-bottom:10px;
+.footer h2{
+    margin:0;
+    font-size:28px;
+    color:#fff;
+    letter-spacing:2px;
+    font-weight:700;
+    text-shadow:0 2px 8px rgba(0,0,0,.35);
 }
 
-.footer p{
-    font-size:14px;
-    margin:4px 0;
-    opacity:.9;
-    }
+.footer .developer{
+    margin-top:10px;
+    font-size:15px;
+    color:#f5f5f5;
+}
+
+.footer .developer strong{
+    color:#FFD700;
+    font-weight:bold;
+}
   body{
     animation:fadeIn 0.8s ease;
 }
@@ -539,10 +548,11 @@ cursor:pointer;
 }
 
 .quick-card{
-    width:180px;
+    width:145px;
+    height:100px;
     background:#ffffff;
     border-radius:16px;
-    padding:20px;
+    padding:12px;
     text-decoration:none;
     color:#0b3d91;
     box-shadow:0 8px 20px rgba(0,0,0,.15);
@@ -559,7 +569,7 @@ cursor:pointer;
     font-size:18px;
     }
     .quick-card i{
-    font-size:40px;
+    font-size:32px;
     color:#0b3d91;
     margin-bottom:12px;
     display:block;
@@ -676,13 +686,11 @@ Loading...
   </section>
   <footer class="footer">
 
-<h3>IPS PUBLIC SCHOOL</h3>
+<h2>IPS PUBLIC SCHOOL</h2>
 
-<p>AHIRORI, HARDOI (U.P.)</p>
-
-<p>© 2026 IPS PUBLIC SCHOOL. All Rights Reserved.</p>
 <p class="developer">
-    Developed & Designed By <strong>A.K. SINGH CHANDEL</strong>
+    Developed &amp; Designed by
+    <strong>A.K. SINGH CHANDEL</strong>
 </p>
   </footer>
   <button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
