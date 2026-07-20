@@ -353,4 +353,7 @@ color:#555;">
 
 `;
 
-}
+} catch (e) {
+  alert(e.message);
+  }
+};
