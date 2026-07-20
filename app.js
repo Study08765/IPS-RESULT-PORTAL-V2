@@ -161,12 +161,7 @@ if (
   `;
   return;
 }
-  const selectedClassValue = document.getElementById("class").value.replace("Class ", "");
-
-if (s.Class !== selectedClassValue) {
-  alert("Please Select Class");
-  return;
-}
+  
   alert("Roll = " + roll);
   const ref = doc(db, "students_v2", roll);
   const snap = await getDoc(ref);
