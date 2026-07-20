@@ -111,7 +111,7 @@ box.style.animation = "blink 1s infinite";
 
 loadResultLive();
 window.searchResult = async function () {
-  alert("searchResult started");
+
   try {
 const maintenanceRef = doc(db, "portal_settings", "system");
 const maintenanceSnap = await getDoc(maintenanceRef);
@@ -148,7 +148,6 @@ if (
   }
 const publishRef = doc(db, "settings", "result");
 const publishSnap = await getDoc(publishRef);
-alert("Publish Exists = " + publishSnap.exists());
 if (
   publishSnap.exists() &&
   publishSnap.data().published === false
@@ -162,10 +161,8 @@ if (
   return;
 }
   
-  alert("Roll = " + roll);
   const ref = doc(db, "students_v2", roll);
   const snap = await getDoc(ref);
-alert("Document Exists = " + snap.exists());
   if (!snap.exists()) {
 
     document.getElementById("result").innerHTML =
