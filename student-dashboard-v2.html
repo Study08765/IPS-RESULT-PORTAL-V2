@@ -225,89 +225,67 @@ body{
     gap:22px;
     margin-top:30px;
     }
-    .success-card{
-    margin-top:35px;
-    padding:25px;
+    .clock{
+    width:180px;
+    height:180px;
+    margin:20px auto;
+    border:8px solid #ffffff;
+    border-radius:50%;
+    position:relative;
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(12px);
+    box-shadow:0 0 25px rgba(255,255,255,.25);
+}
 
-    background:linear-gradient(
-        135deg,
-        rgba(255,255,255,.22),
-        rgba(255,255,255,.08)
-    );
+.center-dot{
+    width:14px;
+    height:14px;
+    background:#FFD700;
+    border-radius:50%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:10;
+}
 
-    backdrop-filter:blur(20px);
+.hour,
+.minute,
+.second{
+    position:absolute;
+    left:50%;
+    bottom:50%;
+    transform-origin:bottom;
+    border-radius:10px;
+}
 
-    border:1px solid rgba(255,255,255,.25);
+.hour{
+    width:6px;
+    height:45px;
+    background:#ffffff;
+    margin-left:-3px;
+}
 
-    border-radius:28px;
+.minute{
+    width:4px;
+    height:65px;
+    background:#FFD700;
+    margin-left:-2px;
+}
 
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.35);
-
+.second{
+    width:2px;
+    height:75px;
+    background:#ff3b30;
+    margin-left:-1px;
+}
+    #liveDate{
+    margin-top:20px;
     text-align:center;
-}
-
-.success-card h2{
-    color:#FFD700;
-    font-size:24px;
-    margin-bottom:18px;
-    font-weight:800;
-}
-
-#successQuote{
-    color:#fff;
-    font-size:20px;
-    line-height:1.8;
-    font-weight:600;
-    white-space:pre-line;
-}
-
-.quote-author{
-    margin-top:18px;
-    color:#FFD700;
-    font-size:16px;
-    font-style:italic;
-    font-weight:700;
-    letter-spacing:1px;
-        }
-    .time-card{
-    margin-top:30px;
-    padding:25px;
-    text-align:center;
-
-    background:linear-gradient(
-        135deg,
-        rgba(255,255,255,.22),
-        rgba(255,255,255,.08)
-    );
-
-    backdrop-filter:blur(20px);
-
-    border:1px solid rgba(255,255,255,.25);
-
-    border-radius:28px;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
-}
-
-.time-card h2{
-    color:#FFD700;
-    font-size:24px;
-    margin-bottom:15px;
-}
-
-#liveDate{
     color:#ffffff;
     font-size:18px;
     font-weight:600;
-    margin-bottom:10px;
-}
-
-#liveClock{
-    color:#FFD700;
-    font-size:34px;
-    font-weight:800;
-    letter-spacing:2px;
+    letter-spacing:1px;
     }
 </style>
 
@@ -365,71 +343,46 @@ body{
     </div>
     <div class="time-card">
 
-    <h2>📅 Today</h2>
+    <h2>🕒 LIVE CLOCK</h2>
+
+    <div class="clock">
+        <div class="hour"></div>
+        <div class="minute"></div>
+        <div class="second"></div>
+        <div class="center-dot"></div>
+    </div>
 
     <div id="liveDate"></div>
 
-    <div id="liveClock"></div>
-
     </div>
-<div class="success-card">
-
-    <h2>🌟 Today's Success Quote</h2>
-
-    <p id="successQuote"></p>
-
-    <p class="quote-author">
-        — By A.K. SINGH CHANDEL
-    </p>
-
-</div>
     <script>
-const quotes = [
-"Success begins with self-belief.\nKeep moving forward every day.",
-"Dream big and work hard.\nYour future depends on today's effort.",
-"Every small step matters.\nKeep learning and never stop growing.",
-"Discipline creates success.\nConsistency builds your future.",
-"Believe in yourself.\nYou are stronger than you think.",
-"Today's effort is tomorrow's success.\nNever give up on your dreams.",
-"Learn with passion.\nLead with confidence.",
-"Hard work beats talent.\nWhen talent doesn't work hard.",
-"Your attitude shapes your future.\nStay positive and keep smiling.",
-"Success is earned, not given.\nWork for it every single day.",
-"Great things take time.\nBe patient and stay focused.",
-"Every challenge is a lesson.\nEvery lesson makes you stronger.",
-"Knowledge is your greatest power.\nUse it wisely every day.",
-"Stay humble and keep learning.\nSuccess will follow you.",
-"Don't wait for opportunities.\nCreate them with hard work.",
-"The best investment is education.\nIt never loses its value.",
-"Small efforts every day.\nLead to big achievements tomorrow.",
-"Confidence is the key to success.\nBelieve and achieve.",
-"Never stop improving yourself.\nThe best is yet to come.",
-"Success starts today.\nMake every moment count."
-];
-
-const day = Math.floor(Date.now() / 86400000);
-document.getElementById("successQuote").innerText =
-quotes[day % quotes.length];
-        function updateClock(){
-
+function updateClock() {
     const now = new Date();
 
-    const dateOptions = {
-        weekday: "long",
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-    };
+    const sec = now.getSeconds();
+    const min = now.getMinutes();
+    const hr = now.getHours() % 12;
+
+    document.querySelector(".second").style.transform =
+        `translateX(-50%) rotate(${sec * 6}deg)`;
+
+    document.querySelector(".minute").style.transform =
+        `translateX(-50%) rotate(${min * 6 + sec * 0.1}deg)`;
+
+    document.querySelector(".hour").style.transform =
+        `translateX(-50%) rotate(${hr * 30 + min * 0.5}deg)`;
 
     document.getElementById("liveDate").innerHTML =
-        now.toLocaleDateString("en-IN", dateOptions);
-
-    document.getElementById("liveClock").innerHTML =
-        now.toLocaleTimeString("en-IN");
+        now.toLocaleDateString("en-IN", {
+            weekday: "long",
+            day: "numeric",
+            month: "long",
+            year: "numeric"
+        });
 }
 
 updateClock();
-setInterval(updateClock,1000);
+setInterval(updateClock, 1000);
     </script>
 </body>
 
