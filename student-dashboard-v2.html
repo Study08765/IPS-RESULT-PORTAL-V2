@@ -113,21 +113,14 @@ body{
     }
 
 .row{
+    width:70%;
+    margin:8px auto;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:12px 0;
-    margin-bottom:15px;
-
-    background:transparent;
-    border:none;
-    backdrop-filter:none;
-    box-shadow:none;
-    .row{
-    background:rgba(0,0,0,.12);
+    padding:12px 18px;
+    background:#1b8f3a;
     border-radius:12px;
-    padding:14px 18px;
-    }
 }
 
 .row:hover{
@@ -202,7 +195,7 @@ body{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:22px;
-    margin-top:340px;
+    margin-top:700px;
     padding-bottom:30px;
     }
 
@@ -213,7 +206,7 @@ body{
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    background:rgba(255,255,255,.15);
+    background:rgba(0,0,0,.75);
     backdrop-filter:blur(18px);
     border:1px solid rgba(255,255,255,.25);
     border-radius:18px;
@@ -258,11 +251,6 @@ body{
         <img src="logo.png" id="schoolLogo" alt="IPS Logo">
     </div>
 
-    <div class="time-card">
-    <div id="digitalClock"></div>
-    <div id="liveDate"></div>
-    </div>
-
     </div>
 
 </div>
@@ -303,6 +291,10 @@ body{
 <a class="btn logout" href="student-login.html">🚪 Logout</a>
 
 </div>
+    <div class="time-card">
+    <div id="digitalClock"></div>
+    <div id="liveDate"></div>
+    </div>
     </div>
     <script>
 const digitalClock = document.getElementById("digitalClock");
