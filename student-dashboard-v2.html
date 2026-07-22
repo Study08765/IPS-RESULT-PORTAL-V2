@@ -195,7 +195,7 @@ body{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:22px;
-    margin-top:620px;
+    margin-top:670px;
     padding-bottom:30px;
     }
 
@@ -341,11 +341,14 @@ updateClock();
 setInterval(updateClock,1000);
         const student = JSON.parse(localStorage.getItem("student"));
 
-if(student){
-    document.getElementById("name").textContent = student.Name;
-    document.getElementById("father").textContent = student.Father;
-    document.getElementById("class").textContent = student.Class;
-    document.getElementById("roll").textContent = student.Roll;
+if(!student){
+    window.location = "student-login.html";
+}
+
+document.getElementById("name").innerHTML = student.Name;
+document.getElementById("father").innerHTML = student.Father;
+document.getElementById("class").innerHTML = student.Class;
+document.getElementById("roll").innerHTML = student.Roll;
         }
     </script>
     
