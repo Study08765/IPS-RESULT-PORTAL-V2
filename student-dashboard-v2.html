@@ -339,15 +339,16 @@ function updateClock(){
 
 updateClock();
 setInterval(updateClock,1000);
-    </script>
-    const student = JSON.parse(localStorage.getItem("student"));
+        const student = JSON.parse(localStorage.getItem("student"));
 
 if(student){
     document.getElementById("name").textContent = student.Name;
     document.getElementById("father").textContent = student.Father;
     document.getElementById("class").textContent = student.Class;
     document.getElementById("roll").textContent = student.Roll;
-}
+        }
+    </script>
+    
     <footer class="footer">
 🏫 WELCOME TO IPS PUBLIC SCHOOL 🏫
     </footer>
