@@ -115,26 +115,13 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:12px 0;
+    margin-bottom:15px;
 
-    padding:18px 22px;
-    margin-bottom:16px;
-
-    background:linear-gradient(
-        135deg,
-        rgba(255,255,255,.22),
-        rgba(255,255,255,.10)
-    );
-
-    border:1.5px solid rgba(255,255,255,.30);
-    border-radius:18px;
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.25),
-        inset 0 1px 0 rgba(255,255,255,.35);
-
-    transition:.3s;
+    background:transparent;
+    border:none;
+    backdrop-filter:none;
+    box-shadow:none;
 }
 
 .row:hover{
@@ -169,7 +156,7 @@ body{
     font-weight:700;
     color:#fff;
 
-    background:linear-gradient(135deg,#1e6bff,#003fbd);
+    background:linear-gradient(135deg,#0f172a,#334155);
 
     border:1.5px solid rgba(255,255,255,.25);
 
@@ -197,7 +184,7 @@ body{
 
     height:74px;
 
-    background:linear-gradient(135deg,#ff4d4d,#d60000);
+    background:linear-gradient(135deg,#dc2626,#991b1b);
 
     font-size:21px;
     font-weight:800;
@@ -209,37 +196,44 @@ body{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:22px;
-    margin-top:50px;
+    margin-top:300px;
+    padding-bottom:30px;
     }
 
 .time-card{
-    width:220px;
+    width:240px;
     height:80px;
-    padding:12px;
-    border-radius:20px;
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.25);
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    box-shadow:0 8px 25px rgba(0,0,0,.35);
-}
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.30);
+    }
 #digitalClock{
-    color:#ffffff;
-    font-size:34px;
+    font-size:32px;
     font-weight:700;
+    color:#fff;
     letter-spacing:2px;
 }
 
 #liveDate{
     display:block;
-    margin-top:5px;
-    color:#FFD700;
     font-size:14px;
-    font-weight:600;
-}
+    color:#FFD700;
+    margin-top:4px;
+    }
+    .top-profile{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:20px;
+    }
 </style>
 
 </head>
@@ -260,8 +254,8 @@ body{
     </div>
 
     <div class="time-card">
-    <div id="digitalClock">06:45 PM</div>
-    <div id="liveDate">21 July 2026</div>
+    <div id="digitalClock"></div>
+    <div id="liveDate"></div>
     </div>
 
     </div>
@@ -289,7 +283,9 @@ body{
 </div>
 
 </div>
-    <div class="button-grid">
+
+    <div id="liveDate"></div>
+<div class="button-grid">
 
 <a class="btn" href="student-homework.html">📚 Homework</a>
 
@@ -301,27 +297,34 @@ body{
 
 <a class="btn logout" href="student-login.html">🚪 Logout</a>
 
-    </div>
-
-    <div id="liveDate"></div>
-
+</div>
     </div>
     <script>
 const digitalClock = document.getElementById("digitalClock");
+const liveDate = document.getElementById("liveDate");
 
-digitalClock.innerHTML = now.toLocaleTimeString("en-IN",{
-    hour:"2-digit",
-    minute:"2-digit",
-    second:"2-digit",
-    hour12:true
-});
+function updateClock(){
 
-liveDate.innerHTML = now.toLocaleDateString("en-IN",{
-    weekday:"short",
-    day:"numeric",
-    month:"short",
-    year:"numeric"
-});
+    const now = new Date();
+
+    digitalClock.innerHTML = now.toLocaleTimeString("en-IN",{
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+        hour12:true
+    });
+
+    liveDate.innerHTML = now.toLocaleDateString("en-IN",{
+        weekday:"short",
+        day:"2-digit",
+        month:"long",
+        year:"numeric"
+    });
+
+}
+
+updateClock();
+setInterval(updateClock,1000);
     </script>
 </body>
 
