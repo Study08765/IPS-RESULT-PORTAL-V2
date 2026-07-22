@@ -72,9 +72,9 @@ body{
 }
 
 .school-logo{
-    width:130px;
-    height:130px;
-    margin:0 auto 8px;
+    width:160px;
+    height:160px;
+    margin:0 auto 2px;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -96,8 +96,8 @@ body{
     font-size:42px;
     font-weight:800;
     color:#fff;
-    margin-top:5px;
-    margin-bottom:15px;
+    margin-top:0px;
+    margin-bottom:10px;
     text-shadow:0 4px 12px rgba(0,0,0,.6);
 }
 
@@ -211,6 +211,7 @@ body{
     border:1px solid rgba(255,255,255,.25);
     border-radius:18px;
     box-shadow:0 10px 25px rgba(0,0,0,.30);
+    margin:25px auto;
     }
 #digitalClock{
     font-size:32px;
@@ -279,22 +280,13 @@ body{
 
 </div>
 
-<h2 class="student-name" id="name">Student Name</h2>
-<div class="info-card">
+<h2 class="student-name" id="name"></h2>
 
-<div class="row">
-<span>👨 Father</span>
-<b id="father">Father Name</b>
-</div>
+<b id="father"></b>
 
-<div class="row">
-<span>🎓 Class</span>
-<b id="class">7</b>
-</div>
+<b id="class"></b>
 
-<div class="row">
-<span>🎫 Roll No</span>
-<b id="roll">2026</b>
+<b id="roll"></b>
 </div>
 
 </div>
@@ -314,9 +306,11 @@ body{
 <a class="btn logout" href="student-login.html">🚪 Logout</a>
 
 </div>
+    <div style="display:flex;justify-content:center;">
     <div class="time-card">
-    <div id="digitalClock"></div>
-    <div id="liveDate"></div>
+        <div id="digitalClock"></div>
+        <div id="liveDate"></div>
+    </div>
     </div>
     </div>
     <script>
@@ -346,6 +340,14 @@ function updateClock(){
 updateClock();
 setInterval(updateClock,1000);
     </script>
+    const student = JSON.parse(localStorage.getItem("student"));
+
+if(student){
+    document.getElementById("name").textContent = student.Name;
+    document.getElementById("father").textContent = student.Father;
+    document.getElementById("class").textContent = student.Class;
+    document.getElementById("roll").textContent = student.Roll;
+}
     <footer class="footer">
 🏫 WELCOME TO IPS PUBLIC SCHOOL 🏫
     </footer>
