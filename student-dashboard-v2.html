@@ -91,14 +91,17 @@ body{
     object-fit:contain;
 }
 
-.student-name{
+#name{
+    font-size:40px;
+    font-weight:900;
+    color:#ffffff;
     text-align:center;
-    font-size:42px;
-    font-weight:800;
-    color:#fff;
-    margin-top:0px;
-    margin-bottom:10px;
-    text-shadow:0 4px 12px rgba(0,0,0,.6);
+    letter-spacing:1px;
+    text-shadow:
+        0 2px 0 #bdbdbd,
+        0 4px 8px rgba(0,0,0,.45),
+        0 0 18px rgba(255,255,255,.35);
+    margin:8px 0 20px;
 }
 
 .student-class{
@@ -113,31 +116,30 @@ body{
     }
 
 .row{
-    width:70%;
-    margin:8px auto;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:12px 18px;
-    background:#1b8f3a;
-    border-radius:12px;
-}
-
-.row:hover{
-    transform:translateY(-3px);
-    box-shadow:0 15px 30px rgba(0,0,0,.35);
+    width:95%;
+    margin:15px auto;
+    padding:18px 22px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#1e8e3e,#2dbd5a);
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.35),
+        inset 0 2px 3px rgba(255,255,255,.25);
 }
 
 .row span{
-    color:#ffffff;
-    font-size:22px;
-    font-weight:700;
+    font-size:20px;
+    font-weight:800;
+    color:#fff;
 }
 
 .row b{
-    color:#FFD700;
-    font-size:24px;
-    font-weight:800;
+    font-size:22px;
+    font-weight:900;
+    color:#ffd700;
+    text-shadow:0 2px 6px rgba(0,0,0,.4);
 }
 
 .btn{
@@ -234,28 +236,29 @@ body{
     width:100%;
     }
     .footer{
-    width:100%;
-    background:linear-gradient(90deg,#0b3d91,#1565c0,#0b3d91);
-    color:#FFD700;
+    width:95%;
+    margin:35px auto 20px;
+    padding:18px 20px;
+    border-radius:18px;
+    background:linear-gradient(135deg,#0d47a1,#1565c0,#0d47a1);
+    border:2px solid rgba(255,215,0,.5);
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
     text-align:center;
-    padding:22px 10px;
-    font-size:26px;
-    font-weight:900;
-    letter-spacing:3px;
+    color:#ffd700;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:2px;
     text-transform:uppercase;
-    border-top:4px solid #FFD700;
-    box-shadow:0 -6px 20px rgba(0,0,0,.35);
-    text-shadow:0 0 10px rgba(255,215,0,.8);
-    animation:footerGlow 2s infinite alternate;
-}
-
-@keyframes footerGlow{
-    from{
-        text-shadow:0 0 8px #FFD700;
+    text-shadow:0 2px 6px rgba(0,0,0,.5);
     }
-    to{
-        text-shadow:0 0 20px #FFD700,0 0 35px #FFD700;
-    }
+    .student-title{
+    color:#ffffff;
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+    margin-top:8px;
     }
 </style>
 
@@ -276,7 +279,8 @@ body{
         <img src="logo.png" id="schoolLogo" alt="IPS Logo">
     </div>
 
-<h2 class="student-name" id="name"></h2>
+<div class="student-title">👨‍🎓 Student Name</div>
+<h2 id="name"></h2>
 
 <div class="info-card">
 
