@@ -204,7 +204,7 @@ body{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:22px;
-    margin-top:500px;
+    margin-top:450px;
     padding-bottom:30px;
     }
 
@@ -220,7 +220,7 @@ body{
     border:1px solid rgba(255,255,255,.25);
     border-radius:18px;
     box-shadow:0 10px 25px rgba(0,0,0,.30);
-    margin:25px auto;
+    margin:15px auto;
     }
 #digitalClock{
     font-size:32px;
@@ -244,7 +244,7 @@ body{
     }
     .footer{
     width:100%;
-    margin:35px 0 0;
+    margin:15px 0 0;
     padding:24px 20px;
     background:linear-gradient(135deg,#020b2d,#0b2d6f,#1546b5,#0b2d6f,#020b2d);
     border-top:3px solid #FFD700;
@@ -391,6 +391,9 @@ setInterval(updateClock,1000);
 if(!student){
     window.location = "student-login.html";
 }
+
+// पुराने Dashboard की तरह Roll No सेव करें
+localStorage.setItem("studentRoll", student.Roll);
 
 document.getElementById("name").innerHTML =
 "<span class='name-label'>Student Name :</span> " + student.Name;
