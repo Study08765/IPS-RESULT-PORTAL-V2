@@ -243,15 +243,15 @@ body{
     width:100%;
     }
     .footer{
-    width:95%;
-    margin:35px auto 20px;
+    width:100%;
+    margin:35px 0 0;
     padding:18px 20px;
-    border-radius:18px;
     background:linear-gradient(135deg,#0d47a1,#1565c0,#0d47a1);
-    border:2px solid rgba(255,215,0,.5);
-    box-shadow:0 8px 20px rgba(0,0,0,.35);
+    border-top:2px solid rgba(255,215,0,.5);
+    border-radius:0;
+    box-shadow:0 -8px 20px rgba(0,0,0,.35);
     text-align:center;
-    color:#ffd700;
+    color:#FFD700;
     font-size:22px;
     font-weight:800;
     letter-spacing:2px;
@@ -279,6 +279,21 @@ body{
         0 15px 35px rgba(0,0,0,.45),
         inset 0 2px 3px rgba(255,255,255,.12);
     }
+    .name-label{
+    color:#FFD700;
+    font-size:30px;
+    font-weight:800;
+    margin-right:10px;
+}
+
+#name{
+    font-size:36px;
+    font-weight:800;
+    color:#fff;
+    text-align:center;
+    line-height:1.2;
+    text-shadow:0 3px 10px rgba(0,0,0,.45);
+}
 </style>
 
 </head>
@@ -298,9 +313,7 @@ body{
         <img src="logo.png" id="schoolLogo" alt="IPS Logo">
     </div>
 
-<div class="name-card">
-    <div class="student-title">👨‍🎓 STUDENT NAME</div>
-    <h2 id="name"></h2>
+<h2 id="name"></h2>
 </div>
 
 <div class="info-card">
@@ -373,7 +386,7 @@ if(!student){
 }
 
 document.getElementById("name").innerHTML =
-"<span style='color:#FFD700;'>Student Name :</span> " + student.Name;
+"<span class='name-label'>Student Name :</span> " + student.Name;
 document.getElementById("father").innerHTML = student.Father;
 document.getElementById("class").innerHTML = student.Class;
 document.getElementById("roll").innerHTML = student.Roll;
