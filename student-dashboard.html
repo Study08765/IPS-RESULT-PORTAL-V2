@@ -3,139 +3,347 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student Dashboard</title>
+<title>IPS Student Dashboard V2</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f4f6fb;
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(4,25,70,.20), rgba(4,25,70,.25)),
+    url("village-bg.jpg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
 }
 
 .header{
-background:#0b3d91;
-color:white;
-padding:18px;
-text-align:center;
-font-size:22px;
-font-weight:bold;
+    width:100%;
+    padding:18px;
+    text-align:center;
+    background:linear-gradient(90deg,#003b8e,#0066ff);
+    color:#fff;
+    box-shadow:0 6px 20px rgba(0,0,0,.30);
 }
 
-.card{
-max-width:420px;
-margin:20px auto;
-background:white;
-border-radius:12px;
-padding:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
-text-align:center;
+.header h1{
+    font-size:28px;
+    font-weight:700;
 }
 
+.header p{
+    margin-top:6px;
+    font-size:15px;
+    letter-spacing:2px;
+  }
+.container{
+    width:100%;
+    max-width:100%;
+    padding:15px 15px 0 15px;
+}
+
+.profile-card{
+    width:100%;
+    padding:30px 22px;
+    margin:20px 0;
+
+    background:transparent; /* Grey हट गया */
+
+    backdrop-filter:none;   /* Blur हट गया */
+
+    border:none;
+
+    border-radius:30px;
+
+    box-shadow:none;
+}
+
+.school-logo{
+    width:100px;
+    height:100px;
+    margin:0 auto 10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#fff;
+    border:5px solid #FFD700;
+    border-radius:50%;
+    overflow:hidden;
+    box-shadow:0 0 25px rgba(255,215,0,.6);
+    }
+
+.school-logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
 #name{
-font-size:22px;
-font-weight:bold;
-color:#0b3d91;
-margin-top:10px;
+    font-size:42px;
+    font-weight:900;
+    color:#fff;
+    margin:0;
+    text-shadow:
+        0 2px 0 #bdbdbd,
+        0 5px 15px rgba(0,0,0,.45);
+}
+.student-class{
+    color:#fff;
+    opacity:.9;
+    margin-top:8px;
+  }
+    .info-card{
+    width:96%;
+    max-width:560px;
+    margin:30px auto;
+    padding:22px;
+    background:linear-gradient(135deg,
+        rgba(8,15,40,.92),
+        rgba(20,35,75,.90),
+        rgba(8,15,40,.92));
+    border:2px solid rgba(255,215,0,.35);
+    border-radius:24px;
+    backdrop-filter:blur(15px);
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45),
+        inset 0 1px 3px rgba(255,255,255,.12);
+    }
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin:14px 0;
+    padding:18px 22px;
+    border-radius:18px;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,.10),
+        0 4px 10px rgba(0,0,0,.25);
 }
 
-.info{
-margin-top:10px;
-font-size:17px;
+.row span{
+    font-size:18px;
+    font-weight:700;
+    color:#FFD700;
+    letter-spacing:.5px;
 }
 
-.grid{
-max-width:420px;
-margin:15px auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:15px;
+.row b{
+    font-size:20px;
+    font-weight:800;
+    color:#fff;
+    text-shadow:0 2px 6px rgba(0,0,0,.5);
 }
 
 .btn{
-background:#0b3d91;
-color:white;
-padding:18px;
-border-radius:10px;
-text-align:center;
-font-size:18px;
-text-decoration:none;
-font-weight:bold;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    height:72px;
+    padding:0 20px;
+
+    border-radius:22px;
+    text-decoration:none;
+
+    font-size:20px;
+    font-weight:700;
+    color:#fff;
+
+    background:linear-gradient(135deg,#0f172a,#334155);
+
+    border:1.5px solid rgba(255,255,255,.25);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.35),
+        inset 0 2px 3px rgba(255,255,255,.30);
+
+    transition:.35s ease;
 }
+
+.btn:hover{
+    transform:translateY(-5px) scale(1.03);
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.45),
+        0 0 18px rgba(30,107,255,.45);
+}
+
+.btn:active{
+    transform:scale(.98);
+    }
 
 .logout{
-background:#d32f2f;
-}
-  .profileCard{
-border-top:6px solid #0b3d91;
-padding:25px;
+    grid-column:1/3;
+
+    height:74px;
+
+    background:linear-gradient(135deg,#dc2626,#991b1b);
+
+    font-size:21px;
+    font-weight:800;
+
+    border-radius:22px;
+    }
+    .button-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+    margin-top:510px;
+    padding-bottom:30px;
+    }
+
+.time-card{
+    width:240px;
+    height:80px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:rgba(0,0,0,.75);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.25);
+    border-radius:18px;
+    box-shadow:0 10px 25px rgba(0,0,0,.30);
+    margin:15px auto;
+    }
+#digitalClock{
+    font-size:32px;
+    font-weight:700;
+    color:#fff;
+    letter-spacing:2px;
 }
 
-.avatar{
-width:80px;
-height:80px;
-margin:auto;
-background:#0b3d91;
-color:#fff;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:42px;
-margin-bottom:15px;
+#liveDate{
+    display:block;
+    font-size:14px;
+    color:#FFD700;
+    margin-top:4px;
+    }
+    .top-profile{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    }
+    .footer{
+    width:100%;
+    margin:15px 0 0;
+    padding:24px 20px;
+    background:linear-gradient(135deg,#020b2d,#0b2d6f,#1546b5,#0b2d6f,#020b2d);
+    border-top:3px solid #FFD700;
+    box-shadow:
+        0 -8px 25px rgba(0,0,0,.45),
+        inset 0 2px 3px rgba(255,255,255,.12);
+    text-align:center;
 }
 
-.infoRow{
-display:flex;
-justify-content:space-between;
-padding:12px 0;
-border-bottom:1px solid #eee;
-font-size:18px;
+.footer{
+    color:#FFD700;
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.6),
+        0 0 12px rgba(255,215,0,.35);
+}
+    .student-title{
+    color:#FFD700;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+    }
+    .name-card{
+    width:96%;
+    max-width:560px;
+    margin:15px auto 20px;
+    padding:18px;
+    text-align:center;
+    border-radius:22px;
+    background:linear-gradient(135deg,#08152d,#183b73,#08152d);
+    border:2px solid rgba(255,215,0,.45);
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.45),
+        inset 0 2px 3px rgba(255,255,255,.12);
+        overflow:hidden;
+    }
+    .name-label{
+    color:#FFD700;
+    font-size:30px;
+    font-weight:800;
+    margin-right:10px;
 }
 
-.infoRow:last-child{
-border:none;
+#name{
+    font-size:30px;
+    font-weight:800;
+    color:#fff;
+    text-align:center;
+    line-height:1.2;
+    text-shadow:0 3px 10px rgba(0,0,0,.45);
+    white-space:nowrap;
+overflow:hidden;
 }
 </style>
 
 </head>
 
 <body>
-
 <div class="header">
-🎓 IPS STUDENT PORTAL
+    <h1>🎓 IPS PUBLIC SCHOOL</h1>
+    <p>STUDENT DASHBOARD</p>
 </div>
 
-<div class="card profileCard">
+<div class="container">
+    <div class="profile-card">
 
-<div class="avatar">👨‍🎓</div>
+    <div class="top-profile">
 
-<h2 id="name"></h2>
+    <div class="school-logo">
+        <img src="logo.png" id="schoolLogo" alt="IPS Logo">
+    </div>
 
-<hr style="margin:15px 0;">
-
-<div class="infoRow">
-<span>👨 Father</span>
-<b id="father"></b>
+<div class="name-card">
+    <h2 id="name"></h2>
 </div>
 
-<div class="infoRow">
-<span>🎓 Class</span>
-<b id="class"></b>
-</div>
+<div class="info-card">
 
-<div class="infoRow">
-<span>🎫 Roll No</span>
-<b id="roll"></b>
-</div>
+    <div class="row">
+        <span>👨 Father</span>
+        <b id="father"></b>
+    </div>
 
-</div>
+    <div class="row">
+        <span>🎓 Class</span>
+        <b id="class"></b>
+    </div>
 
-<div class="grid">
+    <div class="row">
+        <span>🎫 Roll No</span>
+        <b id="roll"></b>
+    </div>
+</div>
+    </div>
+<div class="button-grid">
 
 <a class="btn" href="student-homework.html">📚 Homework</a>
 
@@ -143,37 +351,62 @@ border:none;
 
 <a class="btn" href="student-admitcard.html">🎫 Admit Card</a>
 
-
 <a class="btn" href="index.html">📊 Result</a>
+
 <a class="btn logout" href="student-login.html">🚪 Logout</a>
 
 </div>
+    <div style="display:flex;justify-content:center;">
+    <div class="time-card">
+        <div id="digitalClock"></div>
+        <div id="liveDate"></div>
+    </div>
+    </div>
+    <script>
+const digitalClock = document.getElementById("digitalClock");
+const liveDate = document.getElementById("liveDate");
 
-<script>
+function updateClock(){
 
-const student=JSON.parse(localStorage.getItem("student"));
-localStorage.setItem("studentRoll", student.Roll);
-if(!student){
+    const now = new Date();
 
-window.location="student-login.html";
+    digitalClock.innerHTML = now.toLocaleTimeString("en-IN",{
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+        hour12:true
+    });
+
+    liveDate.innerHTML = now.toLocaleDateString("en-IN",{
+        weekday:"short",
+        day:"2-digit",
+        month:"long",
+        year:"numeric"
+    });
 
 }
 
-document.getElementById("name").innerHTML = student.Name;
+updateClock();
+setInterval(updateClock,1000);
+        const student = JSON.parse(localStorage.getItem("student"));
 
+if(!student){
+    window.location = "student-login.html";
+}
+
+// पुराने Dashboard की तरह Roll No सेव करें
+localStorage.setItem("studentRoll", student.Roll);
+
+document.getElementById("name").innerHTML =
+"<span class='name-label'>Student Name :</span> " + student.Name;
 document.getElementById("father").innerHTML = student.Father;
-
 document.getElementById("class").innerHTML = student.Class;
-
 document.getElementById("roll").innerHTML = student.Roll;
-
-</script>
-<div style="text-align:center;margin:20px 0;color:#777;font-size:13px;">
-© 2026 IPS Result Portal V2<br>
-Designed & Developed By<br>
-<span style="color:#0b3d91;font-weight:bold;font-size:15px;">
-A.K. Singh Chandel
-</span>
-</div>
+    </script>
+    </div>  
+    <footer class="footer">
+🏫 WELCOME TO IPS PUBLIC SCHOOL 🏫
+    </footer>
 </body>
-</html>
+
+  </html>
