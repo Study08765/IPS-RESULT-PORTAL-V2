@@ -243,20 +243,27 @@ body{
     width:100%;
     }
     .footer{
-    width:calc(100% + 30px);
-    margin:35px -15px 0;
-    padding:18px 20px;
-    background:linear-gradient(90deg,#003b8e,#0066ff,#003b8e);
+    width:100%;
+    margin:35px 0 0;
+    padding:24px 20px;
+    background:linear-gradient(135deg,#020b2d,#0b2d6f,#1546b5,#0b2d6f,#020b2d);
     border-top:3px solid #FFD700;
-    border-radius:0;
-    box-shadow:0 -6px 18px rgba(0,0,0,.35);
+    box-shadow:
+        0 -8px 25px rgba(0,0,0,.45),
+        inset 0 2px 3px rgba(255,255,255,.12);
     text-align:center;
+}
+
+.footer{
     color:#FFD700;
-    font-size:20px;
-    font-weight:800;
-    letter-spacing:2px;
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:3px;
     text-transform:uppercase;
-    }
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.6),
+        0 0 12px rgba(255,215,0,.35);
+}
     .student-title{
     color:#FFD700;
     font-size:14px;
@@ -391,7 +398,7 @@ document.getElementById("father").innerHTML = student.Father;
 document.getElementById("class").innerHTML = student.Class;
 document.getElementById("roll").innerHTML = student.Roll;
     </script>
-    
+    </div>  
     <footer class="footer">
 🏫 WELCOME TO IPS PUBLIC SCHOOL 🏫
     </footer>
