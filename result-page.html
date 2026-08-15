@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Result</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f4f6fb;
+    margin:0;
+    padding:20px;
+}
+
+.result-card{
+    width:95%;
+    max-width:900px;
+    margin:20px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.result-header{
+    text-align:center;
+}
+
+.result-header h2,
+.result-header h3,
+.result-header h4{
+    margin:7px 0;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin:20px 0;
+}
+
+.info-box{
+    background:#f5f8ff;
+    padding:12px;
+    border-radius:12px;
+    text-align:center;
+    font-weight:600;
+}
+
+.resultTable{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+.resultTable th{
+    background:#0b3d91;
+    color:#fff;
+    padding:12px;
+}
+
+.resultTable td{
+    padding:10px;
+    border:1px solid #ddd;
+    text-align:center;
+}
+
+.summary{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
+
+.summary > div{
+    background:#eef4ff;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.summary h3{
+    margin:0;
+    font-size:24px;
+}
+
+.summary p{
+    margin:7px 0 0;
+}
+
+.pass{
+    background:#d4edda !important;
+    color:#198754;
+}
+
+.fail{
+    background:#f8d7da !important;
+    color:#dc3545;
+}
+
+.result-card button{
+    margin-top:20px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#0b3d91;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.error-box{
+    max-width:700px;
+    margin:50px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.error-box h2{
+    color:red;
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:10px;
+    }
+
+    .result-card{
+        padding:15px;
+    }
+
+    .resultTable{
+        font-size:14px;
+    }
+
+}
+
+@media print{
+
+    body{
+        background:#fff;
+        padding:0;
+    }
+
+    .result-card{
+        width:100%;
+        margin:0;
+        box-shadow:none;
+    }
+
+    .result-card button{
+        display:none;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="result">
+
+    <div style="
+        text-align:center;
+        padding:50px;
+    ">
+        Loading Result...
+    </div>
+
+</div>
+
+<script type="module" src="result-page.js"></script>
+
+</body>
+  </html>
