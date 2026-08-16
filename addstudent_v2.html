@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Add Student V2 | IPS PUBLIC SCHOOL</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:
+linear-gradient(
+135deg,
+#eef3fa,
+#f8faff
+);
+
+padding:20px;
+
+color:#172033;
+
+}
+
+.box{
+
+max-width:750px;
+
+margin:auto;
+
+background:#fff;
+
+padding:25px;
+
+border-radius:18px;
+
+box-shadow:
+0 10px 35px rgba(0,0,0,.12);
+
+}
+
+h2{
+
+text-align:center;
+
+color:#0b3d91;
+
+font-size:25px;
+
+margin-bottom:22px;
+
+font-weight:800;
+
+}
+
+.sectionTitle{
+
+margin-top:20px;
+
+margin-bottom:8px;
+
+color:#0b3d91;
+
+font-size:18px;
+
+border-left:4px solid #0b3d91;
+
+padding-left:9px;
+
+}
+
+input,
+select{
+
+width:100%;
+
+padding:13px;
+
+margin:7px 0;
+
+font-size:16px;
+
+border:1px solid #ccd5e2;
+
+border-radius:9px;
+
+background:#fff;
+
+outline:none;
+
+}
+
+input:focus,
+select:focus{
+
+border-color:#0b3d91;
+
+box-shadow:
+0 0 0 3px
+rgba(11,61,145,.08);
+
+}
+
+input[readonly]{
+
+background:#f1f4f8;
+
+cursor:not-allowed;
+
+}
+
+.subject{
+
+border:1px solid #d9e1ec;
+
+padding:15px;
+
+margin-top:12px;
+
+border-radius:12px;
+
+background:
+linear-gradient(
+135deg,
+#fbfcff,
+#f4f7fc
+);
+
+box-shadow:
+0 3px 10px
+rgba(0,0,0,.05);
+
+}
+
+.subjectTitle{
+
+font-weight:bold;
+
+color:#0b3d91;
+
+margin-bottom:6px;
+
+font-size:15px;
+
+}
+
+.subjectName{
+
+font-weight:600;
+
+}
+
+.btn{
+
+width:100%;
+
+padding:13px;
+
+margin-top:13px;
+
+font-size:17px;
+
+font-weight:bold;
+
+border:none;
+
+border-radius:9px;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-1px);
+
+}
+
+.btn:disabled{
+
+opacity:.6;
+
+cursor:not-allowed;
+
+transform:none;
+
+}
+
+.add{
+
+background:#198754;
+
+color:white;
+
+}
+
+.save{
+
+background:#0b3d91;
+
+color:white;
+
+}
+
+.removeSubject{
+
+width:100%;
+
+padding:9px;
+
+margin-top:8px;
+
+border:none;
+
+border-radius:7px;
+
+background:#dc3545;
+
+color:white;
+
+font-size:14px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+.removeSubject:hover{
+
+background:#bb2d3b;
+
+}
+
+.subjectInfo{
+
+margin-top:12px;
+
+padding:11px;
+
+background:#eef5ff;
+
+border:1px solid #d4e3ff;
+
+border-radius:9px;
+
+color:#0b3d91;
+
+font-size:14px;
+
+text-align:center;
+
+font-weight:bold;
+
+}
+
+.note{
+
+margin-top:12px;
+
+padding:12px;
+
+background:#fff8e6;
+
+border:1px solid #f0d98c;
+
+border-radius:9px;
+
+font-size:13px;
+
+color:#735500;
+
+line-height:1.5;
+
+}
+
+.emptySubjects{
+
+text-align:center;
+
+padding:18px;
+
+margin-top:12px;
+
+border:1px dashed #b8c4d5;
+
+border-radius:10px;
+
+color:#68758a;
+
+background:#fafcff;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="box">
+
+
+<h2>
+👨‍🎓 ADD STUDENT V2
+</h2>
+
+
+<!-- BASIC INFORMATION -->
+
+<div class="sectionTitle">
+Student Information
+</div>
+
+
+<input
+id="roll"
+placeholder="Roll Number"
+autocomplete="off"
+>
+
+
+<input
+id="name"
+placeholder="Student Name"
+autocomplete="off"
+>
+
+
+<input
+id="father"
+placeholder="Father Name"
+autocomplete="off"
+>
+
+
+<input
+id="mother"
+placeholder="Mother Name"
+autocomplete="off"
+>
+
+
+<!-- CLASS -->
+
+<div class="sectionTitle">
+Class Information
+</div>
+
+
+<input
+id="class"
+placeholder="Class"
+autocomplete="off"
+>
+
+
+<input
+id="section"
+placeholder="Section"
+autocomplete="off"
+>
+
+
+<!-- EXAM -->
+
+<div class="sectionTitle">
+Examination Information
+</div>
+
+
+<select id="examType">
+
+<option value="Quarterly Examination">
+Quarterly Examination
+</option>
+
+<option value="Half Yearly Examination">
+Half Yearly Examination
+</option>
+
+<option value="Annual Examination">
+Annual Examination
+</option>
+
+<option value="Unit Test">
+Unit Test
+</option>
+
+</select>
+
+
+<input
+id="session"
+value="2026-27"
+placeholder="Session"
+>
+
+
+<!-- SUBJECTS -->
+
+<div class="sectionTitle">
+Subjects & Marks
+</div>
+
+
+<div class="subjectInfo">
+Class चुनते ही उस class के saved subjects यहाँ automatically आएँगे.
+</div>
+
+
+<div id="subjects"></div>
+
+
+<button
+type="button"
+class="btn add"
+id="addSubject"
+>
+➕ Add Subject
+</button>
+
+
+<div class="note">
+
+<b>Note:</b>
+
+Subject Name automatic आएगा।
+
+<br>
+
+Full Marks और Obtained Marks आपको खुद भरने होंगे।
+
+<br>
+
+किसी student का अलग subject हो तो
+<b>Add Subject</b> से जोड़ सकते हैं।
+
+</div>
+
+
+<!-- SAVE -->
+
+<button
+type="button"
+class="btn save"
+id="saveBtn"
+>
+💾 Save Student
+</button>
+
+
+</div>
+
+
+<script
+type="module"
+src="admin_v2.js">
+</script>
+
+
+</body>
+
+  </html>
