@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admit Card Management</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#eef2f7;
+    padding:20px;
+    color:#172033;
+}
+
+.box{
+    max-width:900px;
+    margin:auto;
+    background:#fff;
+    padding:25px;
+    border-radius:18px;
+    box-shadow:0 10px 35px rgba(0,0,0,.12);
+}
+
+.pageTitle{
+    text-align:center;
+    color:#0b3d91;
+    font-size:26px;
+    font-weight:800;
+    margin-bottom:25px;
+}
+
+.controlPanel{
+    background:linear-gradient(135deg,#f8fbff,#eef4ff);
+    border:1px solid #d9e5ff;
+    padding:20px;
+    border-radius:15px;
+}
+
+label{
+    display:block;
+    font-weight:700;
+    margin-top:12px;
+    color:#263653;
+}
+
+input,
+select{
+    width:100%;
+    padding:13px;
+    margin-top:7px;
+    border:1px solid #cbd5e1;
+    border-radius:9px;
+    font-size:16px;
+    background:#fff;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#0b3d91;
+    box-shadow:0 0 0 3px rgba(11,61,145,.10);
+}
+
+button{
+    width:100%;
+    padding:13px;
+    margin-top:12px;
+    border:0;
+    border-radius:9px;
+    color:#fff;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
+
+button:hover{
+    transform:translateY(-1px);
+}
+
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.generateBtn{
+    background:#0b3d91;
+}
+
+.downloadBtn{
+    background:#168653;
+}
+
+.printBtn{
+    background:#6941c6;
+}
+
+.infoBox{
+    margin-top:15px;
+    padding:12px;
+    text-align:center;
+    border-radius:9px;
+    background:#fff;
+    border:1px solid #dbe5f5;
+    color:#0b3d91;
+    font-size:15px;
+}
+
+.divider{
+    border:0;
+    border-top:1px solid #e2e8f0;
+    margin:22px 0;
+}
+
+#bulkStatus{
+    display:none;
+    margin-top:12px;
+    padding:12px;
+    border-radius:9px;
+    text-align:center;
+    background:#edf6ff;
+    color:#0b3d91;
+    font-weight:700;
+}
+
+/* Individual card */
+
+#admitCard{
+    display:none;
+    margin-top:25px;
+}
+
+.individualCard{
+    background:#fff;
+    border:2px solid #0b3d91;
+    border-radius:14px;
+    padding:25px;
+}
+
+.schoolName{
+    text-align:center;
+    color:#0b3d91;
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:.4px;
+}
+
+.schoolLine{
+    width:100px;
+    height:3px;
+    background:#d4a72c;
+    margin:8px auto;
+    border-radius:10px;
+}
+
+.admitTitle{
+    text-align:center;
+    font-size:19px;
+    font-weight:800;
+    letter-spacing:2px;
+    color:#172033;
+    margin:8px 0 15px;
+}
+
+.infoTable{
+    width:100%;
+    border-collapse:collapse;
+    margin:15px 0;
+}
+
+.infoTable td{
+    border:1px solid #d5dce8;
+    padding:9px;
+    font-size:14px;
+}
+
+.infoTable td b{
+    color:#243b64;
+}
+
+.subjectHeading{
+    color:#0b3d91;
+    margin:12px 0 7px;
+    font-size:16px;
+}
+
+.subjectTable{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.subjectTable th,
+.subjectTable td{
+    border:1px solid #b8c3d3;
+    padding:8px;
+    text-align:center;
+    font-size:13px;
+}
+
+.subjectTable th{
+    background:#edf3ff;
+    color:#173c78;
+}
+
+.signatureRow{
+    display:flex;
+    justify-content:space-between;
+    margin-top:45px;
+    font-size:13px;
+    text-align:center;
+}
+
+.signatureBox{
+    min-width:150px;
+}
+
+.singlePrint{
+    margin-top:25px;
+}
+
+/* Hidden PDF area */
+
+#bulkContainer{
+    position:absolute;
+    left:-100000px;
+    top:0;
+    width:210mm;
+}
+
+/* A4 */
+
+.pdfPage{
+    width:210mm;
+    height:297mm;
+    background:#fff;
+    padding:7mm;
+    display:flex;
+    flex-direction:column;
+    gap:5mm;
+    page-break-after:always;
+    break-after:page;
+}
+
+/* 2 cards */
+
+.pdfPage.twoCards .bulkCard{
+    height:138mm;
+}
+
+/* 3 cards */
+
+.pdfPage.threeCards .bulkCard{
+    height:91mm;
+}
+
+/* Bulk premium card */
+
+.bulkCard{
+    width:100%;
+    background:#fff;
+    border:1.5px solid #0b3d91;
+    position:relative;
+    padding:5mm;
+    overflow:hidden;
+}
+
+.bulkCard:before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:3px;
+    background:#d4a72c;
+}
+
+.bulkCard .schoolName{
+    font-size:16px;
+    margin-top:2px;
+}
+
+.bulkCard .schoolLine{
+    width:65px;
+    height:2px;
+    margin:3px auto;
+}
+
+.bulkCard .admitTitle{
+    font-size:12px;
+    letter-spacing:1.5px;
+    margin:3px 0 6px;
+}
+
+.bulkCard .infoTable{
+    margin:5px 0;
+}
+
+.bulkCard .infoTable td{
+    padding:3px 4px;
+    font-size:9px;
+}
+
+.bulkCard .subjectHeading{
+    font-size:10px;
+    margin:5px 0 3px;
+}
+
+.bulkCard .subjectTable{
+    font-size:8px;
+}
+
+.bulkCard .subjectTable th,
+.bulkCard .subjectTable td{
+    padding:2.5px;
+    font-size:8px;
+}
+
+.bulkCard .signatureRow{
+    margin-top:10px;
+    font-size:8px;
+}
+
+.bulkCard .signatureBox{
+    min-width:100px;
+}
+
+@media print{
+
+    body{
+        background:#fff;
+        padding:0;
+    }
+
+    .noPrint{
+        display:none!important;
+    }
+
+    .box{
+        box-shadow:none;
+        max-width:none;
+        padding:0;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <div class="pageTitle">
+        🎫 Admit Card Management
+    </div>
+
+    <div class="controlPanel noPrint">
+
+        <label>Roll Number</label>
+
+        <input
+            id="roll"
+            placeholder="Enter Roll Number"
+        >
+
+        <button
+            id="generateBtn"
+            class="generateBtn"
+        >
+            🎫 Generate Admit Card
+        </button>
+
+        <hr class="divider">
+
+        <label>Select Class</label>
+
+        <select id="classSelect">
+            <option value="ALL">
+                All Classes
+            </option>
+        </select>
+
+        <label>Admit Cards Per A4 Page</label>
+
+        <select id="cardsPerPage">
+
+            <option value="2">
+                2 Admit Cards Per Page
+            </option>
+
+            <option value="3" selected>
+                3 Admit Cards Per Page
+            </option>
+
+        </select>
+
+        <div
+            id="studentCount"
+            class="infoBox"
+        >
+            Loading students...
+        </div>
+
+        <button
+            id="downloadAllBtn"
+            class="downloadBtn"
+        >
+            📥 Download All Admit Cards
+        </button>
+
+        <button
+            id="printAllBtn"
+            class="printBtn"
+        >
+            🖨️ Print All Admit Cards
+        </button>
+
+        <div id="bulkStatus"></div>
+
+    </div>
+
+
+    <div id="admitCard"></div>
+
+</div>
+
+
+<div id="bulkContainer"></div>
+
+
+<script type="module" src="admitcard.js"></script>
+
+</body>
+                                                                                                 </html>
