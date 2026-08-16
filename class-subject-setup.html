@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Subject Setup</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f3f6fb;
+padding:20px;
+}
+
+.box{
+max-width:700px;
+margin:auto;
+background:#fff;
+padding:22px;
+border-radius:16px;
+box-shadow:0 8px 30px rgba(0,0,0,.12);
+}
+
+h2{
+text-align:center;
+color:#0b3d91;
+margin-bottom:20px;
+}
+
+label{
+display:block;
+margin-top:12px;
+font-weight:bold;
+color:#263653;
+}
+
+select,
+input{
+width:100%;
+padding:13px;
+margin-top:7px;
+border:1px solid #ccd5e2;
+border-radius:8px;
+font-size:16px;
+outline:none;
+}
+
+select:focus,
+input:focus{
+border-color:#0b3d91;
+}
+
+.subjectBox{
+margin-top:20px;
+}
+
+.subjectRow{
+display:flex;
+gap:8px;
+margin-top:10px;
+}
+
+.subjectRow input{
+margin-top:0;
+flex:1;
+}
+
+.deleteBtn{
+width:45px;
+margin:0;
+padding:0;
+border:0;
+border-radius:8px;
+background:#dc3545;
+color:white;
+font-size:20px;
+cursor:pointer;
+}
+
+button{
+width:100%;
+padding:13px;
+margin-top:12px;
+border:0;
+border-radius:8px;
+color:white;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.addBtn{
+background:#198754;
+}
+
+.saveBtn{
+background:#0b3d91;
+}
+
+button:disabled{
+opacity:.6;
+cursor:not-allowed;
+}
+
+.status{
+display:none;
+margin-top:15px;
+padding:12px;
+border-radius:8px;
+text-align:center;
+background:#edf5ff;
+color:#0b3d91;
+font-weight:bold;
+}
+
+.count{
+margin-top:12px;
+padding:10px;
+text-align:center;
+background:#f6f8fb;
+border-radius:8px;
+color:#344054;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>📚 Class Subject Setup</h2>
+
+<label>Select Class</label>
+
+<select id="classSelect">
+
+<option value="">Select Class</option>
+
+<option value="1">Class 1</option>
+<option value="2">Class 2</option>
+<option value="3">Class 3</option>
+<option value="4">Class 4</option>
+<option value="5">Class 5</option>
+<option value="6">Class 6</option>
+<option value="7">Class 7</option>
+<option value="8">Class 8</option>
+
+</select>
+
+<div id="studentCount" class="count">
+Select a class
+</div>
+
+<div class="subjectBox">
+
+<h3>Subjects</h3>
+
+<div id="subjects"></div>
+
+<button
+type="button"
+class="addBtn"
+id="addSubject">
+➕ Add Subject
+</button>
+
+</div>
+
+<button
+type="button"
+class="saveBtn"
+id="saveBtn">
+💾 Save & Apply to Class
+</button>
+
+<div id="status" class="status"></div>
+
+</div>
+
+<script
+type="module"
+src="class-subject-setup.js">
+</script>
+
+</body>
+  </html>
