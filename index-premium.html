@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<link rel="manifest" href="./manifest.json">
+
+<meta name="theme-color" content="#0b3d91">
+
+<link rel="icon"
+type="image/png"
+sizes="192x192"
+href="./icon-192.png">
+
+<link rel="apple-touch-icon"
+href="./icon-192.png">
+
+<title>IPSPS PORTAL - IPS PUBLIC SCHOOL</title>
+
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style>
+
+/* =====================================================
+GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    padding:0;
+
+    background:
+    radial-gradient(
+        circle at 10% 10%,
+        rgba(48,108,200,.07),
+        transparent 28%
+    ),
+    #f1f5fa;
+
+    color:#163660;
+
+    overflow-x:hidden;
+}
+
+
+/* =====================================================
+PREMIUM IMAGE
+===================================================== */
+
+.hero-image{
+    width:100%;
+    margin:0;
+    padding:0;
+    line-height:0;
+    overflow:hidden;
+    background:#edf2f7;
+}
+
+.hero-image img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-width:none;
+    object-fit:contain;
+    object-position:center;
+
+    filter:
+    brightness(1.04)
+    saturate(.96)
+    contrast(.98);
+}
+
+
+/* =====================================================
+MAIN
+===================================================== */
+
+.main-container{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+
+/* =====================================================
+SCHOOL MAIN CARD
+===================================================== */
+
+.school-card{
+
+    position:relative;
+
+    width:100%;
+
+    padding:
+    18px
+    12px
+    25px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff 0%,
+        #f7faff 50%,
+        #edf4fc 100%
+    );
+
+    border-bottom:
+    1px solid #d9e3ef;
+
+    box-shadow:
+    0 16px 40px
+    rgba(16,50,90,.10),
+
+    inset 0 1px 0 #ffffff;
+
+    overflow:hidden;
+}
+
+
+.school-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    right:-190px;
+    top:-190px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(60,120,210,.07),
+        transparent 68%
+    );
+
+    pointer-events:none;
+}
+
+
+.school-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    left:-170px;
+    bottom:-170px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(210,173,52,.07),
+        transparent 70%
+    );
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+GOLD TOP LINE
+===================================================== */
+
+.luxury-line{
+
+    position:relative;
+
+    z-index:2;
+
+    width:92px;
+    height:3px;
+
+    margin:
+    0 auto 10px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #a97b16,
+        #f0d36c,
+        #b4861e
+    );
+}
+
+
+/* =====================================================
+LOGO
+===================================================== */
+
+.logo{
+
+    position:relative;
+
+    z-index:2;
+
+    width:84px;
+    height:84px;
+
+    margin:
+    0 auto 8px;
+
+    padding:6px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    border:
+    3px solid #d5af39;
+
+    box-shadow:
+    0 0 0 6px
+    rgba(213,175,57,.07),
+
+    0 10px 25px
+    rgba(20,54,96,.16);
+}
+
+.logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+}
+
+
+/* =====================================================
+SCHOOL NAME
+===================================================== */
+
+.school-name{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    text-align:center;
+
+    white-space:nowrap;
+
+    color:#0b3d91;
+
+    font-size:
+    clamp(32px,6.5vw,58px);
+
+    line-height:1;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+
+    text-shadow:
+    0 3px 9px
+    rgba(11,61,145,.10);
+}
+
+
+/* =====================================================
+AHIRORI HARDOI
+===================================================== */
+
+.school-place{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:6px;
+
+    text-align:center;
+
+    color:#9b7418;
+
+    font-size:12px;
+
+    font-weight:900;
+
+    letter-spacing:3px;
+}
+
+
+/* =====================================================
+RESULT PANEL
+===================================================== */
+
+.result-panel{
+
+    position:relative;
+
+    z-index:3;
+
+    width:min(
+        940px,
+        94%
+    );
+
+    margin:
+    10px auto 0;
+
+    padding:
+    23px
+    26px
+    28px;
+
+    border-radius:26px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff 0%,
+        #f7faff 50%,
+        #edf4fc 100%
+    );
+
+    border:
+    1px solid #d4e0ed;
+
+    box-shadow:
+    0 18px 42px
+    rgba(17,52,91,.12),
+
+    inset 0 1px 0 #ffffff;
+
+    overflow:hidden;
+}
+
+
+.result-panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:210px;
+    height:210px;
+
+    right:-120px;
+    top:-120px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(210,174,53,.08),
+        transparent 68%
+    );
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+RESULT GOLD LINE
+===================================================== */
+
+.result-heading-line{
+
+    position:relative;
+
+    z-index:2;
+
+    width:75px;
+    height:4px;
+
+    margin:
+    0 auto 9px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #a97c17,
+        #efd36a,
+        #b4861e
+    );
+}
+
+
+/* =====================================================
+QUARTERLY EXAM - DARK ORANGE
+===================================================== */
+
+#examTitle{
+
+    position:relative;
+
+    z-index:2;
+
+    margin:0 !important;
+
+    text-align:center;
+
+    color:#b45309 !important;
+
+    font-size:
+    clamp(22px,4.5vw,32px) !important;
+
+    line-height:1.15;
+
+    font-weight:900 !important;
+
+    letter-spacing:.3px;
+
+    text-shadow:
+    0 2px 5px
+    rgba(180,83,9,.12) !important;
+}
+
+
+/* =====================================================
+SESSION
+===================================================== */
+
+#sessionTitle{
+
+    position:relative;
+
+    z-index:2;
+
+    margin:
+    4px 0 0 !important;
+
+    text-align:center;
+
+    color:#9b7418 !important;
+
+    font-size:13px;
+
+    font-weight:800;
+}
+
+
+/* =====================================================
+LIVE
+===================================================== */
+
+.live{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    width:max-content;
+
+    margin:
+    9px auto 21px;
+
+    padding:
+    8px 20px;
+
+    border-radius:50px;
+
+    color:#ffffff;
+
+    background:
+    linear-gradient(
+        180deg,
+        #39cc95,
+        #10875d
+    );
+
+    border:
+    1px solid #91e5c4;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    box-shadow:
+    0 7px 18px
+    rgba(16,135,93,.22),
+
+    inset 0 1px 1px
+    rgba(255,255,255,.45);
+}
+
+
+.live::before{
+
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:
+    0 0 0 4px
+    rgba(255,255,255,.15);
+}
+
+
+/* =====================================================
+FIELDS
+===================================================== */
+
+.result-form{
+
+    position:relative;
+
+    z-index:2;
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:18px;
+
+    margin-top:0;
+}
+
+
+/* =====================================================
+REMOVE LABELS
+===================================================== */
+
+.field label{
+    display:none;
+}
+
+
+/* =====================================================
+FULL GOLD BORDER AROUND CLASS / ROLL
+===================================================== */
+
+.field{
+
+    position:relative;
+
+    padding:0;
+
+    border:
+    2px solid #c99b2e;
+
+    border-radius:17px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f7f9fc
+    );
+
+    box-shadow:
+    0 8px 20px
+    rgba(20,50,90,.08),
+
+    inset 0 1px 0
+    rgba(255,255,255,.9);
+
+    overflow:hidden;
+}
+
+
+.field::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:15px;
+
+    border:
+    1px solid
+    rgba(255,221,112,.75);
+
+    pointer-events:none;
+
+    z-index:3;
+}
+
+
+.field::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    right:0;
+
+    bottom:0;
+
+    height:4px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #a97915,
+        #f3d46b,
+        #b17f18,
+        #f3d46b,
+        #a97915
+    );
+
+    pointer-events:none;
+
+    z-index:4;
+}
+
+
+/* =====================================================
+INPUT
+===================================================== */
+
+.result-input{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    height:62px;
+
+    padding:
+    0 19px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f5f8fc
+    );
+
+    color:#193b6d;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    box-shadow:none;
+
+    transition:.25s;
+}
+
+
+.result-input:focus{
+
+    border:none;
+
+    outline:none;
+
+    box-shadow:
+    inset 0 0 0 2px
+    rgba(37,99,235,.12);
+}
+
+
+select.result-input{
+
+    appearance:auto;
+
+    cursor:pointer;
+}
+
+
+/* =====================================================
+3D VIEW RESULT
+===================================================== */
+
+.view-result-btn{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    height:65px;
+
+    margin-top:22px;
+
+    border:
+    1px solid #7ea7d8;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    color:#ffffff;
+
+    font-size:15px;
+
+    font-weight:900;
+
+    letter-spacing:1.6px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #5a9bea 0%,
+        #286dc1 48%,
+        #0b3d91 100%
+    );
+
+    box-shadow:
+
+    0 7px 0 #062d68,
+
+    0 18px 34px
+    rgba(11,61,145,.28),
+
+    inset 0 2px 2px
+    rgba(255,255,255,.42);
+
+    transition:.15s;
+
+    overflow:hidden;
+}
+
+
+.view-result-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:5px;
+
+    left:9%;
+
+    right:9%;
+
+    height:1px;
+
+    background:
+    rgba(255,255,255,.5);
+}
+
+
+.view-result-btn::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-80%;
+
+    width:55%;
+
+    height:100%;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.22),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    transition:.7s;
+}
+
+
+.view-result-btn:hover::after{
+
+    left:130%;
+}
+
+
+.view-result-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 10px 0 #062d68,
+
+    0 23px 40px
+    rgba(11,61,145,.34),
+
+    inset 0 2px 2px
+    rgba(255,255,255,.45);
+}
+
+
+.view-result-btn:active{
+
+    transform:translateY(5px);
+
+    box-shadow:
+
+    0 2px 0 #062d68,
+
+    0 8px 15px
+    rgba(11,61,145,.20);
+}
+
+
+/* =====================================================
+RESULT OUTPUT
+===================================================== */
+
+#result:empty{
+    display:none;
+}
+
+
+.result-card{
+
+    width:min(
+        940px,
+        94%
+    );
+
+    margin:
+    18px auto;
+
+    padding:26px;
+
+    border-radius:25px;
+
+    background:#ffffff;
+
+    border:
+    1px solid #dce6f2;
+
+    box-shadow:
+    0 18px 40px
+    rgba(10,40,90,.12);
+}
+
+
+/* =====================================================
+LOGIN
+===================================================== */
+
+.login-container{
+
+    width:min(
+        940px,
+        94%
+    );
+
+    margin:
+    18px auto 0;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:16px;
+}
+
+
+.login-card{
+
+    position:relative;
+
+    padding:
+    20px
+    15px
+    21px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #edf4fb
+    );
+
+    border:
+    1px solid #d7e2ef;
+
+    box-shadow:
+    0 14px 30px
+    rgba(13,46,83,.10),
+
+    inset 0 1px 0 #ffffff;
+
+    transition:.3s;
+
+    overflow:hidden;
+}
+
+
+.login-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:3px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #b58a20,
+        #efd36b,
+        #b58a20
+    );
+}
+
+
+.login-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 22px 38px
+    rgba(13,46,83,.15);
+}
+
+
+.login-icon{
+
+    width:57px;
+    height:57px;
+
+    margin:
+    0 auto 10px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:16px;
+
+    color:#ffffff;
+
+    font-size:22px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #5799e8,
+        #0b3d91
+    );
+
+    border:
+    1px solid #8ab0dc;
+
+    box-shadow:
+
+    0 5px 0 #062d68,
+
+    0 10px 21px
+    rgba(11,61,145,.20);
+}
+
+
+.login-card h3{
+
+    color:#12366e;
+
+    font-size:15px;
+
+    font-weight:900;
+}
+
+
+.login-card p{
+
+    color:#8491a7;
+
+    font-size:9px;
+
+    margin-top:3px;
+}
+
+
+/* =====================================================
+LOGIN 3D BUTTON
+===================================================== */
+
+.login-btn{
+
+    position:relative;
+
+    display:block;
+
+    margin-top:12px;
+
+    padding:12px 8px;
+
+    text-decoration:none;
+
+    text-align:center;
+
+    color:#ffffff;
+
+    border:
+    1px solid #82a9d7;
+
+    border-radius:10px;
+
+    font-size:10px;
+
+    font-weight:900;
+
+    letter-spacing:.7px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #5a9bea,
+        #286dc1 55%,
+        #0b3d91
+    );
+
+    box-shadow:
+
+    0 4px 0 #062d68,
+
+    0 9px 18px
+    rgba(11,61,145,.20),
+
+    inset 0 1px 1px
+    rgba(255,255,255,.35);
+
+    transition:.15s;
+}
+
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+    0 6px 0 #062d68,
+
+    0 13px 22px
+    rgba(11,61,145,.25);
+}
+
+
+.login-btn:active{
+
+    transform:translateY(3px);
+
+    box-shadow:
+
+    0 1px 0 #062d68,
+
+    0 5px 10px
+    rgba(11,61,145,.18);
+}
+
+
+/* =====================================================
+ANNOUNCEMENT - BIG + FULL WIDTH + BOLD
+===================================================== */
+
+.notice-section{
+
+    width:min(
+        940px,
+        94%
+    );
+
+    margin:
+    21px auto 0;
+
+    padding:
+    22px 20px;
+
+    border-radius:23px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #edf4fb
+    );
+
+    border:
+    1px solid #d7e2ef;
+
+    box-shadow:
+    0 15px 32px
+    rgba(13,46,83,.09);
+}
+
+
+.notice-title-wrap{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    margin-bottom:12px;
+}
+
+
+.notice-title-wrap::before,
+.notice-title-wrap::after{
+
+    content:"";
+
+    width:65px;
+
+    height:2px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #c49a2d
+    );
+}
+
+
+.notice-title-wrap::after{
+
+    background:
+    linear-gradient(
+        90deg,
+        #c49a2d,
+        transparent
+    );
+}
+
+
+.notice-title{
+
+    color:#12386f;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    letter-spacing:.8px;
+
+    white-space:nowrap;
+}
+
+
+.notice-inner{
+
+    width:100%;
+
+    padding:10px;
+
+    border-radius:13px;
+
+    background:#f8fbfe;
+
+    border:
+    1px solid #d8e3ef;
+}
+
+
+.notice-inner marquee{
+
+    display:block;
+
+    width:100%;
+
+    min-height:52px;
+
+    padding:
+    13px 15px;
+
+    border-radius:9px;
+
+    background:#ffffff;
+
+    border:
+    1px solid #d9c98d;
+
+    color:#a32121;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+    font-weight:900;
+
+    letter-spacing:.1px;
+}
+
+
+#countdown{
+
+    margin-top:9px !important;
+
+    text-align:center;
+
+    color:#0b3d91;
+
+    font-size:11px !important;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+FOOTER - BIG + FULL WIDTH + BOLD
+===================================================== */
+
+.footer{
+
+    width:100%;
+
+    margin-top:27px;
+
+    min-height:65px;
+
+    padding:
+    20px 12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    color:#ffffff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0b3d91,
+        #082f70
+    );
+
+    border-top:
+    3px solid #d5b143;
+}
+
+
+.footer .developer{
+
+    width:100%;
+
+    margin:0;
+
+    font-size:13px;
+
+    font-weight:900;
+
+    line-height:1.5;
+
+    letter-spacing:.3px;
+}
+
+
+.footer strong{
+
+    color:#f4d56d;
+
+    font-weight:900;
+}
+
+
+/* =====================================================
+WHATSAPP
+===================================================== */
+
+.whatsapp-btn{
+
+    position:fixed;
+
+    right:17px;
+
+    bottom:17px;
+
+    width:53px;
+
+    height:53px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:#ffffff;
+
+    background:#25D366;
+
+    text-decoration:none;
+
+    font-size:25px;
+
+    box-shadow:
+
+    0 5px 0 #159947,
+
+    0 12px 24px
+    rgba(37,211,102,.28);
+
+    z-index:999;
+}
+
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+    .school-card{
+
+        padding:
+        17px 7px 22px;
+    }
+
+
+    .logo{
+
+        width:74px;
+
+        height:74px;
+    }
+
+
+    .school-name{
+
+        font-size:
+        clamp(
+            25px,
+            7.8vw,
+            32px
+        );
+
+        letter-spacing:0;
+
+        white-space:nowrap;
+    }
+
+
+    .school-place{
+
+        margin-top:5px;
+
+        font-size:9px;
+
+        font-weight:900;
+
+        letter-spacing:2px;
+    }
+
+
+    .result-panel{
+
+        width:96%;
+
+        margin-top:9px;
+
+        padding:
+        20px
+        11px
+        23px;
+
+        border-radius:21px;
+    }
+
+
+    #examTitle{
+
+        font-size:
+        clamp(
+            20px,
+            6vw,
+            25px
+        ) !important;
+
+        color:#b45309 !important;
+    }
+
+
+    #sessionTitle{
+
+        font-size:10px;
+    }
+
+
+    .live{
+
+        margin:
+        8px auto 17px;
+
+        padding:
+        7px 16px;
+
+        font-size:9px;
+    }
+
+
+    .result-form{
+
+        grid-template-columns:
+        1fr 1fr;
+
+        gap:9px;
+    }
+
+
+    .field{
+
+        border-width:2px;
+
+        border-radius:15px;
+    }
+
+
+    .result-input{
+
+        height:58px;
+
+        padding:
+        0 11px;
+
+        font-size:10px;
+
+        border-radius:12px;
+    }
+
+
+    .view-result-btn{
+
+        height:59px;
+
+        margin-top:18px;
+
+        font-size:12px;
+
+        letter-spacing:1px;
+    }
+
+
+    /* BIG ANNOUNCEMENT ON MOBILE */
+
+    .notice-section{
+
+        width:96%;
+
+        margin-top:16px;
+
+        padding:
+        17px 11px;
+
+        border-radius:19px;
+    }
+
+
+    .notice-title{
+
+        font-size:13px;
+
+        font-weight:900;
+
+        letter-spacing:.5px;
+    }
+
+
+    .notice-title-wrap{
+
+        margin-bottom:10px;
+    }
+
+
+    .notice-title-wrap::before,
+    .notice-title-wrap::after{
+
+        width:25px;
+
+        height:2px;
+    }
+
+
+    .notice-inner{
+
+        padding:7px;
+    }
+
+
+    .notice-inner marquee{
+
+        width:100%;
+
+        min-height:48px;
+
+        padding:
+        11px 10px;
+
+        font-size:12px;
+
+        font-weight:900;
+
+        line-height:1.5;
+    }
+
+
+    #countdown{
+
+        font-size:10px !important;
+
+        font-weight:900;
+    }
+
+
+    /* BIG FOOTER ON MOBILE */
+
+    .footer{
+
+        width:100%;
+
+        min-height:58px;
+
+        margin-top:18px;
+
+        padding:
+        16px 8px;
+    }
+
+
+    .footer .developer{
+
+        width:100%;
+
+        font-size:10px;
+
+        font-weight:900;
+
+        line-height:1.5;
+    }
+
+
+    .footer strong{
+
+        font-weight:900;
+    }
+
+
+    .login-container{
+
+        width:96%;
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:7px;
+
+        margin-top:14px;
+    }
+
+
+    .login-card{
+
+        padding:
+        14px 4px 15px;
+
+        border-radius:15px;
+    }
+
+
+    .login-icon{
+
+        width:41px;
+
+        height:41px;
+
+        border-radius:11px;
+
+        font-size:16px;
+
+        margin-bottom:7px;
+    }
+
+
+    .login-card h3{
+
+        font-size:8px;
+    }
+
+
+    .login-card p{
+
+        display:none;
+    }
+
+
+    .login-btn{
+
+        margin-top:7px;
+
+        padding:
+        9px 2px;
+
+        font-size:7px;
+    }
+
+
+    .whatsapp-btn{
+
+        width:47px;
+
+        height:47px;
+
+        right:13px;
+
+        bottom:13px;
+
+        font-size:22px;
+    }
+
+}
+
+
+/* =====================================================
+VERY SMALL MOBILE
+===================================================== */
+
+@media(max-width:380px){
+
+    .school-name{
+
+        font-size:23px;
+    }
+
+
+    .logo{
+
+        width:64px;
+
+        height:64px;
+    }
+
+
+    #examTitle{
+
+        font-size:18px !important;
+    }
+
+
+    #sessionTitle{
+
+        font-size:9px;
+    }
+
+
+    .result-input{
+
+        height:55px;
+
+        font-size:9px;
+    }
+
+
+    .view-result-btn{
+
+        height:55px;
+
+        font-size:11px;
+    }
+
+
+    .notice-section{
+
+        padding:
+        15px 9px;
+    }
+
+
+    .notice-title{
+
+        font-size:11px;
+    }
+
+
+    .notice-inner marquee{
+
+        min-height:45px;
+
+        font-size:10px;
+
+        padding:
+        10px 8px;
+    }
+
+
+    .footer{
+
+        min-height:55px;
+
+        padding:
+        14px 7px;
+    }
+
+
+    .footer .developer{
+
+        font-size:9px;
+    }
+
+
+    .login-card h3{
+
+        font-size:7px;
+    }
+
+
+    .login-btn{
+
+        font-size:6.5px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+PREMIUM IMAGE
+===================================================== -->
+
+<section class="hero-image">
+
+<img
+src="premium-students.jpg"
+alt="IPS PUBLIC SCHOOL Students">
+
+</section>
+
+
+
+<!-- =====================================================
+MAIN
+===================================================== -->
+
+<div class="main-container">
+
+
+<!-- =====================================================
+SCHOOL SECTION
+===================================================== -->
+
+<section class="school-card">
+
+
+<div class="luxury-line"></div>
+
+
+<!-- LOGO -->
+
+<div class="logo">
+
+<img
+src="logo.png"
+alt="IPS PUBLIC SCHOOL Logo">
+
+</div>
+
+
+<!-- SCHOOL NAME -->
+
+<h1 class="school-name">
+
+IPS PUBLIC SCHOOL
+
+</h1>
+
+
+<!-- LOCATION -->
+
+<p class="school-place">
+
+AHIRORI • HARDOI
+
+</p>
+
+
+
+<!-- =====================================================
+RESULT SECTION
+===================================================== -->
+
+<div class="result-panel">
+
+
+<div class="result-heading-line"></div>
+
+
+<!-- DYNAMIC EXAM TITLE -->
+
+<h2 id="examTitle">
+
+Loading...
+
+</h2>
+
+
+<!-- DYNAMIC SESSION -->
+
+<h3 id="sessionTitle">
+
+Loading...
+
+</h3>
+
+
+<!-- LIVE STATUS -->
+
+<div
+class="live"
+id="resultLive">
+
+Loading...
+
+</div>
+
+
+
+<!-- =====================================================
+CLASS + ROLL
+===================================================== -->
+
+<div class="result-form">
+
+
+<div class="field">
+
+<select
+class="result-input"
+id="class">
+
+<option
+selected
+disabled>
+
+Select Class
+
+</option>
+
+<option>Class 3</option>
+
+<option>Class 4</option>
+
+<option>Class 5</option>
+
+<option>Class 6</option>
+
+<option>Class 7</option>
+
+<option>Class 8</option>
+
+</select>
+
+</div>
+
+
+
+<div class="field">
+
+<input
+type="number"
+id="roll"
+class="result-input"
+placeholder="Enter Roll Number">
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+VIEW RESULT
+===================================================== -->
+
+<button
+class="view-result-btn"
+onclick="searchResult()">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+&nbsp;&nbsp;
+
+VIEW RESULT
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+RESULT OUTPUT
+===================================================== -->
+
+<div id="result"></div>
+
+
+
+<!-- =====================================================
+LOGIN
+===================================================== -->
+
+<div class="login-container">
+
+
+<!-- STUDENT -->
+
+<div class="login-card">
+
+
+<div class="login-icon">
+
+<i class="fa-solid fa-user-graduate"></i>
+
+</div>
+
+
+<h3>
+Student Login
+</h3>
+
+
+<p>
+Student Portal
+</p>
+
+
+<a
+href="student-login.html"
+class="login-btn">
+
+LOGIN
+&nbsp;
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+
+</div>
+
+
+
+<!-- STAFF -->
+
+<div class="login-card">
+
+
+<div class="login-icon">
+
+<i class="fa-solid fa-chalkboard-user"></i>
+
+</div>
+
+
+<h3>
+Staff Login
+</h3>
+
+
+<p>
+Staff Portal
+</p>
+
+
+<a
+href="staff-login.html"
+class="login-btn">
+
+LOGIN
+&nbsp;
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+
+</div>
+
+
+
+<!-- ADMIN -->
+
+<div class="login-card">
+
+
+<div class="login-icon">
+
+<i class="fa-solid fa-user-shield"></i>
+
+</div>
+
+
+<h3>
+Admin Login
+</h3>
+
+
+<p>
+Administration
+</p>
+
+
+<a
+href="login.html"
+class="login-btn">
+
+LOGIN
+&nbsp;
+
+<i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+ANNOUNCEMENT
+===================================================== -->
+
+<section
+class="notice-section"
+id="noticeBox">
+
+
+<div class="notice-title-wrap">
+
+<h2 class="notice-title">
+
+✦ LATEST ANNOUNCEMENTS ✦
+
+</h2>
+
+</div>
+
+
+<div class="notice-inner">
+
+
+<marquee
+id="noticeTextShow"
+behavior="scroll"
+direction="left">
+
+Loading...
+
+</marquee>
+
+
+<div
+id="countdown">
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+<p class="developer">
+
+Developed &amp; Designed by
+
+<strong>
+A.K. SINGH CHANDEL
+</strong>
+
+</p>
+
+</footer>
+
+
+
+<!-- =====================================================
+WHATSAPP
+===================================================== -->
+
+<a
+href="https://wa.me/8127803733"
+class="whatsapp-btn"
+target="_blank"
+aria-label="WhatsApp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+
+
+<!-- =====================================================
+APP.JS
+===================================================== -->
+
+<script
+type="module"
+src="app.js">
+</script>
+
+
+
+<!-- =====================================================
+SERVICE WORKER
+===================================================== -->
+
+<script>
+
+if("serviceWorker" in navigator){
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            navigator
+            .serviceWorker
+            .register("./sw.js")
+
+            .then(function(){
+
+                console.log(
+                    "IPSPS Service Worker Registered Successfully"
+                );
+
+            })
+
+            .catch(function(error){
+
+                console.error(
+                    "IPSPS Service Worker Registration Failed:",
+                    error
+                );
+
+            });
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+  </html>
