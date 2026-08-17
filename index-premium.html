@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<link rel="manifest" href="./manifest.json">
+
+<meta name="theme-color" content="#071d49">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="application-name" content="IPSPS PORTAL">
+<meta name="apple-mobile-web-app-title" content="IPSPS">
+
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
+<link rel="apple-touch-icon" href="./icon-192.png">
+
+<title>IPSPS PORTAL - IPS PUBLIC SCHOOL</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style>
+
+/* =====================================================
+GLOBAL
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    width:100%;
+    height:100dvh;
+    min-height:100dvh;
+
+    background:#f3f7ff;
+
+    color:#10234f;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+MAIN PAGE
+===================================================== */
+
+.page{
+    width:100%;
+    height:100dvh;
+
+    display:flex;
+    flex-direction:column;
+
+    overflow:hidden;
+}
+
+
+/* =====================================================
+TOP IMAGE
+===================================================== */
+
+.hero-image{
+
+    width:100%;
+
+    height:27dvh;
+
+    min-height:145px;
+
+    max-height:260px;
+
+    flex-shrink:0;
+
+    overflow:hidden;
+
+    background:#eaf0f8;
+}
+
+
+.hero-image img{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    opacity:1;
+
+    filter:
+    brightness(1.08)
+    saturate(.90)
+    contrast(.95);
+}
+
+
+/* =====================================================
+COMBINED PREMIUM CARD
+===================================================== */
+
+.content-area{
+
+    flex:1;
+
+    min-height:0;
+
+    overflow:hidden;
+
+    padding:10px 12px 7px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+}
+
+
+.main-card{
+
+    width:min(950px,100%);
+
+    flex:1;
+
+    min-height:0;
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:12px 20px 14px;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #eef4ff
+    );
+
+    border:1px solid rgba(255,255,255,.95);
+
+    box-shadow:
+    0 16px 40px rgba(10,40,90,.16),
+    inset 0 1px 0 #fff;
+}
+
+
+.main-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    right:-100px;
+
+    top:-130px;
+
+    background:
+    rgba(37,99,235,.07);
+
+    pointer-events:none;
+}
+
+
+.main-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    left:-100px;
+
+    bottom:-120px;
+
+    background:
+    rgba(212,175,55,.07);
+
+    pointer-events:none;
+}
+
+
+/* =====================================================
+GOLD LINE
+===================================================== */
+
+.gold-line{
+
+    width:65px;
+
+    height:3px;
+
+    margin:0 auto 5px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #bd901d,
+        #f5d66a,
+        #bd901d
+    );
+}
+
+
+/* =====================================================
+LOGO
+===================================================== */
+
+.logo{
+
+    width:55px;
+
+    height:55px;
+
+    margin:0 auto 4px;
+
+    padding:4px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    border:2px solid #e5bd42;
+
+    box-shadow:
+    0 0 0 4px rgba(255,215,0,.10),
+    0 7px 16px rgba(10,40,90,.18);
+}
+
+
+.logo img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+}
+
+
+/* =====================================================
+SCHOOL NAME
+===================================================== */
+
+.school-name{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    color:#0b3d91;
+
+    font-size:clamp(
+        21px,
+        4vw,
+        34px
+    );
+
+    line-height:1;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+
+.school-place{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:2px;
+
+    text-align:center;
+
+    color:#b78918;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+
+/* =====================================================
+EXAM INFO
+===================================================== */
+
+#examTitle{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:4px !important;
+
+    text-align:center;
+
+    color:#182e61 !important;
+
+    font-size:clamp(
+        15px,
+        3vw,
+        21px
+    ) !important;
+
+    font-weight:800 !important;
+
+    line-height:1.15;
+}
+
+
+#sessionTitle{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:1px !important;
+
+    text-align:center;
+
+    color:#6b7a96 !important;
+
+    font-size:10px;
+
+    font-weight:600;
+}
+
+
+/* =====================================================
+LIVE
+===================================================== */
+
+.live{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    width:max-content;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:6px;
+
+    margin:4px auto 7px;
+
+    padding:4px 12px;
+
+    border-radius:50px;
+
+    color:#fff;
+
+    font-size:9px;
+
+    font-weight:800;
+
+    background:
+    linear-gradient(
+        180deg,
+        #34d399,
+        #119669
+    );
+
+    box-shadow:
+    0 4px 10px rgba(16,185,129,.25),
+
+    inset 0 1px 1px rgba(255,255,255,.45);
+}
+
+
+.live::before{
+
+    content:"";
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:#fff;
+}
+
+
+/* =====================================================
+RESULT SECTION
+===================================================== */
+
+.result-box{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    padding:9px 12px 10px;
+
+    border-radius:19px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #f9fbff,
+        #edf4ff
+    );
+
+    border:1px solid #e1e9f7;
+
+    box-shadow:
+    inset 0 1px 0 #fff,
+    0 7px 18px rgba(13,43,90,.08);
+}
+
+
+.result-gold{
+
+    width:45px;
+
+    height:2px;
+
+    margin:0 auto 3px;
+
+    border-radius:10px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #c4971f,
+        #f5d66a,
+        #c4971f
+    );
+}
+
+
+.result-title{
+
+    text-align:center;
+
+    color:#0b3d91;
+
+    font-size:17px;
+
+    line-height:1.1;
+
+    font-weight:900;
+}
+
+
+.result-subtitle{
+
+    text-align:center;
+
+    color:#75839c;
+
+    font-size:8px;
+
+    margin-top:1px;
+
+    margin-bottom:7px;
+}
+
+
+/* =====================================================
+RESULT INPUTS
+===================================================== */
+
+.result-form{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:8px;
+}
+
+
+.result-field label{
+
+    display:block;
+
+    margin-bottom:2px;
+
+    color:#19376e;
+
+    font-size:8px;
+
+    font-weight:800;
+}
+
+
+.result-field label i{
+
+    color:#c49a25;
+
+    margin-right:2px;
+}
+
+
+.result-input{
+
+    width:100%;
+
+    height:35px;
+
+    padding:0 9px;
+
+    border:1px solid #dbe4f3;
+
+    border-radius:9px;
+
+    outline:none;
+
+    background:#fff;
+
+    color:#172b52;
+
+    font-size:10px;
+
+    font-weight:500;
+
+    box-shadow:
+    inset 0 2px 4px rgba(10,40,90,.04);
+}
+
+
+.result-input:focus{
+
+    border-color:#2875df;
+
+    box-shadow:
+    0 0 0 2px rgba(37,99,235,.09);
+}
+
+
+/* =====================================================
+3D RESULT BUTTON
+===================================================== */
+
+.view-result-btn{
+
+    width:100%;
+
+    height:37px;
+
+    margin-top:7px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.8px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #4498ff 0%,
+        #1261ca 50%,
+        #0a3f91 100%
+    );
+
+    box-shadow:
+    0 4px 0 #062e70,
+    0 8px 14px rgba(11,61,145,.25),
+    inset 0 1px 1px rgba(255,255,255,.45);
+
+    transition:.12s;
+}
+
+
+.view-result-btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+
+.view-result-btn:active{
+
+    transform:translateY(3px);
+
+    box-shadow:
+    0 1px 0 #062e70,
+    0 4px 8px rgba(11,61,145,.20);
+}
+
+
+/* =====================================================
+LOGIN SECTION
+===================================================== */
+
+.login-container{
+
+    width:min(950px,100%);
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:8px;
+
+    margin-top:7px;
+
+    flex-shrink:0;
+}
+
+
+.login-card{
+
+    min-width:0;
+
+    padding:6px 6px 7px;
+
+    text-align:center;
+
+    border-radius:14px;
+
+    background:#fff;
+
+    border:1px solid #e5ebf5;
+
+    box-shadow:
+    0 5px 12px rgba(13,43,90,.08);
+
+}
+
+
+.login-card i{
+
+    display:flex;
+
+    width:28px;
+
+    height:28px;
+
+    margin:0 auto 3px;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:8px;
+
+    color:#fff;
+
+    font-size:13px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #3b8cff,
+        #0b3d91
+    );
+
+    box-shadow:
+    0 2px 0 #072e6d;
+}
+
+
+.login-card h3{
+
+    color:#102b61;
+
+    font-size:9px;
+
+    line-height:1;
+
+    font-weight:800;
+}
+
+
+.login-btn{
+
+    display:block;
+
+    text-decoration:none;
+
+    margin-top:4px;
+
+    padding:4px;
+
+    border-radius:6px;
+
+    color:#fff;
+
+    font-size:8px;
+
+    font-weight:800;
+
+    background:
+    linear-gradient(
+        180deg,
+        #3b8cff,
+        #0b3d91
+    );
+
+    box-shadow:
+    0 2px 0 #062e70;
+}
+
+
+/* =====================================================
+ANNOUNCEMENT
+===================================================== */
+
+.notice-section{
+
+    width:min(950px,100%);
+
+    margin-top:7px;
+
+    padding:6px 9px;
+
+    border-radius:12px;
+
+    background:#fff;
+
+    border:1px solid #e3eaf5;
+
+    box-shadow:
+    0 4px 12px rgba(13,43,90,.07);
+
+    flex-shrink:0;
+}
+
+
+.notice-section h2{
+
+    text-align:center;
+
+    color:#102b61;
+
+    font-size:10px;
+
+    line-height:1;
+
+    margin-bottom:4px;
+}
+
+
+.notice-section marquee{
+
+    display:block;
+
+    padding:4px 7px;
+
+    border-radius:6px;
+
+    color:#b32727;
+
+    background:#fff7f7;
+
+    border:1px solid #f3d5d5;
+
+    font-size:8px;
+
+    line-height:1.2;
+
+    font-weight:600;
+}
+
+
+#countdown{
+
+    margin-top:2px !important;
+
+    font-size:8px !important;
+
+    line-height:1;
+
+}
+
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+.footer{
+
+    flex-shrink:0;
+
+    width:100%;
+
+    padding:5px 10px;
+
+    text-align:center;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        135deg,
+        #061b43,
+        #0b3d91
+    );
+
+    border-top:2px solid #d9b43b;
+}
+
+
+.footer .developer{
+
+    margin:0;
+
+    font-size:8px;
+
+    line-height:1.2;
+
+    font-weight:600;
+}
+
+
+.footer strong{
+
+    color:#f5d36a;
+}
+
+
+/* =====================================================
+TOP BUTTON
+===================================================== */
+
+#topBtn{
+
+    display:none;
+
+    position:fixed;
+
+    right:12px;
+
+    bottom:65px;
+
+    width:40px;
+
+    height:40px;
+
+    border:none;
+
+    border-radius:50%;
+
+    color:#fff;
+
+    background:
+    linear-gradient(
+        145deg,
+        #2476df,
+        #0b3d91
+    );
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 4px 0 #062e6b;
+
+    z-index:999;
+}
+
+
+/* =====================================================
+WHATSAPP
+===================================================== */
+
+.whatsapp-btn{
+
+    position:fixed;
+
+    right:12px;
+
+    bottom:112px;
+
+    width:43px;
+
+    height:43px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    background:#25D366;
+
+    text-decoration:none;
+
+    font-size:20px;
+
+    box-shadow:
+    0 4px 0 #169b49;
+
+    z-index:999;
+}
+
+
+/* =====================================================
+RESULT OUTPUT
+===================================================== */
+
+#result{
+
+    width:100%;
+
+    max-height:45dvh;
+
+    overflow:auto;
+
+    flex-shrink:0;
+}
+
+
+#result:empty{
+
+    display:none;
+}
+
+
+.result-card{
+
+    width:min(950px,94%);
+
+    margin:10px auto;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    background:#fff;
+
+    box-shadow:
+    0 15px 35px rgba(13,43,90,.15);
+}
+
+
+/* =====================================================
+SMALL HEIGHT DEVICES
+===================================================== */
+
+@media(max-height:700px){
+
+    .hero-image{
+
+        height:23dvh;
+
+        min-height:120px;
+    }
+
+
+    .content-area{
+
+        padding-top:6px;
+    }
+
+
+    .main-card{
+
+        padding-top:8px;
+
+        padding-bottom:9px;
+    }
+
+
+    .logo{
+
+        width:45px;
+
+        height:45px;
+    }
+
+
+    .school-name{
+
+        font-size:20px;
+    }
+
+
+    #examTitle{
+
+        font-size:14px !important;
+    }
+
+
+    .result-box{
+
+        padding:7px 10px;
+    }
+
+
+    .login-container{
+
+        margin-top:5px;
+    }
+
+
+    .notice-section{
+
+        margin-top:5px;
+    }
+
+}
+
+
+/* =====================================================
+MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+    .hero-image{
+
+        height:24dvh;
+
+        min-height:135px;
+    }
+
+
+    .content-area{
+
+        padding-left:7px;
+
+        padding-right:7px;
+
+        padding-top:7px;
+    }
+
+
+    .main-card{
+
+        padding-left:10px;
+
+        padding-right:10px;
+
+        border-radius:20px;
+    }
+
+
+    .school-name{
+
+        font-size:22px;
+    }
+
+
+    .school-place{
+
+        font-size:8px;
+
+        letter-spacing:1.5px;
+    }
+
+
+    .result-title{
+
+        font-size:16px;
+    }
+
+
+    .result-subtitle{
+
+        font-size:7px;
+    }
+
+
+    .login-card{
+
+        padding:5px 4px 6px;
+    }
+
+}
+
+
+/* =====================================================
+VERY SMALL SCREEN
+===================================================== */
+
+@media(max-width:380px){
+
+    .hero-image{
+
+        height:21dvh;
+
+        min-height:115px;
+    }
+
+
+    .logo{
+
+        width:42px;
+
+        height:42px;
+    }
+
+
+    .school-name{
+
+        font-size:19px;
+    }
+
+
+    #examTitle{
+
+        font-size:13px !important;
+    }
+
+
+    .result-title{
+
+        font-size:14px;
+    }
+
+
+    .result-input{
+
+        height:32px;
+    }
+
+
+    .view-result-btn{
+
+        height:34px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- =====================================================
+CLEAN IMAGE
+===================================================== -->
+
+<section class="hero-image">
+
+<img
+src="hero-bg.jpg"
+alt="IPS PUBLIC SCHOOL">
+
+</section>
+
+
+<!-- =====================================================
+CONTENT
+===================================================== -->
+
+<div class="content-area">
+
+
+<!-- =====================================================
+ONE COMBINED PREMIUM CARD
+===================================================== -->
+
+<div class="main-card">
+
+
+<div class="gold-line"></div>
+
+
+<!-- LOGO -->
+
+<div class="logo">
+
+<img
+src="logo.png"
+alt="IPS PUBLIC SCHOOL Logo">
+
+</div>
+
+
+<!-- SCHOOL -->
+
+<h1 class="school-name">
+
+IPS PUBLIC SCHOOL
+
+</h1>
+
+
+<p class="school-place">
+
+AHIRORI • HARDOI
+
+</p>
+
+
+<!-- EXAM -->
+
+<h2 id="examTitle">
+
+Loading...
+
+</h2>
+
+
+<!-- SESSION -->
+
+<h3 id="sessionTitle">
+
+Loading...
+
+</h3>
+
+
+<!-- LIVE -->
+
+<div
+class="live"
+id="resultLive">
+
+Loading...
+
+</div>
+
+
+<!-- =====================================================
+RESULT
+===================================================== -->
+
+<div class="result-box">
+
+
+<div class="result-gold"></div>
+
+
+<h2 class="result-title">
+
+🏆 SEARCH YOUR RESULT
+
+</h2>
+
+
+<p class="result-subtitle">
+
+Enter Class & Roll Number
+
+</p>
+
+
+<div class="result-form">
+
+
+<div class="result-field">
+
+
+<label>
+
+<i class="fa-solid fa-graduation-cap"></i>
+
+Class
+
+</label>
+
+
+<select
+class="result-input"
+id="class">
+
+
+<option
+selected
+disabled>
+
+Select Class
+
+</option>
+
+
+<option>
+Class 3
+</option>
+
+
+<option>
+Class 4
+</option>
+
+
+<option>
+Class 5
+</option>
+
+
+<option>
+Class 6
+</option>
+
+
+<option>
+Class 7
+</option>
+
+
+<option>
+Class 8
+</option>
+
+
+</select>
+
+
+</div>
+
+
+<div class="result-field">
+
+
+<label>
+
+<i class="fa-solid fa-hashtag"></i>
+
+Roll Number
+
+</label>
+
+
+<input
+type="number"
+id="roll"
+class="result-input"
+placeholder="Enter Roll Number">
+
+
+</div>
+
+
+</div>
+
+
+<button
+class="view-result-btn"
+onclick="searchResult()">
+
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+&nbsp;
+
+VIEW RESULT
+
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+LOGIN
+===================================================== -->
+
+<div class="login-container">
+
+
+<div class="login-card">
+
+
+<i class="fa-solid fa-user-graduate"></i>
+
+
+<h3>
+Student
+</h3>
+
+
+<a
+href="student-login.html"
+class="login-btn">
+
+LOGIN
+
+</a>
+
+
+</div>
+
+
+<div class="login-card">
+
+
+<i class="fa-solid fa-chalkboard-user"></i>
+
+
+<h3>
+Staff
+</h3>
+
+
+<a
+href="staff-login.html"
+class="login-btn">
+
+LOGIN
+
+</a>
+
+
+</div>
+
+
+<div class="login-card">
+
+
+<i class="fa-solid fa-user-shield"></i>
+
+
+<h3>
+Admin
+</h3>
+
+
+<a
+href="login.html"
+class="login-btn">
+
+LOGIN
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+NOTICE
+===================================================== -->
+
+<section
+class="notice-section"
+id="noticeBox">
+
+
+<h2>
+
+📢 Latest Announcements
+
+</h2>
+
+
+<marquee
+id="noticeTextShow"
+behavior="scroll"
+direction="left">
+
+Loading...
+
+</marquee>
+
+
+<div
+id="countdown">
+</div>
+
+
+</section>
+
+
+</div>
+
+
+</div>
+
+
+<!-- =====================================================
+FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+
+<p class="developer">
+
+Developed &amp; Designed by
+
+<strong>
+A.K. SINGH CHANDEL
+</strong>
+
+</p>
+
+
+</footer>
+
+
+<!-- =====================================================
+TOP
+===================================================== -->
+
+<button
+id="topBtn"
+onclick="window.scrollTo({top:0,behavior:'smooth'})">
+
+⬆
+
+</button>
+
+
+<!-- =====================================================
+WHATSAPP
+===================================================== -->
+
+<a
+href="https://wa.me/8127803733"
+class="whatsapp-btn"
+target="_blank"
+aria-label="WhatsApp">
+
+💬
+
+</a>
+
+
+<!-- =====================================================
+TOP BUTTON SCRIPT
+===================================================== -->
+
+<script>
+
+const topBtn =
+document.getElementById("topBtn");
+
+
+window.onscroll=function(){
+
+    if(
+        document.body.scrollTop > 200 ||
+        document.documentElement.scrollTop > 200
+    ){
+
+        topBtn.style.display="flex";
+
+    }
+
+    else{
+
+        topBtn.style.display="none";
+
+    }
+
+};
+
+</script>
+
+
+<!-- =====================================================
+FIREBASE / APP
+===================================================== -->
+
+<script
+type="module"
+src="app.js">
+</script>
+
+
+<!-- =====================================================
+SERVICE WORKER
+===================================================== -->
+
+<script>
+
+if("serviceWorker" in navigator){
+
+    window.addEventListener(
+        "load",
+        function(){
+
+            navigator
+            .serviceWorker
+            .register("./sw.js")
+
+            .then(function(){
+
+                console.log(
+                    "IPSPS Service Worker Registered Successfully"
+                );
+
+            })
+
+            .catch(function(error){
+
+                console.error(
+                    "IPSPS Service Worker Registration Failed:",
+                    error
+                );
+
+            });
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+  </html>
