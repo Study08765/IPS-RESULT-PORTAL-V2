@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Staff Dashboard | IPS PUBLIC SCHOOL</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body{
+
+min-height:100vh;
+
+background:#ffffff;
+
+color:#172033;
+
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topbar{
+
+height:70px;
+
+background:
+linear-gradient(
+135deg,
+#061735,
+#0b3d91,
+#071b3d
+);
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 28px;
+
+border-bottom:
+2px solid #d4af37;
+
+box-shadow:
+0 6px 20px rgba(0,0,0,.18);
+
+}
+
+
+/* BRAND */
+
+.brand{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+}
+
+.brand-logo{
+
+width:45px;
+height:45px;
+
+border-radius:13px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:23px;
+
+background:
+linear-gradient(
+135deg,
+#b68b25,
+#e6c968
+);
+
+color:#241b08;
+
+box-shadow:
+0 5px 15px rgba(212,175,55,.25);
+
+}
+
+.brand-title{
+
+font-size:15px;
+
+font-weight:900;
+
+letter-spacing:1px;
+
+color:white;
+
+}
+
+.brand-sub{
+
+font-size:9px;
+
+font-weight:bold;
+
+letter-spacing:1px;
+
+color:#d5ddec;
+
+margin-top:3px;
+
+}
+
+
+/* TOP LOGOUT */
+
+.logout-top{
+
+border:
+1px solid rgba(230,201,104,.45);
+
+background:
+rgba(255,255,255,.07);
+
+color:#e6c968;
+
+padding:10px 15px;
+
+border-radius:10px;
+
+font-size:11px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+.logout-top:hover{
+
+background:
+rgba(230,201,104,.14);
+
+transform:translateY(-2px);
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+max-width:1150px;
+
+margin:24px auto 0;
+
+padding:0 15px;
+
+}
+
+
+.hero-card{
+
+background:
+linear-gradient(
+135deg,
+#061735,
+#0b3d91,
+#123f8f
+);
+
+color:white;
+
+text-align:center;
+
+padding:31px 20px;
+
+border-radius:25px;
+
+border-bottom:
+3px solid #d4af37;
+
+box-shadow:
+0 13px 38px rgba(0,0,0,.20);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+/* DECORATIVE CIRCLES */
+
+.hero-card:before{
+
+content:"";
+
+position:absolute;
+
+width:280px;
+height:280px;
+
+border:
+1px solid rgba(230,201,104,.18);
+
+border-radius:50%;
+
+right:-110px;
+top:-150px;
+
+}
+
+.hero-card:after{
+
+content:"";
+
+position:absolute;
+
+width:190px;
+height:190px;
+
+border:
+1px solid rgba(255,255,255,.07);
+
+border-radius:50%;
+
+left:-100px;
+bottom:-120px;
+
+}
+
+
+/* SCHOOL LOGO STYLE */
+
+.school-brand{
+
+width:62px;
+height:62px;
+
+margin:0 auto 10px;
+
+border-radius:17px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:31px;
+
+background:
+linear-gradient(
+135deg,
+#b68b25,
+#e6c968
+);
+
+color:#241b08;
+
+box-shadow:
+0 8px 20px rgba(0,0,0,.25);
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+/* SCHOOL NAME */
+
+.school-name{
+
+font-size:29px;
+
+font-weight:900;
+
+letter-spacing:2px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+/* LOCATION */
+
+.school-location{
+
+font-size:12px;
+
+font-weight:bold;
+
+letter-spacing:3px;
+
+color:#e6c968;
+
+margin-top:6px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+/* GOLD LINE */
+
+.premium-line{
+
+width:100px;
+
+height:2px;
+
+margin:14px auto;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#e6c968,
+transparent
+);
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+/* PANEL TITLE */
+
+.panel-title{
+
+font-size:11px;
+
+font-weight:bold;
+
+letter-spacing:2px;
+
+color:#e6c968;
+
+margin-bottom:8px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+/* WELCOME */
+
+.hero-title{
+
+font-size:27px;
+
+font-weight:900;
+
+margin-bottom:6px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+.hero-subtitle{
+
+font-size:12px;
+
+color:#d7deec;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+/* STAFF PROFILE */
+
+.staff-profile{
+
+margin:21px auto 0;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:14px;
+
+text-align:left;
+
+background:
+rgba(255,255,255,.09);
+
+border:
+1px solid rgba(255,255,255,.15);
+
+padding:12px 18px;
+
+border-radius:16px;
+
+max-width:370px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+/* PROFILE ICON */
+
+.profile-icon{
+
+width:55px;
+height:55px;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:27px;
+
+background:
+linear-gradient(
+135deg,
+#b68b25,
+#e6c968
+);
+
+color:#241b08;
+
+box-shadow:
+0 7px 18px rgba(0,0,0,.23);
+
+}
+
+
+/* STAFF NAME */
+
+.profile-name{
+
+font-size:19px;
+
+font-weight:900;
+
+color:white;
+
+}
+
+
+/* STAFF CLASS */
+
+.profile-class{
+
+font-size:12px;
+
+color:#d9e1ef;
+
+margin-top:5px;
+
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.container{
+
+max-width:1150px;
+
+margin:23px auto 40px;
+
+padding:0 15px;
+
+}
+
+
+/* =====================================================
+   STAT CARDS
+===================================================== */
+
+.stats{
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:15px;
+
+margin-bottom:22px;
+
+}
+
+
+.stat-card{
+
+background:#ffffff;
+
+border:
+1px solid #dfe5ed;
+
+border-radius:18px;
+
+padding:18px;
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+box-shadow:
+0 7px 22px rgba(15,35,70,.09);
+
+transition:.25s;
+
+}
+
+
+.stat-card:hover{
+
+transform:
+translateY(-3px);
+
+box-shadow:
+0 12px 28px rgba(15,35,70,.13);
+
+}
+
+
+.stat-icon{
+
+width:48px;
+height:48px;
+
+border-radius:14px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:22px;
+
+background:
+linear-gradient(
+135deg,
+#061b40,
+#0b3d91
+);
+
+color:white;
+
+}
+
+
+.stat-title{
+
+font-size:10px;
+
+font-weight:bold;
+
+letter-spacing:.6px;
+
+color:#788293;
+
+}
+
+
+.stat-value{
+
+font-size:17px;
+
+font-weight:900;
+
+color:#0b3d91;
+
+margin-top:4px;
+
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-head{
+
+margin-bottom:14px;
+
+}
+
+.section-title{
+
+font-size:19px;
+
+font-weight:900;
+
+color:#0b3d91;
+
+}
+
+
+.section-line{
+
+width:55px;
+
+height:3px;
+
+margin-top:6px;
+
+border-radius:10px;
+
+background:
+linear-gradient(
+90deg,
+#b68b25,
+#e6c968
+);
+
+}
+
+
+/* =====================================================
+   ACTION GRID
+===================================================== */
+
+.action-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:16px;
+
+}
+
+
+/* ACTION CARD */
+
+.action-card{
+
+background:#ffffff;
+
+border:
+1px solid #dfe5ed;
+
+border-radius:19px;
+
+padding:20px;
+
+box-shadow:
+0 7px 23px rgba(15,35,70,.08);
+
+position:relative;
+
+overflow:hidden;
+
+transition:.25s;
+
+}
+
+
+.action-card:hover{
+
+transform:
+translateY(-4px);
+
+box-shadow:
+0 13px 30px rgba(15,35,70,.13);
+
+}
+
+
+.action-card:after{
+
+content:"";
+
+position:absolute;
+
+width:100px;
+height:100px;
+
+border:
+1px solid rgba(11,61,145,.06);
+
+border-radius:50%;
+
+right:-45px;
+top:-45px;
+
+}
+
+
+/* ACTION TOP */
+
+.action-top{
+
+display:flex;
+
+align-items:center;
+
+gap:14px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+/* ACTION ICON */
+
+.action-icon{
+
+width:52px;
+height:52px;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:25px;
+
+color:white;
+
+flex-shrink:0;
+
+}
+
+
+/* COLORS */
+
+.icon-blue{
+
+background:
+linear-gradient(
+135deg,
+#061b40,
+#0b3d91
+);
+
+}
+
+.icon-green{
+
+background:
+linear-gradient(
+135deg,
+#075b2a,
+#16a34a
+);
+
+}
+
+.icon-gold{
+
+background:
+linear-gradient(
+135deg,
+#856315,
+#d1a93d
+);
+
+}
+
+.icon-purple{
+
+background:
+linear-gradient(
+135deg,
+#51207e,
+#8b3fd1
+);
+
+}
+
+
+/* ACTION TEXT */
+
+.action-title{
+
+font-size:16px;
+
+font-weight:900;
+
+color:#1c2b43;
+
+}
+
+
+.action-desc{
+
+font-size:11px;
+
+color:#7b8494;
+
+margin-top:5px;
+
+line-height:1.4;
+
+}
+
+
+/* BUTTON */
+
+.action-btn{
+
+width:100%;
+
+margin-top:17px;
+
+padding:13px;
+
+border:none;
+
+border-radius:11px;
+
+color:white;
+
+font-size:12px;
+
+font-weight:900;
+
+letter-spacing:.3px;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+135deg,
+#071b3d,
+#0b3d91
+);
+
+box-shadow:
+0 7px 17px rgba(11,61,145,.20);
+
+transition:.25s;
+
+}
+
+
+.action-btn:hover{
+
+transform:
+translateY(-2px);
+
+box-shadow:
+0 10px 22px rgba(11,61,145,.27);
+
+}
+
+
+.green-btn{
+
+background:
+linear-gradient(
+135deg,
+#075b2a,
+#16a34a
+);
+
+}
+
+
+.gold-btn{
+
+background:
+linear-gradient(
+135deg,
+#856315,
+#c49b32
+);
+
+}
+
+
+/* =====================================================
+   LOGOUT CARD
+===================================================== */
+
+.logout-card{
+
+margin-top:16px;
+
+background:
+linear-gradient(
+135deg,
+#ffffff,
+#fff8f8
+);
+
+border:
+1px solid #efd8db;
+
+}
+
+
+/* =====================================================
+   STATUS BAR
+===================================================== */
+
+.status-bar{
+
+margin-top:21px;
+
+background:
+linear-gradient(
+135deg,
+#061633,
+#0b3d91
+);
+
+border-radius:17px;
+
+padding:15px 18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+color:white;
+
+box-shadow:
+0 8px 22px rgba(7,27,61,.18);
+
+}
+
+
+.status-title{
+
+font-size:11px;
+
+font-weight:bold;
+
+letter-spacing:.6px;
+
+}
+
+
+.status-live{
+
+font-size:10px;
+
+font-weight:bold;
+
+color:#e6c968;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+text-align:center;
+
+padding:15px;
+
+font-size:9px;
+
+color:#7b8494;
+
+letter-spacing:.7px;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:800px){
+
+.school-name{
+
+font-size:25px;
+
+}
+
+.hero-title{
+
+font-size:24px;
+
+}
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:600px){
+
+.topbar{
+
+height:64px;
+
+padding:
+0 11px;
+
+}
+
+.brand-logo{
+
+width:39px;
+height:39px;
+
+font-size:19px;
+
+}
+
+.brand-title{
+
+font-size:12px;
+
+}
+
+.brand-sub{
+
+font-size:8px;
+
+}
+
+.logout-top{
+
+padding:8px 10px;
+
+font-size:9px;
+
+}
+
+
+.hero{
+
+margin-top:14px;
+
+padding:0 8px;
+
+}
+
+
+.hero-card{
+
+padding:
+27px 12px;
+
+border-radius:20px;
+
+}
+
+
+.school-brand{
+
+width:56px;
+height:56px;
+
+font-size:28px;
+
+}
+
+
+.school-name{
+
+font-size:22px;
+
+letter-spacing:1.5px;
+
+}
+
+
+.school-location{
+
+font-size:10px;
+
+letter-spacing:2px;
+
+}
+
+
+.panel-title{
+
+font-size:10px;
+
+letter-spacing:1.5px;
+
+}
+
+
+.hero-title{
+
+font-size:21px;
+
+}
+
+
+.hero-subtitle{
+
+font-size:11px;
+
+}
+
+
+.staff-profile{
+
+max-width:340px;
+
+padding:11px 13px;
+
+}
+
+
+.profile-name{
+
+font-size:17px;
+
+}
+
+
+.profile-class{
+
+font-size:11px;
+
+}
+
+
+.container{
+
+margin-top:18px;
+
+padding:
+0 8px;
+
+}
+
+
+.stats{
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:8px;
+
+}
+
+
+.stat-card{
+
+display:block;
+
+text-align:center;
+
+padding:12px 5px;
+
+border-radius:14px;
+
+}
+
+
+.stat-icon{
+
+width:38px;
+height:38px;
+
+margin:auto;
+
+font-size:17px;
+
+}
+
+
+.stat-title{
+
+font-size:8px;
+
+margin-top:7px;
+
+}
+
+
+.stat-value{
+
+font-size:11px;
+
+}
+
+
+.section-title{
+
+font-size:17px;
+
+}
+
+
+.action-grid{
+
+grid-template-columns:
+1fr 1fr;
+
+gap:10px;
+
+}
+
+
+.action-card{
+
+padding:14px;
+
+border-radius:16px;
+
+}
+
+
+.action-top{
+
+gap:9px;
+
+}
+
+
+.action-icon{
+
+width:42px;
+height:42px;
+
+border-radius:12px;
+
+font-size:20px;
+
+}
+
+
+.action-title{
+
+font-size:13px;
+
+}
+
+
+.action-desc{
+
+font-size:9px;
+
+}
+
+
+.action-btn{
+
+font-size:10px;
+
+padding:11px 5px;
+
+}
+
+
+.status-bar{
+
+padding:13px;
+
+border-radius:14px;
+
+}
+
+
+.status-title{
+
+font-size:9px;
+
+}
+
+
+.status-live{
+
+font-size:8px;
+
+}
+
+
+.footer{
+
+font-size:8px;
+
+}
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media(max-width:370px){
+
+.school-name{
+
+font-size:20px;
+
+}
+
+.hero-title{
+
+font-size:19px;
+
+}
+
+.stats{
+
+grid-template-columns:1fr;
+
+}
+
+.stat-card{
+
+display:flex;
+
+text-align:left;
+
+padding:12px;
+
+}
+
+.stat-icon{
+
+margin:0;
+
+}
+
+.action-grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<div class="topbar">
+
+
+<div class="brand">
+
+<div class="brand-logo">
+🎓
+</div>
+
+
+<div>
+
+<div class="brand-title">
+IPS PUBLIC SCHOOL
+</div>
+
+<div class="brand-sub">
+AHIRORI • HARDOI
+</div>
+
+</div>
+
+</div>
+
+
+<button
+class="logout-top"
+onclick="logout()"
+>
+
+🚪 LOGOUT
+
+</button>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     PREMIUM SCHOOL HEADER
+===================================================== -->
+
+<div class="hero">
+
+<div class="hero-card">
+
+
+<div class="school-brand">
+🎓
+</div>
+
+
+<div class="school-name">
+IPS PUBLIC SCHOOL
+</div>
+
+
+<div class="school-location">
+AHIRORI • HARDOI
+</div>
+
+
+<div class="premium-line"></div>
+
+
+<div class="panel-title">
+STAFF CONTROL PANEL
+</div>
+
+
+<div class="hero-title">
+Welcome to Staff Dashboard
+</div>
+
+
+<div class="hero-subtitle">
+Student & Result Management
+</div>
+
+
+<div class="staff-profile">
+
+
+<div class="profile-icon">
+👨‍🏫
+</div>
+
+
+<div>
+
+<div
+class="profile-name"
+id="staffName"
+>
+Welcome Staff
+</div>
+
+
+<div
+class="profile-class"
+id="staffClass"
+>
+📚 Assigned Class : Loading...
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<div class="container">
+
+
+<!-- =====================================================
+     QUICK STATUS
+===================================================== -->
+
+<div class="stats">
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+👥
+</div>
+
+<div>
+
+<div class="stat-title">
+MY STUDENTS
+</div>
+
+<div class="stat-value">
+Student Panel
+</div>
+
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+📊
+</div>
+
+<div>
+
+<div class="stat-title">
+RESULTS
+</div>
+
+<div class="stat-value">
+Management
+</div>
+
+</div>
+
+</div>
+
+
+<div class="stat-card">
+
+<div class="stat-icon">
+🔐
+</div>
+
+<div>
+
+<div class="stat-title">
+ACCOUNT
+</div>
+
+<div class="stat-value">
+Active
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     QUICK ACTIONS
+===================================================== -->
+
+<div class="section-head">
+
+<div class="section-title">
+Quick Actions
+</div>
+
+<div class="section-line"></div>
+
+</div>
+
+
+
+<div class="action-grid">
+
+
+<!-- MY STUDENTS -->
+
+<div class="action-card">
+
+
+<div class="action-top">
+
+
+<div class="action-icon icon-blue">
+👥
+</div>
+
+
+<div>
+
+<div class="action-title">
+My Students
+</div>
+
+<div class="action-desc">
+View students assigned to your class.
+</div>
+
+</div>
+
+
+</div>
+
+
+<button
+class="action-btn"
+onclick="location.href='my-students.html'"
+>
+
+OPEN MY STUDENTS
+
+</button>
+
+
+</div>
+
+
+
+<!-- ADD STUDENT -->
+
+<div class="action-card">
+
+
+<div class="action-top">
+
+
+<div class="action-icon icon-green">
+➕
+</div>
+
+
+<div>
+
+<div class="action-title">
+Add Student
+</div>
+
+<div class="action-desc">
+Add or update student information.
+</div>
+
+</div>
+
+
+</div>
+
+
+<button
+class="action-btn green-btn"
+onclick="location.href='addstudent_v2.html'"
+>
+
+ADD STUDENT
+
+</button>
+
+
+</div>
+
+
+
+<!-- CREATE RESULT -->
+
+<div class="action-card">
+
+
+<div class="action-top">
+
+
+<div class="action-icon icon-blue">
+📊
+</div>
+
+
+<div>
+
+<div class="action-title">
+Create Result
+</div>
+
+<div class="action-desc">
+Create results for pending students.
+</div>
+
+</div>
+
+
+</div>
+
+
+<button
+class="action-btn"
+onclick="location.href='my-students.html'"
+>
+
+CREATE RESULT
+
+</button>
+
+
+</div>
+
+
+
+<!-- EDIT RESULT -->
+
+<div class="action-card">
+
+
+<div class="action-top">
+
+
+<div class="action-icon icon-gold">
+✏️
+</div>
+
+
+<div>
+
+<div class="action-title">
+Edit Result
+</div>
+
+<div class="action-desc">
+Update previously created results.
+</div>
+
+</div>
+
+
+</div>
+
+
+<button
+class="action-btn gold-btn"
+onclick="location.href='edit-results.html'"
+>
+
+EDIT RESULT
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     LOGOUT
+===================================================== -->
+
+<div class="action-card logout-card">
+
+
+<div class="action-top">
+
+
+<div
+class="action-icon"
+style="
+background:
+linear-gradient(
+135deg,
+#8d1821,
+#dc3545
+);
+"
+>
+
+🚪
+
+</div>
+
+
+<div>
+
+<div class="action-title">
+Secure Logout
+</div>
+
+<div class="action-desc">
+Exit your staff account safely.
+</div>
+
+</div>
+
+
+</div>
+
+
+<button
+class="action-btn"
+style="
+background:
+linear-gradient(
+135deg,
+#8d1821,
+#dc3545
+);
+"
+onclick="logout()"
+>
+
+LOGOUT FROM STAFF PANEL
+
+</button>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     SYSTEM STATUS
+===================================================== -->
+
+<div class="status-bar">
+
+
+<div class="status-title">
+
+🎓 STAFF MANAGEMENT SYSTEM
+
+</div>
+
+
+<div class="status-live">
+
+● SYSTEM ACTIVE
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<div class="footer">
+
+IPS PUBLIC SCHOOL AHIRORI HARDOI
+&nbsp; • &nbsp;
+STAFF CONTROL PANEL
+
+</div>
+
+
+
+<!-- =====================================================
+     LOGOUT
+===================================================== -->
+
+<script>
+
+function logout(){
+
+localStorage.removeItem("staffLogin");
+
+location.href="staff-login.html";
+
+}
+
+</script>
+
+
+
+<!-- STAFF FIREBASE SCRIPT -->
+
+<script
+type="module"
+src="staff-dashboard.js"
+></script>
+
+
+</body>
+
+  </html>
