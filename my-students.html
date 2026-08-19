@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Result Management | IPS PUBLIC SCHOOL</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:
+linear-gradient(135deg,#eef2f7,#fafbfc,#e8edf5);
+color:#172033;
+padding:12px;
+}
+
+.header{
+max-width:1150px;
+margin:auto;
+padding:24px 15px;
+text-align:center;
+color:white;
+
+background:
+linear-gradient(135deg,#061735,#0b3d91,#071b3d);
+
+border-radius:20px;
+border-bottom:2px solid #d4af37;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.22);
+}
+
+.school{
+font-size:11px;
+font-weight:bold;
+letter-spacing:2px;
+color:#e6c866;
+}
+
+.header h1{
+font-size:24px;
+margin:7px 0 4px;
+}
+
+.header p{
+margin:0;
+font-size:10px;
+letter-spacing:1px;
+opacity:.85;
+}
+
+.main{
+max-width:1150px;
+margin:18px auto;
+}
+
+.search-box{
+background:white;
+padding:15px;
+border-radius:16px;
+
+box-shadow:
+0 6px 22px rgba(0,0,0,.08);
+
+margin-bottom:15px;
+}
+
+#search{
+width:100%;
+padding:14px 16px;
+
+border:1px solid #d7dee8;
+border-radius:11px;
+
+font-size:15px;
+outline:none;
+}
+
+#search:focus{
+border-color:#0b3d91;
+
+box-shadow:
+0 0 0 3px rgba(11,61,145,.10);
+}
+
+.summary{
+background:white;
+padding:14px 16px;
+border-radius:15px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+margin-bottom:18px;
+
+box-shadow:
+0 5px 18px rgba(0,0,0,.07);
+}
+
+.summary-title{
+font-size:13px;
+font-weight:bold;
+color:#0b3d91;
+}
+
+.total{
+background:
+linear-gradient(135deg,#b68b25,#e6c968);
+
+color:#241b08;
+
+font-size:11px;
+font-weight:bold;
+
+padding:7px 12px;
+
+border-radius:20px;
+}
+
+.class-card{
+background:white;
+border-radius:18px;
+
+margin-bottom:18px;
+overflow:hidden;
+
+border:1px solid #e2e7ef;
+
+box-shadow:
+0 8px 25px rgba(15,35,70,.09);
+}
+
+.class-header{
+background:
+linear-gradient(135deg,#071b3d,#0b3d91);
+
+color:white;
+
+padding:15px 17px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+cursor:pointer;
+}
+
+.class-left{
+display:flex;
+align-items:center;
+gap:11px;
+}
+
+.class-icon{
+width:40px;
+height:40px;
+
+border-radius:12px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:20px;
+
+background:
+linear-gradient(135deg,#b68b25,#e6c968);
+
+color:#241b08;
+}
+
+.class-title{
+font-size:18px;
+font-weight:bold;
+}
+
+.class-count{
+font-size:11px;
+opacity:.85;
+margin-top:4px;
+}
+
+.arrow{
+font-size:17px;
+transition:.2s;
+}
+
+.class-card.closed .arrow{
+transform:rotate(-90deg);
+}
+
+.class-card.closed .student-area{
+display:none;
+}
+
+.student-area{
+padding:12px;
+}
+
+.student-card{
+background:
+linear-gradient(135deg,#ffffff,#f6f8fb);
+
+border:1px solid #e3e8ef;
+
+border-radius:14px;
+
+padding:14px;
+
+margin-bottom:10px;
+
+display:grid;
+
+grid-template-columns:1fr auto;
+
+gap:12px;
+
+align-items:center;
+
+transition:.2s;
+}
+
+.student-card:hover{
+transform:translateY(-2px);
+
+box-shadow:
+0 7px 18px rgba(0,0,0,.08);
+}
+
+.student-name{
+font-size:16px;
+font-weight:bold;
+color:#0b3d91;
+margin-bottom:7px;
+}
+
+.student-info{
+font-size:12px;
+color:#687386;
+line-height:1.7;
+}
+
+.actions{
+display:flex;
+gap:7px;
+flex-wrap:wrap;
+}
+
+.action{
+border:none;
+padding:9px 12px;
+
+border-radius:9px;
+
+cursor:pointer;
+
+font-size:12px;
+font-weight:bold;
+
+color:white;
+
+transition:.2s;
+}
+
+.action:hover{
+transform:translateY(-2px);
+}
+
+.edit{
+background:
+linear-gradient(135deg,#1265c7,#2688ee);
+}
+
+.result{
+background:
+linear-gradient(135deg,#08752d,#20ad55);
+}
+
+.empty{
+background:white;
+
+padding:35px 20px;
+
+text-align:center;
+
+border-radius:18px;
+
+box-shadow:
+0 6px 20px rgba(0,0,0,.07);
+
+color:#727b89;
+}
+
+@media(max-width:650px){
+
+body{
+padding:8px;
+}
+
+.header{
+border-radius:16px;
+padding:20px 10px;
+}
+
+.header h1{
+font-size:20px;
+}
+
+.student-card{
+grid-template-columns:1fr;
+}
+
+.actions{
+justify-content:flex-start;
+}
+
+.action{
+flex:1;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="school">
+IPS PUBLIC SCHOOL • AHIRORI • HARDOI
+</div>
+
+<h1>
+📊 RESULT MANAGEMENT
+</h1>
+
+<p>
+STUDENT RESULT PANEL • SESSION 2026–27
+</p>
+
+</div>
+
+
+<div class="main">
+
+
+<div class="search-box">
+
+<input
+type="text"
+id="search"
+placeholder="🔍 Search by Student Name or Roll Number..."
+autocomplete="off"
+>
+
+</div>
+
+
+<div class="summary">
+
+<div class="summary-title">
+📋 PENDING RESULTS
+</div>
+
+<div
+class="total"
+id="totalCount"
+>
+0 Students
+</div>
+
+</div>
+
+
+<div id="studentList"></div>
+
+
+</div>
+
+
+<script
+type="module"
+src="my-students.js"
+></script>
+
+</body>
+
+  </html>
