@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Student Management | IPS PUBLIC SCHOOL</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:
+linear-gradient(
+135deg,
+#eef2f8 0%,
+#f8f9fc 45%,
+#e8edf5 100%
+);
+color:#172033;
+min-height:100vh;
+}
+
+
+/* =========================
+   TOP HEADER
+========================= */
+
+.header{
+
+background:
+linear-gradient(
+135deg,
+#061735,
+#0b3d91 55%,
+#061735
+);
+
+color:white;
+
+padding:20px 15px 24px;
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,.25);
+
+border-bottom:
+2px solid #d4af37;
+
+}
+
+.header:before{
+
+content:"";
+
+position:absolute;
+
+width:180px;
+height:180px;
+
+border:
+1px solid rgba(212,175,55,.30);
+
+border-radius:50%;
+
+left:-70px;
+top:-80px;
+
+}
+
+.header:after{
+
+content:"";
+
+position:absolute;
+
+width:220px;
+height:220px;
+
+border:
+1px solid rgba(212,175,55,.20);
+
+border-radius:50%;
+
+right:-90px;
+top:-100px;
+
+}
+
+
+.school-name{
+
+font-size:13px;
+
+letter-spacing:2px;
+
+color:#e5c76b;
+
+font-weight:bold;
+
+margin-bottom:6px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+.header-title{
+
+font-size:24px;
+
+font-weight:bold;
+
+letter-spacing:.5px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+.header-sub{
+
+font-size:11px;
+
+opacity:.85;
+
+margin-top:6px;
+
+letter-spacing:1px;
+
+position:relative;
+
+z-index:2;
+
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container{
+
+max-width:1100px;
+
+margin:20px auto 40px;
+
+padding:0 14px;
+
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.main-card{
+
+background:
+rgba(255,255,255,.94);
+
+border-radius:22px;
+
+padding:20px;
+
+box-shadow:
+0 12px 35px rgba(19,38,69,.13);
+
+border:
+1px solid rgba(255,255,255,.8);
+
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:10px;
+
+margin-bottom:18px;
+
+padding-bottom:13px;
+
+border-bottom:
+1px solid #e4e8ef;
+
+}
+
+
+.section-title h2{
+
+margin:0;
+
+font-size:20px;
+
+color:#0b3d91;
+
+}
+
+
+.badge{
+
+background:
+linear-gradient(
+135deg,
+#b58b25,
+#e5c76b
+);
+
+color:#241b08;
+
+font-size:11px;
+
+font-weight:bold;
+
+padding:6px 11px;
+
+border-radius:20px;
+
+box-shadow:
+0 4px 10px rgba(181,139,37,.25);
+
+}
+
+
+/* =========================
+   MENU GRID
+========================= */
+
+.menu-grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:13px;
+
+}
+
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-btn{
+
+text-decoration:none;
+
+border:none;
+
+min-height:82px;
+
+padding:12px 8px;
+
+border-radius:15px;
+
+cursor:pointer;
+
+color:white;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+gap:7px;
+
+font-weight:bold;
+
+font-size:13px;
+
+position:relative;
+
+overflow:hidden;
+
+transition:
+transform .25s,
+box-shadow .25s;
+
+box-shadow:
+0 7px 16px rgba(11,61,145,.22);
+
+}
+
+
+.menu-btn:before{
+
+content:"";
+
+position:absolute;
+
+width:70px;
+height:70px;
+
+border:
+1px solid rgba(255,255,255,.18);
+
+border-radius:50%;
+
+right:-25px;
+top:-28px;
+
+}
+
+
+.menu-btn:hover{
+
+transform:
+translateY(-4px);
+
+box-shadow:
+0 12px 25px rgba(11,61,145,.30);
+
+}
+
+
+.menu-btn:active{
+
+transform:
+scale(.97);
+
+}
+
+
+.icon{
+
+font-size:23px;
+
+line-height:1;
+
+}
+
+
+.label{
+
+font-size:12px;
+
+text-align:center;
+
+}
+
+
+/* =========================
+   BUTTON COLORS
+========================= */
+
+.blue{
+
+background:
+linear-gradient(
+135deg,
+#082b63,
+#0b3d91,
+#195dcc
+);
+
+}
+
+
+.blue2{
+
+background:
+linear-gradient(
+135deg,
+#123c77,
+#1765c5
+);
+
+}
+
+
+.purple{
+
+background:
+linear-gradient(
+135deg,
+#55208e,
+#8b3fd1
+);
+
+}
+
+
+.teal{
+
+background:
+linear-gradient(
+135deg,
+#075c69,
+#078c9e
+);
+
+}
+
+
+.gold{
+
+background:
+linear-gradient(
+135deg,
+#8c6817,
+#c49b32
+);
+
+}
+
+
+.indigo{
+
+background:
+linear-gradient(
+135deg,
+#26357f,
+#485bc1
+);
+
+}
+
+
+/* =========================
+   ADD STUDENT SECTION
+========================= */
+
+.add-section{
+
+margin-top:22px;
+
+padding-top:20px;
+
+border-top:
+1px solid #e5e8ee;
+
+}
+
+
+.add-title{
+
+font-size:13px;
+
+font-weight:bold;
+
+color:#667085;
+
+margin-bottom:10px;
+
+text-transform:uppercase;
+
+letter-spacing:.7px;
+
+}
+
+
+.add-btn{
+
+width:100%;
+
+min-height:64px;
+
+border:none;
+
+border-radius:15px;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+135deg,
+#075b2a,
+#16a34a,
+#2cc96b
+);
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+box-shadow:
+0 9px 22px rgba(22,163,74,.28);
+
+transition:.25s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+.add-btn:after{
+
+content:"";
+
+position:absolute;
+
+width:130px;
+height:130px;
+
+border:
+1px solid rgba(255,255,255,.20);
+
+border-radius:50%;
+
+right:-40px;
+top:-60px;
+
+}
+
+
+.add-btn:hover{
+
+transform:
+translateY(-3px);
+
+box-shadow:
+0 13px 28px rgba(22,163,74,.35);
+
+}
+
+
+/* =========================
+   BOTTOM PANEL
+========================= */
+
+.bottom-panel{
+
+margin-top:22px;
+
+background:
+linear-gradient(
+135deg,
+#071b3d,
+#0b3d91
+);
+
+color:white;
+
+padding:16px;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:10px;
+
+box-shadow:
+0 8px 20px rgba(7,27,61,.22);
+
+border:
+1px solid rgba(212,175,55,.25);
+
+}
+
+
+.bottom-title{
+
+font-weight:bold;
+
+font-size:14px;
+
+}
+
+
+.bottom-status{
+
+font-size:11px;
+
+color:#e4c66a;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+text-align:center;
+
+padding:16px;
+
+font-size:10px;
+
+color:#7b8494;
+
+letter-spacing:.5px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:750px){
+
+.header{
+
+padding:
+17px 12px 20px;
+
+}
+
+.school-name{
+
+font-size:11px;
+
+letter-spacing:1.4px;
+
+}
+
+.header-title{
+
+font-size:20px;
+
+}
+
+.header-sub{
+
+font-size:9px;
+
+}
+
+.container{
+
+margin-top:14px;
+
+padding:
+0 10px;
+
+}
+
+.main-card{
+
+padding:14px;
+
+border-radius:18px;
+
+}
+
+.section-title h2{
+
+font-size:17px;
+
+}
+
+.menu-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+gap:10px;
+
+}
+
+.menu-btn{
+
+min-height:78px;
+
+border-radius:13px;
+
+}
+
+.icon{
+
+font-size:21px;
+
+}
+
+.label{
+
+font-size:11px;
+
+}
+
+.add-btn{
+
+min-height:60px;
+
+font-size:14px;
+
+}
+
+.bottom-panel{
+
+padding:13px;
+
+}
+
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media(max-width:370px){
+
+.menu-grid{
+
+gap:8px;
+
+}
+
+.menu-btn{
+
+min-height:72px;
+
+}
+
+.label{
+
+font-size:10px;
+
+}
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media(min-width:1000px){
+
+.container{
+
+margin-top:28px;
+
+}
+
+.main-card{
+
+padding:25px;
+
+}
+
+.menu-grid{
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:15px;
+
+}
+
+.menu-btn{
+
+min-height:90px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<div class="header">
+
+<div class="school-name">
+
+IPS PUBLIC SCHOOL • AHIRORI • HARDOI
+
+</div>
+
+<div class="header-title">
+
+🎓 STUDENT MANAGEMENT
+
+</div>
+
+<div class="header-sub">
+
+SMART SCHOOL MANAGEMENT SYSTEM • SESSION 2026–27
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="container">
+
+<div class="main-card">
+
+
+<div class="section-title">
+
+<h2>
+Student Management
+</h2>
+
+<div class="badge">
+SESSION 2026–27
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<div class="menu-grid">
+
+
+<!-- VIEW STUDENTS -->
+
+<button
+class="menu-btn blue"
+onclick="location.href='viewstudents_v2.html'"
+>
+
+<div class="icon">
+👨‍🎓
+</div>
+
+<div class="label">
+View Students
+</div>
+
+</button>
+
+
+
+<!-- HOMEWORK -->
+
+<button
+class="menu-btn blue2"
+onclick="location.href='homework.html'"
+>
+
+<div class="icon">
+📖
+</div>
+
+<div class="label">
+Homework
+</div>
+
+</button>
+
+
+
+<!-- TIME TABLE -->
+
+<button
+class="menu-btn teal"
+onclick="location.href='timetable-management.html'"
+>
+
+<div class="icon">
+🗓️
+</div>
+
+<div class="label">
+Time Table
+</div>
+
+</button>
+
+
+
+<!-- ADMIT CARD -->
+
+<button
+class="menu-btn gold"
+onclick="location.href='admitcard.html'"
+>
+
+<div class="icon">
+🎫
+</div>
+
+<div class="label">
+Admit Card
+</div>
+
+</button>
+
+
+
+<!-- EXAM SCHEDULE -->
+
+<button
+class="menu-btn indigo"
+onclick="location.href='exam-schedule.html'"
+>
+
+<div class="icon">
+📅
+</div>
+
+<div class="label">
+Exam Schedule
+</div>
+
+</button>
+
+
+
+<!-- CLASS SUBJECT SETUP -->
+
+<button
+class="menu-btn purple"
+onclick="location.href='class-subject-setup.html'"
+>
+
+<div class="icon">
+📚
+</div>
+
+<div class="label">
+Class Subject Setup
+</div>
+
+</button>
+
+
+
+<!-- DASHBOARD -->
+
+<button
+class="menu-btn blue"
+onclick="location.href='dashboard.html'"
+>
+
+<div class="icon">
+🏠
+</div>
+
+<div class="label">
+Dashboard
+</div>
+
+</button>
+
+
+
+<!-- EXTRA SLOT -->
+
+<div
+style="
+border-radius:15px;
+background:linear-gradient(135deg,#f7f8fb,#eef1f6);
+border:1px dashed #ccd3df;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:82px;
+color:#8a94a5;
+font-size:11px;
+text-align:center;
+"
+>
+
+IPS<br>
+STUDENT PORTAL
+
+</div>
+
+
+</div>
+
+
+
+<!-- =========================
+     ADD STUDENT
+========================= -->
+
+<div class="add-section">
+
+<div class="add-title">
+Student Records
+</div>
+
+<button
+class="add-btn"
+onclick="location.href='addstudent_v2.html'"
+>
+
+➕ &nbsp; ADD / EDIT STUDENT
+
+</button>
+
+</div>
+
+
+
+<!-- =========================
+     BOTTOM PANEL
+========================= -->
+
+<div class="bottom-panel">
+
+<div class="bottom-title">
+
+🎓 Student Management System
+
+</div>
+
+<div class="bottom-status">
+
+● SYSTEM ACTIVE
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+IPS PUBLIC SCHOOL AHIRORI HARDOI
+&nbsp; • &nbsp;
+STUDENT MANAGEMENT
+&nbsp; • &nbsp;
+2026–27
+
+</div>
+
+
+</body>
+
+  </html>
