@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Result Management | IPS PUBLIC SCHOOL</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+
+background:
+linear-gradient(135deg,#eef2f7,#fafbfc,#e8edf5);
+
+color:#172033;
+padding:12px;
+}
+
+.header{
+max-width:1150px;
+margin:auto;
+
+padding:24px 15px;
+
+text-align:center;
+color:white;
+
+background:
+linear-gradient(135deg,#061735,#0b3d91,#071b3d);
+
+border-radius:20px;
+
+border-bottom:2px solid #d4af37;
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.22);
+}
+
+.school{
+font-size:11px;
+font-weight:bold;
+letter-spacing:2px;
+color:#e6c866;
+}
+
+.header h1{
+font-size:24px;
+margin:7px 0 4px;
+}
+
+.header p{
+margin:0;
+font-size:10px;
+letter-spacing:1px;
+opacity:.85;
+}
+
+.main{
+max-width:1150px;
+margin:18px auto;
+}
+
+/* CONTROLS */
+
+.controls{
+background:white;
+padding:15px;
+
+border-radius:16px;
+
+box-shadow:
+0 6px 22px rgba(0,0,0,.08);
+
+margin-bottom:15px;
+
+display:grid;
+
+grid-template-columns:
+1fr 1fr;
+
+gap:10px;
+}
+
+.control label{
+display:block;
+
+font-size:10px;
+font-weight:bold;
+
+color:#6b7483;
+
+margin-bottom:6px;
+}
+
+.control select,
+.control input{
+
+width:100%;
+
+padding:13px 14px;
+
+border:
+1px solid #d7dee8;
+
+border-radius:11px;
+
+font-size:14px;
+
+outline:none;
+
+background:white;
+}
+
+.control select:focus,
+.control input:focus{
+
+border-color:#0b3d91;
+
+box-shadow:
+0 0 0 3px rgba(11,61,145,.10);
+}
+
+/* SUMMARY */
+
+.summary{
+
+background:white;
+
+padding:14px 16px;
+
+border-radius:15px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:18px;
+
+box-shadow:
+0 5px 18px rgba(0,0,0,.07);
+
+gap:10px;
+}
+
+.summary-title{
+
+font-size:13px;
+
+font-weight:bold;
+
+color:#0b3d91;
+}
+
+.total{
+
+background:
+linear-gradient(135deg,#b68b25,#e6c968);
+
+color:#241b08;
+
+font-size:11px;
+
+font-weight:bold;
+
+padding:7px 12px;
+
+border-radius:20px;
+
+white-space:nowrap;
+}
+
+/* STUDENT */
+
+.student-card{
+
+background:white;
+
+border-radius:18px;
+
+margin-bottom:15px;
+
+border:
+1px solid #e2e7ef;
+
+box-shadow:
+0 8px 25px rgba(15,35,70,.09);
+
+overflow:hidden;
+}
+
+.student-top{
+
+padding:14px 16px;
+
+background:
+linear-gradient(135deg,#071b3d,#0b3d91);
+
+color:white;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:10px;
+}
+
+.student-name{
+
+font-size:16px;
+
+font-weight:bold;
+}
+
+.student-info{
+
+font-size:11px;
+
+opacity:.85;
+
+margin-top:4px;
+}
+
+.status{
+
+font-size:10px;
+
+font-weight:bold;
+
+padding:6px 9px;
+
+border-radius:20px;
+
+background:white;
+
+color:#08752d;
+
+white-space:nowrap;
+}
+
+.marks-area{
+
+padding:14px;
+
+display:grid;
+
+grid-template-columns:
+repeat(3,1fr);
+
+gap:10px;
+}
+
+.subject-box{
+
+background:
+linear-gradient(135deg,#ffffff,#f5f7fa);
+
+border:
+1px solid #e1e6ee;
+
+border-radius:12px;
+
+padding:10px;
+}
+
+.subject-name{
+
+font-size:12px;
+
+font-weight:bold;
+
+color:#27364d;
+
+margin-bottom:5px;
+}
+
+.maximum{
+
+font-size:9px;
+
+color:#8a94a3;
+
+margin-bottom:7px;
+}
+
+.mark-input{
+
+width:100%;
+
+padding:10px;
+
+border:
+1px solid #cfd7e3;
+
+border-radius:9px;
+
+text-align:center;
+
+font-size:15px;
+
+font-weight:bold;
+
+color:#0b3d91;
+
+outline:none;
+
+background:white;
+}
+
+.mark-input:focus{
+
+border-color:#0b3d91;
+
+box-shadow:
+0 0 0 3px rgba(11,61,145,.10);
+}
+
+/* SAVE */
+
+.save-bar{
+
+position:sticky;
+
+bottom:10px;
+
+z-index:20;
+
+background:white;
+
+padding:10px;
+
+border-radius:15px;
+
+box-shadow:
+0 8px 30px rgba(0,0,0,.18);
+
+margin-top:18px;
+}
+
+#saveAllBtn{
+
+width:100%;
+
+border:none;
+
+padding:15px;
+
+border-radius:13px;
+
+background:
+linear-gradient(
+135deg,
+#071b3d,
+#0b3d91,
+#174fae
+);
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:
+0 9px 22px rgba(11,61,145,.28);
+}
+
+#saveAllBtn:disabled{
+
+opacity:.65;
+
+cursor:not-allowed;
+}
+
+.empty{
+
+background:white;
+
+padding:40px 20px;
+
+text-align:center;
+
+border-radius:18px;
+
+box-shadow:
+0 6px 20px rgba(0,0,0,.07);
+
+color:#727b89;
+}
+
+.footer{
+
+text-align:center;
+
+font-size:10px;
+
+color:#7b8492;
+
+padding:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+body{
+padding:8px;
+}
+
+.header{
+
+border-radius:16px;
+
+padding:20px 10px;
+}
+
+.header h1{
+font-size:20px;
+}
+
+.controls{
+
+grid-template-columns:1fr;
+
+padding:12px;
+}
+
+.summary{
+
+padding:12px;
+
+}
+
+.marks-area{
+
+grid-template-columns:
+1fr 1fr;
+
+padding:10px;
+
+gap:8px;
+}
+
+.student-top{
+
+padding:12px;
+
+}
+
+.student-name{
+
+font-size:14px;
+}
+
+.subject-box{
+
+padding:9px;
+}
+
+.subject-name{
+
+font-size:11px;
+}
+
+.mark-input{
+
+padding:9px;
+
+font-size:14px;
+}
+
+#saveAllBtn{
+
+font-size:14px;
+}
+
+}
+
+@media(max-width:380px){
+
+.marks-area{
+
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+<div class="school">
+IPS PUBLIC SCHOOL • AHIRORI • HARDOI
+</div>
+
+<h1>
+📊 RESULT MANAGEMENT
+</h1>
+
+<p>
+BULK RESULT ENTRY • SESSION 2026–27
+</p>
+
+</div>
+
+
+<div class="main">
+
+
+<div class="controls">
+
+<div class="control">
+
+<label>SELECT CLASS</label>
+
+<select id="classSelect">
+
+<option value="ALL">
+ALL CLASSES
+</option>
+
+</select>
+
+</div>
+
+
+<div class="control">
+
+<label>SEARCH STUDENT</label>
+
+<input
+type="text"
+id="search"
+placeholder="🔍 Name or Roll Number..."
+autocomplete="off"
+>
+
+</div>
+
+</div>
+
+
+<div class="summary">
+
+<div class="summary-title">
+
+📋 STUDENTS
+
+</div>
+
+<div
+class="total"
+id="totalCount"
+>
+Loading...
+</div>
+
+</div>
+
+
+<div id="studentList">
+
+<div class="empty">
+
+⏳ Loading Students...
+
+</div>
+
+</div>
+
+
+<div class="save-bar">
+
+<button id="saveAllBtn">
+
+💾 &nbsp; SAVE ALL RESULTS
+
+</button>
+
+</div>
+
+
+</div>
+
+
+<div class="footer">
+
+IPS PUBLIC SCHOOL AHIRORI HARDOI
+&nbsp; • &nbsp;
+RESULT MANAGEMENT
+&nbsp; • &nbsp;
+2026–27
+
+</div>
+
+
+<script
+type="module"
+src="my-students.js"
+></script>
+
+</body>
+
+  </html>
