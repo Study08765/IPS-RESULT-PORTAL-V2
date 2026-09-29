@@ -315,14 +315,39 @@ async function loadResult() {
       s.Division || "-";
 
 
-    const resultStatus =
-      s.Result || "-";
+  /* ================= OVERALL RESULT ================= */
+
+const failCount =
+  Array.isArray(s.Subjects)
+    ? s.Subjects.filter(sub => {
+
+        const obtained =
+          Number(sub.obtained || 0);
+
+        const full =
+          Number(sub.full || 0);
+
+        return obtained < (full * 0.33);
+
+      }).length
+    : 0;
 
 
-    const isPass =
-      String(resultStatus)
-        .toUpperCase()
-        .trim() === "PASS";
+/*
+  0, 1 या 2 subjects में fail
+  → Overall PASS
+
+  3 या उससे अधिक subjects में fail
+  → Overall FAIL
+*/
+
+const isPass =
+  failCount < 3;
+
+const resultStatus =
+  isPass
+    ? "PASS"
+    : "FAIL";
 
 
     /* ================= SUCCESS MESSAGE ================= */
