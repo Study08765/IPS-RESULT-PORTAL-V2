@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Student Management | IPS Public School</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f1f5f9;
+    color:#1e293b;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:linear-gradient(135deg,#991b1b,#dc2626);
+    color:white;
+    padding:22px 15px;
+    text-align:center;
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+}
+
+.header h1{
+    font-size:25px;
+    margin-bottom:5px;
+}
+
+.header p{
+    font-size:14px;
+    opacity:.95;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:95%;
+    max-width:1200px;
+    margin:20px auto;
+}
+
+/* ================= MENU GRID ================= */
+
+.menu-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;
+    margin-bottom:22px;
+}
+
+.menu-card{
+    background:white;
+    border-radius:14px;
+    padding:18px 10px;
+    text-align:center;
+    text-decoration:none;
+    color:#1e293b;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    transition:.2s;
+    border:1px solid #e5e7eb;
+}
+
+.menu-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 7px 20px rgba(0,0,0,.12);
+}
+
+.menu-icon{
+    font-size:30px;
+    margin-bottom:8px;
+}
+
+.menu-title{
+    font-weight:700;
+    font-size:14px;
+}
+
+/* ================= FULL MARKS BOX ================= */
+
+.fullmarks-box{
+    background:white;
+    border-radius:16px;
+    padding:20px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    border:1px solid #e2e8f0;
+}
+
+.fullmarks-title{
+    font-size:20px;
+    font-weight:800;
+    color:#991b1b;
+    margin-bottom:5px;
+}
+
+.fullmarks-subtitle{
+    font-size:13px;
+    color:#64748b;
+    margin-bottom:18px;
+}
+
+/* ================= FORM ================= */
+
+.fm-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(180px,1fr));
+    gap:12px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+}
+
+.field label{
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:6px;
+    color:#334155;
+}
+
+.field select,
+.field input{
+    width:100%;
+    padding:11px 12px;
+    border:1px solid #cbd5e1;
+    border-radius:9px;
+    outline:none;
+    font-size:14px;
+    background:white;
+}
+
+.field select:focus,
+.field input:focus{
+    border-color:#dc2626;
+    box-shadow:0 0 0 2px rgba(220,38,38,.08);
+}
+
+/* ================= SAVE BUTTON ================= */
+
+.save-fm-btn{
+    width:100%;
+    margin-top:15px;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(135deg,#b91c1c,#dc2626);
+    color:white;
+    font-size:15px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.save-fm-btn:hover{
+    background:linear-gradient(135deg,#991b1b,#b91c1c);
+}
+
+.save-fm-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+/* ================= MESSAGE ================= */
+
+#fmMessage{
+    display:none;
+    margin-top:12px;
+    padding:11px;
+    border-radius:8px;
+    background:#f0fdf4;
+    font-size:14px;
+    font-weight:700;
+}
+
+/* ================= SAVED LIST ================= */
+
+.saved-heading{
+    margin-top:25px;
+    margin-bottom:10px;
+    font-size:17px;
+    font-weight:800;
+    color:#334155;
+}
+
+#savedList{
+    width:100%;
+}
+
+/* ================= INFO BOX ================= */
+
+.info-box{
+    margin-top:16px;
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+    color:#9a3412;
+    border-radius:10px;
+    padding:12px;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+    text-align:center;
+    color:#64748b;
+    font-size:12px;
+    padding:25px 10px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .header h1{
+        font-size:21px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .fullmarks-box{
+        padding:15px;
+    }
+
+    .fm-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<div class="header">
+
+    <h1>IPS PUBLIC SCHOOL</h1>
+
+    <p>AHIRORI HARDOI • STUDENT MANAGEMENT</p>
+
+</div>
+
+
+
+<div class="container">
+
+
+<!-- =====================================================
+     MENU
+====================================================== -->
+
+<div class="menu-grid">
+
+
+    <a href="dashboard.html"
+       class="menu-card">
+
+        <div class="menu-icon">🏠</div>
+
+        <div class="menu-title">
+            Dashboard
+        </div>
+
+    </a>
+
+
+    <a href="viewstudents_v2.html"
+       class="menu-card">
+
+        <div class="menu-icon">👨‍🎓</div>
+
+        <div class="menu-title">
+            View Students
+        </div>
+
+    </a>
+
+
+    <a href="addstudent_v2.html"
+       class="menu-card">
+
+        <div class="menu-icon">➕</div>
+
+        <div class="menu-title">
+            Add Student
+        </div>
+
+    </a>
+
+
+    <a href="homework.html"
+       class="menu-card">
+
+        <div class="menu-icon">📚</div>
+
+        <div class="menu-title">
+            Homework
+        </div>
+
+    </a>
+
+
+    <a href="timetable-management.html"
+       class="menu-card">
+
+        <div class="menu-icon">🕐</div>
+
+        <div class="menu-title">
+            Time Table
+        </div>
+
+    </a>
+
+
+    <a href="admitcard.html"
+       class="menu-card">
+
+        <div class="menu-icon">🎫</div>
+
+        <div class="menu-title">
+            Admit Card
+        </div>
+
+    </a>
+
+
+    <a href="exam-schedule.html"
+       class="menu-card">
+
+        <div class="menu-icon">📝</div>
+
+        <div class="menu-title">
+            Exam Schedule
+        </div>
+
+    </a>
+
+
+    <a href="class-subject-setup.html"
+       class="menu-card">
+
+        <div class="menu-icon">📖</div>
+
+        <div class="menu-title">
+            Class Subject Setup
+        </div>
+
+    </a>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FULL MARKS SETUP
+====================================================== -->
+
+<div class="fullmarks-box">
+
+
+    <div class="fullmarks-title">
+
+        📊 Full Marks Setup
+
+    </div>
+
+
+    <div class="fullmarks-subtitle">
+
+        Set Full Marks according to
+        <b>Exam + Class + Subject</b>.
+        Saving the same combination again will update it.
+
+    </div>
+
+
+
+    <!-- ================= FORM ================= -->
+
+    <div class="fm-grid">
+
+
+        <!-- EXAM -->
+
+        <div class="field">
+
+            <label>
+                Exam
+            </label>
+
+            <select id="fmExam">
+
+                <option value="">
+                    Select Exam
+                </option>
+
+                <option value="Quarterly Examination">
+                    Quarterly Examination
+                </option>
+
+                <option value="Half Yearly Examination">
+                    Half Yearly Examination
+                </option>
+
+                <option value="Annual Examination">
+                    Annual Examination
+                </option>
+
+                <option value="Unit Test">
+                    Unit Test
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- CLASS -->
+
+        <div class="field">
+
+            <label>
+                Class
+            </label>
+
+            <select id="fmClass">
+
+                <option value="">
+                    Select Class
+                </option>
+
+                <option value="Class 1">
+                    Class 1
+                </option>
+
+                <option value="Class 2">
+                    Class 2
+                </option>
+
+                <option value="Class 3">
+                    Class 3
+                </option>
+
+                <option value="Class 4">
+                    Class 4
+                </option>
+
+                <option value="Class 5">
+                    Class 5
+                </option>
+
+                <option value="Class 6">
+                    Class 6
+                </option>
+
+                <option value="Class 7">
+                    Class 7
+                </option>
+
+                <option value="Class 8">
+                    Class 8
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- SUBJECT -->
+
+        <div class="field">
+
+            <label>
+                Subject
+            </label>
+
+            <select id="fmSubject">
+
+                <option value="">
+                    Select Subject
+                </option>
+
+                <option value="Hindi">
+                    Hindi
+                </option>
+
+                <option value="English">
+                    English
+                </option>
+
+                <option value="Mathematics">
+                    Mathematics
+                </option>
+
+                <option value="Science">
+                    Science
+                </option>
+
+                <option value="Social Science">
+                    Social Science
+                </option>
+
+                <option value="Computer">
+                    Computer
+                </option>
+
+                <option value="General Knowledge">
+                    General Knowledge
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- FULL MARKS -->
+
+        <div class="field">
+
+            <label>
+                Full Marks
+            </label>
+
+            <input
+                type="number"
+                id="fmMarks"
+                min="1"
+                placeholder="Enter Full Marks"
+            >
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- SAVE -->
+
+    <button
+        id="fmSaveBtn"
+        class="save-fm-btn">
+
+        💾 SAVE / UPDATE FULL MARKS
+
+    </button>
+
+
+
+    <!-- MESSAGE -->
+
+    <div id="fmMessage"></div>
+
+
+
+    <!-- INFO -->
+
+    <div class="info-box">
+
+        <b>Example:</b><br>
+
+        Quarterly Examination →
+        Class 4 →
+        Hindi →
+        Full Marks 100
+
+        <br><br>
+
+        अगर इसी combination को दोबारा
+        <b>80</b> करके save करेंगे,
+        तो नया record नहीं बनेगा।
+        पुराना Full Marks <b>80</b> में update होगा।
+
+        <br><br>
+
+        Full Marks save होने पर matching
+        students के Full Marks automatically
+        update होंगे। Obtained Marks में कोई
+        बदलाव नहीं होगा।
+
+    </div>
+
+
+
+    <!-- SAVED -->
+
+    <div class="saved-heading">
+
+        📋 Saved Full Marks
+
+    </div>
+
+
+    <div id="savedList"></div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<div class="footer">
+
+    IPS PUBLIC SCHOOL AHIRORI HARDOI
+    <br>
+    Session 2026–27
+
+</div>
+
+
+
+<!-- =====================================================
+     FIREBASE / FULL MARKS SCRIPT
+====================================================== -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    getDocs,
+    doc,
+    setDoc,
+    deleteDoc,
+    writeBatch
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const fmExam =
+    document.getElementById("fmExam");
+
+const fmClass =
+    document.getElementById("fmClass");
+
+const fmSubject =
+    document.getElementById("fmSubject");
+
+const fmMarks =
+    document.getElementById("fmMarks");
+
+const fmSaveBtn =
+    document.getElementById("fmSaveBtn");
+
+const fmMessage =
+    document.getElementById("fmMessage");
+
+const savedList =
+    document.getElementById("savedList");
+
+
+const CURRENT_SESSION = "2026-27";
+
+
+/* =====================================================
+   NORMALIZE CLASS
+===================================================== */
+
+function normalizeClass(value){
+
+    let v =
+        String(value || "")
+        .trim()
+        .toLowerCase();
+
+    v =
+        v.replace(/^class\s*/i,"");
+
+    v =
+        v.replace(
+            /(\d+)(st|nd|rd|th)$/i,
+            "$1"
+        );
+
+    const match =
+        v.match(/\d+/);
+
+    if(!match){
+        return "";
+    }
+
+    return "Class " + match[0];
+
+}
+
+
+/* =====================================================
+   NORMALIZE SUBJECT
+===================================================== */
+
+function normalizeSubject(value){
+
+    let v =
+        String(value || "")
+        .trim()
+        .toLowerCase();
+
+    v =
+        v.replace(/\s+/g," ");
+
+
+    const map = {
+
+        "hindi":
+            "hindi",
+
+        "english":
+            "english",
+
+        "math":
+            "mathematics",
+
+        "maths":
+            "mathematics",
+
+        "mathematics":
+            "mathematics",
+
+        "science":
+            "science",
+
+        "sst":
+            "social science",
+
+        "social studies":
+            "social science",
+
+        "social science":
+            "social science",
+
+        "computer":
+            "computer",
+
+        "computer science":
+            "computer",
+
+        "gk":
+            "general knowledge",
+
+        "general knowledge":
+            "general knowledge"
+
+    };
+
+
+    return map[v] || v;
+
+}
+
+
+/* =====================================================
+   DISPLAY SUBJECT
+===================================================== */
+
+function displaySubject(value){
+
+    const key =
+        normalizeSubject(value);
+
+
+    const map = {
+
+        "hindi":
+            "Hindi",
+
+        "english":
+            "English",
+
+        "mathematics":
+            "Mathematics",
+
+        "science":
+            "Science",
+
+        "social science":
+            "Social Science",
+
+        "computer":
+            "Computer",
+
+        "general knowledge":
+            "General Knowledge"
+
+    };
+
+
+    return map[key] || value;
+
+}
+
+
+/* =====================================================
+   DOCUMENT ID
+===================================================== */
+
+function makeFullMarksId(
+    exam,
+    className,
+    subject
+){
+
+    return encodeURIComponent(
+        exam.trim()
+    )
+
+    + "__"
+
+    + encodeURIComponent(
+        normalizeClass(className)
+    )
+
+    + "__"
+
+    + encodeURIComponent(
+        normalizeSubject(subject)
+    );
+
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+function showMessage(
+    message,
+    type = "success"
+){
+
+    if(!fmMessage){
+        return;
+    }
+
+
+    fmMessage.textContent =
+        message;
+
+    fmMessage.style.display =
+        "block";
+
+
+    if(type === "error"){
+
+        fmMessage.style.background =
+            "#fef2f2";
+
+        fmMessage.style.color =
+            "#b91c1c";
+
+    }else{
+
+        fmMessage.style.background =
+            "#f0fdf4";
+
+        fmMessage.style.color =
+            "#15803d";
+
+    }
+
+}
+
+
+/* =====================================================
+   APPLY FULL MARKS TO STUDENTS
+===================================================== */
+
+async function applyFullMarksToStudents(
+    exam,
+    className,
+    subject,
+    fullMarks
+){
+
+    const snapshot =
+        await getDocs(
+            collection(db,"students_v2")
+        );
+
+
+    const targetClass =
+        normalizeClass(className);
+
+    const targetSubject =
+        normalizeSubject(subject);
+
+    const targetExam =
+        String(exam || "")
+        .trim()
+        .toLowerCase();
+
+
+    let batch =
+        writeBatch(db);
+
+    let batchCount = 0;
+
+    let updatedCount = 0;
+
+
+    for(
+        const studentDoc
+        of snapshot.docs
+    ){
+
+        const student =
+            studentDoc.data();
+
+
+        /* CLASS */
+
+        const studentClass =
+            normalizeClass(
+                student.Class
+            );
+
+
+        if(
+            studentClass !==
+            targetClass
+        ){
+            continue;
+        }
+
+
+        /* EXAM */
+
+        const studentExam =
+            String(
+                student.ExamType || ""
+            )
+            .trim()
+            .toLowerCase();
+
+
+        if(
+            studentExam !==
+            targetExam
+        ){
+            continue;
+        }
+
+
+        /* SUBJECTS */
+
+        if(
+            !Array.isArray(
+                student.Subjects
+            )
+        ){
+            continue;
+        }
+
+
+        let changed =
+            false;
+
+
+        const updatedSubjects =
+            student.Subjects.map(
+                sub => {
+
+
+                    const subjectName =
+                        sub.name ??
+                        sub.Name ??
+                        sub.subject ??
+                        sub.Subject ??
+                        "";
+
+
+                    if(
+                        normalizeSubject(
+                            subjectName
+                        )
+                        ===
+                        targetSubject
+                    ){
+
+                        changed = true;
+
+
+                        /*
+                         * ONLY FULL MARKS
+                         * WILL CHANGE.
+                         *
+                         * OBTAINED MARKS
+                         * WILL REMAIN SAME.
+                         */
+
+                        return {
+
+                            ...sub,
+
+                            full:
+                                Number(
+                                    fullMarks
+                                )
+
+                        };
+
+                    }
+
+
+                    return sub;
+
+                }
+            );
+
+
+        if(!changed){
+            continue;
+        }
+
+
+        batch.update(
+            studentDoc.ref,
+            {
+                Subjects:
+                    updatedSubjects
+            }
+        );
+
+
+        batchCount++;
+
+        updatedCount++;
+
+
+        /* FIRESTORE BATCH LIMIT */
+
+        if(
+            batchCount >= 400
+        ){
+
+            await batch.commit();
+
+            batch =
+                writeBatch(db);
+
+            batchCount = 0;
+
+        }
+
+    }
+
+
+    if(batchCount > 0){
+
+        await batch.commit();
+
+    }
+
+
+    return updatedCount;
+
+}
+
+
+/* =====================================================
+   DELETE OLD DUPLICATES
+===================================================== */
+
+async function deleteMatchingRecords(
+    exam,
+    className,
+    subject,
+    keepId
+){
+
+    const snapshot =
+        await getDocs(
+            collection(
+                db,
+                "exam_full_marks"
+            )
+        );
+
+
+    const targetExam =
+        String(exam || "")
+        .trim()
+        .toLowerCase();
+
+
+    const targetClass =
+        normalizeClass(
+            className
+        );
+
+
+    const targetSubject =
+        normalizeSubject(
+            subject
+        );
+
+
+    for(
+        const item
+        of snapshot.docs
+    ){
+
+        if(
+            item.id === keepId
+        ){
+            continue;
+        }
+
+
+        const data =
+            item.data();
+
+
+        const itemExam =
+            String(
+                data.Exam || ""
+            )
+            .trim()
+            .toLowerCase();
+
+
+        const itemClass =
+            normalizeClass(
+                data.Class
+            );
+
+
+        const itemSubject =
+            normalizeSubject(
+                data.SubjectKey ||
+                data.Subject
+            );
+
+
+        if(
+            itemExam === targetExam
+            &&
+            itemClass === targetClass
+            &&
+            itemSubject === targetSubject
+        ){
+
+            await deleteDoc(
+                item.ref
+            );
+
+        }
+
+    }
+
+}
+
+
+/* =====================================================
+   SAVE / UPDATE
+===================================================== */
+
+fmSaveBtn.addEventListener(
+    "click",
+    async function(){
+
+        try{
+
+            fmSaveBtn.disabled =
+                true;
+
+            fmSaveBtn.textContent =
+                "Saving...";
+
+
+            const exam =
+                fmExam.value.trim();
+
+
+            const className =
+                normalizeClass(
+                    fmClass.value
+                );
+
+
+            const subject =
+                fmSubject.value.trim();
+
+
+            const marks =
+                Number(
+                    fmMarks.value
+                );
+
+
+            /* VALIDATION */
+
+            if(!exam){
+
+                showMessage(
+                    "Please select Exam.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if(!className){
+
+                showMessage(
+                    "Please select Class.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if(!subject){
+
+                showMessage(
+                    "Please select Subject.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if(
+                !Number.isFinite(marks)
+                ||
+                marks <= 0
+            ){
+
+                showMessage(
+                    "Please enter valid Full Marks.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            /* DOCUMENT ID */
+
+            const documentId =
+                makeFullMarksId(
+                    exam,
+                    className,
+                    subject
+                );
+
+
+            const fullMarksRef =
+                doc(
+                    db,
+                    "exam_full_marks",
+                    documentId
+                );
+
+
+            /* SAVE / UPDATE */
+
+            await setDoc(
+                fullMarksRef,
+                {
+
+                    Exam:
+                        exam,
+
+                    Class:
+                        className,
+
+                    Subject:
+                        displaySubject(
+                            subject
+                        ),
+
+                    SubjectKey:
+                        normalizeSubject(
+                            subject
+                        ),
+
+                    FullMarks:
+                        marks,
+
+                    Session:
+                        CURRENT_SESSION,
+
+                    UpdatedAt:
+                        new Date()
+                        .toISOString()
+
+                },
+                {
+                    merge:true
+                }
+            );
+
+
+            /* REMOVE DUPLICATES */
+
+            await deleteMatchingRecords(
+                exam,
+                className,
+                subject,
+                documentId
+            );
+
+
+            /* AUTO APPLY */
+
+            const updatedCount =
+                await applyFullMarksToStudents(
+                    exam,
+                    className,
+                    subject,
+                    marks
+                );
+
+
+            showMessage(
+                `✓ Full Marks Saved/Updated: ${marks} | Applied to ${updatedCount} student(s)`
+            );
+
+
+            fmMarks.value = "";
+
+
+            await loadSavedFullMarks();
+
+
+        }
+
+        catch(error){
+
+            console.error(
+                "Full Marks Error:",
+                error
+            );
+
+
+            showMessage(
+                "❌ Error: " +
+                error.message,
+                "error"
+            );
+
+        }
+
+        finally{
+
+            fmSaveBtn.disabled =
+                false;
+
+            fmSaveBtn.textContent =
+                "💾 SAVE / UPDATE FULL MARKS";
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   LOAD SAVED FULL MARKS
+===================================================== */
+
+async function loadSavedFullMarks(){
+
+    if(!savedList){
+        return;
+    }
+
+
+    savedList.innerHTML = `
+        <div style="
+            padding:12px;
+            color:#64748b;
+        ">
+            Loading...
+        </div>
+    `;
+
+
+    try{
+
+        const snapshot =
+            await getDocs(
+                collection(
+                    db,
+                    "exam_full_marks"
+                )
+            );
+
+
+        /*
+         * MAP IS USED TO PREVENT
+         * DUPLICATE DISPLAY.
+         */
+
+        const unique =
+            new Map();
+
+
+        snapshot.forEach(
+            item => {
+
+                const data =
+                    item.data();
+
+
+                const exam =
+                    String(
+                        data.Exam || ""
+                    ).trim();
+
+
+                const className =
+                    normalizeClass(
+                        data.Class
+                    );
+
+
+                const subject =
+                    normalizeSubject(
+                        data.SubjectKey ||
+                        data.Subject
+                    );
+
+
+                if(
+                    !exam ||
+                    !className ||
+                    !subject
+                ){
+                    return;
+                }
+
+
+                const key =
+                    exam.toLowerCase()
+                    +
+                    "||"
+                    +
+                    className.toLowerCase()
+                    +
+                    "||"
+                    +
+                    subject;
+
+
+                const canonicalId =
+                    makeFullMarksId(
+                        exam,
+                        className,
+                        subject
+                    );
+
+
+                const old =
+                    unique.get(key);
+
+
+                /*
+                 * CANONICAL RECORD
+                 * WILL BE PREFERRED.
+                 */
+
+                if(
+                    !old ||
+                    item.id === canonicalId
+                ){
+
+                    unique.set(
+                        key,
+                        {
+
+                            id:
+                                item.id,
+
+                            exam:
+                                exam,
+
+                            className:
+                                className,
+
+                            subject:
+                                subject,
+
+                            marks:
+                                Number(
+                                    data.FullMarks
+                                ) || 0
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+
+        if(
+            unique.size === 0
+        ){
+
+            savedList.innerHTML = `
+                <div style="
+                    padding:12px;
+                    color:#64748b;
+                    background:#f8fafc;
+                    border-radius:9px;
+                ">
+                    No Full Marks saved yet.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        savedList.innerHTML =
+            "";
+
+
+        unique.forEach(
+            item => {
+
+
+                const row =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                row.style.cssText = `
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    gap:10px;
+                    padding:12px;
+                    margin-bottom:8px;
+                    background:#f8fafc;
+                    border:1px solid #e2e8f0;
+                    border-radius:10px;
+                `;
+
+
+                const info =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                info.style.flex = "1";
+
+
+                info.innerHTML = `
+
+                    <div style="
+                        font-weight:800;
+                        color:#111827;
+                    ">
+                        ${item.exam}
+                    </div>
+
+                    <div style="
+                        font-size:13px;
+                        color:#475569;
+                        margin-top:4px;
+                    ">
+
+                        ${item.className}
+                        &nbsp; • &nbsp;
+
+                        ${displaySubject(
+                            item.subject
+                        )}
+
+                        &nbsp; • &nbsp;
+
+                        Full Marks:
+                        <b>
+                            ${item.marks}
+                        </b>
+
+                    </div>
+
+                `;
+
+
+                /* DELETE BUTTON */
+
+                const deleteBtn =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                deleteBtn.textContent =
+                    "🗑 Delete";
+
+
+                deleteBtn.style.cssText = `
+                    border:none;
+                    background:#dc2626;
+                    color:white;
+                    padding:8px 12px;
+                    border-radius:7px;
+                    cursor:pointer;
+                    font-weight:700;
+                    white-space:nowrap;
+                `;
+
+
+                deleteBtn.addEventListener(
+                    "click",
+                    async function(){
+
+                        const ok =
+                            confirm(
+                                `Delete Full Marks?\n\n`
+                                +
+                                `${item.exam}\n`
+                                +
+                                `${item.className}\n`
+                                +
+                                `${displaySubject(
+                                    item.subject
+                                )}\n`
+                                +
+                                `Full Marks: ${item.marks}`
+                            );
+
+
+                        if(!ok){
+                            return;
+                        }
+
+
+                        try{
+
+                            deleteBtn.disabled =
+                                true;
+
+                            deleteBtn.textContent =
+                                "Deleting...";
+
+
+                            /*
+                             * DELETE ALL DUPLICATES
+                             * OF SAME COMBINATION.
+                             */
+
+                            const allSnapshot =
+                                await getDocs(
+                                    collection(
+                                        db,
+                                        "exam_full_marks"
+                                    )
+                                );
+
+
+                            let deletedCount = 0;
+
+
+                            for(
+                                const record
+                                of allSnapshot.docs
+                            ){
+
+                                const data =
+                                    record.data();
+
+
+                                const recordExam =
+                                    String(
+                                        data.Exam || ""
+                                    )
+                                    .trim()
+                                    .toLowerCase();
+
+
+                                const recordClass =
+                                    normalizeClass(
+                                        data.Class
+                                    );
+
+
+                                const recordSubject =
+                                    normalizeSubject(
+                                        data.SubjectKey ||
+                                        data.Subject
+                                    );
+
+
+                                if(
+                                    recordExam ===
+                                    item.exam
+                                    .trim()
+                                    .toLowerCase()
+
+                                    &&
+
+                                    recordClass ===
+                                    item.className
+
+                                    &&
+
+                                    recordSubject ===
+                                    item.subject
+                                ){
+
+                                    await deleteDoc(
+                                        record.ref
+                                    );
+
+                                    deletedCount++;
+
+                                }
+
+                            }
+
+
+                            alert(
+                                `✅ Deleted ${deletedCount} record(s).`
+                            );
+
+
+                            await loadSavedFullMarks();
+
+                        }
+
+                        catch(error){
+
+                            console.error(
+                                "Delete Error:",
+                                error
+                            );
+
+
+                            alert(
+                                "❌ Delete failed:\n"
+                                +
+                                error.message
+                            );
+
+
+                            deleteBtn.disabled =
+                                false;
+
+                            deleteBtn.textContent =
+                                "🗑 Delete";
+
+                        }
+
+                    }
+                );
+
+
+                row.appendChild(info);
+
+                row.appendChild(deleteBtn);
+
+                savedList.appendChild(row);
+
+            }
+        );
+
+    }
+
+    catch(error){
+
+        console.error(
+            "Load Saved Full Marks Error:",
+            error
+        );
+
+
+        savedList.innerHTML = `
+            <div style="
+                padding:12px;
+                color:#b91c1c;
+                background:#fef2f2;
+                border-radius:9px;
+            ">
+                ❌ ${error.message}
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   INITIAL LOAD
+===================================================== */
+
+loadSavedFullMarks();
+
+
+</script>
+
+
+</body>
+          </html>
