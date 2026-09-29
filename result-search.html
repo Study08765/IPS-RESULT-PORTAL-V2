@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#071d45">
+
+<title>IPS PUBLIC SCHOOL - RESULT</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+
+    background:
+    radial-gradient(
+        circle at 10% 5%,
+        rgba(30,90,180,.16),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 90% 90%,
+        rgba(210,170,50,.13),
+        transparent 28%
+    ),
+
+    linear-gradient(
+        135deg,
+        #edf4fc,
+        #dce8f7
+    );
+
+    color:#12345f;
+
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+
+    width:min(100%,950px);
+
+    margin:auto;
+
+    padding:
+    24px 14px 28px;
+}
+
+
+/* =========================
+   SCHOOL HEADER
+========================= */
+
+.school-header{
+
+    text-align:center;
+
+    padding:
+    10px 5px 0;
+}
+
+
+.gold-line{
+
+    width:110px;
+    height:4px;
+
+    margin:
+    0 auto 15px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #a97817,
+        #f3d46d,
+        #b18420
+    );
+
+}
+
+
+.logo{
+
+    width:96px;
+    height:96px;
+
+    margin:
+    0 auto 12px;
+
+    padding:6px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    border:
+    4px solid #d3ad42;
+
+    box-shadow:
+    0 0 0 6px rgba(211,173,66,.09),
+    0 12px 30px rgba(15,45,85,.18);
+}
+
+.logo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    border-radius:50%;
+}
+
+
+.school-name{
+
+    color:#073b8f;
+
+    font-size:
+    clamp(32px,7vw,58px);
+
+    line-height:1;
+
+    font-weight:900;
+
+    letter-spacing:.4px;
+
+    text-shadow:
+    0 4px 10px
+    rgba(7,59,143,.12);
+}
+
+
+.school-place{
+
+    margin-top:8px;
+
+    color:#987118;
+
+    font-size:
+    clamp(12px,2.5vw,16px);
+
+    font-weight:900;
+
+    letter-spacing:4px;
+}
+
+
+/* =========================
+   MAIN CARD
+========================= */
+
+.main-card{
+
+    margin-top:24px;
+
+    padding:
+    28px 30px 32px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f2f7fd
+    );
+
+    border:
+    1px solid #cbd9e9;
+
+    box-shadow:
+    0 25px 60px
+    rgba(13,46,85,.16),
+
+    inset 0 1px 0 #fff;
+}
+
+
+/* =========================
+   EXAM
+========================= */
+
+.exam-title{
+
+    text-align:center;
+
+    color:#b45309;
+
+    font-size:
+    clamp(28px,6vw,43px);
+
+    line-height:1.15;
+
+    font-weight:900;
+
+}
+
+
+.session{
+
+    margin-top:5px;
+
+    text-align:center;
+
+    color:#967018;
+
+    font-size:
+    clamp(15px,3vw,21px);
+
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+
+    width:100%;
+
+    min-height:76px;
+
+    margin:
+    24px 0 27px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    text-align:center;
+
+    border-radius:18px;
+
+    font-size:
+    clamp(18px,4vw,25px);
+
+    font-weight:900;
+
+    letter-spacing:.8px;
+
+    box-shadow:
+    0 12px 28px rgba(20,90,65,.16);
+}
+
+
+.status.live{
+
+    color:#075b38;
+
+    background:
+    linear-gradient(
+        135deg,
+        #e9fff4,
+        #c9f5df
+    );
+
+    border:
+    2px solid #7dd5aa;
+}
+
+
+.status.waiting{
+
+    color:#9a4200;
+
+    background:
+    linear-gradient(
+        135deg,
+        #fff5e6,
+        #ffe2bd
+    );
+
+    border:
+    2px solid #f1b46c;
+}
+
+
+.status.error{
+
+    color:#a71919;
+
+    background:#fff0f0;
+
+    border:
+    2px solid #efb0b0;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.field{
+
+    margin-bottom:22px;
+}
+
+
+.label{
+
+    margin:
+    0 0 9px 3px;
+
+    color:#234b78;
+
+    font-size:14px;
+
+    font-weight:900;
+}
+
+
+.input-wrap{
+
+    position:relative;
+
+    width:100%;
+
+    height:76px;
+
+    border-radius:18px;
+
+    background:#fff;
+
+    border:
+    2px solid #c5d4e7;
+
+    box-shadow:
+    0 8px 20px
+    rgba(20,55,90,.08);
+
+    transition:.25s;
+}
+
+
+.input-wrap:focus-within{
+
+    border-color:#286dc1;
+
+    box-shadow:
+    0 0 0 4px
+    rgba(40,109,193,.10),
+
+    0 12px 25px
+    rgba(20,55,90,.12);
+}
+
+
+.input-icon{
+
+    position:absolute;
+
+    left:22px;
+    top:50%;
+
+    transform:
+    translateY(-50%);
+
+    color:#0b3d91;
+
+    font-size:21px;
+
+    pointer-events:none;
+}
+
+
+.input-wrap select,
+.input-wrap input{
+
+    width:100%;
+    height:100%;
+
+    border:none;
+    outline:none;
+
+    background:transparent;
+
+    color:#173e6e;
+
+    padding:
+    0 20px 0 60px;
+
+    font-size:17px;
+
+    font-weight:700;
+}
+
+
+.input-wrap select{
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.view-btn{
+
+    width:100%;
+
+    height:78px;
+
+    margin-top:4px;
+
+    border-radius:18px;
+
+    border:
+    1px solid #7ea7d8;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-size:
+    clamp(16px,3vw,20px);
+
+    font-weight:900;
+
+    letter-spacing:1.5px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #62a3ef,
+        #286dc1 52%,
+        #0b3d91
+    );
+
+    box-shadow:
+
+    0 7px 0 #062d68,
+
+    0 18px 35px
+    rgba(11,61,145,.27),
+
+    inset 0 2px 2px
+    rgba(255,255,255,.42);
+
+    transition:.15s;
+}
+
+
+.view-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+    0 9px 0 #062d68,
+
+    0 23px 40px
+    rgba(11,61,145,.32);
+}
+
+
+.view-btn:active{
+
+    transform:translateY(5px);
+
+    box-shadow:
+    0 2px 0 #062d68,
+    0 8px 15px
+    rgba(11,61,145,.18);
+}
+
+
+.view-btn:disabled{
+
+    cursor:not-allowed;
+
+    opacity:.75;
+
+    transform:none;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+#message{
+
+    margin-top:20px;
+}
+
+
+.message{
+
+    padding:18px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    font-weight:800;
+
+    line-height:1.6;
+}
+
+
+.message.error{
+
+    color:#a71919;
+
+    background:#fff0f0;
+
+    border:1px solid #efb0b0;
+}
+
+
+.message.success{
+
+    color:#075b38;
+
+    background:#eafff3;
+
+    border:1px solid #9bdfbd;
+}
+
+
+/* =========================
+   INFORMATION
+========================= */
+
+.info{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:15px;
+
+    margin-top:23px;
+}
+
+
+.info-box{
+
+    min-height:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    padding:12px;
+
+    text-align:center;
+
+    border-radius:15px;
+
+    background:#f7faff;
+
+    border:1px solid #d4e0ed;
+
+    color:#647992;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+
+.info-box i{
+
+    color:#b38720;
+
+    font-size:19px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+
+    margin-top:20px;
+
+    padding:15px;
+
+    text-align:center;
+
+    border-radius:16px;
+
+    color:#64758c;
+
+    background:
+    rgba(255,255,255,.72);
+
+    border:1px solid #d6e1ee;
+
+    font-size:11px;
+
+    font-weight:700;
+}
+
+
+.footer strong{
+
+    color:#0b3d91;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    .page{
+
+        padding:
+        16px 9px 20px;
+    }
+
+
+    .logo{
+
+        width:80px;
+        height:80px;
+
+        border-width:3px;
+    }
+
+
+    .school-name{
+
+        font-size:28px;
+    }
+
+
+    .school-place{
+
+        font-size:10px;
+
+        letter-spacing:2.5px;
+    }
+
+
+    .main-card{
+
+        margin-top:19px;
+
+        padding:
+        22px 12px 25px;
+
+        border-radius:23px;
+    }
+
+
+    .exam-title{
+
+        font-size:25px;
+    }
+
+
+    .session{
+
+        font-size:14px;
+    }
+
+
+    .status{
+
+        min-height:70px;
+
+        margin:
+        20px 0 22px;
+
+        font-size:18px;
+
+        border-radius:16px;
+    }
+
+
+    .input-wrap{
+
+        height:70px;
+
+        border-radius:16px;
+    }
+
+
+    .input-wrap select,
+    .input-wrap input{
+
+        padding-left:53px;
+
+        font-size:14px;
+    }
+
+
+    .input-icon{
+
+        left:18px;
+
+        font-size:18px;
+    }
+
+
+    .view-btn{
+
+        height:72px;
+
+        border-radius:16px;
+
+        font-size:15px;
+    }
+
+
+    .info{
+
+        gap:8px;
+    }
+
+
+    .info-box{
+
+        min-height:70px;
+
+        padding:8px 5px;
+
+        font-size:8px;
+    }
+
+
+    .info-box i{
+
+        font-size:15px;
+    }
+
+
+    .footer{
+
+        font-size:9px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- =================================================
+     SCHOOL HEADER
+================================================= -->
+
+<header class="school-header">
+
+    <div class="gold-line"></div>
+
+    <div class="logo">
+
+        <img
+            src="logo.png"
+            alt="IPS PUBLIC SCHOOL"
+        >
+
+    </div>
+
+    <div class="school-name">
+        IPS PUBLIC SCHOOL
+    </div>
+
+    <div class="school-place">
+        AHIRORI • HARDOI
+    </div>
+
+</header>
+
+
+
+<!-- =================================================
+     MAIN
+================================================= -->
+
+<section class="main-card">
+
+
+    <div
+        class="exam-title"
+        id="examTitle"
+    >
+        QUARTERLY EXAMINATION
+    </div>
+
+
+    <div
+        class="session"
+        id="sessionTitle"
+    >
+        SESSION 2026–27
+    </div>
+
+
+
+    <!-- RESULT STATUS -->
+
+    <div
+        id="resultStatus"
+        class="status live"
+    >
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        RESULT LIVE
+
+    </div>
+
+
+
+    <!-- CLASS -->
+
+    <div class="field">
+
+        <div class="label">
+            SELECT CLASS
+        </div>
+
+        <div class="input-wrap">
+
+            <i class="fa-solid fa-graduation-cap input-icon"></i>
+
+            <select id="class">
+
+                <option
+                    value=""
+                    selected
+                    disabled
+                >
+                    Select Class
+                </option>
+
+                <option>Class 2</option>
+                <option>Class 3</option>
+                <option>Class 4</option>
+                <option>Class 5</option>
+                <option>Class 6</option>
+                <option>Class 7</option>
+                <option>Class 8</option>
+                <option>Class 9</option>
+                <option>Class 10</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ROLL -->
+
+    <div class="field">
+
+        <div class="label">
+            ENTER ROLL NUMBER
+        </div>
+
+        <div class="input-wrap">
+
+            <i class="fa-solid fa-id-card input-icon"></i>
+
+            <input
+                type="text"
+                id="roll"
+                inputmode="numeric"
+                autocomplete="off"
+                placeholder="Enter Exact Roll Number"
+            >
+
+        </div>
+
+    </div>
+
+
+
+    <!-- BUTTON -->
+
+    <button
+        id="viewBtn"
+        class="view-btn"
+        type="button"
+    >
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        &nbsp;&nbsp;
+
+        VIEW RESULT
+
+    </button>
+
+
+
+    <!-- MESSAGE -->
+
+    <div id="message"></div>
+
+
+
+    <!-- INFO -->
+
+    <div class="info">
+
+        <div class="info-box">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            <span>
+                Exact Roll Number & Class Verification
+            </span>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <span>
+                Secure Result Verification
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+     FOOTER
+================================================= -->
+
+<footer class="footer">
+
+    <div>
+        IPSPS RESULT PORTAL
+    </div>
+
+    <strong>
+        IPS PUBLIC SCHOOL • AHIRORI • HARDOI
+    </strong>
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =================================================
+     FIREBASE
+================================================= -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    doc,
+    getDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const examTitle =
+    document.getElementById("examTitle");
+
+const sessionTitle =
+    document.getElementById("sessionTitle");
+
+const resultStatus =
+    document.getElementById("resultStatus");
+
+const classElement =
+    document.getElementById("class");
+
+const rollElement =
+    document.getElementById("roll");
+
+const viewBtn =
+    document.getElementById("viewBtn");
+
+const message =
+    document.getElementById("message");
+
+
+
+/* =====================================================
+   LOAD PORTAL SETTINGS
+===================================================== */
+
+async function loadPortalData(){
+
+    try{
+
+        const ref =
+            doc(
+                db,
+                "settings",
+                "portal"
+            );
+
+        const snap =
+            await getDoc(ref);
+
+
+        if(snap.exists()){
+
+            const data =
+                snap.data();
+
+
+            if(data.examTitle){
+
+                examTitle.innerText =
+                    data.examTitle;
+
+            }
+
+
+            if(data.session){
+
+                sessionTitle.innerText =
+                    "SESSION " +
+                    data.session;
+
+            }
+
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            "Portal settings error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   LOAD RESULT STATUS
+===================================================== */
+
+async function loadResultStatus(){
+
+    try{
+
+        const ref =
+            doc(
+                db,
+                "settings",
+                "result"
+            );
+
+        const snap =
+            await getDoc(ref);
+
+
+        if(!snap.exists()){
+
+            return;
+
+        }
+
+
+        const published =
+            snap.data().published === true;
+
+
+        if(published){
+
+            resultStatus.className =
+                "status live";
+
+            resultStatus.innerHTML = `
+                <i class="fa-solid fa-circle-check"></i>
+                RESULT LIVE
+            `;
+
+        }
+        else{
+
+            resultStatus.className =
+                "status waiting";
+
+            resultStatus.innerHTML = `
+                <i class="fa-solid fa-clock"></i>
+                RESULT WILL BE PUBLISHED SOON
+            `;
+
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            "Result status error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SEARCH RESULT
+===================================================== */
+
+async function searchResult(){
+
+    message.innerHTML = "";
+
+    const roll =
+        rollElement.value.trim();
+
+    const selectedClass =
+        classElement.value
+        .replace(
+            /^Class\s*/i,
+            ""
+        )
+        .trim();
+
+
+    /* ================= VALIDATION ================= */
+
+    if(!selectedClass){
+
+        message.innerHTML = `
+            <div class="message error">
+                ⚠️ Please select your class.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    if(!roll){
+
+        message.innerHTML = `
+            <div class="message error">
+                ⚠️ Please enter your roll number.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    /* =================================================
+       CHECK RESULT STATUS FIRST
+    ================================================= */
+
+    viewBtn.disabled = true;
+
+    viewBtn.innerHTML = `
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        &nbsp;&nbsp;
+        CHECKING...
+    `;
+
+
+    try{
+
+        const publishRef =
+            doc(
+                db,
+                "settings",
+                "result"
+            );
+
+
+        const publishSnap =
+            await getDoc(
+                publishRef
+            );
+
+
+        if(
+            publishSnap.exists() &&
+            publishSnap.data().published === false
+        ){
+
+            message.innerHTML = `
+                <div class="message error">
+                    ⚠️ RESULT NOT PUBLISHED
+                    <br>
+                    <small>
+                        Please check again after the result is published.
+                    </small>
+                </div>
+            `;
+
+            resetButton();
+
+            return;
+
+        }
+
+
+        /* =============================================
+           EXACT DOCUMENT ID
+        ============================================= */
+
+        const studentRef =
+            doc(
+                db,
+                "students_v2",
+                roll
+            );
+
+
+        /*
+          IMPORTANT:
+
+          No padStart()
+          No automatic conversion
+          No fallback roll.
+
+          001 means ONLY 001.
+        */
+
+
+        const studentSnap =
+            await getDoc(
+                studentRef
+            );
+
+
+        /* =============================================
+           ROLL NOT FOUND
+        ============================================= */
+
+        if(!studentSnap.exists()){
+
+            message.innerHTML = `
+                <div class="message error">
+
+                    ❌ RESULT NOT FOUND
+
+                    <br>
+
+                    <small>
+                        Roll Number
+                        <strong>${escapeHTML(roll)}</strong>
+                        was not found.
+                    </small>
+
+                </div>
+            `;
+
+            resetButton();
+
+            return;
+
+        }
+
+
+        /* =============================================
+           STUDENT DATA
+        ============================================= */
+
+        const student =
+            studentSnap.data();
+
+
+        const firestoreRoll =
+            String(
+                student.Roll ?? ""
+            ).trim();
+
+
+        const firestoreClass =
+            String(
+                student.Class ?? ""
+            )
+            .replace(
+                /^Class\s*/i,
+                ""
+            )
+            .trim();
+
+
+        /* =============================================
+           EXACT ROLL MATCH
+        ============================================= */
+
+        if(
+            firestoreRoll !== roll
+        ){
+
+            message.innerHTML = `
+                <div class="message error">
+
+                    ❌ INVALID ROLL NUMBER
+
+                    <br>
+
+                    <small>
+                        Please enter the exact roll number.
+                    </small>
+
+                </div>
+            `;
+
+            resetButton();
+
+            return;
+
+        }
+
+
+        /* =============================================
+           EXACT CLASS MATCH
+        ============================================= */
+
+        if(
+            firestoreClass !==
+            selectedClass
+        ){
+
+            message.innerHTML = `
+                <div class="message error">
+
+                    ❌ CLASS & ROLL NUMBER NOT MATCH
+
+                    <br>
+
+                    <small>
+                        Please check your Class and Roll Number.
+                    </small>
+
+                </div>
+            `;
+
+            resetButton();
+
+            return;
+
+        }
+
+
+        /* =============================================
+           SUCCESS
+        ============================================= */
+
+        message.innerHTML = `
+            <div class="message success">
+
+                <i class="fa-solid fa-circle-check"></i>
+
+                &nbsp;
+
+                RESULT VERIFIED
+
+            </div>
+        `;
+
+
+        /*
+          Exact verified details are sent.
+        */
+
+        const params =
+            new URLSearchParams();
+
+
+        params.set(
+            "roll",
+            roll
+        );
+
+
+        params.set(
+            "class",
+            selectedClass
+        );
+
+
+        /*
+          Small delay only after successful verification.
+        */
+
+        setTimeout(() => {
+
+            window.location.href =
+                "result-page.html?" +
+                params.toString();
+
+        }, 350);
+
+
+    }
+    catch(error){
+
+        console.error(
+            "Result search error:",
+            error
+        );
+
+
+        message.innerHTML = `
+            <div class="message error">
+
+                ❌ RESULT CHECK FAILED
+
+                <br>
+
+                <small>
+                    ${escapeHTML(
+                        error.message ||
+                        "Please try again."
+                    )}
+                </small>
+
+            </div>
+        `;
+
+
+        resetButton();
+
+    }
+
+}
+
+
+/* =====================================================
+   RESET BUTTON
+===================================================== */
+
+function resetButton(){
+
+    viewBtn.disabled = false;
+
+    viewBtn.innerHTML = `
+        <i class="fa-solid fa-magnifying-glass"></i>
+        &nbsp;&nbsp;
+        VIEW RESULT
+    `;
+
+}
+
+
+/* =====================================================
+   SAFE TEXT
+===================================================== */
+
+function escapeHTML(value){
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
+
+viewBtn.addEventListener(
+    "click",
+    searchResult
+);
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+rollElement.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Enter"
+        ){
+
+            searchResult();
+
+        }
+
+    }
+);
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadPortalData();
+
+loadResultStatus();
+
+</script>
+
+</body>
+
+  </html>
