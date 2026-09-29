@@ -303,7 +303,44 @@ body{
     border:
     2px solid #7dd5aa;
 }
+.status.live{
+    animation: liveDarkBlink 1.2s ease-in-out infinite;
+}
 
+@keyframes liveDarkBlink{
+
+    0%,100%{
+        background:
+        linear-gradient(
+            135deg,
+            #e9fff4,
+            #c9f5df
+        );
+
+        color:#075b38;
+
+        box-shadow:
+        0 12px 28px rgba(20,90,65,.16);
+
+        transform:scale(1);
+    }
+
+    50%{
+        background:
+        linear-gradient(
+            135deg,
+            #087443,
+            #034d2d
+        );
+
+        color:#ffffff;
+
+        box-shadow:
+        0 14px 34px rgba(3,77,45,.35);
+
+        transform:scale(1.015);
+    }
+          }
 
 .status.waiting{
 
@@ -319,7 +356,44 @@ body{
     border:
     2px solid #f1b46c;
 }
+.status.waiting{
+    animation: waitingBlink 1.2s ease-in-out infinite;
+}
 
+@keyframes waitingBlink{
+
+    0%,100%{
+        background:
+        linear-gradient(
+            135deg,
+            #fff5e6,
+            #ffe2bd
+        );
+
+        color:#9a4200;
+
+        box-shadow:
+        0 12px 28px rgba(180,83,9,.16);
+
+        transform:scale(1);
+    }
+
+    50%{
+        background:
+        linear-gradient(
+            135deg,
+            #b45309,
+            #7c2d12
+        );
+
+        color:#ffffff;
+
+        box-shadow:
+        0 14px 34px rgba(124,45,18,.35);
+
+        transform:scale(1.015);
+    }
+      }
 
 .status.error{
 
@@ -1260,7 +1334,9 @@ async function searchResult(){
         &nbsp;&nbsp;
         CHECKING...
     `;
-
+setTimeout(() => {
+    resetButton();
+}, 10000);
 
     try{
 
