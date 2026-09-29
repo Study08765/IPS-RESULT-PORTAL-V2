@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+  name="theme-color"
+  content="#071b3d"
+>
+
+<title>
+IPSPS RESULT SEARCH
+</title>
+
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+>
+
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  min-height:100vh;
+
+  background:
+  radial-gradient(
+    circle at 15% 10%,
+    rgba(53,115,220,.18),
+    transparent 30%
+  ),
+
+  radial-gradient(
+    circle at 90% 85%,
+    rgba(211,169,49,.12),
+    transparent 30%
+  ),
+
+  linear-gradient(
+    135deg,
+    #eef4fc,
+    #dce8f7
+  );
+
+  color:#12345f;
+
+  overflow-x:hidden;
+}
+
+
+/* =====================================================
+   BACKGROUND EFFECTS
+===================================================== */
+
+body::before{
+
+  content:"";
+
+  position:fixed;
+
+  width:420px;
+  height:420px;
+
+  top:-210px;
+  right:-180px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(201,157,42,.13),
+    transparent 70%
+  );
+
+  pointer-events:none;
+
+}
+
+body::after{
+
+  content:"";
+
+  position:fixed;
+
+  width:350px;
+  height:350px;
+
+  bottom:-180px;
+  left:-160px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(31,91,180,.12),
+    transparent 70%
+  );
+
+  pointer-events:none;
+
+}
+
+
+/* =====================================================
+   MAIN WRAPPER
+===================================================== */
+
+.page{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  min-height:100vh;
+
+  padding:
+  28px
+  18px
+  30px;
+
+}
+
+
+/* =====================================================
+   TOP BRAND
+===================================================== */
+
+.brand{
+
+  width:min(
+    100%,
+    1050px
+  );
+
+  margin:
+  0 auto 20px;
+
+  text-align:center;
+
+}
+
+
+.gold-line{
+
+  width:105px;
+
+  height:4px;
+
+  margin:
+  0 auto 18px;
+
+  border-radius:20px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #9b7014,
+    #f5dc78,
+    #b78920
+  );
+
+  box-shadow:
+  0 3px 10px
+  rgba(168,125,22,.22);
+
+}
+
+
+.logo-wrap{
+
+  width:105px;
+  height:105px;
+
+  margin:
+  0 auto 13px;
+
+  padding:7px;
+
+  border-radius:50%;
+
+  background:#ffffff;
+
+  border:
+  4px solid #d2ad42;
+
+  box-shadow:
+
+  0 0 0 7px
+  rgba(210,173,66,.10),
+
+  0 14px 35px
+  rgba(15,47,88,.18);
+
+}
+
+
+.logo-wrap img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+
+  border-radius:50%;
+
+}
+
+
+.school-name{
+
+  color:#0a3d91;
+
+  font-size:
+  clamp(
+    28px,
+    6vw,
+    52px
+  );
+
+  line-height:1.05;
+
+  font-weight:900;
+
+  letter-spacing:.5px;
+
+  text-shadow:
+  0 4px 12px
+  rgba(10,61,145,.12);
+
+}
+
+
+.school-place{
+
+  margin-top:7px;
+
+  color:#9b7418;
+
+  font-size:13px;
+
+  font-weight:900;
+
+  letter-spacing:3px;
+
+}
+
+
+/* =====================================================
+   SEARCH CARD
+===================================================== */
+
+.search-card{
+
+  width:min(
+    100%,
+    850px
+  );
+
+  margin:
+  28px auto 0;
+
+  padding:
+  38px 42px 45px;
+
+  border-radius:30px;
+
+  background:
+  linear-gradient(
+    145deg,
+    rgba(255,255,255,.98),
+    rgba(240,247,255,.96)
+  );
+
+  border:
+  1px solid
+  rgba(180,201,226,.9);
+
+  box-shadow:
+
+  0 30px 70px
+  rgba(12,47,90,.18),
+
+  inset 0 1px 0
+  rgba(255,255,255,.95);
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+
+.search-card::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:280px;
+  height:280px;
+
+  right:-170px;
+  top:-170px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(211,174,62,.13),
+    transparent 70%
+  );
+
+}
+
+
+.search-card::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:220px;
+  height:220px;
+
+  left:-150px;
+  bottom:-150px;
+
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(29,91,181,.10),
+    transparent 70%
+  );
+
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.search-heading{
+
+  position:relative;
+
+  z-index:2;
+
+  text-align:center;
+
+}
+
+
+.heading-line{
+
+  width:80px;
+
+  height:4px;
+
+  margin:
+  0 auto 13px;
+
+  border-radius:20px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #a87916,
+    #f2d36a,
+    #b1821b
+  );
+
+}
+
+
+.search-heading h1{
+
+  color:#0b3d91;
+
+  font-size:
+  clamp(
+    27px,
+    5vw,
+    39px
+  );
+
+  font-weight:900;
+
+  letter-spacing:.5px;
+
+}
+
+
+.search-heading p{
+
+  margin-top:7px;
+
+  color:#7b8ba2;
+
+  font-size:13px;
+
+  font-weight:600;
+
+}
+
+
+.exam-title{
+
+  margin-top:17px;
+
+  color:#b45309;
+
+  font-size:
+  clamp(
+    17px,
+    3.5vw,
+    23px
+  );
+
+  font-weight:900;
+
+}
+
+
+.session-title{
+
+  margin-top:3px;
+
+  color:#9b7418;
+
+  font-size:12px;
+
+  font-weight:800;
+
+}
+
+
+/* =====================================================
+   SECURE BADGE
+===================================================== */
+
+.secure-badge{
+
+  position:relative;
+
+  z-index:2;
+
+  width:max-content;
+
+  max-width:100%;
+
+  margin:
+  19px auto 28px;
+
+  padding:
+  10px 18px;
+
+  border-radius:50px;
+
+  color:#17633f;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ecfff5,
+    #d9f8e8
+  );
+
+  border:
+  1px solid #a8dfc1;
+
+  font-size:11px;
+
+  font-weight:800;
+
+  box-shadow:
+  0 8px 18px
+  rgba(23,99,63,.10);
+
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+.form{
+
+  position:relative;
+
+  z-index:2;
+
+}
+
+
+.field{
+
+  margin-bottom:22px;
+
+}
+
+
+.field-title{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin:
+  0 0 9px 3px;
+
+  color:#244b78;
+
+  font-size:13px;
+
+  font-weight:900;
+
+}
+
+
+.field-title i{
+
+  color:#b48720;
+
+  font-size:14px;
+
+}
+
+
+.input-box{
+
+  position:relative;
+
+  width:100%;
+
+  height:72px;
+
+  border-radius:18px;
+
+  background:#ffffff;
+
+  border:
+  2px solid #c8d6e8;
+
+  box-shadow:
+
+  0 9px 24px
+  rgba(22,55,92,.08),
+
+  inset 0 1px 0
+  #ffffff;
+
+  transition:.25s;
+
+}
+
+
+.input-box:focus-within{
+
+  border-color:#286dc1;
+
+  box-shadow:
+
+  0 0 0 4px
+  rgba(40,109,193,.10),
+
+  0 12px 27px
+  rgba(22,55,92,.12);
+
+}
+
+
+.input-box i{
+
+  position:absolute;
+
+  left:22px;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  color:#0b3d91;
+
+  font-size:20px;
+
+  z-index:2;
+
+}
+
+
+.input-box select,
+.input-box input{
+
+  width:100%;
+
+  height:100%;
+
+  border:none;
+
+  outline:none;
+
+  background:transparent;
+
+  color:#173e6e;
+
+  padding:
+  0 20px 0 58px;
+
+  font-size:16px;
+
+  font-weight:700;
+
+}
+
+
+.input-box select{
+
+  cursor:pointer;
+
+  appearance:auto;
+
+}
+
+
+.input-box input::placeholder{
+
+  color:#a0adbd;
+
+  font-weight:600;
+
+}
+
+
+/* =====================================================
+   CHECK BUTTON
+===================================================== */
+
+.check-btn{
+
+  position:relative;
+
+  z-index:2;
+
+  width:100%;
+
+  height:76px;
+
+  margin-top:7px;
+
+  border:none;
+
+  border-radius:18px;
+
+  cursor:pointer;
+
+  color:#ffffff;
+
+  font-size:17px;
+
+  font-weight:900;
+
+  letter-spacing:1.5px;
+
+  background:
+  linear-gradient(
+    180deg,
+    #62a4f0 0%,
+    #3378ce 45%,
+    #0b3d91 100%
+  );
+
+  border:
+  1px solid #82addd;
+
+  box-shadow:
+
+  0 7px 0 #062d68,
+
+  0 19px 35px
+  rgba(11,61,145,.27),
+
+  inset 0 2px 2px
+  rgba(255,255,255,.40);
+
+  transition:.16s;
+
+  overflow:hidden;
+
+}
+
+
+.check-btn::before{
+
+  content:"";
+
+  position:absolute;
+
+  top:6px;
+
+  left:8%;
+
+  right:8%;
+
+  height:1px;
+
+  background:
+  rgba(255,255,255,.55);
+
+}
+
+
+.check-btn::after{
+
+  content:"";
+
+  position:absolute;
+
+  top:0;
+
+  left:-70%;
+
+  width:45%;
+
+  height:100%;
+
+  background:
+  linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.25),
+    transparent
+  );
+
+  transform:skewX(-20deg);
+
+  transition:.7s;
+
+}
+
+
+.check-btn:hover::after{
+
+  left:125%;
+
+}
+
+
+.check-btn:hover{
+
+  transform:translateY(-2px);
+
+  box-shadow:
+
+  0 9px 0 #062d68,
+
+  0 24px 42px
+  rgba(11,61,145,.32),
+
+  inset 0 2px 2px
+  rgba(255,255,255,.45);
+
+}
+
+
+.check-btn:active{
+
+  transform:translateY(5px);
+
+  box-shadow:
+
+  0 2px 0 #062d68,
+
+  0 9px 17px
+  rgba(11,61,145,.20);
+
+}
+
+
+.check-btn.loading{
+
+  pointer-events:none;
+
+  opacity:.85;
+
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+#message{
+
+  position:relative;
+
+  z-index:2;
+
+  margin-top:20px;
+
+}
+
+
+.message-box{
+
+  padding:19px;
+
+  border-radius:16px;
+
+  text-align:center;
+
+  font-size:14px;
+
+  font-weight:700;
+
+}
+
+
+.error{
+
+  color:#b42318;
+
+  background:#fff0ef;
+
+  border:1px solid #f0b4ae;
+
+}
+
+
+.success{
+
+  color:#17633f;
+
+  background:#edfff5;
+
+  border:1px solid #a9dfc1;
+
+}
+
+
+/* =====================================================
+   BOTTOM INFO
+===================================================== */
+
+.info-row{
+
+  position:relative;
+
+  z-index:2;
+
+  display:grid;
+
+  grid-template-columns:
+  1fr 1fr;
+
+  gap:14px;
+
+  margin-top:24px;
+
+}
+
+
+.info-box{
+
+  min-height:74px;
+
+  padding:13px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:9px;
+
+  text-align:center;
+
+  border-radius:15px;
+
+  background:#f7faff;
+
+  border:1px solid #d7e2ef;
+
+  color:#667b96;
+
+  font-size:10px;
+
+  font-weight:700;
+
+}
+
+
+.info-box i{
+
+  color:#b48720;
+
+  font-size:18px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+
+  width:min(
+    100%,
+    850px
+  );
+
+  margin:
+  28px auto 0;
+
+  text-align:center;
+
+  color:#6d7e95;
+
+  font-size:10px;
+
+  font-weight:700;
+
+}
+
+
+.footer strong{
+
+  color:#0b3d91;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px){
+
+  .page{
+
+    padding:
+    20px 10px 24px;
+
+  }
+
+
+  .brand{
+
+    margin-bottom:15px;
+
+  }
+
+
+  .gold-line{
+
+    width:75px;
+
+    height:3px;
+
+    margin-bottom:13px;
+
+  }
+
+
+  .logo-wrap{
+
+    width:82px;
+    height:82px;
+
+    border-width:3px;
+
+    padding:5px;
+
+  }
+
+
+  .school-name{
+
+    font-size:
+    clamp(
+      25px,
+      8vw,
+      34px
+    );
+
+  }
+
+
+  .school-place{
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+  }
+
+
+  .search-card{
+
+    width:100%;
+
+    margin-top:21px;
+
+    padding:
+    28px 15px 30px;
+
+    border-radius:24px;
+
+  }
+
+
+  .search-heading h1{
+
+    font-size:26px;
+
+  }
+
+
+  .search-heading p{
+
+    font-size:11px;
+
+  }
+
+
+  .exam-title{
+
+    font-size:17px;
+
+  }
+
+
+  .session-title{
+
+    font-size:10px;
+
+  }
+
+
+  .secure-badge{
+
+    margin:
+    17px auto 23px;
+
+    padding:
+    9px 13px;
+
+    font-size:9px;
+
+  }
+
+
+  .field{
+
+    margin-bottom:19px;
+
+  }
+
+
+  .field-title{
+
+    font-size:12px;
+
+    margin-bottom:8px;
+
+  }
+
+
+  .input-box{
+
+    height:68px;
+
+    border-radius:16px;
+
+  }
+
+
+  .input-box i{
+
+    left:18px;
+
+    font-size:18px;
+
+  }
+
+
+  .input-box select,
+  .input-box input{
+
+    padding-left:51px;
+
+    font-size:14px;
+
+  }
+
+
+  .check-btn{
+
+    height:70px;
+
+    border-radius:16px;
+
+    font-size:14px;
+
+    letter-spacing:1px;
+
+  }
+
+
+  .info-row{
+
+    gap:8px;
+
+    margin-top:19px;
+
+  }
+
+
+  .info-box{
+
+    min-height:67px;
+
+    padding:9px 5px;
+
+    font-size:8px;
+
+  }
+
+
+  .info-box i{
+
+    font-size:15px;
+
+  }
+
+
+  .footer{
+
+    font-size:8px;
+
+    margin-top:21px;
+
+  }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media(max-width:380px){
+
+  .school-name{
+
+    font-size:23px;
+
+  }
+
+
+  .search-card{
+
+    padding:
+    24px 11px 27px;
+
+  }
+
+
+  .search-heading h1{
+
+    font-size:23px;
+
+  }
+
+
+  .input-box{
+
+    height:64px;
+
+  }
+
+
+  .input-box select,
+  .input-box input{
+
+    font-size:13px;
+
+  }
+
+
+  .check-btn{
+
+    height:66px;
+
+    font-size:13px;
+
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="page">
+
+
+<!-- =================================================
+     BRAND
+================================================== -->
+
+<header class="brand">
+
+  <div class="gold-line"></div>
+
+
+  <div class="logo-wrap">
+
+    <img
+      src="logo.png"
+      alt="IPS PUBLIC SCHOOL Logo"
+    >
+
+  </div>
+
+
+  <h1 class="school-name">
+    IPS PUBLIC SCHOOL
+  </h1>
+
+
+  <div class="school-place">
+    AHIRORI • HARDOI
+  </div>
+
+</header>
+
+
+
+<!-- =================================================
+     SEARCH CARD
+================================================== -->
+
+<main class="search-card">
+
+
+  <div class="search-heading">
+
+    <div class="heading-line"></div>
+
+
+    <h1>
+      RESULT SEARCH
+    </h1>
+
+
+    <p>
+      Enter your Class and Roll Number
+      to check your result
+    </p>
+
+
+    <div
+      class="exam-title"
+      id="examTitle"
+    >
+      Loading...
+    </div>
+
+
+    <div
+      class="session-title"
+      id="sessionTitle"
+    >
+      Loading...
+    </div>
+
+  </div>
+
+
+
+  <div class="secure-badge">
+
+    <i class="fa-solid fa-shield-halved"></i>
+
+    &nbsp;
+
+    SECURE RESULT VERIFICATION
+
+  </div>
+
+
+
+  <!-- FORM -->
+
+  <div class="form">
+
+
+    <!-- CLASS -->
+
+    <div class="field">
+
+      <div class="field-title">
+
+        <i class="fa-solid fa-graduation-cap"></i>
+
+        SELECT CLASS
+
+      </div>
+
+
+      <div class="input-box">
+
+        <i class="fa-solid fa-school"></i>
+
+
+        <select id="class">
+
+          <option
+            value=""
+            selected
+            disabled
+          >
+            Select Your Class
+          </option>
+
+          <option>Class 2</option>
+          <option>Class 3</option>
+          <option>Class 4</option>
+          <option>Class 5</option>
+          <option>Class 6</option>
+          <option>Class 7</option>
+          <option>Class 8</option>
+          <option>Class 9</option>
+          <option>Class 10</option>
+
+        </select>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- ROLL -->
+
+    <div class="field">
+
+      <div class="field-title">
+
+        <i class="fa-solid fa-hashtag"></i>
+
+        ROLL NUMBER
+
+      </div>
+
+
+      <div class="input-box">
+
+        <i class="fa-solid fa-id-card"></i>
+
+
+        <input
+          type="text"
+          id="roll"
+          inputmode="numeric"
+          autocomplete="off"
+          placeholder="Enter Exact Roll Number"
+        >
+
+      </div>
+
+    </div>
+
+
+
+    <!-- BUTTON -->
+
+    <button
+      type="button"
+      class="check-btn"
+      id="checkBtn"
+      onclick="searchResult()"
+    >
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      &nbsp;&nbsp;
+
+      CHECK RESULT
+
+    </button>
+
+
+  </div>
+
+
+
+  <!-- MESSAGE -->
+
+  <div id="message"></div>
+
+
+
+  <!-- INFO -->
+
+  <div class="info-row">
+
+
+    <div class="info-box">
+
+      <i class="fa-solid fa-lock"></i>
+
+      <span>
+        Your result is securely verified
+      </span>
+
+    </div>
+
+
+    <div class="info-box">
+
+      <i class="fa-solid fa-mobile-screen"></i>
+
+      <span>
+        Designed for mobile & desktop
+      </span>
+
+    </div>
+
+
+  </div>
+
+
+</main>
+
+
+
+<!-- =================================================
+     FOOTER
+================================================== -->
+
+<footer class="footer">
+
+  IPSPS RESULT PORTAL
+
+  <br>
+
+  <strong>
+    IPS PUBLIC SCHOOL • AHIRORI • HARDOI
+  </strong>
+
+</footer>
+
+
+</div>
+
+
+
+<!-- =================================================
+     FIREBASE / SEARCH
+================================================== -->
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+  doc,
+  getDoc
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+
+/* =====================================================
+   LOAD EXAM TITLE + SESSION
+===================================================== */
+
+async function loadPortalHeader(){
+
+  try{
+
+    const ref =
+      doc(
+        db,
+        "settings",
+        "portal"
+      );
+
+
+    const snap =
+      await getDoc(ref);
+
+
+    if(!snap.exists()){
+
+      return;
+
+    }
+
+
+    const data =
+      snap.data();
+
+
+    const examTitle =
+      document.getElementById(
+        "examTitle"
+      );
+
+
+    const sessionTitle =
+      document.getElementById(
+        "sessionTitle"
+      );
+
+
+    if(examTitle){
+
+      examTitle.innerText =
+        data.examTitle || "";
+
+    }
+
+
+    if(sessionTitle){
+
+      sessionTitle.innerText =
+        "RESULT " +
+        (data.session || "");
+
+    }
+
+
+  }catch(error){
+
+    console.error(
+      "Header Error:",
+      error
+    );
+
+  }
+
+}
+
+
+loadPortalHeader();
+
+
+
+/* =====================================================
+   SEARCH RESULT
+===================================================== */
+
+window.searchResult =
+async function(){
+
+  const message =
+    document.getElementById(
+      "message"
+    );
+
+
+  const button =
+    document.getElementById(
+      "checkBtn"
+    );
+
+
+  try{
+
+
+    /* ================================================
+       GET VALUES
+    ================================================ */
+
+    const classElement =
+      document.getElementById(
+        "class"
+      );
+
+
+    const rollElement =
+      document.getElementById(
+        "roll"
+      );
+
+
+    const selectedClass =
+      classElement.value
+        .replace(
+          /^Class\s*/i,
+          ""
+        )
+        .trim();
+
+
+    const roll =
+      rollElement.value.trim();
+
+
+
+    /* ================================================
+       VALIDATION
+    ================================================ */
+
+    if(!selectedClass){
+
+      message.innerHTML = `
+        <div class="message-box error">
+          ⚠️ Please select your class.
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+    if(!roll){
+
+      message.innerHTML = `
+        <div class="message-box error">
+          ⚠️ Please enter your roll number.
+        </div>
+      `;
+
+      return;
+
+    }
+
+
+
+    /* ================================================
+       LOADING
+    ================================================ */
+
+    button.classList.add(
+      "loading"
+    );
+
+    button.innerHTML = `
+      <i class="fa-solid fa-spinner fa-spin"></i>
+      &nbsp;&nbsp;
+      CHECKING RESULT...
+    `;
+
+    message.innerHTML = "";
+
+
+
+    /* ================================================
+       EXACT DOCUMENT ID SEARCH
+    ================================================ */
+
+    const studentRef =
+      doc(
+        db,
+        "students_v2",
+        roll
+      );
+
+
+    const studentSnap =
+      await getDoc(
+        studentRef
+      );
+
+
+    /* ================================================
+       ROLL NOT FOUND
+    ================================================ */
+
+    if(!studentSnap.exists()){
+
+      message.innerHTML = `
+        <div class="message-box error">
+
+          ❌ RESULT NOT FOUND
+
+          <br>
+
+          <small>
+            Roll Number
+            <strong>${roll}</strong>
+            was not found.
+          </small>
+
+        </div>
+      `;
+
+      resetButton();
+
+      return;
+
+    }
+
+
+
+    /* ================================================
+       STUDENT DATA
+    ================================================ */
+
+    const student =
+      studentSnap.data();
+
+
+    const firestoreRoll =
+      String(
+        student.Roll ?? ""
+      ).trim();
+
+
+    const firestoreClass =
+      String(
+        student.Class ?? ""
+      )
+      .replace(
+        /^Class\s*/i,
+        ""
+      )
+      .trim();
+
+
+
+    /* ================================================
+       EXACT ROLL MATCH
+    ================================================ */
+
+    if(
+      firestoreRoll !== roll
+    ){
+
+      message.innerHTML = `
+        <div class="message-box error">
+
+          ❌ INVALID ROLL NUMBER
+
+          <br>
+
+          <small>
+            Please enter the exact roll number.
+          </small>
+
+        </div>
+      `;
+
+      resetButton();
+
+      return;
+
+    }
+
+
+
+    /* ================================================
+       EXACT CLASS MATCH
+    ================================================ */
+
+    if(
+      firestoreClass !==
+      selectedClass
+    ){
+
+      message.innerHTML = `
+        <div class="message-box error">
+
+          ❌ CLASS & ROLL NUMBER NOT MATCH
+
+          <br>
+
+          <small>
+            Please check your Class and
+            Roll Number.
+          </small>
+
+        </div>
+      `;
+
+      resetButton();
+
+      return;
+
+    }
+
+
+
+    /* ================================================
+       SUCCESS
+    ================================================ */
+
+    message.innerHTML = `
+      <div class="message-box success">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        &nbsp;
+
+        RESULT VERIFIED
+
+      </div>
+    `;
+
+
+    /*
+      Exact roll + exact class
+      verified successfully.
+
+      Existing result page will open.
+    */
+
+    const params =
+      new URLSearchParams();
+
+
+    params.set(
+      "roll",
+      roll
+    );
+
+
+    params.set(
+      "class",
+      selectedClass
+    );
+
+
+    setTimeout(() => {
+
+      window.location.href =
+        "result-page.html?" +
+        params.toString();
+
+    }, 500);
+
+
+  }catch(error){
+
+    console.error(
+      "Result Search Error:",
+      error
+    );
+
+
+    message.innerHTML = `
+      <div class="message-box error">
+
+        ❌ SOMETHING WENT WRONG
+
+        <br>
+
+        <small>
+          Please try again.
+        </small>
+
+      </div>
+    `;
+
+
+    resetButton();
+
+  }
+
+};
+
+
+
+/* =====================================================
+   RESET BUTTON
+===================================================== */
+
+function resetButton(){
+
+  const button =
+    document.getElementById(
+      "checkBtn"
+    );
+
+
+  button.classList.remove(
+    "loading"
+  );
+
+
+  button.innerHTML = `
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    &nbsp;&nbsp;
+
+    CHECK RESULT
+
+  `;
+
+}
+
+
+
+/* =====================================================
+   ENTER KEY
+===================================================== */
+
+document
+  .getElementById("roll")
+  .addEventListener(
+    "keydown",
+    function(event){
+
+      if(
+        event.key === "Enter"
+      ){
+
+        searchResult();
+
+      }
+
+    }
+  );
+
+
+</script>
+
+
+</body>
+
+  </html>
