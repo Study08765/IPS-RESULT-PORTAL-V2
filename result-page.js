@@ -317,37 +317,45 @@ async function loadResult() {
 
   /* ================= OVERALL RESULT ================= */
 
-const failCount =
+const subjects =
   Array.isArray(s.Subjects)
-    ? s.Subjects.filter(sub => {
+    ? s.Subjects
+    : [];
 
-        const obtained =
-          Number(sub.obtained || 0);
+let failCount = 0;
 
-        const full =
-          Number(sub.full || 0);
+subjects.forEach(sub => {
 
-        return obtained < (full * 0.33);
+    const obtained =
+        Number(sub.obtained);
 
-      }).length
-    : 0;
+    const full =
+        Number(sub.full);
+
+    if (
+        Number.isFinite(obtained) &&
+        Number.isFinite(full) &&
+        full > 0 &&
+        obtained < (full * 0.33)
+    ) {
+        failCount++;
+    }
+
+});
 
 
-/*
-  0, 1 या 2 subjects में fail
-  → Overall PASS
-
-  3 या उससे अधिक subjects में fail
-  → Overall FAIL
-*/
+/* ================= OVERALL RESULT =================
+   0–2 failed subjects  = PASS
+   3+ failed subjects   = FAIL
+===================================================== */
 
 const isPass =
-  failCount < 3;
+    failCount <= 2;
 
 const resultStatus =
-  isPass
-    ? "PASS"
-    : "FAIL";
+    isPass
+        ? "PASS"
+        : "FAIL";
 
 
     /* ================= SUCCESS MESSAGE ================= */
