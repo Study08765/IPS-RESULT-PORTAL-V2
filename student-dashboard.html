@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IPS Student Dashboard V2</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(4,25,70,.25),rgba(4,25,70,.30)),
+    url("village-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+/* HEADER */
+
+.header{
+    width:100%;
+    padding:18px 10px;
+    text-align:center;
+    background:linear-gradient(90deg,#003b8e,#0066ff);
+    color:white;
+    box-shadow:0 6px 20px rgba(0,0,0,.30);
+}
+
+.header h1{
+    font-size:26px;
+    font-weight:900;
+}
+
+.header p{
+    margin-top:5px;
+    font-size:14px;
+    letter-spacing:3px;
+    font-weight:600;
+}
+
+/* MAIN CONTAINER */
+
+.container{
+    width:100%;
+    padding:15px;
+}
+
+.profile-card{
+    width:100%;
+    padding:10px 0;
+}
+
+/* LOGO */
+
+.school-logo{
+    width:105px;
+    height:105px;
+    margin:10px auto 18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:white;
+    border:5px solid #FFD700;
+    border-radius:50%;
+    overflow:hidden;
+
+    box-shadow:0 0 25px rgba(255,215,0,.65);
+}
+
+.school-logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+}
+
+/* STUDENT NAME */
+
+.name-card{
+    width:100%;
+    min-height:85px;
+    margin:15px auto;
+    padding:15px 10px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:white;
+    border:3px solid #FFD700;
+    border-radius:16px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.35),
+    inset 0 2px 5px rgba(0,0,0,.08);
+
+    overflow:hidden;
+}
+
+#name{
+    font-size:30px;
+    font-weight:900;
+    text-align:center;
+    line-height:1.3;
+
+    overflow-wrap:anywhere;
+
+    animation:nameColor 4s linear infinite;
+}
+
+@keyframes nameColor{
+
+    0%{
+        color:#003b8e;
+    }
+
+    25%{
+        color:#e60000;
+    }
+
+    50%{
+        color:#008000;
+    }
+
+    75%{
+        color:#8a2be2;
+    }
+
+    100%{
+        color:#003b8e;
+    }
+
+}
+
+/* STUDENT INFORMATION SINGLE STRIP */
+
+.info-card{
+    width:100%;
+    margin:18px auto;
+    padding:20px 12px;
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+
+    background:white;
+    border:3px solid #FFD700;
+    border-radius:16px;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.35),
+    inset 0 2px 5px rgba(0,0,0,.08);
+}
+
+.info-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    flex:1;
+    min-width:90px;
+}
+
+.info-item span{
+    font-size:14px;
+    font-weight:800;
+    color:#003b8e;
+    text-transform:uppercase;
+}
+
+.info-item b{
+    font-size:19px;
+    font-weight:900;
+    color:#111;
+    margin-top:5px;
+    overflow-wrap:anywhere;
+}
+
+/* BUTTON GRID */
+
+.button-grid{
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:16px;
+    margin-top:25px;
+    padding-bottom:20px;
+}
+
+/* 3D BUTTONS */
+
+.btn{
+    min-width:0;
+    min-height:78px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 5px;
+
+    border-radius:17px;
+    text-decoration:none;
+
+    font-size:17px;
+    font-weight:800;
+    text-align:center;
+    color:white;
+
+    background:linear-gradient(145deg,#172554,#0755b8);
+
+    border:2px solid rgba(255,255,255,.35);
+
+    box-shadow:
+    0 7px 0 #061638,
+    0 12px 18px rgba(0,0,0,.35),
+    inset 0 2px 5px rgba(255,255,255,.30);
+
+    transition:.2s ease;
+}
+
+.btn:active{
+    transform:translateY(6px);
+
+    box-shadow:
+    0 1px 0 #061638,
+    0 4px 8px rgba(0,0,0,.3);
+}
+
+/* LOGOUT */
+
+.logout{
+    grid-column:1/3;
+
+    min-height:75px;
+
+    background:linear-gradient(145deg,#ef4444,#991b1b);
+
+    box-shadow:
+    0 7px 0 #650b0b,
+    0 12px 18px rgba(0,0,0,.35),
+    inset 0 2px 5px rgba(255,255,255,.30);
+
+    font-size:20px;
+}
+
+/* TIME AND DATE SINGLE STRIP */
+
+.time-card{
+    width:100%;
+    min-height:105px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    margin:20px auto;
+
+    background:linear-gradient(135deg,#020b2d,#123d82,#020b2d);
+
+    border:3px solid #FFD700;
+    border-radius:18px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.40),
+    inset 0 2px 5px rgba(255,255,255,.15);
+}
+
+#digitalClock{
+    font-size:34px;
+    font-weight:900;
+    color:white;
+    letter-spacing:3px;
+}
+
+#liveDate{
+    display:block;
+    font-size:16px;
+    font-weight:700;
+    color:#FFD700;
+    margin-top:5px;
+    text-align:center;
+}
+
+/* FOOTER */
+
+.footer{
+    width:100%;
+    margin-top:20px;
+    padding:23px 10px;
+
+    background:linear-gradient(135deg,#020b2d,#0b2d6f,#1546b5,#020b2d);
+
+    border-top:3px solid #FFD700;
+
+    text-align:center;
+
+    color:#FFD700;
+    font-size:19px;
+    font-weight:900;
+    letter-spacing:2px;
+
+    text-shadow:0 2px 10px rgba(0,0,0,.6);
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width:400px){
+
+    #name{
+        font-size:24px;
+    }
+
+    .info-card{
+        gap:10px;
+        padding:16px 5px;
+    }
+
+    .info-item{
+        min-width:75px;
+    }
+
+    .info-item span{
+        font-size:11px;
+    }
+
+    .info-item b{
+        font-size:16px;
+    }
+
+    .btn{
+        font-size:15px;
+        min-height:70px;
+    }
+
+    #digitalClock{
+        font-size:29px;
+    }
+
+    #liveDate{
+        font-size:13px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+    <h1>🎓 IPS PUBLIC SCHOOL</h1>
+
+    <p>STUDENT DASHBOARD</p>
+
+</div>
+
+
+<div class="container">
+
+<div class="profile-card">
+
+    <!-- SCHOOL LOGO -->
+
+    <div class="school-logo">
+
+        <img src="logo.png" id="schoolLogo" alt="IPS Logo">
+
+    </div>
+
+
+    <!-- STUDENT NAME -->
+
+    <div class="name-card">
+
+        <h2 id="name"></h2>
+
+    </div>
+
+
+    <!-- STUDENT DETAILS SINGLE STRIP -->
+
+    <div class="info-card">
+
+        <div class="info-item">
+
+            <span>👨 Father Name</span>
+
+            <b id="father"></b>
+
+        </div>
+
+        <div class="info-item">
+
+            <span>🎓 Class</span>
+
+            <b id="class"></b>
+
+        </div>
+
+        <div class="info-item">
+
+            <span>🎫 Roll No</span>
+
+            <b id="roll"></b>
+
+        </div>
+
+    </div>
+
+
+    <!-- DASHBOARD BUTTONS -->
+
+    <div class="button-grid">
+
+        <a class="btn" href="student-homework.html">
+            📚 Homework
+        </a>
+
+        <a class="btn" href="student-timetable.html">
+            📅 Time Table
+        </a>
+
+        <a class="btn" href="student-admitcard.html">
+            🎫 Admit Card
+        </a>
+
+        <a class="btn" href="index.html">
+            📊 Result
+        </a>
+
+        <a class="btn logout" href="student-login.html">
+            🚪 Logout
+        </a>
+
+    </div>
+
+
+    <!-- TIME AND DATE -->
+
+    <div class="time-card">
+
+        <div id="digitalClock"></div>
+
+        <div id="liveDate"></div>
+
+    </div>
+
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    🏫 WELCOME TO IPS PUBLIC SCHOOL 🏫
+
+</footer>
+
+
+<script>
+
+/* DIGITAL CLOCK */
+
+const digitalClock = document.getElementById("digitalClock");
+
+const liveDate = document.getElementById("liveDate");
+
+function updateClock(){
+
+    const now = new Date();
+
+    digitalClock.textContent = now.toLocaleTimeString("en-IN",{
+
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+        hour12:true
+
+    });
+
+    liveDate.textContent = now.toLocaleDateString("en-IN",{
+
+        weekday:"long",
+        day:"2-digit",
+        month:"long",
+        year:"numeric"
+
+    });
+
+}
+
+updateClock();
+
+setInterval(updateClock,1000);
+
+
+/* STUDENT DATA */
+
+const student = JSON.parse(localStorage.getItem("student"));
+
+if(!student){
+
+    window.location = "student-login.html";
+
+}else{
+
+    localStorage.setItem("studentRoll",student.Roll);
+
+    document.getElementById("name").textContent =
+    "STUDENT NAME : " + (student.Name || "");
+
+    document.getElementById("father").textContent =
+    student.Father || "";
+
+    document.getElementById("class").textContent =
+    student.Class || "";
+
+    document.getElementById("roll").textContent =
+    student.Roll || "";
+
+}
+
+</script>
+
+</body>
+  </html>
